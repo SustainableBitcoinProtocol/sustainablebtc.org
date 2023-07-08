@@ -1,6 +1,7 @@
 import { createClient, groq } from "next-sanity";
+import { Navbar } from "@/types/navbar";
 
-export async function getNavbar() {
+export async function getNavbar(): Promise<Navbar[]> {
    const client = createClient({
       projectId: "6e7plt23",
       dataset: "production",
@@ -14,5 +15,5 @@ export async function getNavbar() {
          name,
          "slug": slug.current
       }`
-   )
+   );
 }

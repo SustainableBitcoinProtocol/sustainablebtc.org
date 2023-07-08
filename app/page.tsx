@@ -6,9 +6,11 @@ export default async function Home() {
       <div>
          Navbar
          {navbar.map((navItem) => (
-            <div>
-               {navItem.name}/{navItem.slug}
-            </div>
+            <>
+               <div>
+                  {navItem.name}/{navItem.slug}
+               </div>
+            </>
          ))}
       </div>
    );
