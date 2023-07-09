@@ -1,0 +1,61 @@
+.form-group {
+    display: grid;
+    gap: 4px;
+    margin-block: 0.8rem;
+
+    label {
+        font-weight: 500;
+        text-transform: capitalize;
+        line-height: 100%;
+        margin-left: 3px;
+        font-size: 0.9rem;
+    }
+
+    span.error {
+        line-height: 100%;
+        font-size: 0.8rem;
+        color: color($color-red);
+        font-style: italic;
+    }
+
+    input.form-control,
+    textarea.form-control {
+        @apply border rounded-md;
+        width: auto;
+        padding: 0.4rem 0.8rem;
+        box-shadow: none;
+        overflow: hidden;
+
+        &:focus-visible,
+        &:valid {
+            outline: 1px solid color($color-primary) !important;
+        }
+
+        &.error {
+            outline: 1px solid color($color-red) !important;
+        }
+
+        &::placeholder {
+            font-weight: 300;
+            font-size: 0.9rem;
+        }
+    }
+
+    textarea.form-control {
+        height: 100px;
+    }
+
+    @include responsive(md) {
+        margin-block: 1rem;
+        label {
+            font-size: 1rem;
+        }
+        input.form-control,
+        textarea.form-control {
+            padding: 0.5rem 0.9rem;
+        }
+        textarea.form-control {
+            height: 120px;
+        }
+    }
+}

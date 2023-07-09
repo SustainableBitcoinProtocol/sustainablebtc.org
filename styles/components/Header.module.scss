@@ -1,0 +1,89 @@
+header {
+    position: relative;
+    width: 100%;
+    background: color($color-dark, 100);
+    box-shadow: 0px 4px 8px rgba(204, 204, 204, 0.25);
+
+    .container {
+        @include flex-between;
+        padding-block: 1rem;
+    }
+
+    .logo {
+        font-weight: 600;
+        font-size: 1.25rem;
+        @include transition-light;
+
+        &:hover {
+            color: color($color-primary);
+        }
+
+        img {
+            max-height: 1.75rem;
+        }
+
+        @include responsive(lg) {
+            img {
+                max-height: 2rem;
+            }
+        }
+    }
+
+    .menu {
+        @include flex-center;
+        gap: 1rem;
+    }
+
+    .float {
+        position: fixed;
+        @include z-index(alwaysOnTop);
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 50px;
+        min-width: 250px;
+
+        &.float-over-footer {
+            bottom: 9rem;
+        }
+
+        @include responsive(sm) {
+            &.float-over-footer {
+                bottom: 6.5rem;
+            }
+        }
+    }
+}
+
+// share list modal
+.modal-share-list {
+    .slug {
+        @apply border rounded-md bg-slate-100;
+        @include flex-between;
+        input {
+            background: transparent;
+            outline: none;
+            border: none;
+            width: 100%;
+            padding: 0.5rem 1rem;
+        }
+    }
+    .social-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.9rem;
+
+        a {
+            aspect-ratio: 1 / 1;
+            padding: 0.9rem;
+            border: none !important;
+        }
+
+        @include responsive(lg) {
+            gap: 1rem;
+            a {
+                padding: 1rem;
+            }
+        }
+    }
+}

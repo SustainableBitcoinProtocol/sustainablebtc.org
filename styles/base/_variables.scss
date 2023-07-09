@@ -1,0 +1,32 @@
+// Colors
+// =========================
+$color-primary: (
+   100: #e9fbf5,
+   200: #3fc69d,
+   300: #16ac7f,
+   400: #118566,
+   default: #16ac7f,
+);
+$color-dark: (
+   100: #ffffff,
+   200: #f6f6f6,
+   300: #e3e3e3,
+   400: #999999,
+   500: #222222,
+   default: #222222,
+);
+$color-light: (
+   100: #f6f6f6,
+   default: #fff,
+);
+$color-red: (
+   300: #e13535,
+   default: #e13535,
+);
+@function color($color, $weight: default) {
+   @return map-get($map: $color, $key: $weight);
+}
+
+// Fonts
+// =========================
+$font-primary: "Inter", sans-serif;

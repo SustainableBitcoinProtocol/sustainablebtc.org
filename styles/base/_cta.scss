@@ -1,0 +1,82 @@
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1rem;
+    border: 1px solid color($color-primary);
+    border-radius: 0.5rem;
+    @include transition-light;
+    line-height: 100%;
+
+    &--primary {
+        background: color($color-primary);
+        color: color($color-light);
+        &:hover {
+            background: color($color-primary, 200);
+            border-color: color($color-primary, 200);
+        }
+        &:active,
+        &:focus {
+            background: color($color-primary, 400);
+            border-color: color($color-primary, 400);
+        }
+    }
+
+    &--secondary {
+        color: color($color-primary);
+        &:hover {
+            color: color($color-primary, 200);
+            border-color: color($color-primary, 200);
+        }
+        &:active,
+        &:focus {
+            color: color($color-primary, 400);
+            border-color: color($color-primary, 400);
+        }
+
+        &.btn--danger {
+            color: color($color-red);
+            border-color: color($color-red);
+        }
+    }
+
+    &--terniary {
+        border: none;
+        padding: 0 !important;
+        background: transparent;
+        color: color($color-primary);
+
+        &:hover {
+            color: color($color-primary, 200);
+        }
+
+        &:active,
+        &:focus {
+            color: color($color-primary, 400);
+        }
+    }
+
+    &[disabled] {
+        color: color($color-dark, 400) !important;
+        background: color($color-dark, 300) !important;
+        border-color: color($color-dark, 300) !important;
+        cursor: not-allowed !important;
+    }
+
+    @include responsive(md) {
+        padding: 0.9rem 1.5rem;
+    }
+}
+
+.bi-spin {
+    animation: spin-animation 1s linear infinite;
+}
+@keyframes spin-animation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(359deg);
+    }
+}

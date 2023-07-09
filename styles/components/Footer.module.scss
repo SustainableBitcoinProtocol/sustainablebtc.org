@@ -1,0 +1,67 @@
+footer {
+    background: color($color-dark);
+    color: color($color-dark, 300);
+    padding-block: 2rem;
+    font-size: 0.9rem;
+
+    .container {
+        @include flex-center;
+        flex-direction: column-reverse;
+        gap: 1rem;
+    }
+    ul {
+        @include flex-center;
+        @include flex-wrap;
+        gap: 1rem;
+
+        li a {
+            text-decoration: underline;
+            @include transition-light;
+
+            &:hover {
+                color: color($color-primary);
+            }
+        }
+    }
+    @include responsive(sm) {
+        .container {
+            @include flex-between;
+            flex-direction: row;
+        }
+    }
+    @include responsive(md) {
+        ul {
+            gap: 2rem;
+        }
+    }
+    @include responsive(lg) {
+        ul {
+            padding-right: 5rem;
+        }
+    }
+    @include responsive(xl) {
+        padding-block: 1.5rem;
+        ul {
+            padding-right: 1.5rem;
+        }
+    }
+
+    .gototop {
+        position: fixed;
+        bottom: 1.5rem;
+        right: 1.5rem;
+
+        place-content: center;
+
+        width: 2.5rem;
+        aspect-ratio: 1 / 1;
+        border-radius: 3px;
+        background: color($color-primary);
+        color: color($color-light);
+        @include transition-light;
+
+        &:hover {
+            background: color($color-dark);
+        }
+    }
+}
