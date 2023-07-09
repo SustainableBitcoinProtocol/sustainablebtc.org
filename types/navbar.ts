@@ -3,4 +3,7 @@ export type Navbar = {
    _createdAt: Date;
    name: string;
    slug: string;
+   isSecondary: boolean;
+   isButton: boolean;
+   iconName: string;
 };

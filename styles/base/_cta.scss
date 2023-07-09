@@ -1,82 +1,86 @@
 .btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.7rem 1rem;
-    border: 1px solid color($color-primary);
-    border-radius: 0.5rem;
-    @include transition-light;
-    line-height: 100%;
+   @apply flex items-center gap-3;
+   @apply py-4 px-8;
+   @apply rounded-md;
 
-    &--primary {
-        background: color($color-primary);
-        color: color($color-light);
-        &:hover {
-            background: color($color-primary, 200);
-            border-color: color($color-primary, 200);
-        }
-        &:active,
-        &:focus {
-            background: color($color-primary, 400);
-            border-color: color($color-primary, 400);
-        }
-    }
+   @apply font-medium leading-[100%];
 
-    &--secondary {
-        color: color($color-primary);
-        &:hover {
-            color: color($color-primary, 200);
-            border-color: color($color-primary, 200);
-        }
-        &:active,
-        &:focus {
-            color: color($color-primary, 400);
-            border-color: color($color-primary, 400);
-        }
+   &-primary {
+      @apply relative z-10;
+      @apply transition-all duration-500 ease-in;
 
-        &.btn--danger {
-            color: color($color-red);
-            border-color: color($color-red);
-        }
-    }
+      // gradient border
+      border: 1px solid transparent;
+      background-image: linear-gradient(40deg, #339dff 0%, #0ec1d3 100%),
+         linear-gradient(40deg, #339dff 0%, #0ec1d3 100%);
+      background-origin: border-box;
+      background-clip: padding-box, border-box;
 
-    &--terniary {
-        border: none;
-        padding: 0 !important;
-        background: transparent;
-        color: color($color-primary);
+      &:hover {
+         background-image: linear-gradient(-40deg, #339dff 0%, #0ec1d3 100%),
+            linear-gradient(-40deg, #339dff 0%, #0ec1d3 100%);
+      }
+      // &:active,
+      // &:focus {
+      //    background: color($color-primary, 400);
+      //    border-color: color($color-primary, 400);
+      // }
+   }
 
-        &:hover {
-            color: color($color-primary, 200);
-        }
+   &--secondary {
+      color: color($color-primary);
+      &:hover {
+         color: color($color-primary, 200);
+         border-color: color($color-primary, 200);
+      }
+      &:active,
+      &:focus {
+         color: color($color-primary, 400);
+         border-color: color($color-primary, 400);
+      }
 
-        &:active,
-        &:focus {
-            color: color($color-primary, 400);
-        }
-    }
+      &.btn--danger {
+         color: color($color-red);
+         border-color: color($color-red);
+      }
+   }
 
-    &[disabled] {
-        color: color($color-dark, 400) !important;
-        background: color($color-dark, 300) !important;
-        border-color: color($color-dark, 300) !important;
-        cursor: not-allowed !important;
-    }
+   &--terniary {
+      border: none;
+      padding: 0 !important;
+      background: transparent;
+      color: color($color-primary);
 
-    @include responsive(md) {
-        padding: 0.9rem 1.5rem;
-    }
+      &:hover {
+         color: color($color-primary, 200);
+      }
+
+      &:active,
+      &:focus {
+         color: color($color-primary, 400);
+      }
+   }
+
+   &[disabled] {
+      color: color($color-dark, 400) !important;
+      background: color($color-dark, 300) !important;
+      border-color: color($color-dark, 300) !important;
+      cursor: not-allowed !important;
+   }
+
+   @include responsive(md) {
+      // padding: 0.9rem 1.5rem;
+   }
 }
 
 .bi-spin {
-    animation: spin-animation 1s linear infinite;
+   animation: spin-animation 1s linear infinite;
 }
 @keyframes spin-animation {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(359deg);
-    }
+   0% {
+      transform: rotate(0deg);
+   }
+   100% {
+      transform: rotate(359deg);
+   }
 }

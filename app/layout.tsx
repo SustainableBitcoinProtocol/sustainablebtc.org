@@ -5,8 +5,11 @@ import "@/styles/global.scss";
 import localFont from "@next/font/local";
 
 // Custom Components
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+
+// Importing icons
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 // Defining Fonts
 const helveticaNowDisplay = localFont({
@@ -53,8 +56,6 @@ const helveticaNowDisplay = localFont({
       },
    ],
 });
-// Initializing fonts
-// const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
    children, // will be a page or nested layout

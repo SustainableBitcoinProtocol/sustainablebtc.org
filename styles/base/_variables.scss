@@ -1,23 +1,23 @@
 // Colors
 // =========================
-$color-primary: (
-   100: #e9fbf5,
-   200: #3fc69d,
-   300: #16ac7f,
-   400: #118566,
-   default: #16ac7f,
+$color-white: (
+   default: #ffffff,
 );
-$color-dark: (
-   100: #ffffff,
-   200: #f6f6f6,
-   300: #e3e3e3,
-   400: #999999,
-   500: #222222,
-   default: #222222,
+$color-primary: (
+   default: #fafafa,
 );
 $color-light: (
-   100: #f6f6f6,
-   default: #fff,
+   default: #fafafa,
+);
+$color-dark: (
+   50: #e9e9ec,
+   75: #a3a4b0,
+   100: #7d7e90,
+   200: #a3a4b0,
+   300: #1e203f,
+   400: #15162c,
+   500: #121426,
+   default: #1e203f,
 );
 $color-red: (
    300: #e13535,
@@ -29,4 +29,4 @@ $color-red: (
 
 // Fonts
 // =========================
-$font-primary: "Inter", sans-serif;
+$font-primary: "Helvetica Now Display", sans-serif;

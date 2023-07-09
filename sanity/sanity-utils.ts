@@ -13,7 +13,10 @@ export async function getNavbar(): Promise<Navbar[]> {
          _id,
          _createdAt,
          name,
-         "slug": slug.current
+         'slug': slug.current,
+         isSecondary,
+         isButton,
+         iconName,
       }`
    );
 }

@@ -5,14 +5,31 @@ const navbar = {
    fields: [
       {
          name: "name",
-         title: "Display Name",
+         title: "Name",
          type: "string",
       },
       {
          name: "slug",
          title: "Slug",
          type: "slug",
-         options: { source: "display" },
+         options: { source: "name" },
+      },
+      {
+         name: "isSecondary",
+         title: "Is Secondary?",
+         type: "boolean",
+         initialValue: false,
+      },
+      {
+         name: "isButton",
+         title: "Is Button?",
+         type: "boolean",
+         initialValue: false,
+      },
+      {
+         name: "iconName",
+         title: "Icon Name",
+         type: "string",
       },
    ],
 };
