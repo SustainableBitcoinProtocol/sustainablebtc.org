@@ -45,7 +45,7 @@ const footerSchema = {
                   {
                      name: "footerLinkSlug",
                      title: "Slug",
-                     type: "slug",
+                     type: "string",
                   },
                ],
             },
