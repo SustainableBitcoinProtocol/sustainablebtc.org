@@ -1,5 +1,6 @@
 import { createClient, groq } from "next-sanity";
 import { Navbar } from "@/types/navbar";
+import { FooterType } from "@/types/footer-type";
 
 export async function getNavbar(): Promise<Navbar[]> {
    const client = createClient({
@@ -17,6 +18,27 @@ export async function getNavbar(): Promise<Navbar[]> {
          isSecondary,
          isButton,
          iconName,
+      }`
+   );
+}
+
+export async function getFooterData(): Promise<FooterType[]> {
+   const client = createClient({
+      projectId: "6e7plt23",
+      dataset: "production",
+      apiVersion: "2023-03-04",
+   });
+
+   return client.fetch(
+      groq`*[_type=="footer"]{
+         _id,
+         _createdAt,
+         name,
+         'logoURL': logo.asset->url,
+         about,
+         footerLinks,
+         socialLinks,
+         copyright,
       }`
    );
 }

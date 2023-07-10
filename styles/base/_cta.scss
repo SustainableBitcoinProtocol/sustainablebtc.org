@@ -20,11 +20,20 @@
          background-image: linear-gradient(-40deg, #339dff 0%, #0ec1d3 100%),
             linear-gradient(-40deg, #339dff 0%, #0ec1d3 100%);
       }
-      // &:active,
-      // &:focus {
-      //    background: color($color-primary, 400);
-      //    border-color: color($color-primary, 400);
-      // }
+      &:active,
+      &:focus {
+         background-image: linear-gradient(-40deg, #339dff 0%, #0ec1d3 100%),
+            linear-gradient(-40deg, #339dff 0%, #0ec1d3 100%);
+      }
+   }
+
+   &-rounded {
+      @apply aspect-square p-4 rounded-full;
+
+      // for rounded small button
+      &.btn-sm {
+         @apply p-3;
+      }
    }
 
    &--secondary {

@@ -1,61 +1,82 @@
 .form-group {
-    display: grid;
-    gap: 4px;
-    margin-block: 0.8rem;
+   display: grid;
+   gap: 4px;
+   margin-block: 0.8rem;
 
-    label {
-        font-weight: 500;
-        text-transform: capitalize;
-        line-height: 100%;
-        margin-left: 3px;
-        font-size: 0.9rem;
-    }
+   label {
+      font-weight: 500;
+      text-transform: capitalize;
+      line-height: 100%;
+      margin-left: 3px;
+      font-size: 0.9rem;
+   }
 
-    span.error {
-        line-height: 100%;
-        font-size: 0.8rem;
-        color: color($color-red);
-        font-style: italic;
-    }
+   span.error {
+      line-height: 100%;
+      font-size: 0.9rem;
+      color: color($color-red);
+      font-style: italic;
+   }
 
-    input.form-control,
-    textarea.form-control {
-        @apply border rounded-md;
-        width: auto;
-        padding: 0.4rem 0.8rem;
-        box-shadow: none;
-        overflow: hidden;
+   input.form-control,
+   textarea.form-control {
+      @apply rounded-md;
+      @apply bg-transparent;
+      @apply py-3 px-6;
 
-        &:focus-visible,
-        &:valid {
-            outline: 1px solid color($color-primary) !important;
-        }
+      // gradient border
+      border: 1px solid transparent;
+      background-image: linear-gradient(
+            40deg,
+            color($color-dark, 500) 0%,
+            color($color-dark, 500) 100%
+         ),
+         linear-gradient(40deg, #339dff 0%, #0ec1d3 100%);
+      background-origin: border-box;
+      background-clip: padding-box, border-box;
 
-        &.error {
-            outline: 1px solid color($color-red) !important;
-        }
+      width: auto;
+      box-shadow: none;
+      overflow: hidden;
 
-        &::placeholder {
-            font-weight: 300;
-            font-size: 0.9rem;
-        }
-    }
+      &:focus-visible,
+      &:valid {
+         outline: none;
+         border: 1px solid transparent;
+         background-image: linear-gradient(
+               40deg,
+               color($color-dark, 300) 0%,
+               color($color-dark, 400) 50%
+            ),
+            linear-gradient(40deg, #339dff 0%, #0ec1d3 100%);
+         background-origin: border-box;
+         background-clip: padding-box, border-box;
+      }
 
-    textarea.form-control {
-        height: 100px;
-    }
+      &.error {
+         outline: 1px solid color($color-red) !important;
+      }
 
-    @include responsive(md) {
-        margin-block: 1rem;
-        label {
-            font-size: 1rem;
-        }
-        input.form-control,
-        textarea.form-control {
-            padding: 0.5rem 0.9rem;
-        }
-        textarea.form-control {
-            height: 120px;
-        }
-    }
+      &::placeholder {
+         @apply tracking-wide;
+      }
+   }
+
+   textarea.form-control {
+      height: 100px;
+   }
+
+   @include responsive(md) {
+      margin-block: 1rem;
+      label {
+         font-size: 1rem;
+      }
+      input.form-control,
+      textarea.form-control {
+         // padding: 0.5rem 0.9rem;
+      }
+      textarea.form-control {
+         height: 120px;
+      }
+   }
 }

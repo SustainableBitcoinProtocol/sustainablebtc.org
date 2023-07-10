@@ -13,6 +13,17 @@
       @apply py-3;
       background: color($color-dark);
       border-color: color($color-dark, 500);
+
+      .primaryNav {
+         @apply gap-6;
+
+         &.open {
+            @apply pt-6;
+         }
+      }
+      .secondaryNav {
+         @apply gap-6;
+      }
    }
 
    .logoWraooer {
@@ -71,20 +82,20 @@
    }
 
    .primaryNav {
-      @apply absolute w-full left-0 top-0 -z-10 overflow-hidden;
+      @apply absolute w-full left-0 top-full -z-10 overflow-hidden;
       @apply flex flex-col items-center gap-8 flex-1;
       @apply py-0;
-      transition: top 0.5s ease-in 1s, max-height 1s ease-in 0s,
-         padding 0.8s ease-in 0s;
-
+      transition: max-height 1s cubic-bezier(0.99, 0.2, 0.2, 0.99) 0s,
+         padding 0.8s ease-in-out 0s, gap 0.5s ease-in-out 0s;
       @apply max-h-0;
       background: color($color-dark, 400);
 
       &.open {
-         @apply max-h-[100vh] top-full z-0;
+         @apply max-h-[100vh] z-0;
          @apply py-8;
-         transition: top 0.5s ease-in 0s, max-height 1s ease-in 500ms,
-            padding 0.8s ease-in 500ms;
+         transition: padding 0.5s linear 0s,
+            max-height 1s cubic-bezier(0.99, 0.2, 0.2, 0.99) 0.2s,
+            gap 0.5s ease-in-out 0s;
       }
 
       li a {
@@ -136,6 +147,19 @@
    }
 
    @include responsive(xl) {
+      &.fixToTop {
+         .primaryNav {
+            @apply gap-8 p-0;
+
+            &.open {
+               @apply gap-8 p-0;
+            }
+         }
+         .secondaryNav {
+            @apply gap-8;
+         }
+      }
+
       .logoWraooer {
          @apply flex-initial items-stretch justify-start;
 
