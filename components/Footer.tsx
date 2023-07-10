@@ -107,7 +107,14 @@ const Footer = () => {
                                     href={item.socialMedia}
                                     target="_blank"
                                  >
-                                    <i className="bi bi-instagram"></i>
+                                    <i
+                                       className={`bi bi-${new URL(
+                                          item.socialMedia
+                                       ).hostname
+                                          .replace("www.", "")
+                                          .replace(".com", "")
+                                          .toLowerCase()}`}
+                                    ></i>
                                  </a>
                               </>
                            );
