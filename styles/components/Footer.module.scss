@@ -16,7 +16,7 @@
             @apply w-full flex flex-col items-start gap-4 opacity-80;
 
             img {
-               height: 40px;
+               height: 2rem;
                width: auto;
             }
          }
@@ -52,12 +52,21 @@
          }
       }
 
+      @include responsive(md) {
+         .container {
+            @apply gap-y-8 gap-x-14;
+         }
+      }
       @include responsive(lg) {
          .container {
             @apply flex-nowrap gap-40;
             .footerAbout {
                p {
                   @apply max-w-[500px];
+               }
+
+               img {
+                  height: 40px;
                }
             }
          }
