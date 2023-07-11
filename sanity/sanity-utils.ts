@@ -42,3 +42,18 @@ export async function getFooterData(): Promise<FooterType[]> {
       }`
    );
 }
+
+export async function getHomePageData() {
+   const client = createClient({
+      projectId: "6e7plt23",
+      dataset: "production",
+      apiVersion: "2023-03-04",
+   });
+
+   return client.fetch(
+      groq`*[_type=="homePage"][0]{
+         _id,
+         hero,
+      }`
+   );
+}

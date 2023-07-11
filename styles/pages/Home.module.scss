@@ -1,4 +1,107 @@
-.heading {
-   @apply text-4xl font-black w-fit;
-   @include gradient-text;
+.hero {
+   @apply relative overflow-hidden;
+
+   // Container
+   .container {
+      @apply relative;
+      @apply min-h-[100vh];
+      @apply grid place-content-center;
+   }
+
+   // Description
+   .heroDescription {
+      @apply relative z-20;
+      @apply text-center;
+      @apply max-w-[870px] mx-auto;
+      @apply flex flex-col gap-6;
+
+      .heroHeading {
+         @apply text-[2.5rem] font-bold leading-[100%];
+
+         b {
+            @include text-gradient(primary);
+            @apply font-black;
+         }
+      }
+      .heroPara {
+         @apply flex flex-col gap-3;
+         @apply opacity-90;
+         @apply text-sm;
+      }
+      .heroBtnWrapper {
+         @apply flex flex-wrap justify-center gap-4;
+         @apply my-4;
+      }
+   }
+
+   // Clients
+   .heroClient {
+      @apply mt-10;
+      @apply flex flex-col gap-4 items-center justify-center;
+
+      .heroClientLogoTitle {
+         @apply text-[1.1rem] font-bold;
+      }
+   }
+
+   // Hero Background
+   .imgHeroBg {
+      @apply absolute top-0 left-0;
+      @apply w-auto min-h-[100vh];
+      @apply object-cover object-left;
+      @apply select-none pointer-events-none;
+   }
+
+   // Hero Windmill
+   .imgHeroWindmill {
+      @apply hidden;
+      @apply select-none pointer-events-none;
+   }
+
+   // Hero Cloud
+   .imgHeroCloud {
+      @apply absolute top-10 left-44 z-10 opacity-70;
+      @apply max-h-[70vh] w-auto;
+      @apply object-contain;
+      @apply select-none pointer-events-none;
+   }
+
+   // responsive
+   @include responsive(md) {
+      .heroDescription {
+         .heroHeading {
+            @apply text-5xl;
+         }
+         .heroPara {
+            @apply text-base px-8;
+         }
+      }
+      .imgHeroCloud {
+         @apply absolute top-0 left-1/2 z-10 opacity-100;
+         @apply max-h-[70vh] w-auto;
+         @apply object-contain;
+      }
+   }
+
+   @include responsive(lg) {
+      .heroDescription {
+         @apply pt-10;
+
+         .heroHeading {
+            @apply text-7xl;
+         }
+      }
+
+      .imgHeroBg {
+         @apply w-full h-full;
+         @apply object-bottom;
+      }
+
+      .imgHeroWindmill {
+         @apply block;
+         @apply absolute bottom-0 right-0 z-20;
+         @apply max-h-[80vh] w-auto;
+         @apply object-contain;
+      }
+   }
 }

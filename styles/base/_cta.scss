@@ -15,16 +15,6 @@
          linear-gradient(40deg, #339dff 0%, #0ec1d3 100%);
       background-origin: border-box;
       background-clip: padding-box, border-box;
-
-      &:hover {
-         background-image: linear-gradient(-40deg, #339dff 0%, #0ec1d3 100%),
-            linear-gradient(-40deg, #339dff 0%, #0ec1d3 100%);
-      }
-      &:active,
-      &:focus {
-         background-image: linear-gradient(-40deg, #339dff 0%, #0ec1d3 100%),
-            linear-gradient(-40deg, #339dff 0%, #0ec1d3 100%);
-      }
    }
 
    &-rounded {
@@ -36,8 +26,15 @@
       }
    }
 
-   &--secondary {
-      color: color($color-primary);
+   &-secondary {
+      @apply relative z-10;
+      @apply transition-all duration-500 ease-in;
+      @apply border border-[#339cff];
+
+      // gradient border
+      background-origin: border-box;
+      background-clip: padding-box, border-box;
+
       &:hover {
          color: color($color-primary, 200);
          border-color: color($color-primary, 200);
@@ -54,20 +51,14 @@
       }
    }
 
-   &--terniary {
-      border: none;
-      padding: 0 !important;
-      background: transparent;
-      color: color($color-primary);
-
-      &:hover {
-         color: color($color-primary, 200);
-      }
-
-      &:active,
-      &:focus {
-         color: color($color-primary, 400);
-      }
+   &:hover {
+      background-image: linear-gradient(-40deg, #339dff 0%, #0ec1d3 100%),
+         linear-gradient(-40deg, #339dff 0%, #0ec1d3 100%);
+   }
+   &:active,
+   &:focus {
+      background-image: linear-gradient(-40deg, #339dff 0%, #0ec1d3 100%),
+         linear-gradient(-40deg, #339dff 0%, #0ec1d3 100%);
    }
 
    &[disabled] {
