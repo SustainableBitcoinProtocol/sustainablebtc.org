@@ -26,7 +26,11 @@
       .heroPara {
          @apply flex flex-col gap-3;
          @apply opacity-90;
-         @apply text-sm;
+         @apply text-sm px-8;
+
+         P {
+            @apply line-clamp-2;
+         }
       }
       .heroBtnWrapper {
          @apply flex flex-wrap justify-center gap-4;
@@ -73,11 +77,14 @@
             @apply text-5xl;
          }
          .heroPara {
-            @apply text-base px-8;
+            @apply text-base;
+            P {
+               @apply line-clamp-none;
+            }
          }
       }
       .imgHeroCloud {
-         @apply absolute top-0 left-1/2 z-10 opacity-100;
+         @apply absolute top-0 left-1/2 z-10;
          @apply max-h-[70vh] w-auto;
          @apply object-contain;
       }
