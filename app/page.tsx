@@ -47,7 +47,7 @@ export default function Home() {
       }
    }, [homePageData]);
 
-   const particlesInit = async (main) => {
+   const particlesInit = async (main: any) => {
       console.log(main);
 
       // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
@@ -313,7 +313,7 @@ export default function Home() {
                      {/* Description */}
                      <div className={styles.sbcDescription}>
                         <p className="para">
-                           SBP facilitates the issuance of "Sustainable Bitcoin
+                           {`SBP facilitates the issuance of "Sustainable Bitcoin
                            Certificates" (SBC) every time a Bitcoin is mined
                            using verified clean energy. This unique asset
                            creates a market-based mechanism that incentivizes
@@ -321,12 +321,12 @@ export default function Home() {
                            enables investors to augment their Bitcoin holdings
                            in a transparent and verifiably sustainable manner,
                            thus addressing the environmental impacts of the
-                           network.
+                           network.`}
                         </p>
                         <p className="para">
-                           SBCs overcompensate for bitcoin’s past while
+                           {` SBCs overcompensate for bitcoin’s past while
                            simultaneously driving the future of the network to
-                           transparent clean energy. 
+                           transparent clean energy. `}
                         </p>
                      </div>
 
