@@ -19,6 +19,7 @@ import imgHeroBg from "@/public/home/hero-bg.png";
 import imgHeroWindmill from "@/public/home/windmill.svg";
 import imgHeroCloud from "@/public/home/cloud.svg";
 import imgSbcIcon from "@/public/home/sbc-icon.svg";
+import imgLine from "@/public/home/line.svg";
 import Image from "next/image";
 
 const metadata: Metadata = {
@@ -248,7 +249,7 @@ export default function Home() {
                         },
                         move: {
                            enable: true,
-                           speed: 4,
+                           speed: 2,
                            direction: "none",
                            random: false,
                            straight: false,
@@ -311,6 +312,38 @@ export default function Home() {
                <div className={styles.sbcIcon}>
                   <Image src={imgSbcIcon} alt="SBC Icon" />
                </div>
+
+               {/* Line */}
+               <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="679"
+                  height="1134"
+                  viewBox="0 0 679 1134"
+                  fill="none"
+                  className={styles.sbcIconLine}
+               >
+                  <path
+                     opacity="0.5"
+                     d="M1.18488 1132.62C404.79 868.827 10.7976 368.696 585.161 -12.3958L585.293 -12.4824L677.631 -73.0506"
+                     stroke="url(#paint0_linear_612_10376)"
+                     stroke-width="2"
+                  />
+                  <defs>
+                     <linearGradient
+                        id="paint0_linear_612_10376"
+                        x1="568.402"
+                        y1="121.635"
+                        x2="587.138"
+                        y2="1059.89"
+                        gradientUnits="userSpaceOnUse"
+                     >
+                        <stop stop-color="#339DFF" />
+                        <stop offset="0.35929" stop-color="#1E203F" />
+                        <stop offset="0.499454" stop-color="#1E203F" />
+                        <stop offset="0.995514" stop-color="#339DFF" />
+                     </linearGradient>
+                  </defs>
+               </svg>
 
                {sbcData && (
                   <>

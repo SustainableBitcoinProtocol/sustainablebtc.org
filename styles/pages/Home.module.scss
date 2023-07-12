@@ -146,17 +146,17 @@
    .container {
       @apply flex flex-col gap-8;
       @apply max-w-[870px];
-      // @apply relative z-10;
    }
 
    .sbcIcon {
       scale: 0.8;
       translate: 0 10%;
-      @apply block m-auto relative;
+      @apply block m-auto relative z-20;
 
       img {
-         @apply relative z-10;
+         @apply relative z-20;
       }
+
       &::before {
          content: "";
          position: absolute;
@@ -167,7 +167,7 @@
          width: 338px;
          height: 342px;
          z-index: 0;
-         animation: rotation 4s infinite linear;
+         animation: rotation 8s infinite linear;
       }
 
       @keyframes rotation {
@@ -181,6 +181,13 @@
             transform: translate(0%, 0%) rotate(359deg);
          }
       }
+   }
+
+   .sbcIconLine {
+      @apply absolute -top-[83%] left-[42%] h-full;
+      @apply pointer-events-none;
+      scale: 0.8;
+      transform-origin: bottom left;
    }
 
    .sbcSubHeading {
@@ -209,6 +216,9 @@
          scale: 0.9;
          translate: 0 5%;
       }
+      .sbcIconLine {
+         scale: 0.9;
+      }
    }
 
    @include responsive(lg) {
@@ -217,6 +227,9 @@
       }
       .sbcIcon {
          scale: 1;
+      }
+      .sbcIconLine {
+         scale: 1.25;
       }
    }
 }
