@@ -60,11 +60,11 @@ const Footer = () => {
                {/* Navigation Links */}
                <ul>
                   {navbarData &&
-                     navbarData.map((item) => {
+                     navbarData.map((item, i) => {
                         if (!item.isSecondary) {
                            return (
                               <>
-                                 <li>
+                                 <li key={i}>
                                     <Link
                                        href={item.slug}
                                        className={styles.footerLink}
@@ -81,10 +81,10 @@ const Footer = () => {
                {/* Footer Links */}
                <ul>
                   {footerData &&
-                     footerData.footerLinks.map((item: any) => {
+                     footerData.footerLinks.map((item: any, i: number) => {
                         return (
                            <>
-                              <li>
+                              <li key={i}>
                                  <Link
                                     href={item.footerLinkSlug}
                                     className={styles.footerLink}
@@ -99,13 +99,14 @@ const Footer = () => {
                   {/* Social */}
                   <li className={styles.footerSocialMedia}>
                      {footerData &&
-                        footerData.socialLinks.map((item: any) => {
+                        footerData.socialLinks.map((item: any, i: number) => {
                            return (
                               <>
                                  <a
                                     className="btn btn-primary btn-rounded btn-sm"
                                     href={item.socialMedia}
                                     target="_blank"
+                                    key={i}
                                  >
                                     <i
                                        className={`bi bi-${new URL(

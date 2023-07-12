@@ -87,16 +87,18 @@ const Header = () => {
                   navbar.map((item: Navbar, i) => {
                      if (item.isSecondary === false) {
                         return (
-                           <li
-                              className={
-                                 pathname === item.slug ? styles.active : ""
-                              }
-                              key={i}
-                           >
-                              <Link href={item.slug}>
-                                 <span>{item.name}</span>
-                              </Link>
-                           </li>
+                           <>
+                              <li
+                                 className={
+                                    pathname === item.slug ? styles.active : ""
+                                 }
+                                 key={i}
+                              >
+                                 <Link href={item.slug}>
+                                    <span>{item.name}</span>
+                                 </Link>
+                              </li>
+                           </>
                         );
                      }
                   })}

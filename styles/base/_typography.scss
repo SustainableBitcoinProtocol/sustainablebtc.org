@@ -1,28 +1,46 @@
 .heading {
-   font-weight: 600;
-   line-height: 120%;
+   @apply font-black inline-block leading-[110%];
+   color: color($color-light);
 
-   &__one {
-      font-size: 2.25rem;
+   &-1 {
+      @apply text-4xl;
    }
-   &__two {
-      font-size: 1.5rem;
+   &-2 {
+      @apply text-3xl;
    }
-   &__three {
-      font-size: 1.25rem;
+   &-4 {
+      @apply text-xl;
+   }
+
+   &-gradient {
+      @include text-gradient(primary);
+   }
+
+   @include responsive(md) {
+      &-2 {
+         @apply text-4xl;
+      }
+      &-4 {
+         @apply text-2xl;
+      }
+   }
+
+   @include responsive(lg) {
+      &-2 {
+         @apply text-5xl;
+      }
+
+      &-4 {
+         @apply text-3xl;
+      }
    }
 }
 
 .para {
-   font-size: 1rem;
-   line-height: 140%;
+   @apply leading-[140%] opacity-90;
 
-   &--bold {
-      font-weight: 600;
-   }
-
-   &--small {
-      font-size: 0.875rem;
+   &-small {
+      @apply text-sm;
    }
 }
 
