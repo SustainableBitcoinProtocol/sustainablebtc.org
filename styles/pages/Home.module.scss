@@ -235,20 +235,77 @@
 }
 
 .testimonials {
-   @apply py-20;
+   @apply relative py-20;
+
+   .testimonialLine {
+      @apply absolute h-full  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+   }
+
    .container {
       .testimonialWrapper {
-         @apply max-w-[800px] mx-auto;
+         @apply max-w-[750px] mx-auto;
          @apply rounded-lg;
-         @apply p-10;
+         @apply p-6;
 
          border: 1px solid #339dff;
-         background: rgba($color: #fafafa, $alpha: 0.1);
+         background: rgba($color: #fafafa, $alpha: 0.07);
       }
 
       .testimonialHeading {
          @include text-gradient(primaryReverse);
          @apply leading-[110%];
+      }
+
+      .testimonialSlide {
+         @apply flex flex-col gap-4;
+         @apply mt-8;
+
+         .testimonialTestimonyImage {
+            @apply rounded-full w-28 aspect-square;
+         }
+
+         .testimonialTestimony {
+            @apply italic;
+         }
+
+         .testimonialTestimonyName {
+            @apply mt-4 mb-2;
+         }
+
+         .testimonialTestimonyCompanyLogo {
+            filter: brightness(0) invert(1);
+            height: 1.2rem;
+            width: auto;
+         }
+      }
+   }
+
+   @include responsive(md) {
+      .container {
+         .testimonialWrapper {
+            @apply p-8;
+         }
+         .testimonialSlide {
+            @apply flex-row items-start gap-8;
+         }
+      }
+   }
+
+   @include responsive(lg) {
+      @apply mb-20;
+      .container {
+         .testimonialWrapper {
+            @apply p-10;
+         }
+         .testimonialSlide {
+            .testimonialTestimonyImage {
+               height: 120px;
+               width: 120px;
+            }
+            .testimonialTestimony {
+               font-size: 1.05rem;
+            }
+         }
       }
    }
 }

@@ -2,6 +2,7 @@
 
 // Importing Styles
 import styles from "@/styles/pages/Home.module.scss";
+import "swiper/css";
 
 // Importing Packages
 import { useEffect, useState } from "react";
@@ -9,6 +10,8 @@ import Link from "next/link";
 import { Metadata } from "next";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation } from "swiper/modules";
 
 // Data Fetch
 import { getHomePageData } from "@/sanity/sanity-utils";
@@ -19,7 +22,7 @@ import imgHeroBg from "@/public/home/hero-bg.png";
 import imgHeroWindmill from "@/public/home/windmill.svg";
 import imgHeroCloud from "@/public/home/cloud.svg";
 import imgSbcIcon from "@/public/home/sbc-icon.svg";
-import imgLine from "@/public/home/line.svg";
+import imgTestimonialLine from "@/public/home/testomonialLine.svg";
 import Image from "next/image";
 
 const metadata: Metadata = {
@@ -413,6 +416,12 @@ export default function Home() {
 
          {/* Testimonials */}
          <section className={styles.testimonials}>
+            <Image
+               src={imgTestimonialLine}
+               alt="Line"
+               className={styles.testimonialLine}
+            />
+
             <div className={`${styles.container} container`}>
                {testimonialData && (
                   <div className={styles.testimonialWrapper}>
@@ -426,32 +435,73 @@ export default function Home() {
                      </div>
                      {/* Sliding */}
                      <div>
-                        {testimonialData.testimonialItems.map(
-                           (item: any, i: number) => (
-                              <div key={i}>
-                                 {/* Image */}
-                                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                                 <img
-                                    src={urlFor(item.testimonyImage)
-                                       .width(100)
-                                       .url()}
-                                    alt={item.testimonyImage.alt}
-                                    width={100}
-                                    height={100}
-                                 />
+                        <Swiper
+                           spaceBetween={50}
+                           slidesPerView={1}
+                           onSlideChange={() => console.log("slide change")}
+                           onSwiper={(swiper) => console.log(swiper)}
+                           autoplay={{
+                              delay: 5000,
+                              disableOnInteraction: true,
+                           }}
+                           loop={true}
+                           navigation={true}
+                           modules={[Autoplay, Navigation]}
+                        >
+                           {testimonialData.testimonialItems.map(
+                              (item: any, i: number) => (
+                                 <SwiperSlide
+                                    key={i}
+                                    className={styles.testimonialSlide}
+                                 >
+                                    {/* Image */}
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                    <img
+                                       src={urlFor(item.testimonyImage)
+                                          .width(100)
+                                          .url()}
+                                       alt={item.testimonyImage.alt}
+                                       className={
+                                          styles.testimonialTestimonyImage
+                                       }
+                                    />
 
-                                 {/* Content */}
-                                 <div>
-                                    <p>{item.testimony}</p>
-
+                                    {/* Content */}
                                     <div>
-                                       <h3>{item.testimonyName}</h3>
-                                       <p>{item.testimonyCompany}</p>
+                                       <p
+                                          className={
+                                             styles.testimonialTestimony
+                                          }
+                                       >
+                                          {`"${item.testimony}"`}
+                                       </p>
+
+                                       <div>
+                                          <h3
+                                             className={`${styles.testimonialTestimonyName} heading heading-5`}
+                                          >
+                                             {item.testimonyName}
+                                          </h3>
+                                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                                          <img
+                                             src={urlFor(
+                                                item.testimonyCompanyLogo
+                                             )
+                                                .width(100)
+                                                .url()}
+                                             alt={item.testimonyImage.alt}
+                                             width={100}
+                                             height={100}
+                                             className={
+                                                styles.testimonialTestimonyCompanyLogo
+                                             }
+                                          />
+                                       </div>
                                     </div>
-                                 </div>
-                              </div>
-                           )
-                        )}
+                                 </SwiperSlide>
+                              )
+                           )}
+                        </Swiper>
                      </div>
                   </div>
                )}

@@ -24,6 +24,7 @@
     "react-dom": "18.2.0",
     "react-tsparticles": "^2.10.1",
     "sanity": "^3.14.1",
+    "swiper": "^10.0.4",
     "tsparticles": "^2.10.1",
     "typescript": "5.1.6"
   },
