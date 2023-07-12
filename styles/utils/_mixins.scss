@@ -118,6 +118,7 @@ $breakpoints: (
 // ! ======================================
 $gradients: (
    primary: linear-gradient(40deg, #339dff 0%, #0ec1d3 100%),
+   primaryReverse: linear-gradient(-40deg, #339dff 0%, #0ec1d3 100%),
    light: linear-gradient(40deg, #fafafa 0%, #fafafa 100%),
 );
 @mixin text-gradient($color) {

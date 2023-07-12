@@ -46,6 +46,7 @@ export default function Home() {
          setTestimonialData(homePageData.testimonials);
       }
    }, [homePageData]);
+   console.log(heroData);
 
    const particlesInit = async (main: any) => {
       console.log(main);
@@ -129,7 +130,29 @@ export default function Home() {
                               {heroData.heroCompanyIconsTitle}
                            </h3>
 
-                           <div className={styles.heroClientLogo}></div>
+                           <div className={styles.heroClientLogo}>
+                              {heroData.heroCompanyImages.map(
+                                 (item: any, i: number) => (
+                                    <div key={i}>
+                                       {/* eslint-disable-next-line @next/next/no-img-element */}
+                                       <img
+                                          src={urlFor(item).width(100).url()}
+                                          alt={item.alt}
+                                          width={`auto`}
+                                          height={`auto`}
+                                       />
+                                    </div>
+                                 )
+                              )}
+                              {/* <img
+                                    src={urlFor(item.testimonyImage)
+                                       .width(100)
+                                       .url()}
+                                    alt={item.testimonyImage.alt}
+                                    width={100}
+                                    height={100}
+                                 /> */}
+                           </div>
                         </div>
                      </>
                   )}
@@ -140,6 +163,7 @@ export default function Home() {
                   src={imgHeroWindmill}
                   alt="Windmill"
                   className={styles.imgHeroWindmill}
+                  loading="eager"
                />
 
                {/* Cloud */}
@@ -147,6 +171,7 @@ export default function Home() {
                   src={imgHeroCloud}
                   alt="Windmill"
                   className={styles.imgHeroCloud}
+                  loading="eager"
                />
             </div>
 
@@ -357,10 +382,14 @@ export default function Home() {
          <section className={styles.testimonials}>
             <div className={`${styles.container} container`}>
                {testimonialData && (
-                  <div>
+                  <div className={styles.testimonialWrapper}>
                      {/* Header */}
                      <div>
-                        <h2>{testimonialData.testimonialTitle}</h2>
+                        <h2
+                           className={`${styles.testimonialHeading} heading heading-3`}
+                        >
+                           {testimonialData.testimonialTitle}
+                        </h2>
                      </div>
                      {/* Sliding */}
                      <div>
@@ -374,6 +403,8 @@ export default function Home() {
                                        .width(100)
                                        .url()}
                                     alt={item.testimonyImage.alt}
+                                    width={100}
+                                    height={100}
                                  />
 
                                  {/* Content */}

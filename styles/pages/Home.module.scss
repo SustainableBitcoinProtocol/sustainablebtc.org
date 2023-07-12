@@ -46,6 +46,22 @@
       .heroClientLogoTitle {
          @apply text-[1.1rem] font-bold;
       }
+
+      .heroClientLogo {
+         @apply flex gap-4 items-center flex-wrap justify-center;
+
+         img {
+            @apply opacity-70;
+            @apply transition-all duration-300 ease-out;
+            height: 1.5rem;
+            width: auto;
+            filter: brightness(0) invert(1);
+
+            &:hover {
+               @apply opacity-100;
+            }
+         }
+      }
    }
 
    // Hero Background
@@ -201,6 +217,25 @@
       }
       .sbcIcon {
          scale: 1;
+      }
+   }
+}
+
+.testimonials {
+   @apply py-20;
+   .container {
+      .testimonialWrapper {
+         @apply max-w-[800px] mx-auto;
+         @apply rounded-lg;
+         @apply p-10;
+
+         border: 1px solid #339dff;
+         background: rgba($color: #fafafa, $alpha: 0.1);
+      }
+
+      .testimonialHeading {
+         @include text-gradient(primaryReverse);
+         @apply leading-[110%];
       }
    }
 }
