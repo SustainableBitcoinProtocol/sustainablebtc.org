@@ -18,7 +18,8 @@
       .heroHeading {
          @apply text-[2.5rem] font-bold leading-[100%];
 
-         b {
+         b,
+         strong {
             @include text-gradient(primary);
             @apply font-black;
          }
@@ -172,13 +173,13 @@
 
       @keyframes rotation {
          from {
-            transform: translate(0%, 0%) rotate(0deg);
+            transform: translate(0%, 1%) rotate(0deg);
          }
          50% {
-            transform: translate(0%, -1%) rotate(180deg);
+            transform: translate(0%, -2%) rotate(180deg);
          }
          to {
-            transform: translate(0%, 0%) rotate(359deg);
+            transform: translate(0%, 1%) rotate(359deg);
          }
       }
    }
@@ -192,6 +193,10 @@
 
    .sbcSubHeading {
       @apply font-medium block;
+   }
+
+   .sbcDescription {
+      @apply leading-[140%] opacity-90;
    }
 
    .sbcFeatures {
@@ -269,6 +274,7 @@
          }
 
          .testimonialTestimonyName {
+            @apply font-bold text-lg;
             @apply mt-4 mb-2;
          }
 

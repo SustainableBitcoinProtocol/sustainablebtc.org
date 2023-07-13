@@ -59,3 +59,20 @@ export async function getHomePageData() {
       }`
    );
 }
+
+export async function getSBCPageData() {
+   const client = createClient({
+      projectId: "6e7plt23",
+      dataset: "production",
+      apiVersion: "2023-03-04",
+      useCdn: true,
+   });
+
+   return client.fetch(
+      groq`*[_type=="sbcPage"][0]{
+         _id,
+         hero,
+         benefits
+      }`
+   );
+}

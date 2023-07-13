@@ -12,6 +12,7 @@ import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
+import { PortableText } from "@portabletext/react";
 
 // Data Fetch
 import { getHomePageData } from "@/sanity/sanity-utils";
@@ -72,19 +73,10 @@ export default function Home() {
                         {/* descriptive */}
                         <div className={styles.heroDescription}>
                            <h1 className={styles.heroHeading}>
-                              The New Gold Standard of{" "}
-                              <b>Bitcoin Sustainability</b>
+                              <PortableText value={heroData.heroHeading} />
                            </h1>
                            <div className={styles.heroPara}>
-                              <p>
-                                 Sustainable Bitcoin Protocol (SBP) is
-                                 accelerating the evolution of Bitcoin to become
-                                 a more sustainable and transparent asset class.
-                                 Our protocol financially incentivizes Bitcoin
-                                 miners to use verified clean energy and for the
-                                 first time allows investors to own Bitcoin
-                                 sustainably.
-                              </p>
+                              <PortableText value={heroData.heroDesc} />
                            </div>
                            <div className={styles.heroBtnWrapper}>
                               {heroData.heroCTA1.heroBtn1Visible && (
@@ -329,7 +321,7 @@ export default function Home() {
                      opacity="0.5"
                      d="M1.18488 1132.62C404.79 868.827 10.7976 368.696 585.161 -12.3958L585.293 -12.4824L677.631 -73.0506"
                      stroke="url(#paint0_linear_612_10376)"
-                     stroke-width="2"
+                     strokeWidth="2"
                   />
                   <defs>
                      <linearGradient
@@ -373,22 +365,7 @@ export default function Home() {
 
                      {/* Description */}
                      <div className={styles.sbcDescription}>
-                        <p className="para">
-                           {`SBP facilitates the issuance of "Sustainable Bitcoin
-                           Certificates" (SBC) every time a Bitcoin is mined
-                           using verified clean energy. This unique asset
-                           creates a market-based mechanism that incentivizes
-                           bitcoin miners to use and promote green energy, and
-                           enables investors to augment their Bitcoin holdings
-                           in a transparent and verifiably sustainable manner,
-                           thus addressing the environmental impacts of the
-                           network.`}
-                        </p>
-                        <p className="para">
-                           {` SBCs overcompensate for bitcoin’s past while
-                           simultaneously driving the future of the network to
-                           transparent clean energy. `}
-                        </p>
+                        <PortableText value={sbcData.sbcDescription} />
                      </div>
 
                      {/* CTA */}
@@ -478,7 +455,7 @@ export default function Home() {
 
                                        <div>
                                           <h3
-                                             className={`${styles.testimonialTestimonyName} heading heading-5`}
+                                             className={`${styles.testimonialTestimonyName}`}
                                           >
                                              {item.testimonyName}
                                           </h3>

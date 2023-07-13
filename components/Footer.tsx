@@ -8,6 +8,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { PortableText } from "@portabletext/react";
 
 // Importing Schema utils
 import { getFooterData, getNavbar } from "@/sanity/sanity-utils";
@@ -49,12 +50,7 @@ const Footer = () => {
                         />
                      </>
                   )}
-                  <p>
-                     Sustainable Bitcoin Protocol turns environmental
-                     sustainability into an appreciating commodity, in turn
-                     supporting clean energy bitcoin miners and helping
-                     investors reach their ESG goals.
-                  </p>
+                  {footerData && <PortableText value={footerData.about} />}
                </div>
 
                {/* Navigation Links */}

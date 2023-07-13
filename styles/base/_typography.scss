@@ -17,12 +17,18 @@
    &-5 {
       @apply text-lg font-extrabold;
    }
+   &-6 {
+      @apply text-lg font-bold;
+   }
 
    &-gradient {
       @include text-gradient(primary);
    }
 
    @include responsive(md) {
+      &-1 {
+         @apply text-5xl;
+      }
       &-2 {
          @apply text-4xl;
       }
@@ -32,18 +38,26 @@
       &-4 {
          @apply text-2xl;
       }
+      &-5 {
+         @apply text-xl;
+      }
    }
 
    @include responsive(lg) {
+      &-1 {
+         @apply text-6xl;
+      }
       &-2 {
-         @apply text-5xl;
+         @apply text-[3rem];
       }
       &-3 {
          @apply text-4xl;
       }
-
       &-4 {
          @apply text-3xl;
+      }
+      &-5 {
+         @apply text-2xl;
       }
    }
 }

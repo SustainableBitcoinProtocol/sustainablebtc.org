@@ -17,6 +17,10 @@ main {
    min-height: 100vh; // this will make sure main section is always alteast 1 screen height
 }
 
+section {
+   @apply min-h-[50vh];
+}
+
 .container {
    padding-inline: 1.25rem;
    width: auto;
