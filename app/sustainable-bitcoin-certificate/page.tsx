@@ -21,6 +21,7 @@ import { urlFor } from "@/sanity/sanity-urlFor";
 
 // Image
 import imgHeroBg from "@/public/sbc/heroBg.svg";
+import imgHero from "@/public/sbc/hero-img.svg";
 
 const SBC = () => {
    const [sbcPageData, setSbcPageData] = useState<any>();
@@ -59,16 +60,26 @@ const SBC = () => {
          <section className={styles.hero}>
             <div className={`${styles.container} container`}>
                {heroData && (
-                  <div className={styles.heroHeadingWrapper}>
-                     <h1 className={`${styles.heroHeading} heading heading-1`}>
-                        <PortableText value={heroData.heroHeading} />
-                     </h1>
-                     <h2
-                        className={`${styles.heroSubHeading} heading heading-5`}
-                     >
-                        {heroData.heroSubHeading}
-                     </h2>
-                  </div>
+                  <>
+                     <div className={styles.heroHeadingWrapper}>
+                        <h1
+                           className={`${styles.heroHeading} heading heading-1`}
+                        >
+                           <PortableText value={heroData.heroHeading} />
+                        </h1>
+                        <h2
+                           className={`${styles.heroSubHeading} heading heading-5`}
+                        >
+                           {heroData.heroSubHeading}
+                        </h2>
+                     </div>
+                     {/* Image */}
+                     <Image
+                        className={styles.heroImg}
+                        src={imgHero}
+                        alt="Hero Image"
+                     />
+                  </>
                )}
             </div>
          </section>
@@ -184,7 +195,9 @@ const SBC = () => {
          </section>
 
          {/* About SBC */}
-         <section>About SBC</section>
+         <section>
+            <div className={`${styles.container} container`}>About SBC</div>
+         </section>
 
          {/* Support Companies */}
          <section>Companies</section>

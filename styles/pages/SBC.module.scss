@@ -4,8 +4,7 @@
 }
 
 .hero {
-   @apply min-h-[100vh];
-   @apply pt-40;
+   @apply pt-40 pb-28;
    @apply relative z-10;
 
    .heroHeadingWrapper {
@@ -24,6 +23,16 @@
 
    .heroSubHeading {
       @apply font-medium text-center;
+   }
+
+   .heroImg {
+      @apply m-auto mt-12;
+   }
+
+   @include responsive(lg) {
+      .heroImg {
+         @apply m-auto mt-28;
+      }
    }
 }
 
@@ -106,7 +115,7 @@
 }
 
 .comparison {
-   @apply my-40;
+   @apply my-28;
 
    .comparisonHeading {
       @apply text-center;
@@ -151,6 +160,7 @@
    }
 
    @include responsive(lg) {
+      @apply my-40;
       .comparisonFeatures {
          @apply text-lg my-12;
       }
