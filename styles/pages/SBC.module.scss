@@ -1,6 +1,7 @@
 .heroBg {
    @apply absolute top-0 left-0 w-full z-0;
    @apply pointer-events-none;
+   @apply opacity-80;
 }
 
 .hero {
