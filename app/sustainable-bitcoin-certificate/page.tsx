@@ -4,11 +4,16 @@
 import styles from "@/styles/pages/SBC.module.scss";
 
 // Importing Packages
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
 import React from "react";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
+import {
+   ReactCompareSlider,
+   ReactCompareSliderHandle,
+   ReactCompareSliderImage,
+} from "react-compare-slider";
 
 // Data Fetch
 import { getSBCPageData } from "@/sanity/sanity-utils";
@@ -21,6 +26,7 @@ const SBC = () => {
    const [sbcPageData, setSbcPageData] = useState<any>();
    const [heroData, setHeroData] = useState<any>();
    const [benefitsData, setBenefitsData] = useState<any>();
+   const [comparisonData, setComparisonData] = useState<any>();
    useEffect(() => {
       const setSBCData = async () => {
          setSbcPageData(await getSBCPageData());
@@ -31,9 +37,14 @@ const SBC = () => {
       if (sbcPageData) {
          setHeroData(sbcPageData.hero);
          setBenefitsData(sbcPageData.benefits);
+         setComparisonData(sbcPageData.comparison);
       }
    }, [sbcPageData]);
-   console.log(heroData, benefitsData);
+   console.log(comparisonData);
+
+   const handlePositionChange: any = useCallback((position: any) => {
+      console.log("[CustomHandle]", position);
+   }, []);
 
    return (
       <>
@@ -126,7 +137,51 @@ const SBC = () => {
          </section>
 
          {/* SBC Comparison */}
-         <section>Comparison</section>
+         <section className={styles.comparison}>
+            <div className={`${styles.container} container`}>
+               {comparisonData && (
+                  <>
+                     {/* Heading */}
+                     <div className={styles.comparisonHeading}>
+                        <PortableText value={comparisonData.comparisonTitle} />
+                     </div>
+                     {/* Features */}
+                     <ul className={styles.comparisonFeatures}>
+                        {comparisonData.comparisonFeatures.map(
+                           (feature: string) => (
+                              <li key={feature}>{feature}</li>
+                           )
+                        )}
+                     </ul>
+                     {/* Comparison */}
+                     <ReactCompareSlider
+                        className={styles.comparisonSlider}
+                        itemOne={
+                           <ReactCompareSliderImage
+                              className={styles.comparisonSliderImg}
+                              src={urlFor(
+                                 comparisonData.comparisonImageGreen
+                              ).url()}
+                              alt={comparisonData.comparisonImageGreen.alt}
+                           />
+                        }
+                        itemTwo={
+                           <ReactCompareSliderImage
+                              className={styles.comparisonSliderImg}
+                              src={urlFor(
+                                 comparisonData.comparisonImageDark
+                              ).url()}
+                              style={{ filter: "grayscale(1) brightness(0.8)" }}
+                              alt={comparisonData.comparisonImageDark.alt}
+                           />
+                        }
+                        onPositionChange={handlePositionChange}
+                        changePositionOnHover={handlePositionChange}
+                     />
+                  </>
+               )}
+            </div>
+         </section>
 
          {/* About SBC */}
          <section>About SBC</section>

@@ -83,6 +83,52 @@ const sbcPage = {
             },
          ],
       },
+      // Comparison
+      {
+         name: "comparison",
+         title: "Comparison",
+         type: "document",
+         fields: [
+            {
+               name: "comparisonTitle",
+               title: "Title",
+               type: "array",
+               of: [{ type: "block" }],
+            },
+            {
+               name: "comparisonFeatures",
+               title: "Comparison Features",
+               type: "array",
+               of: [{ type: "string" }],
+            },
+            {
+               name: "comparisonImageGreen",
+               title: "Image Showing Sustainable Environment",
+               type: "image",
+               options: { hotspot: true },
+               fields: [
+                  {
+                     name: "alt",
+                     title: "Alt",
+                     type: "string",
+                  },
+               ],
+            },
+            {
+               name: "comparisonImageDark",
+               title: "Image Showing Dark Environment",
+               type: "image",
+               options: { hotspot: true },
+               fields: [
+                  {
+                     name: "alt",
+                     title: "Alt",
+                     type: "string",
+                  },
+               ],
+            },
+         ],
+      },
    ],
 };
 

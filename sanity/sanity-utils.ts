@@ -72,7 +72,8 @@ export async function getSBCPageData() {
       groq`*[_type=="sbcPage"][0]{
          _id,
          hero,
-         benefits
+         benefits,
+         comparison
       }`
    );
 }

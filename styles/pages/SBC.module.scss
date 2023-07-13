@@ -1,5 +1,6 @@
 .heroBg {
    @apply absolute top-0 left-0 w-full z-0;
+   @apply pointer-events-none;
 }
 
 .hero {
@@ -27,15 +28,16 @@
 }
 
 .benefits {
-   @apply text-center;
+   @apply text-center relative z-10;
 
    .container {
-      @apply max-w-[1000px];
+      @apply max-w-[900px];
       @apply flex flex-col justify-center items-center gap-12;
    }
 
    .benefitsHeading {
       @include text-gradient(primary);
+      @apply leading-[110%];
    }
 
    .benefitsCTA {
@@ -83,6 +85,10 @@
             }
          }
       }
+
+      h5 {
+         @apply relative z-30;
+      }
    }
 
    @include responsive(lg) {
@@ -95,6 +101,61 @@
          img {
             @apply w-24 aspect-square;
          }
+      }
+   }
+}
+
+.comparison {
+   @apply my-40;
+
+   .comparisonHeading {
+      @apply text-center;
+
+      h2 {
+         @apply block font-medium;
+         @include typo(heading, 4);
+
+         span {
+            @apply font-extrabold;
+         }
+      }
+      h1 {
+         @include typo(heading, 2);
+
+         span {
+            @include text-gradient(primary);
+            text-decoration-color: #339dff !important;
+         }
+      }
+   }
+
+   .comparisonFeatures {
+      @apply flex justify-center flex-wrap gap-2 gap-x-4;
+      @apply font-bold;
+      @apply my-8;
+      @include text-gradient(primary);
+   }
+
+   .comparisonSlider {
+      @apply flex;
+      @apply max-w-[1100px] mx-auto;
+   }
+
+   @include responsive(md) {
+      .comparisonSlider {
+         @apply h-[50vh];
+         .comparisonSliderImg:first-child {
+            object-position: center 70% !important;
+         }
+      }
+   }
+
+   @include responsive(lg) {
+      .comparisonFeatures {
+         @apply text-lg my-12;
+      }
+      .comparisonSlider {
+         @apply h-[60vh];
       }
    }
 }
