@@ -30,6 +30,7 @@
    }
 
    @include responsive(lg) {
+      @apply pb-40;
       .heroImg {
          @apply m-auto mt-28;
       }
