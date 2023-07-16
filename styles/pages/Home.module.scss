@@ -3,6 +3,7 @@
 
    // Container
    .container {
+      @apply pt-10;
       @apply relative;
       @apply min-h-[100vh];
       @apply grid place-content-center;
@@ -89,6 +90,9 @@
 
    // responsive
    @include responsive(md) {
+      .container {
+         @apply pt-0;
+      }
       .heroDescription {
          .heroHeading {
             @apply text-5xl;
