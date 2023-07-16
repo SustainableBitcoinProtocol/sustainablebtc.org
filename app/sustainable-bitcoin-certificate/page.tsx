@@ -14,6 +14,8 @@ import {
    ReactCompareSliderHandle,
    ReactCompareSliderImage,
 } from "react-compare-slider";
+import Particles from "react-tsparticles";
+import { loadFull } from "tsparticles";
 
 // Data Fetch
 import { getSBCPageData } from "@/sanity/sanity-utils";
@@ -22,12 +24,14 @@ import { urlFor } from "@/sanity/sanity-urlFor";
 // Image
 import imgHeroBg from "@/public/sbc/heroBg.svg";
 import imgHero from "@/public/sbc/hero-img.svg";
+import imgSbcIcon from "@/public/home/sbc-icon.svg";
 
 const SBC = () => {
    const [sbcPageData, setSbcPageData] = useState<any>();
    const [heroData, setHeroData] = useState<any>();
    const [benefitsData, setBenefitsData] = useState<any>();
    const [comparisonData, setComparisonData] = useState<any>();
+   const [aboutSbcData, setAboutSbcData] = useState<any>();
    useEffect(() => {
       const setSBCData = async () => {
          setSbcPageData(await getSBCPageData());
@@ -39,13 +43,18 @@ const SBC = () => {
          setHeroData(sbcPageData.hero);
          setBenefitsData(sbcPageData.benefits);
          setComparisonData(sbcPageData.comparison);
+         setAboutSbcData(sbcPageData.aboutSBC);
       }
    }, [sbcPageData]);
-   console.log(comparisonData);
+   console.log(aboutSbcData);
 
    const handlePositionChange: any = useCallback((position: any) => {
       console.log("[CustomHandle]", position);
    }, []);
+
+   const particlesInit = async (main: any) => {
+      await loadFull(main);
+   };
 
    return (
       <>
@@ -195,8 +204,180 @@ const SBC = () => {
          </section>
 
          {/* About SBC */}
-         <section>
-            <div className={`${styles.container} container`}>About SBC</div>
+         <section className={styles.sbc}>
+            {/* Image Animation */}
+            <div>
+               <Particles
+                  className={styles.sbcBg}
+                  id="tsparticles"
+                  init={particlesInit}
+                  options={{
+                     particles: {
+                        number: {
+                           value: 60,
+                           density: {
+                              enable: true,
+                              value_area: 800,
+                           },
+                        },
+                        color: {
+                           value: "#ffffff",
+                        },
+                        shape: {
+                           type: "circle",
+                           stroke: {
+                              width: 0,
+                              color: "#000000",
+                           },
+                           polygon: {
+                              nb_sides: 5,
+                           },
+                           image: {
+                              src: "img/github.svg",
+                              width: 100,
+                              height: 100,
+                           },
+                        },
+                        opacity: {
+                           value: 0.1,
+                           random: false,
+                           anim: {
+                              enable: false,
+                              speed: 1,
+                              opacity_min: 0.1,
+                              sync: false,
+                           },
+                        },
+                        size: {
+                           value: 5,
+                           random: true,
+                           anim: {
+                              enable: false,
+                              speed: 40,
+                              size_min: 0.1,
+                              sync: false,
+                           },
+                        },
+                        line_linked: {
+                           enable: true,
+                           distance: 120,
+                           color: "#ffffff",
+                           opacity: 0.2,
+                           width: 1,
+                        },
+                        move: {
+                           enable: true,
+                           speed: 2,
+                           direction: "none",
+                           random: false,
+                           straight: false,
+                           out_mode: "out",
+                           bounce: false,
+                           attract: {
+                              enable: false,
+                              rotateX: 600,
+                              rotateY: 1200,
+                           },
+                        },
+                     },
+                     interactivity: {
+                        detect_on: "canvas",
+                        events: {
+                           onhover: {
+                              enable: true,
+                              mode: "grab",
+                           },
+                           onclick: {
+                              enable: true,
+                              mode: "push",
+                           },
+                           resize: true,
+                        },
+                        modes: {
+                           grab: {
+                              distance: 150,
+                              line_linked: {
+                                 opacity: 0.5,
+                              },
+                           },
+                           bubble: {
+                              distance: 400,
+                              size: 40,
+                              duration: 2,
+                              opacity: 8,
+                              speed: 3,
+                           },
+                           repulse: {
+                              distance: 200,
+                              duration: 0.4,
+                           },
+                           push: {
+                              particles_nb: 4,
+                           },
+                           remove: {
+                              particles_nb: 2,
+                           },
+                        },
+                     },
+                     fullScreen: { enable: false },
+                     retina_detect: false,
+                  }}
+               />
+            </div>
+
+            <div className={`${styles.container} container`}>
+               {/* Sbc Image */}
+               <div className={styles.sbcIcon}>
+                  <Image src={imgSbcIcon} alt="SBC Icon" />
+               </div>
+
+               {aboutSbcData && (
+                  <>
+                     {/* Heading */}
+                     <div>
+                        <h2
+                           className={`${styles.sbcHeading} heading heading-2`}
+                        >
+                           {aboutSbcData.aboutSBCHeading}
+                        </h2>
+                        <h4
+                           className={`${styles.sbcSubHeading} heading heading-4`}
+                        >
+                           {aboutSbcData.aboutSBCSubHeading}
+                        </h4>
+                     </div>
+
+                     {/* Description */}
+                     <div className={styles.sbcDescription}>
+                        <PortableText
+                           value={aboutSbcData.aboutSBCDescription}
+                        />
+                     </div>
+
+                     {/* CTA */}
+                     <div className={styles.aboutSbcCTA}>
+                        {aboutSbcData.aboutSBCCTA.map((cta: any, i: number) => (
+                           <>
+                              {cta.btnOptions.btnVisible && (
+                                 <Link
+                                    key={i}
+                                    href={cta.btnOptions.btnSlug}
+                                    className={`btn btn-${cta.btnOptions.btnType}`}
+                                 >
+                                    <span>{cta.btnText}</span>
+                                    {cta.btnOptions.btnIcon !== "NA" && (
+                                       <i
+                                          className={`bi bi-${cta.btnOptions.btnIcon}`}
+                                       ></i>
+                                    )}
+                                 </Link>
+                              )}
+                           </>
+                        ))}
+                     </div>
+                  </>
+               )}
+            </div>
          </section>
 
          {/* Support Companies */}

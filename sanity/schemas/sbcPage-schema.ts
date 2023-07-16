@@ -129,6 +129,41 @@ const sbcPage = {
             },
          ],
       },
+      // About
+      {
+         name: "aboutSBC",
+         title: "About SBC",
+         type: "document",
+         fields: [
+            {
+               name: "aboutSBCHeading",
+               title: "SBC Heading",
+               type: "string",
+            },
+            {
+               name: "aboutSBCSubHeading",
+               title: "SBC Sub Heading",
+               type: "string",
+            },
+            {
+               name: "aboutSBCDescription",
+               title: "SBC Description",
+               type: "array",
+               of: [{ type: "block" }],
+            },
+            {
+               name: "aboutSBCCTA",
+               title: "Call to Actions",
+               type: "array",
+               of: [
+                  {
+                     type: "document",
+                     fields: btn,
+                  },
+               ],
+            },
+         ],
+      },
    ],
 };
 

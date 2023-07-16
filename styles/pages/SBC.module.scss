@@ -1,7 +1,11 @@
 .heroBg {
-   @apply absolute top-0 left-0 w-full z-0;
-   @apply pointer-events-none;
+   @apply absolute top-0 right-0 w-full z-0;
+   @apply pointer-events-none select-none;
    @apply opacity-80;
+
+   @include responsive(lg) {
+      @apply w-[90%];
+   }
 }
 
 .hero {
@@ -117,7 +121,7 @@
 }
 
 .comparison {
-   @apply my-28;
+   @apply my-28 relative z-20;
 
    .comparisonHeading {
       @apply text-center;
@@ -168,6 +172,107 @@
       }
       .comparisonSlider {
          @apply h-[60vh];
+      }
+   }
+}
+
+.sbc {
+   @apply my-20;
+   @apply text-center grid place-content-center;
+   @apply relative;
+
+   .sbcBg {
+      @apply absolute top-0 left-0 w-full h-full;
+
+      canvas {
+         position: absolute !important;
+         @apply top-0 left-0 right-0 bottom-0;
+      }
+   }
+
+   .container {
+      @apply flex flex-col gap-8;
+      @apply max-w-[830px];
+   }
+
+   .sbcIcon {
+      scale: 0.8;
+      translate: 0 10%;
+      @apply block m-auto relative z-20;
+
+      img {
+         @apply relative z-20;
+      }
+
+      &::before {
+         content: "";
+         position: absolute;
+         top: 0;
+         left: 0;
+         translate: -35% -35%;
+         background: url("../../public/home/sbc-icon-bg.svg");
+         width: 338px;
+         height: 342px;
+         z-index: 0;
+         animation: rotation 8s infinite linear;
+      }
+
+      @keyframes rotation {
+         from {
+            transform: translate(0%, 1%) rotate(0deg);
+         }
+         50% {
+            transform: translate(0%, -2%) rotate(180deg);
+         }
+         to {
+            transform: translate(0%, 1%) rotate(359deg);
+         }
+      }
+   }
+
+   .sbcHeading {
+      @include text-gradient(primary);
+   }
+
+   .sbcSubHeading {
+      @apply font-medium block;
+   }
+
+   .sbcDescription {
+      @apply leading-[140%] opacity-90;
+   }
+
+   .sbcFeatures {
+      @apply flex justify-center flex-wrap gap-2 gap-x-4;
+      @apply font-bold;
+      @apply my-2;
+      @include text-gradient(primary);
+   }
+
+   .sbcDescription {
+      p {
+         @apply mb-3;
+         @apply leading-[140%] opacity-90;
+      }
+   }
+
+   .aboutSbcCTA {
+      @apply flex flex-wrap justify-center items-center gap-4;
+   }
+
+   @include responsive(md) {
+      .sbcIcon {
+         scale: 0.9;
+         translate: 0 5%;
+      }
+   }
+
+   @include responsive(lg) {
+      .sbcFeatures {
+         @apply text-lg font-extrabold;
+      }
+      .sbcIcon {
+         scale: 1;
       }
    }
 }

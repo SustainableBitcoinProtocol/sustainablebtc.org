@@ -73,7 +73,8 @@ export async function getSBCPageData() {
          _id,
          hero,
          benefits,
-         comparison
+         comparison,
+         aboutSBC,
       }`
    );
 }
