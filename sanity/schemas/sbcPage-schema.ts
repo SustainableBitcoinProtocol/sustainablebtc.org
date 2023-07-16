@@ -164,6 +164,35 @@ const sbcPage = {
             },
          ],
       },
+      // Bitcoin Miners
+      {
+         name: "bitcoinMiners",
+         title: "Bitcoin Miners",
+         type: "document",
+         fields: [
+            {
+               name: "bitcoinMinersHeading",
+               title: "Bitcoin Miner's Heading",
+               type: "array",
+               of: [{ type: "block" }],
+            },
+            {
+               name: "bitcoinMinersFeatures",
+               title: "Bitcoin Miner's Features",
+               type: "array",
+               of: [{ type: "string" }],
+            },
+            {
+               name: "heroCompanyImages",
+               type: "array",
+               of: [{ type: "image" }],
+               options: {
+                  layout: "grid",
+                  hotspot: true,
+               },
+            },
+         ],
+      },
    ],
 };
 

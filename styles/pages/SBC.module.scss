@@ -12,6 +12,10 @@
    @apply pt-40 pb-28;
    @apply relative z-10;
 
+   .container {
+      @apply max-w-[1100px];
+   }
+
    .heroHeadingWrapper {
       @apply flex flex-col justify-center items-center gap-8;
    }
@@ -122,6 +126,10 @@
 
 .comparison {
    @apply my-28 relative z-20;
+
+   .container {
+      @apply max-w-[1100px];
+   }
 
    .comparisonHeading {
       @apply text-center;
@@ -273,6 +281,75 @@
       }
       .sbcIcon {
          scale: 1;
+      }
+   }
+}
+
+.bitcoinMiners {
+   @apply my-28;
+
+   .container {
+      @apply max-w-[1100px];
+   }
+
+   .bitcoinMinersHeading {
+      @apply max-w-[800px] text-center mx-auto block leading-[110%];
+      strong {
+         @include text-gradient(primary);
+      }
+   }
+
+   .bitcoinMinersFeatures {
+      @apply flex justify-center flex-wrap gap-2 gap-x-4;
+      @apply font-bold;
+      @apply my-8;
+   }
+
+   .bitcoinMiners {
+      @apply grid grid-cols-3 gap-4 m-0;
+      grid-auto-rows: 1fr;
+
+      .bitcoinMinersImage {
+         @apply grid place-content-center;
+         @apply border rounded-md;
+         @apply py-2 px-4;
+         @apply transition-all duration-300 ease-out;
+
+         border: 1px solid rgba(#339dff, 0.5);
+         background: rgba($color: color($color-light), $alpha: 0.05);
+
+         img {
+            max-height: 50px;
+            opacity: 0.7;
+            filter: brightness(0) invert(1);
+         }
+
+         &:hover {
+            background: $gradient-primary;
+         }
+      }
+   }
+
+   @include responsive(md) {
+      .bitcoinMiners {
+         @apply grid grid-cols-4;
+
+         .bitcoinMinersImage {
+            @apply py-4 px-6;
+         }
+      }
+   }
+   @include responsive(lg) {
+      @apply my-40;
+      .bitcoinMinersFeatures {
+         @apply text-lg my-12 gap-8;
+      }
+      .bitcoinMiners {
+         @apply grid grid-cols-5;
+
+         .bitcoinMinersImage {
+            @apply py-6 px-8;
+         }
       }
    }
 }

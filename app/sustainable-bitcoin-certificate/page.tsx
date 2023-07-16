@@ -32,6 +32,7 @@ const SBC = () => {
    const [benefitsData, setBenefitsData] = useState<any>();
    const [comparisonData, setComparisonData] = useState<any>();
    const [aboutSbcData, setAboutSbcData] = useState<any>();
+   const [bitcoinMinersData, setBitcoinMinersData] = useState<any>();
    useEffect(() => {
       const setSBCData = async () => {
          setSbcPageData(await getSBCPageData());
@@ -44,9 +45,10 @@ const SBC = () => {
          setBenefitsData(sbcPageData.benefits);
          setComparisonData(sbcPageData.comparison);
          setAboutSbcData(sbcPageData.aboutSBC);
+         setBitcoinMinersData(sbcPageData.bitcoinMiners);
       }
    }, [sbcPageData]);
-   console.log(aboutSbcData);
+   console.log(bitcoinMinersData);
 
    const handlePositionChange: any = useCallback((position: any) => {
       console.log("[CustomHandle]", position);
@@ -381,7 +383,51 @@ const SBC = () => {
          </section>
 
          {/* Support Companies */}
-         <section>Companies</section>
+         <section className={styles.bitcoinMiners}>
+            <div className={`${styles.container} container`}>
+               {bitcoinMinersData && (
+                  <>
+                     {/* Heading */}
+                     <h2
+                        className={`${styles.bitcoinMinersHeading} heading heading-2`}
+                     >
+                        <PortableText
+                           value={bitcoinMinersData.bitcoinMinersHeading}
+                        />
+                     </h2>
+
+                     {/* Features */}
+                     <ul className={styles.bitcoinMinersFeatures}>
+                        {bitcoinMinersData.bitcoinMinersFeatures.map(
+                           (feature: string) => (
+                              <li key={feature}>{feature}</li>
+                           )
+                        )}
+                     </ul>
+
+                     {/* Images */}
+                     <div className={styles.bitcoinMiners}>
+                        {bitcoinMinersData.heroCompanyImages.map(
+                           (item: any, i: number) => (
+                              <div
+                                 key={i}
+                                 className={styles.bitcoinMinersImage}
+                              >
+                                 {/* eslint-disable-next-line @next/next/no-img-element */}
+                                 <img
+                                    src={urlFor(item).url()}
+                                    alt={item.alt}
+                                    width={`auto`}
+                                    height={`auto`}
+                                 />
+                              </div>
+                           )
+                        )}
+                     </div>
+                  </>
+               )}
+            </div>
+         </section>
       </>
    );
 };
