@@ -103,7 +103,7 @@ const Header = () => {
                      }
                   })}
 
-               <div className={styles.secondaryInPrimary}>
+               <ul className={styles.secondaryInPrimary}>
                   <li>
                      <hr />
                   </li>
@@ -139,7 +139,7 @@ const Header = () => {
                            }
                         }
                      })}
-               </div>
+               </ul>
             </ul>
 
             {/* Scondary Nav */}

@@ -4,7 +4,7 @@
    // Container
    .container {
       @apply relative;
-      @apply min-h-[110vh];
+      @apply min-h-[100vh];
       @apply grid place-content-center;
    }
 
@@ -108,6 +108,9 @@
    }
 
    @include responsive(lg) {
+      .container {
+         @apply min-h-[110vh];
+      }
       .heroDescription {
          @apply pt-10;
 
