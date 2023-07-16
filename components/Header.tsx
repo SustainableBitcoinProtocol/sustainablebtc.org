@@ -90,7 +90,7 @@ const Header = () => {
                            <>
                               <li
                                  className={
-                                    pathname === item.slug ? styles.active : ""
+                                    pathname === item.slug ? styles.active1 : ""
                                  }
                                  key={i}
                               >
