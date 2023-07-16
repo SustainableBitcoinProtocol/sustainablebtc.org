@@ -72,32 +72,24 @@ export default function HomeHero({ heroData }: { heroData: any }) {
 
                      {/* logos */}
                      <div className={styles.heroClient}>
-                        <h3 className={styles.heroClientLogoTitle}>
+                        <h2 className={styles.heroClientLogoTitle}>
                            {heroData.heroCompanyIconsTitle}
-                        </h3>
+                        </h2>
 
                         <div className={styles.heroClientLogo}>
                            {heroData.heroCompanyImages.map(
                               (item: any, i: number) => (
                                  <div key={i}>
-                                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                                    <img
-                                       src={urlFor(item).width(100).url()}
-                                       alt={item.alt}
-                                       width={`auto`}
-                                       height={`auto`}
+                                    <Image
+                                       src={urlFor(item).url()}
+                                       alt="client logo"
+                                       layout="responsive"
+                                       width={100}
+                                       height={30}
                                     />
                                  </div>
                               )
                            )}
-                           {/* <img
-                                 src={urlFor(item.testimonyImage)
-                                    .width(100)
-                                    .url()}
-                                 alt={item.testimonyImage.alt}
-                                 width={100}
-                                 height={100}
-                              /> */}
                         </div>
                      </div>
                   </>

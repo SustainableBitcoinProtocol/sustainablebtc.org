@@ -306,7 +306,7 @@
    }
 
    .bitcoinMiners {
-      @apply grid grid-cols-3 gap-4 m-0;
+      @apply grid grid-cols-3 gap-3 m-0;
       grid-auto-rows: 1fr;
 
       .bitcoinMinersImage {
@@ -332,7 +332,7 @@
 
    @include responsive(md) {
       .bitcoinMiners {
-         @apply grid grid-cols-4;
+         @apply grid grid-cols-4 gap-4;
 
          .bitcoinMinersImage {
             @apply py-4 px-6;

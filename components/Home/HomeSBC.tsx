@@ -191,11 +191,11 @@ export default function HomeSBC({ sbcData }: { sbcData: any }) {
                      <h2 className={`${styles.sbcHeading} heading heading-2`}>
                         {sbcData.sbcHeading}
                      </h2>
-                     <h4
+                     <h3
                         className={`${styles.sbcSubHeading} heading heading-4`}
                      >
                         {sbcData.sbcSubHeading}
-                     </h4>
+                     </h3>
                   </div>
 
                   {/* Features */}

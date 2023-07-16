@@ -96,6 +96,12 @@ const Footer = () => {
                   <li className={styles.footerSocialMedia}>
                      {footerData &&
                         footerData.socialLinks.map((item: any, i: number) => {
+                           const socialMediaName = new URL(
+                              item.socialMedia
+                           ).hostname
+                              .replace("www.", "")
+                              .replace(".com", "")
+                              .toLowerCase();
                            return (
                               <>
                                  <a
@@ -103,14 +109,10 @@ const Footer = () => {
                                     href={item.socialMedia}
                                     target="_blank"
                                     key={i}
+                                    aria-label={socialMediaName}
                                  >
                                     <i
-                                       className={`bi bi-${new URL(
-                                          item.socialMedia
-                                       ).hostname
-                                          .replace("www.", "")
-                                          .replace(".com", "")
-                                          .toLowerCase()}`}
+                                       className={`bi bi-${socialMediaName}`}
                                     ></i>
                                  </a>
                               </>

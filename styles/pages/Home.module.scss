@@ -4,7 +4,7 @@
    // Container
    .container {
       @apply relative;
-      @apply min-h-[100vh];
+      @apply min-h-[110vh];
       @apply grid place-content-center;
    }
 
@@ -54,8 +54,8 @@
          img {
             @apply opacity-70;
             @apply transition-all duration-300 ease-out;
-            height: 1.5rem;
-            width: auto;
+            height: 1.5rem !important;
+            width: auto !important;
             filter: brightness(0) invert(1);
 
             &:hover {
@@ -113,6 +113,14 @@
 
          .heroHeading {
             @apply text-7xl;
+         }
+      }
+
+      .heroClient {
+         .heroClientLogo {
+            img {
+               height: 1.8rem !important;
+            }
          }
       }
 
