@@ -93,7 +93,14 @@ const Header = () => {
                                  className={isActive ? styles.active : ""}
                                  key={i}
                               >
-                                 <Link href={item.slug}>
+                                 <Link
+                                    href={item.slug}
+                                    onClick={() =>
+                                       window.innerWidth < 1440
+                                          ? setIsNavbarToggled(!isNavbarToggled)
+                                          : null
+                                    }
+                                 >
                                     <span>{item.name}</span>
                                  </Link>
                               </li>
@@ -115,6 +122,9 @@ const Header = () => {
                                     href={item.slug}
                                     className="btn btn-primary"
                                     key={i}
+                                    onClick={() =>
+                                       setIsNavbarToggled(!isNavbarToggled)
+                                    }
                                  >
                                     <span>{item.name}</span>
                                     <i className={`bi bi-${item.iconName}`}></i>
@@ -130,7 +140,12 @@ const Header = () => {
                                     }
                                     key={i}
                                  >
-                                    <Link href={item.slug}>
+                                    <Link
+                                       href={item.slug}
+                                       onClick={() =>
+                                          setIsNavbarToggled(!isNavbarToggled)
+                                       }
+                                    >
                                        <span>{item.name}</span>
                                     </Link>
                                  </li>
