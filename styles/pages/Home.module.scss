@@ -125,6 +125,7 @@
 
       .heroClient {
          .heroClientLogo {
+            @apply gap-8;
             img {
                height: 1.8rem !important;
             }
