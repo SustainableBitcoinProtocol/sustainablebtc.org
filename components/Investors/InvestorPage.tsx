@@ -14,8 +14,8 @@ export default async function InvestorPage() {
    return (
       <>
          <InvestorHero heroData={heroData} />
-         <InvestorSupport />
-         <InvestorSupport />
+         {/* <InvestorInvestment />
+         <InvestorSupport /> */}
       </>
    );
 }
