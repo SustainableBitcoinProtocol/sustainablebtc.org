@@ -64,12 +64,14 @@ export default function HomeTestimonials({
                               >
                                  {/* Image */}
                                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                                 <img
+                                 <Image
                                     src={urlFor(item.testimonyImage)
-                                       .width(100)
+                                       .width(400)
                                        .url()}
                                     alt={item.testimonyImage.alt}
                                     className={styles.testimonialTestimonyImage}
+                                    width={400}
+                                    height={400}
                                  />
 
                                  {/* Content */}
@@ -85,12 +87,12 @@ export default function HomeTestimonials({
                                           {item.testimonyName}
                                        </h3>
                                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                                       <img
+                                       <Image
                                           src={urlFor(item.testimonyCompanyLogo)
-                                             .width(100)
+                                             .width(300)
                                              .url()}
                                           alt={item.testimonyImage.alt}
-                                          width={100}
+                                          width={200}
                                           height={100}
                                           className={
                                              styles.testimonialTestimonyCompanyLogo

@@ -67,9 +67,9 @@ const FooterCareerForm = () => {
       <div className={styles.careerForm} onSubmit={sendEmail}>
          <div className={`${styles.container} container`}>
             <div className={styles.careerContent}>
-               <h3 className={`${styles.heading}`}>Careers</h3>
+               <h3 className={`${styles.heading}`}>Talk To Our Team</h3>
                <p className={`${styles.para}`}>
-                  Thanks for your interest in joining our team.
+                  Thanks for your interest in SBP.
                </p>
                <form ref={careerForm}>
                   <div className={`${styles.formGroup} form-group`}>

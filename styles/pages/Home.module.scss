@@ -29,10 +29,6 @@
          @apply flex flex-col gap-3;
          @apply opacity-90;
          @apply text-sm px-8;
-
-         P {
-            @apply line-clamp-2;
-         }
       }
       .heroBtnWrapper {
          @apply flex flex-wrap justify-center gap-4;
@@ -120,6 +116,10 @@
 
          .heroHeading {
             @apply text-7xl;
+         }
+
+         .heroPara {
+            font-size: 1.1rem !important;
          }
       }
 
@@ -251,6 +251,9 @@
       }
       .sbcIconLine {
          scale: 1.25;
+      }
+      .sbcDescription {
+         font-size: 1.1rem;
       }
    }
 }
