@@ -47,7 +47,6 @@ export default function HomeTestimonials({
                      <Swiper
                         spaceBetween={50}
                         slidesPerView={1}
-                        onSlideChange={() => console.log("slide change")}
                         onSwiper={(swiper) => console.log(swiper)}
                         autoplay={{
                            delay: 5000,

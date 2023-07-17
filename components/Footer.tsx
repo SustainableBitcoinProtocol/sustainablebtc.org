@@ -4,7 +4,7 @@
 import styles from "@/styles/components/Footer.module.scss";
 
 // Next Imports
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
