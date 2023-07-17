@@ -85,7 +85,7 @@ export default function HomeHero({ heroData }: { heroData: any }) {
                                        alt="client logo"
                                        layout="responsive"
                                        width={100}
-                                       height={30}
+                                       height={50}
                                     />
                                  </div>
                               )
