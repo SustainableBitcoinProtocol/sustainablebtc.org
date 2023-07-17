@@ -1,0 +1,45 @@
+.hero {
+   .container {
+      @apply min-h-[80vh] max-w-[1000px] py-10;
+      @apply flex flex-col justify-center items-center gap-8;
+      @apply text-center;
+   }
+
+   .heroImg {
+      @apply -mt-4;
+   }
+
+   .heroHeading {
+      @apply max-w-[600px] leading-[110%];
+      @include text-gradient(primary);
+   }
+
+   .heroSubHeading {
+      @apply font-semibold;
+   }
+
+   @include responsive(md) {
+      .container {
+         @apply max-h-[100vh] py-20;
+      }
+
+      .heroImg {
+         @apply -mt-10;
+         @apply max-w-[800px] mx-auto;
+      }
+   }
+
+   @include responsive(lg) {
+      .container {
+         @apply min-h-[100vh]  py-32;
+      }
+
+      .heroImg {
+         @apply max-w-max -mt-20;
+      }
+
+      .heroHeading {
+         @apply max-w-[700px];
+      }
+   }
+}
