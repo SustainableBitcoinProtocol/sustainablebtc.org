@@ -15,7 +15,7 @@ const FooterCareerForm = () => {
    const careerFormError = useRef(null);
 
    const sendEmail = (e: any) => {
-      e.preventDefault();
+      if (e) e.preventDefault();
       // text message
       var errorText: HTMLElement = careerFormError.current!;
       errorText.style.color = "red";

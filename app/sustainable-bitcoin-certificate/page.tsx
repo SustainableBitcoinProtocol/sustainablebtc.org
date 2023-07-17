@@ -11,7 +11,6 @@ import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 import {
    ReactCompareSlider,
-   ReactCompareSliderHandle,
    ReactCompareSliderImage,
 } from "react-compare-slider";
 import Particles from "react-tsparticles";
@@ -48,11 +47,9 @@ const SBC = () => {
          setBitcoinMinersData(sbcPageData.bitcoinMiners);
       }
    }, [sbcPageData]);
-   console.log(bitcoinMinersData);
+   // console.log(bitcoinMinersData);
 
-   const handlePositionChange: any = useCallback((position: any) => {
-      console.log("[CustomHandle]", position);
-   }, []);
+   const handlePositionChange: any = useCallback((position: any) => {}, []);
 
    const particlesInit = async (main: any) => {
       await loadFull(main);

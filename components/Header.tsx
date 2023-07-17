@@ -7,7 +7,7 @@ import styles from "@/styles/components/Header.module.scss";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useSelectedLayoutSegment } from "next/navigation";
 
 // Importing Schema utils
 import { getNavbar } from "@/sanity/sanity-utils";
@@ -17,8 +17,8 @@ import { Navbar } from "@/types/navbar";
 import logo from "@/public/logo.svg";
 
 const Header = () => {
-   // Get pathname
-   const [pathname, setPathname] = useState(usePathname());
+   // Get activelink
+   let activeLink = useSelectedLayoutSegment();
    // ===========
 
    // Navbar
@@ -36,10 +36,6 @@ const Header = () => {
       window.addEventListener("scroll", handleScroll);
       return () => window.removeEventListener("scroll", handleScroll);
    });
-
-   useEffect(() => {
-      setPathname(pathname == "" || pathname == null ? "/" : pathname);
-   }, [pathname]);
 
    useEffect(() => {
       const setNavbarData = async () => {
@@ -86,11 +82,15 @@ const Header = () => {
                {navbar &&
                   navbar.map((item: Navbar, i) => {
                      if (item.isSecondary === false) {
+                        // activeLink = activeLink == null ? "/" : activeLink;
+
                         return (
                            <>
                               <li
                                  className={
-                                    pathname === item.slug ? styles.active1 : ""
+                                    activeLink === item.slug
+                                       ? styles.active
+                                       : ""
                                  }
                                  key={i}
                               >
@@ -125,7 +125,7 @@ const Header = () => {
                               return (
                                  <li
                                     className={
-                                       pathname === item.slug
+                                       activeLink === item.slug
                                           ? styles.active
                                           : ""
                                     }
@@ -162,7 +162,9 @@ const Header = () => {
                            return (
                               <li
                                  className={
-                                    pathname === item.slug ? styles.active : ""
+                                    activeLink === item.slug
+                                       ? styles.active
+                                       : ""
                                  }
                                  key={i}
                               >
