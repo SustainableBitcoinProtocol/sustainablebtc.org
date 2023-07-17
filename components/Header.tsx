@@ -81,17 +81,16 @@ const Header = () => {
             >
                {navbar &&
                   navbar.map((item: Navbar, i) => {
-                     if (item.isSecondary === false) {
-                        // activeLink = activeLink == null ? "/" : activeLink;
+                     console.log(activeLink, item.slug);
+                     const isActive =
+                        activeLink === item.slug ||
+                        (activeLink == null && item.slug === "/");
 
+                     if (item.isSecondary === false) {
                         return (
                            <>
                               <li
-                                 className={
-                                    activeLink === item.slug
-                                       ? styles.active
-                                       : ""
-                                 }
+                                 className={isActive ? styles.active : ""}
                                  key={i}
                               >
                                  <Link href={item.slug}>
