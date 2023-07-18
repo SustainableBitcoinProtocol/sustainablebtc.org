@@ -34,8 +34,8 @@ export default function HomeHero({ heroData }: { heroData: any }) {
                         </div>
                         <div className={styles.heroBtnWrapper}>
                            {heroData.heroCTA1.heroBtn1Visible && (
-                              <a
-                                 href="#"
+                              <Link
+                                 href={heroData.heroCTA1.heroBtn1Slug}
                                  className={`btn btn-${heroData.heroCTA1.heroBtn1Type} ${styles.heroBtn}`}
                               >
                                  <span>{heroData.heroCTA1.heroBtn1Text}</span>
@@ -48,11 +48,11 @@ export default function HomeHero({ heroData }: { heroData: any }) {
                                  ) : (
                                     <></>
                                  )}
-                              </a>
+                              </Link>
                            )}
                            {heroData.heroCTA2.heroBtn2Visible && (
-                              <a
-                                 href="#"
+                              <Link
+                                 href={heroData.heroCTA2.heroBtn2Slug}
                                  className={`btn btn-${heroData.heroCTA2.heroBtn2Type} ${styles.heroBtn}`}
                               >
                                  <span>{heroData.heroCTA2.heroBtn2Text}</span>
@@ -65,7 +65,7 @@ export default function HomeHero({ heroData }: { heroData: any }) {
                                  ) : (
                                     <></>
                                  )}
-                              </a>
+                              </Link>
                            )}
                         </div>
                      </div>

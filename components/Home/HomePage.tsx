@@ -13,12 +13,12 @@ export default async function HomePage() {
    const homePageData = await getHomePageData();
    const heroData = homePageData.hero || null;
    const sbcData = homePageData.sbc || null;
-   // const testimonialData = homePageData.testimonials || null;
+   const testimonialData = homePageData.testimonials || null;
    return (
       <>
          <HomeHero heroData={heroData} />
          <HomeSBC sbcData={sbcData} />
-         {/* <HomeTestimonials testimonialData={testimonialData} /> */}
+         <HomeTestimonials testimonialData={testimonialData} />
       </>
    );
 }
