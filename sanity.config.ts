@@ -21,6 +21,7 @@ const config = defineConfig({
    title: "Studio | Sustainable Bitcoin Protocol",
    apiVersion: "2023-03-04",
    basePath: "/studio",
+   useCdn: false,
    plugins: [
       deskTool({
          structure: (S) =>
