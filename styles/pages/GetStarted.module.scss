@@ -47,7 +47,7 @@
 
       .heroLoginTypeHeading {
          @include text-gradient(primary);
-         @apply text-2xl;
+         @apply text-2xl w-fit;
       }
 
       .heroLoginTypeCTA {
