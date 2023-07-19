@@ -1,0 +1,99 @@
+.hero {
+   @apply pt-36 pb-20;
+
+   .container {
+      @apply max-w-[1000px];
+   }
+
+   .heroHeading {
+      @apply leading-[110%] text-center;
+
+      strong {
+         @include text-gradient(primary);
+      }
+   }
+
+   .heroSubHeading {
+      @apply block;
+      @apply text-center mt-4 font-medium;
+   }
+
+   .heroLoginTypeWrapper {
+      @apply grid gap-20 mt-32;
+
+      .heroLoginType {
+         @apply p-8 pt-16;
+         @apply rounded-lg;
+         @apply flex flex-col gap-4;
+         @apply relative;
+         background: linear-gradient(
+            40deg,
+            rgba(#339dff, 0.05) 0%,
+            rgba(#0ec1d3, 0.05) 100%
+         );
+         border: 1px solid rgba($color: #339dff, $alpha: 0.3);
+      }
+
+      .heroLoginTypeImage {
+         @apply absolute block;
+         @apply top-0 -translate-y-1/2;
+         background: color($color-dark);
+         @apply rounded-md p-6;
+         border: 1px solid #339dff;
+         width: 2.5rem !important;
+         aspect-ratio: 1 / 1 !important;
+         @apply grid place-content-center;
+      }
+
+      .heroLoginTypeHeading {
+         @include text-gradient(primary);
+         @apply text-2xl;
+      }
+
+      .heroLoginTypeCTA {
+         @apply w-auto justify-center;
+      }
+
+      .heroLoginTypeDescription {
+         @apply flex-1;
+         p {
+            @apply leading-[140%] mb-2;
+         }
+      }
+   }
+
+   @include responsive(md) {
+      .container {
+         @apply w-5/6;
+      }
+      .heroLoginTypeWrapper {
+         @apply grid grid-cols-2 gap-4;
+      }
+   }
+
+   @include responsive(lg) {
+      @apply pt-48 pb-32;
+
+      .container {
+         @apply w-full;
+      }
+      .heroLoginTypeWrapper {
+         @apply gap-8;
+
+         .heroLoginType {
+            @apply p-12 pt-20;
+            @apply gap-6;
+         }
+
+         .heroLoginTypeHeading {
+            @apply text-3xl;
+         }
+
+         .heroLoginTypeImage {
+            @apply p-4;
+            width: 4rem !important;
+            aspect-ratio: 1 / 1 !important;
+         }
+      }
+   }
+}

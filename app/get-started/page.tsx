@@ -1,8 +1,20 @@
-import React from "react";
-import ComingSoon from "@/components/ComingSoon";
+import { Metadata } from "next";
 
-const page = () => {
-   return <ComingSoon />;
+// Import
+import GetStartedPage from "@/components/GetStarted/GetStartedPage";
+
+export const metadata: Metadata = {
+   title: "Get Started | Sustainable Bitcoin Protocol",
+   description:
+      "Sustainable Bitcoin Protocol helps accelerate the bitcoin network's transition to clean energy.",
 };
 
-export default page;
+const investors = () => {
+   return (
+      <>
+         <GetStartedPage />
+      </>
+   );
+};
+
+export default investors;

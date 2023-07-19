@@ -76,7 +76,7 @@ const config = defineConfig({
                            .documentId("aboutPage")
                      ),
                   S.listItem()
-                     .title("Page / About Us")
+                     .title("Page / Get Started")
                      .id("getStartedPage")
                      .child(
                         S.document()
