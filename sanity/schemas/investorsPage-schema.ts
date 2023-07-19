@@ -34,7 +34,7 @@ const investorsPage = {
             },
          ],
       },
-      //
+      // Investment
       {
          name: "investment",
          title: "Stategic Investment",
@@ -93,6 +93,52 @@ const investorsPage = {
                   {
                      type: "document",
                      fields: btn,
+                  },
+               ],
+            },
+         ],
+      },
+      // Support
+      {
+         name: "support",
+         title: "Support",
+         type: "document",
+         fields: [
+            {
+               name: "supportHeading",
+               title: "Heading",
+               type: "array",
+               of: [{ type: "block" }],
+            },
+            {
+               name: "supportSubHeading",
+               title: "Sub Heading",
+               type: "string",
+            },
+            {
+               name: "supportTypes",
+               title: "Types",
+               type: "array",
+               of: [
+                  {
+                     type: "document",
+                     fields: [
+                        {
+                           name: "supportTypeHeading",
+                           title: "Type Heading",
+                           type: "string",
+                        },
+                        {
+                           name: "supportTypeLogos",
+                           title: "Type Logos",
+                           type: "array",
+                           of: [{ type: "image" }],
+                           options: {
+                              layout: "grid",
+                              hotspot: true,
+                           },
+                        },
+                     ],
                   },
                ],
             },

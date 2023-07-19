@@ -12,12 +12,13 @@ export default async function InvestorPage() {
    const investorPageData = await getInvestorPageData();
    const heroData = investorPageData.hero || null;
    const investmentData = investorPageData.investment || null;
+   const supportData = investorPageData.support || null;
 
    return (
       <>
          <InvestorHero heroData={heroData} />
          <InvestorInvestment investmentData={investmentData} />
-         {/* <InvestorSupport /> */}
+         <InvestorSupport supportData={supportData} />
       </>
    );
 }

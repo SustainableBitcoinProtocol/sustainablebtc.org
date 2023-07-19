@@ -93,6 +93,7 @@ export async function getInvestorPageData() {
          _id,
          hero,
          investment,
+         support
       }`
    );
 }

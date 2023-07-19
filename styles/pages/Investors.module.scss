@@ -120,3 +120,79 @@
       }
    }
 }
+
+.support {
+   @apply my-20;
+   .container {
+      @apply max-w-[1100px];
+      @apply flex flex-col justify-center items-center gap-8;
+   }
+
+   .supportHeading {
+      @apply block text-center max-w-[700px] mx-auto leading-[110%];
+      strong {
+         @include text-gradient(primary);
+      }
+   }
+
+   .supportSubHeading {
+      @apply block mx-auto text-center mt-4;
+   }
+
+   .supportType {
+      @apply mt-10 text-center w-full;
+
+      .supportTypeLogoWrapper {
+         @apply grid grid-cols-2 gap-2 mt-4;
+      }
+
+      .supportTypeLogo {
+         background: rgba($color: color($color-light), $alpha: 0.1);
+         border: 1px solid rgba($color: #339dff, $alpha: 0.5);
+         @apply rounded-lg p-6;
+         @apply flex justify-center items-center;
+         @apply transition-all duration-300 ease-out;
+
+         img {
+            width: auto !important;
+            max-height: 2.5rem;
+            filter: brightness(0) invert(1);
+            @apply transition-all duration-300 ease-out;
+         }
+
+         &:hover {
+            background: rgba($color: color($color-light), $alpha: 1);
+            border: 1px solid rgba($color: color($color-light), $alpha: 1);
+
+            img {
+               filter: initial;
+            }
+         }
+      }
+   }
+
+   @include responsive(md) {
+      .supportType {
+         @apply w-3/4;
+         .supportTypeLogoWrapper {
+            @apply grid-cols-3 gap-4;
+
+            .supportTypeLogo {
+               @apply py-4;
+            }
+         }
+      }
+   }
+
+   @include responsive(lg) {
+      .supportType {
+         @apply w-full;
+         .supportTypeLogoWrapper {
+            @apply grid-cols-4 mt-8;
+            .supportTypeLogo {
+               @apply py-6;
+            }
+         }
+      }
+   }
+}
