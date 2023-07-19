@@ -6,7 +6,7 @@
    }
 
    .heroHeading {
-      @apply leading-[110%] text-center;
+      @apply leading-[110%] text-center max-w-[700px] mx-auto block;
 
       strong {
          @include text-gradient(primary);
@@ -15,7 +15,7 @@
 
    .heroSubHeading {
       @apply block;
-      @apply text-center mt-4 font-medium;
+      @apply text-center mt-5 font-medium;
    }
 
    .heroLoginTypeWrapper {
