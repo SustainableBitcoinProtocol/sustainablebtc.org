@@ -12,8 +12,6 @@ import { urlFor } from "@/sanity/sanity-urlFor";
 import { PortableText } from "@portabletext/react";
 
 const InvestorInvestment = ({ investmentData }: { investmentData: any }) => {
-   console.log(investmentData);
-
    return (
       <>
          <section className={styles.investment}>

@@ -15,8 +15,6 @@ import { PortableText } from "@portabletext/react";
 import imgHero from "@/public/investors/heroImg.png";
 
 const InvestorHero = ({ heroData }: { heroData: any }) => {
-   console.log(heroData);
-
    return (
       <>
          <section className={styles.hero}>
