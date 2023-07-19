@@ -39,7 +39,84 @@
       }
 
       .heroHeading {
-         @apply max-w-[700px];
+         @apply max-w-[800px];
+      }
+      .heroPara {
+         font-size: 1.1rem;
+      }
+   }
+}
+
+.investment {
+   .container {
+      @apply max-w-[1100px] mb-20;
+      @apply flex flex-col justify-center items-center gap-8;
+   }
+
+   .investmentHeading {
+      @apply text-center w-full;
+   }
+
+   .investmentSubHeading {
+      @apply font-normal text-center w-full my-1;
+   }
+
+   .investmentFormula {
+      @apply grid grid-cols-2 gap-2;
+
+      .investmentFormulaLHS {
+         @include text-gradient(primary);
+         @apply text-right;
+      }
+
+      .investmentFormulaValue {
+         @apply text-4xl font-black;
+      }
+
+      .investmentFormulaSubHeading {
+         @apply font-medium;
+      }
+
+      .investmentFormulaTags {
+         @apply flex flex-wrap gap-1 mt-2;
+
+         li {
+            background: #a5e126;
+            box-shadow: 4px 4px 3px 0px rgba(255, 255, 255, 0.75) inset;
+            color: color($color-dark);
+            @apply py-1 px-2 rounded-full text-sm leading-[110%];
+         }
+      }
+   }
+
+   .investmentDescription {
+      @apply max-w-[700px] mx-auto text-center;
+   }
+
+   .investmentCTA {
+      @apply flex justify-center items-center gap-4 flex-wrap;
+   }
+
+   @include responsive(md) {
+      .investmentFormula {
+         .investmentFormulaValue {
+            @apply text-6xl font-black;
+         }
+         .investmentFormulaSubHeading {
+            @apply text-lg;
+         }
+         .investmentFormulaTags {
+            li {
+               @apply text-base py-1 px-3 rounded-full;
+            }
+         }
+      }
+   }
+
+   @include responsive(lg) {
+      .investmentSubHeading {
+         @apply my-2;
+         font-size: 1.3rem;
       }
    }
 }

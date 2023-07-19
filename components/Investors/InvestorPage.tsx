@@ -9,13 +9,15 @@ import InvestorSupport from "./InvestorSupport";
 import { getInvestorPageData } from "@/sanity/sanity-utils";
 
 export default async function InvestorPage() {
-   const homePageData = await getInvestorPageData();
-   const heroData = homePageData.hero || null;
+   const investorPageData = await getInvestorPageData();
+   const heroData = investorPageData.hero || null;
+   const investmentData = investorPageData.investment || null;
+
    return (
       <>
          <InvestorHero heroData={heroData} />
-         {/* <InvestorInvestment />
-         <InvestorSupport /> */}
+         <InvestorInvestment investmentData={investmentData} />
+         {/* <InvestorSupport /> */}
       </>
    );
 }

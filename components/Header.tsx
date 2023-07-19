@@ -81,7 +81,6 @@ const Header = () => {
             >
                {navbar &&
                   navbar.map((item: Navbar, i) => {
-                     console.log(activeLink, item.slug);
                      const isActive =
                         activeLink === item.slug ||
                         (activeLink == null && item.slug === "/");

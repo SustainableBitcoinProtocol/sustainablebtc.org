@@ -92,6 +92,7 @@ export async function getInvestorPageData() {
       groq`*[_type=="investorsPage"][0]{
          _id,
          hero,
+         investment,
       }`
    );
 }

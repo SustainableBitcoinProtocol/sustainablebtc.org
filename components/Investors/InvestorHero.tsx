@@ -31,13 +31,13 @@ const InvestorHero = ({ heroData }: { heroData: any }) => {
                            {heroData.heroSubHeading}
                         </h2>
                         <h1
-                           className={`${styles.heroHeading} heading heading-2`}
+                           className={`${styles.heroHeading} heading heading-1`}
                         >
                            {heroData.heroHeading}
                         </h1>
                      </div>
 
-                     <div>
+                     <div className={styles.heroPara}>
                         <PortableText value={heroData.heroPara} />
                      </div>
 
