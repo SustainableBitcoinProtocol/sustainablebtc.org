@@ -1,0 +1,85 @@
+.hero {
+   @apply py-32;
+   .heroImg {
+      @apply hidden;
+   }
+
+   .heroContent {
+      @apply flex flex-col items-center text-center gap-4;
+   }
+
+   .heroHeading {
+      @apply leading-[100%];
+      strong {
+         @include text-gradient(primary);
+      }
+   }
+
+   .heroCTA {
+      @apply flex gap-4 items-center flex-wrap;
+   }
+
+   .heroMiningFlow {
+      @apply flex items-stretch mt-4 mb-8;
+      li {
+         @apply inline-block p-3 px-6 flex-1;
+         @apply flex justify-center items-center;
+         @apply leading-[100%] text-center;
+
+         background: rgba($color: color($color-light), $alpha: 0.05);
+         clip-path: polygon(0 0, 90% 0, 100% 50%, 90% 100%, 0 100%, 10% 50%);
+
+         &:not(:first-child) {
+            @apply -ml-2;
+         }
+      }
+   }
+
+   .heroClients {
+      @apply mt-16;
+
+      .heroClientHeading {
+         @apply px-16 block text-center leading-[110%] mb-4;
+      }
+      .heroClientImage {
+         height: 100px;
+         @apply grid place-content-center;
+
+         img {
+            filter: brightness(0) invert(1);
+            opacity: 0.8;
+            max-height: 40px;
+            width: auto;
+         }
+      }
+   }
+
+   @include responsive(md) {
+      .heroMiningFlow {
+         li {
+            @apply p-5 px-12;
+            &:not(:first-child) {
+               @apply -ml-4;
+            }
+         }
+      }
+   }
+
+   @include responsive(lg) {
+      .heroWrapper {
+         @apply flex items-center justify-between;
+      }
+
+      .heroContent {
+         @apply max-w-[800px] items-start text-left;
+      }
+
+      .heroImg {
+         @apply block;
+
+         img {
+            @apply max-h-[400px] w-auto;
+         }
+      }
+   }
+}
