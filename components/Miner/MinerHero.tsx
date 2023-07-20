@@ -97,8 +97,6 @@ const MinerHero = ({ heroData }: { heroData: any }) => {
                      speed={1200}
                      freeMode={true}
                      grabCursor={true}
-                     mousewheelControl={true}
-                     keyboardControl={true}
                      breakpoints={{
                         100: {
                            slidesPerView: 4,
