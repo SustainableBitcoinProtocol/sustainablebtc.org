@@ -16,7 +16,7 @@
    }
 
    .heroCTA {
-      @apply flex gap-4 items-center flex-wrap;
+      @apply flex gap-4 items-center justify-center flex-wrap;
    }
 
    .heroMiningFlow {
@@ -24,7 +24,7 @@
       li {
          @apply inline-block p-3 px-6 flex-1;
          @apply flex justify-center items-center;
-         @apply leading-[100%] text-center;
+         @apply leading-[110%] text-center text-sm;
 
          background: rgba($color: color($color-light), $alpha: 0.05);
          clip-path: polygon(0 0, 90% 0, 100% 50%, 90% 100%, 0 100%, 10% 50%);
@@ -58,6 +58,7 @@
       .heroMiningFlow {
          li {
             @apply p-5 px-12;
+            @apply text-base;
             &:not(:first-child) {
                @apply -ml-4;
             }
@@ -74,11 +75,141 @@
          @apply max-w-[800px] items-start text-left;
       }
 
+      .heroCTA {
+         @apply justify-start;
+      }
+
       .heroImg {
          @apply block;
 
          img {
             @apply max-h-[400px] w-auto;
+         }
+      }
+   }
+}
+
+.use {
+   @apply mb-28;
+   .container {
+      @apply max-w-[1000px];
+      @apply flex flex-col justify-center items-center gap-12;
+   }
+
+   .useHeading {
+      @apply block text-center;
+
+      strong {
+         @include text-gradient(primary);
+      }
+   }
+
+   .useDescription {
+      @apply block text-center;
+      @apply max-w-[700px] mx-auto;
+
+      p:not(:last-child) {
+         @apply mb-4;
+      }
+   }
+
+   .useFeatures {
+      @apply grid gap-4;
+
+      li {
+         @apply rounded-lg;
+         @apply flex flex-col gap-2;
+         @apply p-4;
+         @apply transition-all duration-300 ease-out;
+
+         background: linear-gradient(
+            40deg,
+            rgba(#339dff, 0.1) 0%,
+            rgba(#0ec1d3, 0.1) 100%
+         );
+         border: 1px solid transparent;
+
+         &:hover {
+            border-color: #339dff;
+         }
+      }
+
+      .useFeatureHeading {
+         @include text-gradient(primary);
+      }
+   }
+
+   @include responsive(md) {
+      .useFeatures {
+         @apply grid-cols-2 gap-6;
+
+         li {
+            @apply p-6;
+            @apply gap-3;
+
+            &:hover {
+               rotate: -2deg;
+               scale: 1.1;
+            }
+         }
+      }
+   }
+}
+
+.requirement {
+   .container {
+   }
+
+   .requirementHeading {
+      @apply block text-center;
+
+      strong {
+         @include text-gradient(primary);
+      }
+   }
+
+   .requirementImage {
+      img {
+         @apply max-w-[1300px] mx-auto;
+      }
+   }
+
+   .requirementNotes {
+      @apply max-w-[1100px] mx-auto;
+      @apply flex flex-col gap-2;
+      @apply mt-10 mb-28;
+      font-size: 15px;
+
+      strong {
+         @apply font-extrabold;
+      }
+
+      h5 {
+         @apply text-xl;
+      }
+
+      ol,
+      ul {
+         @apply pl-5 my-1;
+      }
+
+      ol {
+         list-style-type: decimal;
+      }
+
+      ul {
+         list-style-type: circle;
+      }
+   }
+
+   @include responsive(lg) {
+      .requirementNotes {
+         @apply mt-20;
+         font-size: 16px;
+
+         ol,
+         ul {
+            @apply pl-6;
          }
       }
    }

@@ -30,7 +30,7 @@ const MinerHero = ({ heroData }: { heroData: any }) => {
                   {/* Left */}
                   <div className={styles.heroContent}>
                      {/* Heading */}
-                     <div className={`${styles.heroHeading} heading heading-2`}>
+                     <div className={`${styles.heroHeading} heading heading-1`}>
                         <PortableText value={heroData.heroHeading} />
                      </div>
                      {/* Sub Heading */}

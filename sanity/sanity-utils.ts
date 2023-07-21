@@ -126,6 +126,8 @@ export async function getMinerPageData() {
       groq`*[_type=="minersPage"][0]{
          _id,
          hero,
+         use,
+         requirement
       }`
    );
 }

@@ -10,6 +10,7 @@ const minersPage = {
          title: "Page Title",
          type: "string",
       },
+      // Hero
       {
          name: "hero",
          title: "Hero",
@@ -61,6 +62,88 @@ const minersPage = {
                      },
                   },
                ],
+            },
+         ],
+      },
+      // Use
+      {
+         name: "use",
+         title: "Clean Enerygy Usage",
+         type: "document",
+         fields: [
+            {
+               name: "useHeading",
+               title: "Heading",
+               type: "array",
+               of: [{ type: "block" }],
+            },
+            {
+               name: "useDescription",
+               title: "Description",
+               type: "array",
+               of: [{ type: "block" }],
+            },
+            {
+               name: "useFeatures",
+               title: "Features",
+               type: "array",
+               of: [
+                  {
+                     type: "document",
+                     fields: [
+                        {
+                           name: "useFeatureHeading",
+                           title: "Heading",
+                           type: "string",
+                        },
+                        {
+                           name: "useFeatureDescription",
+                           title: "Description",
+                           type: "array",
+                           of: [{ type: "block" }],
+                        },
+                     ],
+                  },
+               ],
+            },
+            {
+               name: "useCTA",
+               title: "CTA",
+               type: "array",
+               of: [{ type: "document", fields: btn }],
+            },
+         ],
+      },
+      // Requirement
+      {
+         name: "requirement",
+         title: "Requirements",
+         type: "document",
+         fields: [
+            {
+               name: "requirementHeading",
+               title: "Heading",
+               type: "array",
+               of: [{ type: "block" }],
+            },
+            {
+               name: "requirementImage",
+               title: "Requirement Image",
+               type: "image",
+               options: { hotspot: true },
+               fields: [
+                  {
+                     name: "alt",
+                     title: "Alt",
+                     type: "string",
+                  },
+               ],
+            },
+            {
+               name: "requirementNotes",
+               title: "Notes",
+               type: "array",
+               of: [{ type: "block" }],
             },
          ],
       },
