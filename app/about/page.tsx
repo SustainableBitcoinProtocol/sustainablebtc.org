@@ -1,8 +1,22 @@
 import React from "react";
-import ComingSoon from "@/components/ComingSoon";
+
+import { Metadata } from "next";
+
+// Import
+import AboutUsPage from "@/components/AboutUs/AboutUsPage";
+
+export const metadata: Metadata = {
+   title: "About Us | Sustainable Bitcoin Protocol",
+   description:
+      "Sustainable Bitcoin Protocol helps accelerate the bitcoin network's transition to clean energy.",
+};
 
 const page = () => {
-   return <ComingSoon />;
+   return (
+      <>
+         <AboutUsPage />
+      </>
+   );
 };
 
 export default page;

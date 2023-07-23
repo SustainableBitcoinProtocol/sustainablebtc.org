@@ -131,3 +131,19 @@ export async function getMinerPageData() {
       }`
    );
 }
+
+export async function getAboutPageData() {
+   const client = createClient({
+      projectId: "6e7plt23",
+      dataset: "production",
+      apiVersion: "2023-03-04",
+      useCdn: true,
+   });
+
+   return client.fetch(
+      groq`*[_type=="aboutPage"][0]{
+         _id,
+         hero,
+      }`
+   );
+}

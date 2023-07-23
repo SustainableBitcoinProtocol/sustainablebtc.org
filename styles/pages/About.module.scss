@@ -1,0 +1,67 @@
+.hero {
+   @apply h-[100vh] overflow-hidden;
+   @apply relative;
+
+   .videoHeroBg {
+      @apply absolute top-0 left-0 w-full h-full;
+      @apply object-cover;
+      @apply opacity-30;
+      @apply pointer-events-none select-none;
+   }
+
+   .imgHeroOverlay {
+      @apply absolute top-0 left-0 w-full h-full;
+      @apply object-cover;
+      @apply pointer-events-none select-none;
+   }
+
+   .imgHeroShape {
+      @apply hidden;
+   }
+
+   .container {
+      @apply flex justify-center items-center flex-col gap-8;
+      @apply relative z-10;
+      @apply h-[100vh] max-w-[1100px];
+      @apply text-center;
+      @apply pt-8;
+   }
+
+   .heroHeading {
+      strong {
+         @include text-gradient(primaryReverse);
+      }
+   }
+
+   .heroDescription {
+      @apply max-w-[800px] mx-auto mb-4 block;
+      @apply text-sm;
+   }
+
+   .heroCTA {
+      @apply flex justify-center items-center flex-wrap gap-4;
+   }
+
+   @include responsive(md) {
+      .imgHeroShape {
+         @apply block;
+         @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+         @apply h-[60vh];
+         @apply opacity-50;
+         @apply pointer-events-none select-none;
+      }
+
+      .container {
+         @apply gap-12;
+      }
+
+      .heroDescription {
+         @apply text-base mb-2;
+      }
+   }
+   @include responsive(lg) {
+      .imgHeroShape {
+         @apply h-[70vh];
+      }
+   }
+}
