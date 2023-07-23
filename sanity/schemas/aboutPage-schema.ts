@@ -99,6 +99,42 @@ const aboutPage = {
             },
          ],
       },
+      // Commitment
+      {
+         name: "commitment",
+         title: "Commitments",
+         type: "document",
+         fields: [
+            {
+               name: "commitmentHeading",
+               title: "Heading",
+               type: "array",
+               of: [{ type: "block" }],
+            },
+            {
+               name: "commitmentItems",
+               title: "Commitments",
+               type: "array",
+               of: [
+                  {
+                     type: "document",
+                     fields: [
+                        {
+                           name: "commitmentItemHeading",
+                           title: "Heading",
+                           type: "string",
+                        },
+                        {
+                           name: "commitmentItemDescription",
+                           title: "Description",
+                           type: "string",
+                        },
+                     ],
+                  },
+               ],
+            },
+         ],
+      },
    ],
 };
 

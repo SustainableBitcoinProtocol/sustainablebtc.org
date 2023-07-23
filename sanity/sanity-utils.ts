@@ -144,7 +144,8 @@ export async function getAboutPageData() {
       groq`*[_type=="aboutPage"][0]{
          _id,
          hero,
-         sbp
+         sbp,
+         commitment
       }`
    );
 }

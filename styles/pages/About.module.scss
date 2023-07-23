@@ -67,7 +67,7 @@
 }
 
 .sbp {
-   @apply py-28;
+   @apply my-28;
 
    .container {
       @apply max-w-[900px];
@@ -84,7 +84,7 @@
    }
 
    .sbpVisionMission {
-      @apply flex justify-center items-center gap-10 flex-col;
+      @apply flex justify-center items-center gap-10 flex-col text-center;
       @apply mt-32;
       @apply relative;
 
@@ -118,9 +118,13 @@
    }
 
    @include responsive(md) {
+      @apply my-32;
       .sbpVisionMission {
          @apply flex-row gap-20;
 
+         .sbpVision {
+            @apply text-left;
+         }
          .sbpMission {
             & > * {
                @apply block text-right;
@@ -130,7 +134,7 @@
    }
 
    @include responsive(lg) {
-      @apply py-32;
+      @apply my-48;
 
       .sbpVisionMission {
          @apply mt-44;
@@ -164,6 +168,161 @@
                to {
                   transform: translate(0%, 1%) rotate(359deg);
                }
+            }
+         }
+      }
+   }
+}
+
+.commitment {
+   @apply my-28;
+   .container {
+      @apply max-w-[1200px];
+   }
+
+   .commitmentHeading {
+      @apply block;
+
+      strong {
+         @include text-gradient(primary);
+      }
+   }
+
+   .commitments {
+      @apply grid grid-cols-1 gap-8;
+      @apply mt-8;
+
+      .commitmentItem {
+         @apply relative;
+         @apply pl-8;
+         @apply flex flex-col gap-2;
+
+         &:nth-child(1)::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0.5rem;
+            transform: translateX(-50%);
+            width: 1px;
+            height: calc((100% * 5) + (2.5rem * 8));
+            background: $gradient-primary;
+            opacity: 0.3;
+         }
+
+         &::before {
+            content: "";
+            position: absolute;
+            top: 0.9rem;
+            left: 0.5rem;
+            transform: translate(-50%, -50%);
+            width: 0.8rem;
+            height: 0.8rem;
+            border-radius: 100%;
+            background: $gradient-primary;
+         }
+      }
+   }
+
+   @include responsive(md) {
+      @apply my-32;
+
+      .commitmentHeading {
+         @apply text-center;
+      }
+
+      .commitments {
+         @apply grid grid-cols-2 gap-10 gap-y-4;
+         @apply mt-16;
+
+         .commitmentItem {
+            @apply relative;
+            @apply py-10 pl-0;
+
+            &:nth-child(1)::after {
+               all: initial;
+            }
+
+            &:nth-child(1)::after,
+            &:nth-child(3)::after,
+            &:nth-child(5)::after {
+               content: "";
+               position: absolute;
+               top: 0;
+               left: 0;
+               width: calc((100% * 2) + (2.5rem));
+               height: 1px;
+               background: $gradient-primary;
+               opacity: 0.3;
+            }
+
+            &:nth-child(2)::after {
+               content: "";
+               position: absolute;
+               top: 0;
+               left: -1.25rem;
+               transform: translateX(-50%);
+               width: 1px;
+               height: calc((100% * 3) + (1rem));
+               background: $gradient-primary;
+               opacity: 0.3;
+            }
+
+            &::before {
+               content: "";
+               position: absolute;
+               top: 0;
+               transform: translateY(-50%);
+               width: 0.8rem;
+               height: 0.8rem;
+               border-radius: 100%;
+               background: $gradient-primary;
+            }
+         }
+      }
+   }
+
+   @include responsive(lg) {
+      .commitments {
+         @apply grid grid-cols-3 gap-x-20 gap-y-6;
+         @apply mt-28;
+
+         .commitmentItem {
+            @apply py-12 pl-0;
+
+            &:nth-child(1)::after,
+            &:nth-child(4)::after {
+               content: "";
+               position: absolute;
+               top: 0;
+               left: 0;
+               width: calc((100% * 3) + (5rem * 2));
+               height: 1px;
+               background: $gradient-primary;
+               opacity: 0.3;
+            }
+
+            &:nth-child(2)::after,
+            &:nth-child(3)::after {
+               content: "";
+               position: absolute;
+               top: calc(100% - 1rem);
+               left: -2.5rem;
+               transform: translate(-50%, -50%);
+               width: 1px;
+               height: calc((100% * 2) + (1.5rem * 3));
+               background: $gradient-primary;
+               opacity: 0.3;
+            }
+
+            &::before {
+               content: "";
+               position: absolute;
+               top: 0;
+               transform: translateY(-50%);
+               width: 0.8rem;
+               height: 0.8rem;
+               border-radius: 100%;
+               background: $gradient-primary;
             }
          }
       }
