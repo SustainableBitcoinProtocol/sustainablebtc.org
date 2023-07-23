@@ -65,3 +65,107 @@
       }
    }
 }
+
+.sbp {
+   @apply py-28;
+
+   .container {
+      @apply max-w-[900px];
+   }
+
+   .sbpHeading {
+      @apply block text-center;
+      strong {
+         @include text-gradient(primary);
+      }
+   }
+   .sbpDescription {
+      @apply text-center my-8 mx-auto block max-w-[750px];
+   }
+
+   .sbpVisionMission {
+      @apply flex justify-center items-center gap-10 flex-col;
+      @apply mt-32;
+      @apply relative;
+
+      .sbpMission,
+      .sbpVision {
+         @apply flex flex-col gap-4 flex-1;
+
+         strong {
+            @include text-gradient(primary);
+         }
+      }
+
+      .sbpVision {
+         .sbpVisionLine {
+            @apply absolute -top-16 left-0;
+            @apply pointer-events-none select-none;
+         }
+      }
+
+      .sbpMission {
+         .sbpMissionLine {
+            @apply absolute -top-16 right-0;
+            transform: scaleX(-1);
+            @apply pointer-events-none select-none;
+         }
+      }
+
+      .sbpIcon {
+         @apply hidden;
+      }
+   }
+
+   @include responsive(md) {
+      .sbpVisionMission {
+         @apply flex-row gap-20;
+
+         .sbpMission {
+            & > * {
+               @apply block text-right;
+            }
+         }
+      }
+   }
+
+   @include responsive(lg) {
+      @apply py-32;
+
+      .sbpVisionMission {
+         @apply mt-44;
+         .sbpIcon {
+            translate: 0 10%;
+            @apply block m-auto relative z-20;
+
+            img {
+               @apply relative z-20;
+            }
+            &::before {
+               content: "";
+               position: absolute;
+               top: 0;
+               left: 0;
+               translate: -35% -35%;
+               background: url("../../public/home/sbc-icon-bg.svg");
+               width: 338px;
+               height: 342px;
+               z-index: 0;
+               animation: rotation 8s infinite linear;
+            }
+
+            @keyframes rotation {
+               from {
+                  transform: translate(0%, 1%) rotate(0deg);
+               }
+               50% {
+                  transform: translate(0%, -2%) rotate(180deg);
+               }
+               to {
+                  transform: translate(0%, 1%) rotate(359deg);
+               }
+            }
+         }
+      }
+   }
+}

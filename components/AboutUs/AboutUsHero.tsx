@@ -19,7 +19,13 @@ const AboutUsHero = ({ heroData }: { heroData: any }) => {
    return (
       <section className={styles.hero}>
          {/* Hero Video */}
-         <video autoPlay loop muted className={styles.videoHeroBg}>
+         <video
+            autoPlay
+            loop
+            muted
+            preload="none"
+            className={styles.videoHeroBg}
+         >
             <source src="/about/hero-bg-video.mp4" />
          </video>
 
