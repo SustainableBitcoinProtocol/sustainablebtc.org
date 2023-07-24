@@ -145,7 +145,8 @@ export async function getAboutPageData() {
          _id,
          hero,
          sbp,
-         commitment
+         commitment,
+         team
       }`
    );
 }

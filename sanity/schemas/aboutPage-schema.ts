@@ -135,6 +135,163 @@ const aboutPage = {
             },
          ],
       },
+      // Team
+      {
+         name: "team",
+         title: "Team",
+         type: "document",
+         fields: [
+            // SBP Team
+            {
+               name: "sbpTeam",
+               title: "SBP Team",
+               type: "document",
+               fields: [
+                  {
+                     name: "sbpTeamHeading",
+                     title: "Heading",
+                     type: "array",
+                     of: [{ type: "block" }],
+                  },
+                  {
+                     name: "sbpTeamMember",
+                     title: "Members",
+                     type: "array",
+                     of: [
+                        {
+                           type: "document",
+                           fields: [
+                              // Image
+                              {
+                                 name: "sbpTeamMemberImage",
+                                 title: "Image",
+                                 type: "image",
+                                 options: { hotspot: true },
+                                 fields: [
+                                    {
+                                       name: "alt",
+                                       title: "Alt",
+                                       type: "string",
+                                    },
+                                 ],
+                              },
+                              // Name
+                              {
+                                 name: "sbpTeamMemberName",
+                                 title: "Name",
+                                 type: "string",
+                              },
+                              // Designation
+                              {
+                                 name: "sbpTeamMemberDesignation",
+                                 title: "Designation",
+                                 type: "string",
+                              },
+                              // Experience
+                              {
+                                 name: "sbpTeamMemberExperience",
+                                 title: "Companies experienced in",
+                                 type: "array",
+                                 of: [
+                                    {
+                                       type: "image",
+                                       fields: [
+                                          {
+                                             name: "alt",
+                                             title: "Alt",
+                                             type: "string",
+                                          },
+                                       ],
+                                    },
+                                 ],
+                                 options: {
+                                    layout: "grid",
+                                    hotspot: true,
+                                 },
+                              },
+                           ],
+                        },
+                     ],
+                  },
+               ],
+            },
+
+            // SBP Advisors
+            {
+               name: "sbpAdvisors",
+               title: "SBP Team",
+               type: "document",
+               fields: [
+                  {
+                     name: "sbpAdvisorsHeading",
+                     title: "Heading",
+                     type: "array",
+                     of: [{ type: "block" }],
+                  },
+                  {
+                     name: "sbpAdvisorsMember",
+                     title: "Members",
+                     type: "array",
+                     of: [
+                        {
+                           type: "document",
+                           fields: [
+                              // Image
+                              {
+                                 name: "sbpAdvisorsMemberImage",
+                                 title: "Image",
+                                 type: "image",
+                                 options: { hotspot: true },
+                                 fields: [
+                                    {
+                                       name: "alt",
+                                       title: "Alt",
+                                       type: "string",
+                                    },
+                                 ],
+                              },
+                              // Name
+                              {
+                                 name: "sbpAdvisorsMemberName",
+                                 title: "Name",
+                                 type: "string",
+                              },
+                              // Designation
+                              {
+                                 name: "sbpAdvisorsMemberDesignation",
+                                 title: "Designation",
+                                 type: "string",
+                              },
+                              // Experience
+                              {
+                                 name: "sbpAdvisorsMemberExperience",
+                                 title: "Companies experienced in",
+                                 type: "array",
+                                 of: [
+                                    {
+                                       type: "image",
+                                       fields: [
+                                          {
+                                             name: "alt",
+                                             title: "Alt",
+                                             type: "string",
+                                          },
+                                       ],
+                                    },
+                                 ],
+                                 options: {
+                                    layout: "grid",
+                                    hotspot: true,
+                                 },
+                              },
+                           ],
+                        },
+                     ],
+                  },
+               ],
+            },
+         ],
+      },
    ],
 };
 
