@@ -292,6 +292,41 @@ const aboutPage = {
             },
          ],
       },
+      // Support
+      {
+         name: "support",
+         title: "Supporting Companies",
+         type: "document",
+         fields: [
+            {
+               name: "supportHeading",
+               title: "Heading",
+               type: "array",
+               of: [{ type: "block" }],
+            },
+            {
+               name: "supportCompany",
+               title: "Supported By",
+               type: "array",
+               of: [
+                  {
+                     type: "image",
+                     fields: [
+                        {
+                           name: "alt",
+                           title: "Alt",
+                           type: "string",
+                        },
+                     ],
+                  },
+               ],
+               options: {
+                  layout: "grid",
+                  hotspot: true,
+               },
+            },
+         ],
+      },
    ],
 };
 

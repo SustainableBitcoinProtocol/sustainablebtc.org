@@ -5,6 +5,7 @@ import AboutUsHero from "./AboutUsHero";
 import AboutUsSBP from "./AboutUsSBP";
 import AboutUsCommitment from "./AboutUsCommitment";
 import AboutUsTeam from "./AboutUsTeam";
+import AboutUsSupport from "./AboutUsSupport";
 
 // import Sanity
 import { getAboutPageData } from "@/sanity/sanity-utils";
@@ -15,6 +16,7 @@ export default async function AboutUsPage() {
    const sbpData = aboutPageData.sbp || null;
    const commitmentData = aboutPageData.commitment || null;
    const teamData = aboutPageData.team || null;
+   const supportData = aboutPageData.support || null;
 
    return (
       <div>
@@ -22,6 +24,7 @@ export default async function AboutUsPage() {
          <AboutUsSBP sbpData={sbpData} />
          <AboutUsCommitment commitmentData={commitmentData} />
          <AboutUsTeam teamData={teamData} />
+         <AboutUsSupport supportData={supportData} />
       </div>
    );
 }

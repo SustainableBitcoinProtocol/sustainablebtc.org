@@ -454,3 +454,59 @@
       }
    }
 }
+
+.support {
+   @apply my-32;
+   @apply min-h-0;
+
+   .supportHeading {
+      @apply block mx-auto max-w-[850px];
+      @apply leading-[110%] text-center;
+      @apply mb-16;
+
+      strong {
+         @include text-gradient(primary);
+      }
+   }
+   .supportCompanySlide {
+      @apply w-auto h-16;
+
+      @apply rounded-md;
+      border: 1px solid rgba(#339dff, 0.5);
+      background: linear-gradient(
+         40deg,
+         rgba(#339dff, 0.05) 0%,
+         rgba(#0ec1d3, 0.05) 100%
+      );
+
+      @apply grid place-content-center;
+      @apply p-2;
+
+      img {
+         @apply max-w-[60%] h-auto mx-auto;
+         filter: brightness(0) invert(1);
+      }
+
+      &:hover {
+         border: 1px solid rgba(#339dff, 1);
+         background: linear-gradient(
+            40deg,
+            rgba(#339dff, 1) 0%,
+            rgba(#0ec1d3, 1) 100%
+         );
+      }
+   }
+
+   @include responsive(md) {
+      @apply my-44;
+   }
+
+   @include responsive(lg) {
+      .supportCompanySlide {
+         @apply p-4;
+         img {
+            @apply max-w-[70%] h-auto mx-auto;
+         }
+      }
+   }
+}
