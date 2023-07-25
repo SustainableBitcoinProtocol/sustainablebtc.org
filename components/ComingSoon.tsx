@@ -14,9 +14,20 @@ const ComingSoon = () => {
             </h1>
 
             <div className={styles.doYouKnow}>
-               <strong>Do you know?</strong> our protocol financially
-               incentivizes Bitcoin miners to use verified clean energy and for
-               the first time allows investors to own Bitcoin sustainably.
+               <h6 className="heading heading-6">
+                  <strong>Do you know?</strong>
+               </h6>
+               <p className="para mt-2">
+                  Data transparency is a core tenet of Sustainable Bitcoin
+                  Protocol. Transparency is the most valuable lever we have to
+                  drive credibility and trust.
+               </p>
+               <p className="para mt-2">
+                  SBP will publish all clean energy data pertaining to the
+                  issuance of Sustainable Bitcoin Certificates so that all
+                  stakeholders including investors, governments, and climate
+                  organizations can make informed decisions.
+               </p>
             </div>
 
             <div className={styles.btnWrapper}>
