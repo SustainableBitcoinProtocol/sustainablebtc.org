@@ -37,10 +37,10 @@ const FooterCareerForm = () => {
             // Send mail
             emailjs
                .sendForm(
-                  "service_6c6nuvf",
-                  "template_fn15q5o",
+                  process.env.NEXT_PUBLIC_EMAILJS_SERVICE_KEY || "",
+                  process.env.NEXT_PUBLIC_EMAILJS_CAREERFORM_TEMPLATE_KEY || "",
                   careerForm.current || "",
-                  "EHpvu6PK59CxE9qhj"
+                  process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
                )
                .then(
                   (result: any) => {

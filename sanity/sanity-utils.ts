@@ -1,34 +1,33 @@
 import { createClient, groq } from "next-sanity";
-import { Navbar } from "@/types/navbar";
 import { FooterType } from "@/types/footer-type";
 
-export async function getNavbar(): Promise<Navbar[]> {
-   const client = createClient({
-      projectId: "6e7plt23",
-      dataset: "production",
-      apiVersion: "2023-03-04",
-   });
+// ! ===============================================================
+// ! Defining global client object
+// ! ===============================================================
+// #region Global Declarations
+const client = createClient({
+   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "",
+   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "",
+   apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION || "",
+   useCdn: true,
+});
+// #endregion
 
+// ! ===============================================================
+// ! FETCH COMPONENT DATA
+// ! ===============================================================
+// #region component data fetch
+export async function getNavbarData() {
    return client.fetch(
-      groq`*[_type=="navbar"] | order(_createdAt asc){
+      groq`*[_type=="navbar"][8]{
          _id,
-         _createdAt,
-         name,
-         'slug': slug.current,
-         isSecondary,
-         isButton,
-         iconName,
+         primaryNavigation,
+         secondaryNavigation
       }`
    );
 }
 
 export async function getFooterData(): Promise<FooterType[]> {
-   const client = createClient({
-      projectId: "6e7plt23",
-      dataset: "production",
-      apiVersion: "2023-03-04",
-   });
-
    return client.fetch(
       groq`*[_type=="footer"]{
          _id,
@@ -42,14 +41,13 @@ export async function getFooterData(): Promise<FooterType[]> {
       }`
    );
 }
+// #endregion
 
+// ! ===============================================================
+// ! FETCH PAGEs DATA
+// ! ===============================================================
+// #region page wise data fetch
 export async function getHomePageData() {
-   const client = createClient({
-      projectId: "6e7plt23",
-      dataset: "production",
-      apiVersion: "2023-03-04",
-   });
-
    return client.fetch(
       groq`*[_type=="homePage"][0]{
          _id,
@@ -61,13 +59,6 @@ export async function getHomePageData() {
 }
 
 export async function getSBCPageData() {
-   const client = createClient({
-      projectId: "6e7plt23",
-      dataset: "production",
-      apiVersion: "2023-03-04",
-      useCdn: true,
-   });
-
    return client.fetch(
       groq`*[_type=="sbcPage"][0]{
          _id,
@@ -81,13 +72,6 @@ export async function getSBCPageData() {
 }
 
 export async function getInvestorPageData() {
-   const client = createClient({
-      projectId: "6e7plt23",
-      dataset: "production",
-      apiVersion: "2023-03-04",
-      useCdn: true,
-   });
-
    return client.fetch(
       groq`*[_type=="investorsPage"][0]{
          _id,
@@ -99,13 +83,6 @@ export async function getInvestorPageData() {
 }
 
 export async function getGetStartedPageData() {
-   const client = createClient({
-      projectId: "6e7plt23",
-      dataset: "production",
-      apiVersion: "2023-03-04",
-      useCdn: true,
-   });
-
    return client.fetch(
       groq`*[_type=="getStartedPage"][0]{
          _id,
@@ -115,13 +92,6 @@ export async function getGetStartedPageData() {
 }
 
 export async function getMinerPageData() {
-   const client = createClient({
-      projectId: "6e7plt23",
-      dataset: "production",
-      apiVersion: "2023-03-04",
-      useCdn: true,
-   });
-
    return client.fetch(
       groq`*[_type=="minersPage"][0]{
          _id,
@@ -133,13 +103,6 @@ export async function getMinerPageData() {
 }
 
 export async function getAboutPageData() {
-   const client = createClient({
-      projectId: "6e7plt23",
-      dataset: "production",
-      apiVersion: "2023-03-04",
-      useCdn: true,
-   });
-
    return client.fetch(
       groq`*[_type=="aboutPage"][0]{
          _id,
@@ -151,3 +114,4 @@ export async function getAboutPageData() {
       }`
    );
 }
+// #endregion

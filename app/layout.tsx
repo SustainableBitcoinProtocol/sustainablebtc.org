@@ -5,7 +5,7 @@ import "@/styles/global.scss";
 import localFont from "@next/font/local";
 
 // Custom Components
-import Header from "@/components/Header";
+import Header from "@/components/HeaderFooter/Header";
 import Footer from "@/components/Footer";
 
 // Importing icons

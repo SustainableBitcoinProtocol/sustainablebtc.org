@@ -1,6 +1,6 @@
 import projects from "./projects-schema";
 import navbar from "./navbar-schema";
-import footerSchema from "./footer-schema";
+import footer from "./footer-schema";
 
 import homePage from "./homePage-schema";
 import sbcPage from "./sbcPage-schema";
@@ -13,7 +13,7 @@ import getStartedPage from "./getStartedPage-schema";
 const schemas = [
    projects,
    navbar,
-   footerSchema,
+   footer,
    homePage,
    sbcPage,
    investorsPage,

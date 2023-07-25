@@ -11,9 +11,8 @@ import { usePathname } from "next/navigation";
 import { PortableText } from "@portabletext/react";
 
 // Importing Schema utils
-import { getFooterData, getNavbar } from "@/sanity/sanity-utils";
+import { getFooterData, getNavbarData } from "@/sanity/sanity-utils";
 import { FooterType } from "@/types/footer-type";
-import { Navbar } from "@/types/navbar";
 
 // Custom Components
 import FooterCareerForm from "./FooterCareerForm";
@@ -21,11 +20,11 @@ import FooterCareerForm from "./FooterCareerForm";
 const Footer = () => {
    // Data
    const [footerData, setFooterData] = useState<FooterType>();
-   const [navbarData, setNavbarData] = useState<Navbar[]>();
+   const [navbarData, setNavbarData] = useState<any>();
    useEffect(() => {
       const setFooter = async () => {
          setFooterData((await getFooterData())[0]);
-         setNavbarData(await getNavbar());
+         setNavbarData(await getNavbarData());
       };
       setFooter();
    }, []);
@@ -56,8 +55,8 @@ const Footer = () => {
                {/* Navigation Links */}
                <ul>
                   {navbarData &&
-                     navbarData.map((item, i) => {
-                        if (!item.isSecondary) {
+                     navbarData.primaryNavigation.map(
+                        (item: any, i: number) => {
                            return (
                               <>
                                  <li key={i}>
@@ -71,7 +70,7 @@ const Footer = () => {
                               </>
                            );
                         }
-                     })}
+                     )}
                </ul>
 
                {/* Footer Links */}

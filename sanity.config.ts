@@ -6,6 +6,7 @@ import schemas from "./sanity/schemas/";
 const singletonActions = new Set(["publish", "discardChanges", "restore"]);
 // singleton document types
 const singletonTypes = new Set([
+   "navbar",
    "homePage",
    "sbcPage",
    "investorsPage",
@@ -21,7 +22,7 @@ const config = defineConfig({
    title: "Studio | Sustainable Bitcoin Protocol",
    apiVersion: "2023-03-04",
    basePath: "/studio",
-   useCdn: true, // make sure to make it true once we are done
+   useCdn: false, // make sure to make it true once we are done
    plugins: [
       deskTool({
          structure: (S) =>
@@ -29,6 +30,12 @@ const config = defineConfig({
                .title("Website Content")
                .items([
                   // Our singleton type has a list item with a custom child
+                  S.listItem()
+                     .title("Component / Navbar")
+                     .id("navbar")
+                     .child(
+                        S.document().schemaType("navbar").documentId("navbar")
+                     ),
                   S.listItem()
                      .title("Page / Home")
                      .id("homePage")
@@ -85,7 +92,6 @@ const config = defineConfig({
                      ),
 
                   // Regular Documents
-                  S.documentTypeListItem("navbar").title("Component / Navbar"),
                   S.documentTypeListItem("footer").title("Component / Footer"),
                ]),
       }),
