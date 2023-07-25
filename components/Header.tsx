@@ -10,7 +10,7 @@ import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
 
 // Importing Schema utils
-import { getNavbar } from "@/sanity/sanity-utils";
+import { getNavbarData } from "@/sanity/sanity-utils";
 import { Navbar } from "@/types/navbar";
 
 // Images
@@ -39,7 +39,7 @@ const Header = () => {
 
    useEffect(() => {
       const setNavbarData = async () => {
-         setNavbar(await getNavbar());
+         setNavbar(await getNavbarData());
       };
       setNavbarData();
    }, []);
