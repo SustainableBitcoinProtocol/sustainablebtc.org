@@ -20,18 +20,7 @@ const ContactUsForm = () => {
    const serviceErr = useRef(null);
    const submitBtn = useRef(null);
 
-   const submitContactForm = (e: {
-      preventDefault: () => void;
-      target: {
-         elements: {
-            name: any;
-            email: any;
-            contact: any;
-            service: any;
-            message: any;
-         };
-      };
-   }) => {
+   const submitContactForm = (e: any) => {
       e.preventDefault();
       const { name, email, contact, service, message } = e.target.elements;
 
