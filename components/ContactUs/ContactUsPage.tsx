@@ -1,11 +1,18 @@
 import React from "react";
 
-const ContactUsPage = () => {
+// import components
+import ContactUsHero from "./ContactUsHero";
+
+// import Sanity
+import { getContactPageData } from "@/sanity/sanity-utils";
+
+export default async function ContactUsPage() {
+   const contactPageData = await getContactPageData();
+   const heroData = contactPageData.hero || null;
+
    return (
       <>
-         <div>ContactUsPage</div>
+         <ContactUsHero heroData={heroData} />
       </>
    );
-};
-
-export default ContactUsPage;
+}

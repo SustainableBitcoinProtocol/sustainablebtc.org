@@ -119,6 +119,50 @@
 
          .formGroup {
             @apply flex-1 m-0 w-full;
+
+            input,
+            textarea {
+               @apply rounded-md;
+               @apply bg-transparent;
+               @apply py-3 px-6;
+
+               // gradient border
+               border: 1px solid transparent;
+               background-image: linear-gradient(
+                     40deg,
+                     color($color-dark, 500) 0%,
+                     color($color-dark, 500) 100%
+                  ),
+                  linear-gradient(40deg, #339dff 0%, #0ec1d3 100%);
+               background-origin: border-box;
+               background-clip: padding-box, border-box;
+
+               width: auto;
+               box-shadow: none;
+               overflow: hidden;
+
+               &:focus-visible,
+               &:valid {
+                  outline: none;
+                  border: 1px solid transparent;
+                  background-image: linear-gradient(
+                        40deg,
+                        color($color-dark, 300) 0%,
+                        color($color-dark, 400) 50%
+                     ),
+                     linear-gradient(40deg, #339dff 0%, #0ec1d3 100%);
+                  background-origin: border-box;
+                  background-clip: padding-box, border-box;
+               }
+
+               &.error {
+                  outline: 1px solid color($color-red) !important;
+               }
+
+               &::placeholder {
+                  @apply tracking-wide;
+               }
+            }
          }
       }
 

@@ -114,4 +114,13 @@ export async function getAboutPageData() {
       }`
    );
 }
+
+export async function getContactPageData() {
+   return client.fetch(
+      groq`*[_type=="contactPage"][0]{
+         _id,
+         hero,
+      }`
+   );
+}
 // #endregion

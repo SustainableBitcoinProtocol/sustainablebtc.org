@@ -23,7 +23,7 @@ $color-dark: (
 );
 $color-red: (
    300: #e13535,
-   default: #e13535,
+   default: #f83939,
 );
 @function color($color, $weight: default) {
    @return map-get($map: $color, $key: $weight);

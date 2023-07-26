@@ -9,6 +9,7 @@ import minersPage from "./minersPage-schema";
 import transparencyPage from "./transparencyPage-schema";
 import aboutPage from "./aboutPage-schema";
 import getStartedPage from "./getStartedPage-schema";
+import contactPage from "./contactPage-schema";
 
 const schemas = [
    projects,
@@ -21,6 +22,7 @@ const schemas = [
    transparencyPage,
    aboutPage,
    getStartedPage,
+   contactPage,
 ];
 
 export default schemas;
