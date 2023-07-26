@@ -22,7 +22,7 @@
    .container {
       @apply flex justify-center items-center flex-col gap-8;
       @apply relative z-10;
-      @apply h-[100vh] max-w-[1100px];
+      @apply h-[100vh] max-w-[900px];
       @apply text-center;
       @apply pt-8;
    }
@@ -84,7 +84,7 @@
    }
 
    .sbpVisionMission {
-      @apply flex justify-center items-center gap-10 flex-col text-center;
+      @apply flex justify-center items-start gap-10 flex-col text-center;
       @apply mt-32;
       @apply relative;
 
@@ -197,6 +197,7 @@
          @apply pl-8;
          @apply flex flex-col gap-2;
 
+         // Vertical Line
          &:nth-child(1)::after {
             content: "";
             position: absolute;
@@ -204,7 +205,7 @@
             left: 0.5rem;
             transform: translateX(-50%);
             width: 1px;
-            height: calc((100% * 5) + (2.5rem * 8));
+            height: calc((100% * 6) + (2.5rem * 8));
             background: $gradient-primary;
             opacity: 0.3;
          }
@@ -242,6 +243,7 @@
                all: initial;
             }
 
+            // Horizontal Line
             &:nth-child(1)::after,
             &:nth-child(3)::after,
             &:nth-child(5)::after {
@@ -255,6 +257,7 @@
                opacity: 0.3;
             }
 
+            // Verticle Line
             &:nth-child(2)::after {
                content: "";
                position: absolute;
@@ -262,7 +265,7 @@
                left: -1.25rem;
                transform: translateX(-50%);
                width: 1px;
-               height: calc((100% * 3) + (1rem));
+               height: calc((100% * 2.5));
                background: $gradient-primary;
                opacity: 0.3;
             }
@@ -290,6 +293,7 @@
          .commitmentItem {
             @apply py-12 pl-0;
 
+            // Horizontal Line
             &:nth-child(1)::after,
             &:nth-child(4)::after {
                content: "";
@@ -302,15 +306,16 @@
                opacity: 0.3;
             }
 
+            // Verticle Line
             &:nth-child(2)::after,
             &:nth-child(3)::after {
                content: "";
                position: absolute;
-               top: calc(100% - 1rem);
+               top: calc(100% - 2rem);
                left: -2.5rem;
                transform: translate(-50%, -50%);
                width: 1px;
-               height: calc((100% * 2) + (1.5rem * 3));
+               height: calc((100% * 2));
                background: $gradient-primary;
                opacity: 0.3;
             }
@@ -404,7 +409,7 @@
          @apply flex justify-center items-center gap-3 flex-wrap;
 
          img {
-            @apply max-h-[22px] w-auto;
+            @apply h-[22px] w-auto;
             filter: grayscale(1) invert(1);
             opacity: 0.7;
             @apply transition-all duration-300 ease-out;
@@ -434,10 +439,6 @@
 
          .memberExperience {
             @apply flex-nowrap;
-
-            img {
-               @apply flex-1;
-            }
          }
       }
    }
