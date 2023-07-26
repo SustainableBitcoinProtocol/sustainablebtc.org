@@ -181,7 +181,7 @@
       .supportType {
          @apply w-3/4;
          .supportTypeLogoWrapper {
-            @apply grid-cols-3 gap-4;
+            @apply flex justify-center gap-4;
 
             .supportTypeLogo {
                @apply py-4;
@@ -197,7 +197,7 @@
       .supportType {
          @apply w-full;
          .supportTypeLogoWrapper {
-            @apply grid-cols-4 mt-8;
+            @apply mt-8;
             .supportTypeLogo {
                @apply py-6;
             }
