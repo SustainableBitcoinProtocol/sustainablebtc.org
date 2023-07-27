@@ -216,9 +216,9 @@
 }
 
 .qualify {
-   @apply my-28;
+   @apply my-28 min-h-fit;
    .container {
-      @apply max-w-[1100px];
+      // @apply max-w-[1100px];
    }
 
    .qualifyHeading {
@@ -251,7 +251,7 @@
    }
 
    @include responsive(md) {
-      @apply my-32;
+      @apply my-44;
 
       .qualifyPractices {
          @apply grid-cols-3;
@@ -260,7 +260,71 @@
 
    @include responsive(lg) {
       .qualifyPractices {
-         @apply grid-cols-4 gap-6 p-6;
+         @apply grid-cols-4 gap-6;
+
+         .card {
+            @apply p-6;
+         }
+      }
+   }
+}
+
+.qualifyForm {
+   @apply my-28;
+
+   .container {
+      @apply max-w-[1000px];
+      @apply flex justify-center items-center gap-6;
+   }
+
+   .qualifyFormHeading {
+      @include text-gradient(primary);
+      @apply mb-12 leading-[140%];
+   }
+
+   .qualifyImage {
+      @apply hidden relative w-[200px] h-[500px];
+      background: linear-gradient(
+         40deg,
+         rgba(#339dff, 0.1) 0%,
+         rgba(#0ec1d3, 0) 100%
+      );
+
+      &::after {
+         content: "";
+         position: absolute;
+         top: 0;
+         right: 100%;
+         width: 1px;
+         height: 100%;
+         background: $gradient-primary;
+         opacity: 0.3;
+      }
+   }
+
+   .qualifyFormWrapper {
+      @apply flex-1;
+   }
+
+   @include responsive(md) {
+      @apply my-32;
+
+      .container {
+         @apply gap-8;
+      }
+
+      .qualifyImage {
+         @apply w-[150px];
+         @apply block;
+      }
+   }
+
+   @include responsive(lg) {
+      .container {
+         @apply gap-20;
+      }
+      .qualifyImage {
+         @apply w-[200px];
       }
    }
 }
