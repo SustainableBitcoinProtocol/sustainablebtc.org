@@ -76,7 +76,7 @@ const ContactUsForm = () => {
             )
             .then(
                (result: any) => {
-                  // console.log(result.text);
+                  console.log(result.text);
                },
                (error: any) => {
                   console.log(error.text);
