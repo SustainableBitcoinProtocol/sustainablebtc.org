@@ -16,7 +16,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 
 // Image
-import imgTestimonialLine from "@/public/home/testomonialLine.svg";
 
 export default function HomeTestimonials({
    testimonialData,
@@ -25,12 +24,6 @@ export default function HomeTestimonials({
 }) {
    return (
       <section className={styles.testimonials}>
-         <Image
-            src={imgTestimonialLine}
-            alt="Line"
-            className={styles.testimonialLine}
-         />
-
          <div className={`${styles.container} container`}>
             {testimonialData && (
                <div className={styles.testimonialWrapper}>

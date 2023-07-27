@@ -1,3 +1,5 @@
+import btn from "../components/btn-schema";
+
 const homePage = {
    name: "homePage",
    title: "Home Page",
@@ -270,6 +272,37 @@ const homePage = {
                            ],
                         },
                      ],
+                  },
+               ],
+            },
+         ],
+      },
+      // Trust
+      {
+         name: "trust",
+         title: "Trust",
+         type: "document",
+         fields: [
+            {
+               name: "trustHeading",
+               title: "Heading",
+               type: "array",
+               of: [{ type: "block" }],
+            },
+            {
+               name: "trustDescription",
+               title: "Description",
+               type: "array",
+               of: [{ type: "block" }],
+            },
+            {
+               name: "trustCTA",
+               title: "CTA",
+               type: "array",
+               of: [
+                  {
+                     type: "document",
+                     fields: btn,
                   },
                ],
             },

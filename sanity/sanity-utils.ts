@@ -53,7 +53,8 @@ export async function getHomePageData() {
          _id,
          hero,
          sbc,
-         testimonials
+         testimonials,
+         trust
       }`
    );
 }

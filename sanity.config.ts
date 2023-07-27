@@ -32,12 +32,6 @@ const config = defineConfig({
                .items([
                   // Our singleton type has a list item with a custom child
                   S.listItem()
-                     .title("Component / Navbar")
-                     .id("navbar")
-                     .child(
-                        S.document().schemaType("navbar").documentId("navbar")
-                     ),
-                  S.listItem()
                      .title("Page / Home")
                      .id("homePage")
                      .child(
@@ -99,7 +93,12 @@ const config = defineConfig({
                            .schemaType("contactPage")
                            .documentId("contactPage")
                      ),
-
+                  S.listItem()
+                     .title("Component / Navbar")
+                     .id("navbar")
+                     .child(
+                        S.document().schemaType("navbar").documentId("navbar")
+                     ),
                   // Regular Documents
                   S.documentTypeListItem("footer").title("Component / Footer"),
                ]),
