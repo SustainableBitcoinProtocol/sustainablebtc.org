@@ -62,9 +62,7 @@
    }
 
    &[disabled] {
-      color: color($color-dark, 400) !important;
-      background: color($color-dark, 300) !important;
-      border-color: color($color-dark, 300) !important;
+      opacity: 0.6;
       cursor: not-allowed !important;
    }
 

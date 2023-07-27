@@ -19,7 +19,7 @@ const FooterCareerForm = () => {
       // text message
       var errorText: HTMLElement = careerFormError.current!;
       errorText.style.color = "#f83939";
-      errorText.style.fontWeight = "400";
+      errorText.style.fontWeight = "4  00";
 
       // Validations
       if (careerForm.current !== null) {

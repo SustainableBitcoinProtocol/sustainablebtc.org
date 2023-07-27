@@ -19,10 +19,16 @@ const ContactUsForm = () => {
    const companyErr = useRef(null);
    const serviceErr = useRef(null);
    const submitBtn = useRef(null);
+   const formMessage = useRef(null);
 
    const submitContactForm = (e: any) => {
       e.preventDefault();
       const { name, email, contact, service, message } = e.target.elements;
+
+      // Button Disable
+      var submitBtnText: HTMLButtonElement = submitBtn.current!;
+      submitBtnText.innerHTML = "Submitting...";
+      submitBtnText.disabled = true;
 
       // Name validation
       var nameErrText: HTMLElement = nameErr.current!;
@@ -55,9 +61,12 @@ const ContactUsForm = () => {
       }
 
       // Message Validaton
-
-      // Sending Email
-      if (false) {
+      if (
+         nameErrText.innerHTML == "" &&
+         emailErrText.innerHTML == "" &&
+         serviceErrText.innerHTML == ""
+      ) {
+         // Sending Mail
          emailjs
             .sendForm(
                process.env.NEXT_PUBLIC_EMAILJS_SERVICE_KEY || "",
@@ -73,6 +82,30 @@ const ContactUsForm = () => {
                   console.log(error.text);
                }
             );
+         // Mail Close
+
+         // Showing Response
+         var formMessageText: HTMLElement = formMessage.current!;
+         formMessageText.innerHTML =
+            "Thanks for showing your interest in SBP. Our team will get back to you soon";
+         formMessageText.style.color = "greenyellow";
+         formMessageText.style.fontWeight = "500";
+         (contactForm.current as any).reset();
+
+         setTimeout(function () {
+            formMessageText.innerHTML = "";
+         }, 3000);
+         // Response Close
+
+         // Button Enable
+         submitBtnText.innerHTML = `<span>Submit</span><i class='bi bi-arrow-right'></i>`;
+         submitBtnText.disabled = false;
+         // Button Close
+      } else {
+         // Button Enable
+         submitBtnText.innerHTML = `<span>Submit</span><i class='bi bi-arrow-right'></i>`;
+         submitBtnText.disabled = false;
+         // Button Close
       }
    };
 
@@ -166,6 +199,7 @@ const ContactUsForm = () => {
             <span>Submit</span>
             <i className="bi bi-arrow-right"></i>
          </button>
+         <span className="error text-center" ref={formMessage}></span>
       </form>
    );
 };
