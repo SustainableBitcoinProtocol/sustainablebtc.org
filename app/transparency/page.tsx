@@ -1,8 +1,15 @@
 import React from "react";
-import ComingSoon from "@/components/ComingSoon";
+import { Metadata } from "next";
+import TransparencyPage from "@/components/Transparency/TransparencyPage";
+
+export const metadata: Metadata = {
+   title: "Transparency | Sustainable Bitcoin Protocol",
+   description:
+      "Sustainable Bitcoin Protocol helps accelerate the bitcoin network's transition to clean energy.",
+};
 
 const page = () => {
-   return <ComingSoon />;
+   return <TransparencyPage />;
 };
 
 export default page;

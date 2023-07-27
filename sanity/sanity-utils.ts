@@ -124,4 +124,13 @@ export async function getContactPageData() {
       }`
    );
 }
+
+export async function getTransparencyPageData() {
+   return client.fetch(
+      groq`*[_type=="transparencyPage"][0]{
+         _id,
+         hero,
+      }`
+   );
+}
 // #endregion
