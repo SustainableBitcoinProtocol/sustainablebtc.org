@@ -98,7 +98,7 @@ export async function getMinerPageData() {
          _id,
          hero,
          use,
-         requirement
+         qualify
       }`
    );
 }

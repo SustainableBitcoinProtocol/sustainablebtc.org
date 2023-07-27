@@ -214,3 +214,53 @@
       }
    }
 }
+
+.qualify {
+   @apply my-28;
+   .container {
+      @apply max-w-[1100px];
+   }
+
+   .qualifyHeading {
+      @apply block mx-auto text-center;
+      @apply leading-[110%];
+      @apply max-w-[900px];
+
+      strong {
+         @include text-gradient(primary);
+      }
+   }
+
+   .qualifyPractices {
+      @apply grid grid-cols-2 gap-4;
+      @apply mt-12;
+
+      .card {
+         border: 1px solid rgba(color($color-light), 0.2);
+         background: rgba($color: color($color-light), $alpha: 0.05);
+         @apply rounded-md;
+         @apply p-4;
+         @apply transition-all duration-300 ease-out;
+         @apply flex justify-center items-center text-center;
+
+         &:hover {
+            border-color: #339dff;
+            background: rgba($color: #339dff, $alpha: 0.1);
+         }
+      }
+   }
+
+   @include responsive(md) {
+      @apply my-32;
+
+      .qualifyPractices {
+         @apply grid-cols-3;
+      }
+   }
+
+   @include responsive(lg) {
+      .qualifyPractices {
+         @apply grid-cols-4 gap-6 p-6;
+      }
+   }
+}

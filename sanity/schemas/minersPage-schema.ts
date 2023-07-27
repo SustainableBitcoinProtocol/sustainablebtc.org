@@ -147,6 +147,26 @@ const minersPage = {
             },
          ],
       },
+      // qualify
+      {
+         name: "qualify",
+         title: "Qualify",
+         type: "document",
+         fields: [
+            {
+               name: "qualifyHeading",
+               title: "Heading",
+               type: "array",
+               of: [{ type: "block" }],
+            },
+            {
+               name: "qualifyPractices",
+               title: "procurement Practices",
+               type: "array",
+               of: [{ type: "string" }],
+            },
+         ],
+      },
    ],
 };
 
