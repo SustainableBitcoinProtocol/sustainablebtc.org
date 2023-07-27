@@ -15,7 +15,7 @@ import { PortableText } from "@portabletext/react";
 
 const MinerQualify = ({ qualifyData }: { qualifyData: any }) => {
    return (
-      <section className={styles.qualify}>
+      <section className={styles.qualify} id="qualify">
          <div className={`${styles.container} container`}>
             {/* Heading */}
             <div className={`${styles.qualifyHeading} heading heading-2`}>

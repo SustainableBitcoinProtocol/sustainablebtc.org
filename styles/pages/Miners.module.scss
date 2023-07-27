@@ -22,7 +22,7 @@
    .heroMiningFlow {
       @apply flex items-stretch mt-4 mb-8;
       li {
-         @apply inline-block p-3 px-6 flex-1;
+         @apply inline-block p-2 px-3;
          @apply flex justify-center items-center;
          @apply leading-[110%] text-center text-sm;
 
@@ -57,7 +57,7 @@
    @include responsive(md) {
       .heroMiningFlow {
          li {
-            @apply p-5 px-12;
+            @apply p-3 px-12 flex-1;
             @apply text-base;
             &:not(:first-child) {
                @apply -ml-4;
