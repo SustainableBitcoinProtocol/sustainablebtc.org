@@ -7,16 +7,18 @@
       @apply h-[300px];
       @apply top-10 left-0 -translate-x-1/2;
       @apply opacity-25;
+      @apply pointer-events-none select-none;
    }
    .imgCloud2 {
       @apply absolute;
       @apply h-[300px];
       @apply top-0 left-0 translate-x-1/2;
       @apply opacity-25;
+      @apply pointer-events-none select-none;
    }
 
    .container {
-      @apply max-w-[700px];
+      @apply max-w-[1000px];
       @apply flex justify-center items-center flex-col gap-6;
    }
 
@@ -33,6 +35,8 @@
 
       strong {
          @apply font-extrabold;
+         @include text-gradient(primary);
+         border-bottom: 1px solid #339dff;
       }
    }
 
@@ -40,9 +44,11 @@
       background: $gradient-primary;
       @apply w-full h-[1px];
       @apply my-4 opacity-50;
+      @apply max-w-[700px] mx-auto;
    }
 
    .heroDescription {
+      @apply max-w-[700px] mx-auto;
       p {
          @apply my-2;
       }

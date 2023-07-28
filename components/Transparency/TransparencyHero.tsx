@@ -27,7 +27,7 @@ const TransparencyHero = ({ heroData }: { heroData: any }) => {
                <PortableText value={heroData.heroHeading} />
             </div>
             {/* Sub Heading */}
-            <div className={`${styles.heroSubHeading} heading heading-6`}>
+            <div className={`${styles.heroSubHeading} heading heading-5`}>
                <PortableText value={heroData.heroSubHeading} />
             </div>
             {/* Types */}
