@@ -32,11 +32,11 @@ const SBCHero = ({ heroData }: { heroData: any }) => {
                {heroData && (
                   <>
                      <div className={styles.heroHeadingWrapper}>
-                        <h1
+                        <div
                            className={`${styles.heroHeading} heading heading-1`}
                         >
                            <PortableText value={heroData.heroHeading} />
-                        </h1>
+                        </div>
                         <h2
                            className={`${styles.heroSubHeading} heading heading-5`}
                         >

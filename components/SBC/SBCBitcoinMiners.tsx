@@ -26,13 +26,13 @@ const SBCBitcoinMiners = ({
             {bitcoinMinersData && (
                <>
                   {/* Heading */}
-                  <h2
+                  <div
                      className={`${styles.bitcoinMinersHeading} heading heading-2`}
                   >
                      <PortableText
                         value={bitcoinMinersData.bitcoinMinersHeading}
                      />
-                  </h2>
+                  </div>
 
                   {/* Features */}
                   <ul className={styles.bitcoinMinersFeatures}>
