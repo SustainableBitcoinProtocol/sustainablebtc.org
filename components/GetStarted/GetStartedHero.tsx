@@ -16,7 +16,7 @@ import { PortableText } from "@portabletext/react";
 const GetStartedHero = ({ heroData }: { heroData: any }) => {
    return (
       <>
-         <section className={styles.hero}>
+         <section className={`${styles.hero} hero`}>
             <div className={`${styles.container} container`}>
                {/* Heading */}
                <div className={`${styles.heroHeading} heading heading-2`}>

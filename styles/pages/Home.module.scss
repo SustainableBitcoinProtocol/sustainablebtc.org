@@ -1,6 +1,8 @@
 .hero {
    @apply relative overflow-hidden;
 
+   @apply pt-16;
+
    // Container
    .container {
       @apply pt-10;
@@ -116,6 +118,8 @@
    }
 
    @include responsive(lg) {
+      @apply pt-10;
+
       .container {
          @apply min-h-[110vh];
       }

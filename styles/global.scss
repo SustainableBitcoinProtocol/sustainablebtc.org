@@ -27,14 +27,6 @@ section {
          @apply my-32;
       }
    }
-
-   &.hero {
-      @apply pt-16;
-
-      @include responsive(lg) {
-         @apply pt-10;
-      }
-   }
 }
 
 .container {

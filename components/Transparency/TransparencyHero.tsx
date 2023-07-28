@@ -16,7 +16,7 @@ import imgCloud from "@/public/home/cloud.svg";
 
 const TransparencyHero = ({ heroData }: { heroData: any }) => {
    return (
-      <section className={styles.hero}>
+      <section className={`${styles.hero} hero`}>
          {/* Cloud */}
          <Image src={imgCloud} alt="Cloud" className={styles.imgCloud} />
          <Image src={imgCloud} alt="Cloud" className={styles.imgCloud2} />

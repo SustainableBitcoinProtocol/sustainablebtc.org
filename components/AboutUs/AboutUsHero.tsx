@@ -17,7 +17,7 @@ import imgHeroShape from "@/public/about/hero-shape.svg";
 
 const AboutUsHero = ({ heroData }: { heroData: any }) => {
    return (
-      <section className={styles.hero}>
+      <section className={`${styles.hero} hero`}>
          {/* Hero Video */}
          <video
             autoPlay

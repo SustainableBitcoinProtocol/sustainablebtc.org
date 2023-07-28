@@ -27,21 +27,19 @@ const SBCHero = ({ heroData }: { heroData: any }) => {
             alt="Hero Background"
          />
          {/* Hero */}
-         <section className={styles.hero}>
+         <section className={`${styles.hero} hero`}>
             <div className={`${styles.container} container`}>
                {heroData && (
                   <>
                      <div className={styles.heroHeadingWrapper}>
-                        <div
-                           className={`${styles.heroHeading} heading heading-1`}
-                        >
+                        <div className={`${styles.heroHeading} portableText`}>
                            <PortableText value={heroData.heroHeading} />
                         </div>
-                        <h2
-                           className={`${styles.heroSubHeading} heading heading-5`}
+                        <div
+                           className={`${styles.heroSubHeading} portableText`}
                         >
-                           {heroData.heroSubHeading}
-                        </h2>
+                           <PortableText value={heroData.heroSubHeading} />
+                        </div>
                      </div>
                      {/* Image */}
                      <Image

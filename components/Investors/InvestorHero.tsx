@@ -17,7 +17,7 @@ import imgHero from "@/public/investors/heroImg.png";
 const InvestorHero = ({ heroData }: { heroData: any }) => {
    return (
       <>
-         <section className={styles.hero}>
+         <section className={`${styles.hero} hero`}>
             <div className={`${styles.container} container`}>
                {/* Headings */}
                {heroData && (

@@ -25,7 +25,8 @@ const sbcPage = {
             {
                name: "heroSubHeading",
                title: "Sub Heading",
-               type: "string",
+               type: "array",
+               of: [{ type: "block" }],
             },
          ],
       },
@@ -38,7 +39,8 @@ const sbcPage = {
             {
                name: "benefitsHeading",
                title: "Heading",
-               type: "string",
+               type: "array",
+               of: [{ type: "block" }],
             },
             {
                name: "benefitsItems",
@@ -138,12 +140,14 @@ const sbcPage = {
             {
                name: "aboutSBCHeading",
                title: "SBC Heading",
-               type: "string",
+               type: "array",
+               of: [{ type: "block" }],
             },
             {
                name: "aboutSBCSubHeading",
                title: "SBC Sub Heading",
-               type: "string",
+               type: "array",
+               of: [{ type: "block" }],
             },
             {
                name: "aboutSBCDescription",

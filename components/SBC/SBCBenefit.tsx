@@ -18,13 +18,13 @@ import { PortableText } from "@portabletext/react";
 const SBCBenefit = ({ benefitsData }: { benefitsData: any }) => {
    return (
       <section className={styles.benefits}>
-         <div className={`${styles.container} container`}>
+         <div className={`${styles.container} container container-tight`}>
             {benefitsData && (
                <>
                   {/* Heading */}
-                  <h2 className={`${styles.benefitsHeading} heading heading-2`}>
-                     {benefitsData.benefitsHeading}
-                  </h2>
+                  <div className={`${styles.benefitsHeading} portableText`}>
+                     <PortableText value={benefitsData.benefitsHeading} />
+                  </div>
 
                   {/* Benefits */}
                   <div className={styles.benefitsItems}>
@@ -42,9 +42,9 @@ const SBCBenefit = ({ benefitsData }: { benefitsData: any }) => {
                                        height={90}
                                     />
                                  </div>
-                                 <h5 className={`heading heading-6`} key={i}>
+                                 <h6 className={`heading heading-6`} key={i}>
                                     {benefit.benefitsItemTitle}
-                                 </h5>
+                                 </h6>
                               </div>
                            </>
                         )

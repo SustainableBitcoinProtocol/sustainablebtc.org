@@ -145,7 +145,7 @@ const SBCAbout = ({ aboutSbcData }: { aboutSbcData: any }) => {
             />
          </div>
 
-         <div className={`${styles.container} container`}>
+         <div className={`${styles.container} container container-tight`}>
             {/* Sbc Image */}
             <div className={styles.sbcIcon}>
                <Image src={imgSbcIcon} alt="SBC Icon" />
@@ -155,18 +155,16 @@ const SBCAbout = ({ aboutSbcData }: { aboutSbcData: any }) => {
                <>
                   {/* Heading */}
                   <div>
-                     <h2 className={`${styles.sbcHeading} heading heading-2`}>
-                        {aboutSbcData.aboutSBCHeading}
-                     </h2>
-                     <h4
-                        className={`${styles.sbcSubHeading} heading heading-4`}
-                     >
-                        {aboutSbcData.aboutSBCSubHeading}
-                     </h4>
+                     <div className={`${styles.sbcHeading} portableText`}>
+                        <PortableText value={aboutSbcData.aboutSBCHeading} />
+                     </div>
+                     <div className={`${styles.sbcSubHeading} portableText`}>
+                        <PortableText value={aboutSbcData.aboutSBCSubHeading} />
+                     </div>
                   </div>
 
                   {/* Description */}
-                  <div className={styles.sbcDescription}>
+                  <div className={`${styles.sbcDescription} portableText`}>
                      <PortableText value={aboutSbcData.aboutSBCDescription} />
                   </div>
 

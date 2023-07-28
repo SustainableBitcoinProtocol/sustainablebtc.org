@@ -19,7 +19,7 @@ import imgHeroShape from "@/public/contact/shape.svg";
 
 const ContactUsHero = ({ heroData }: { heroData: any }) => {
    return (
-      <section className={styles.hero}>
+      <section className={`${styles.hero} hero`}>
          <div className={`${styles.container} container`}>
             {/* Image */}
             <Image

@@ -23,7 +23,7 @@ import HeroImg from "@/public/miner/hero-img.png";
 const MinerHero = ({ heroData }: { heroData: any }) => {
    return (
       <>
-         <section className={styles.hero}>
+         <section className={`${styles.hero} hero`}>
             <div className={`${styles.container} container`}>
                {/* Hero Wrapper */}
                <div className={styles.heroWrapper}>

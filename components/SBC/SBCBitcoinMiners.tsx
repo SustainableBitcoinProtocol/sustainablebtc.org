@@ -22,12 +22,12 @@ const SBCBitcoinMiners = ({
 }) => {
    return (
       <section className={styles.bitcoinMiners}>
-         <div className={`${styles.container} container`}>
+         <div className={`${styles.container} container container-tight`}>
             {bitcoinMinersData && (
                <>
                   {/* Heading */}
                   <div
-                     className={`${styles.bitcoinMinersHeading} heading heading-2`}
+                     className={`${styles.bitcoinMinersHeading} portableText`}
                   >
                      <PortableText
                         value={bitcoinMinersData.bitcoinMinersHeading}

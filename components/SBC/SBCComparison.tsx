@@ -25,11 +25,11 @@ const SBCComparison = ({ comparisonData }: { comparisonData: any }) => {
 
    return (
       <section className={styles.comparison}>
-         <div className={`${styles.container} container`}>
+         <div className={`${styles.container} container container-tight`}>
             {comparisonData && (
                <>
                   {/* Heading */}
-                  <div className={styles.comparisonHeading}>
+                  <div className={`${styles.comparisonHeading} portableText`}>
                      <PortableText value={comparisonData.comparisonTitle} />
                   </div>
                   {/* Features */}
