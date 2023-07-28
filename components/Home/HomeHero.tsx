@@ -18,7 +18,7 @@ import imgHeroCloud from "@/public/home/cloud.svg";
 
 export default function HomeHero({ heroData }: { heroData: any }) {
    return (
-      <section className={styles.hero}>
+      <section className={`${styles.hero} hero`}>
          <div className={`${styles.container} container`}>
             {/* content */}
             <div>
@@ -26,10 +26,10 @@ export default function HomeHero({ heroData }: { heroData: any }) {
                   <>
                      {/* descriptive */}
                      <div className={styles.heroDescription}>
-                        <h1 className={styles.heroHeading}>
+                        <div className={`${styles.heroHeading} portableText`}>
                            <PortableText value={heroData.heroHeading} />
-                        </h1>
-                        <div className={styles.heroPara}>
+                        </div>
+                        <div className={`${styles.heroPara} portableText`}>
                            <PortableText value={heroData.heroDesc} />
                         </div>
                         <div className={styles.heroBtnWrapper}>
@@ -72,9 +72,9 @@ export default function HomeHero({ heroData }: { heroData: any }) {
 
                      {/* logos */}
                      <div className={styles.heroClient}>
-                        <h2 className={styles.heroClientLogoTitle}>
+                        <h3 className={styles.heroClientLogoTitle}>
                            {heroData.heroCompanyIconsTitle}
-                        </h2>
+                        </h3>
 
                         <div className={styles.heroClientLogo}>
                            {heroData.heroCompanyImages.map(

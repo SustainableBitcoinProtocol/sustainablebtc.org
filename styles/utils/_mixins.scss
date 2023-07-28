@@ -131,3 +131,8 @@ $gradients: (
    -webkit-background-clip: text;
    -webkit-text-fill-color: transparent;
 }
+
+@mixin typo($type, $size: para) {
+   @extend .#{$type};
+   @extend .#{$type}-#{$size} !optional;
+}

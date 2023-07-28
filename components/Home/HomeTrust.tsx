@@ -18,7 +18,7 @@ import imgBitcoinIcon from "@/public/home/bitcoin-icon.svg";
 const HomeTrust = ({ trustData }: { trustData: any }) => {
    return (
       <section className={styles.trust}>
-         <div className={`${styles.container} container`}>
+         <div className={`${styles.container} container container-tight`}>
             <div className={styles.wrapper}>
                {/* Image */}
                <div className={styles.image}>
@@ -63,10 +63,10 @@ const HomeTrust = ({ trustData }: { trustData: any }) => {
                </div>
                {/* Content */}
                <div className={styles.content}>
-                  <div className={`${styles.trustHeading} heading heading-2`}>
+                  <div className={`${styles.trustHeading} portableText`}>
                      <PortableText value={trustData.trustHeading} />
                   </div>
-                  <div className={`${styles.trustDescription} para`}>
+                  <div className={`${styles.trustDescription} portableText`}>
                      <PortableText value={trustData.trustDescription} />
                   </div>
                   <div className={styles.trustCTA}>

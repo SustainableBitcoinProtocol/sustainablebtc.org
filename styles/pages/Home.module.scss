@@ -13,22 +13,24 @@
    .heroDescription {
       @apply relative z-20;
       @apply text-center;
-      @apply max-w-[870px] mx-auto;
+      @apply max-w-[1000px] mx-auto;
       @apply flex flex-col gap-6;
 
       .heroHeading {
-         @apply text-[2.5rem] font-bold leading-[100%];
+         h1 {
+            @apply font-bold;
+            @apply text-[2.5rem];
+            line-height: 110%;
+         }
 
          b,
          strong {
-            @include text-gradient(primary);
             @apply font-black;
          }
       }
       .heroPara {
-         @apply flex flex-col gap-3;
-         @apply opacity-90;
-         @apply text-sm px-8;
+         @apply px-8;
+         @apply max-w-[800px] mx-auto;
       }
       .heroBtnWrapper {
          @apply flex flex-wrap justify-center gap-4;
@@ -42,11 +44,14 @@
       @apply flex flex-col gap-4 items-center justify-center;
 
       .heroClientLogoTitle {
-         @apply text-[1.1rem] font-bold;
+         @include typo(para);
+         @apply font-extrabold;
+         @apply mb-4;
       }
 
       .heroClientLogo {
-         @apply flex gap-4 items-center flex-wrap justify-center;
+         @apply flex gap-6 items-center flex-wrap justify-center;
+         @apply relative z-20;
 
          img {
             @apply opacity-70;
@@ -68,6 +73,7 @@
       @apply w-auto min-h-[100vh];
       @apply object-cover object-left;
       @apply select-none pointer-events-none;
+      opacity: 0.7;
    }
 
    // Hero Windmill
@@ -91,10 +97,12 @@
       }
       .heroDescription {
          .heroHeading {
-            @apply text-5xl;
+            h1 {
+               @apply text-5xl;
+               line-height: 120%;
+            }
          }
          .heroPara {
-            @apply text-base;
             P {
                @apply line-clamp-none;
             }
@@ -115,19 +123,21 @@
          @apply pt-10;
 
          .heroHeading {
-            @apply text-7xl;
+            h1 {
+               @apply text-7xl;
+            }
          }
 
          .heroPara {
-            font-size: 1.1rem !important;
+            font-size: 1.1rem;
          }
       }
 
       .heroClient {
          .heroClientLogo {
-            @apply gap-8;
+            @apply gap-12;
             img {
-               height: 2rem !important;
+               height: 1.6rem !important;
             }
          }
       }
@@ -147,7 +157,6 @@
 }
 
 .sbc {
-   @apply py-20;
    @apply text-center grid place-content-center;
    @apply relative;
 
@@ -162,7 +171,7 @@
 
    .container {
       @apply flex flex-col gap-8;
-      @apply max-w-[870px];
+      @apply max-w-[900px];
    }
 
    .sbcIcon {
@@ -200,19 +209,21 @@
       }
    }
 
-   .sbcIconLine {
-      @apply absolute -top-[83%] left-[42%] h-full;
-      @apply pointer-events-none;
-      scale: 0.8;
-      transform-origin: bottom left;
+   .sbcHeading {
+      @apply relative z-20;
    }
 
    .sbcSubHeading {
-      @apply font-medium block;
+      @apply block my-1;
+      @apply relative z-20;
+
+      * {
+         @apply font-medium;
+      }
    }
 
    .sbcDescription {
-      @apply leading-[140%] opacity-90;
+      @apply relative z-20;
    }
 
    .sbcFeatures {
@@ -220,16 +231,12 @@
       @apply font-bold;
       @apply my-2;
       @include text-gradient(primary);
-   }
-
-   .sbcDescription {
-      p {
-         @apply mb-3;
-      }
+      @apply relative z-20;
    }
 
    .sbcBtn {
       @apply mx-auto;
+      @apply relative z-20;
    }
 
    @include responsive(md) {
@@ -252,15 +259,10 @@
       .sbcIconLine {
          scale: 1.25;
       }
-      .sbcDescription {
-         font-size: 1.1rem;
-      }
    }
 }
 
 .testimonials {
-   @apply relative my-20;
-
    .container {
       .testimonialWrapper {
          @apply max-w-[750px] mx-auto;
@@ -313,7 +315,6 @@
    }
 
    @include responsive(lg) {
-      @apply mb-28;
       .container {
          .testimonialWrapper {
             @apply p-10;
@@ -332,14 +333,14 @@
 }
 
 .trust {
-   @apply my-28 min-h-fit;
+   @apply min-h-fit;
    .wrapper {
       @apply grid gap-8;
    }
 
    .image {
       @apply relative grid place-content-center;
-      @apply w-fit mx-auto;
+      @apply w-fit mx-auto max-w-[500px];
 
       img {
          @apply relative z-20;
@@ -442,8 +443,6 @@
       }
    }
    @include responsive(lg) {
-      @apply my-32;
-
       .image {
          &::before {
             scale: 0.95;

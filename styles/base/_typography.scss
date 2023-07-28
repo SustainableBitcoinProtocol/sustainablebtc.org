@@ -1,6 +1,10 @@
 .heading {
-   @apply font-black inline-block leading-[150%];
+   @apply font-black inline-block leading-[120%];
    color: color($color-light);
+
+   * {
+      @apply leading-[110%];
+   }
 
    &-1 {
       @apply text-4xl;
@@ -22,6 +26,11 @@
    }
 
    &-gradient {
+      @include text-gradient(primary);
+   }
+
+   strong,
+   b {
       @include text-gradient(primary);
    }
 
@@ -48,7 +57,7 @@
          @apply text-6xl;
       }
       &-2 {
-         @apply text-[3rem];
+         @apply text-5xl;
       }
       &-3 {
          @apply text-4xl;
@@ -60,16 +69,21 @@
          @apply text-2xl;
       }
       &-6 {
-         @apply text-lg font-bold;
+         @apply text-xl font-bold;
       }
    }
 }
 
 .para {
-   @apply leading-[140%] opacity-90;
+   @apply leading-[140%];
+   opacity: 0.95;
 
    &-small {
       @apply text-sm;
+   }
+
+   @include responsive(lg) {
+      font-size: 1.05rem;
    }
 }
 
@@ -89,7 +103,37 @@
    color: color($color-red);
 }
 
-@mixin typo($type, $size: para) {
-   @extend .heading;
-   @extend .heading-#{$size} !optional;
+.portableText {
+   p {
+      @apply mb-2;
+      @include typo(para);
+   }
+   ul,
+   li {
+      @apply pl-4;
+   }
+   ul {
+      list-style-type: circle;
+   }
+   ol {
+      list-style-type: decimal;
+   }
+   h1 {
+      @include typo(heading, 1);
+   }
+   h2 {
+      @include typo(heading, 2);
+   }
+   h3 {
+      @include typo(heading, 3);
+   }
+   h4 {
+      @include typo(heading, 4);
+   }
+   h5 {
+      @include typo(heading, 5);
+   }
+   h6 {
+      @include typo(heading, 6);
+   }
 }

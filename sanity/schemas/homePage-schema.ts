@@ -145,12 +145,14 @@ const homePage = {
             {
                name: "sbcHeading",
                title: "SBC Heading",
-               type: "string",
+               type: "array",
+               of: [{ type: "block" }],
             },
             {
                name: "sbcSubHeading",
                title: "SBC Sub Heading",
-               type: "string",
+               type: "array",
+               of: [{ type: "block" }],
             },
             {
                name: "sbcFeatures",
@@ -220,7 +222,8 @@ const homePage = {
             {
                name: "testimonialTitle",
                title: "Testimonial Title",
-               type: "string",
+               type: "array",
+               of: [{ type: "block" }],
             },
             {
                name: "testimonialItems",

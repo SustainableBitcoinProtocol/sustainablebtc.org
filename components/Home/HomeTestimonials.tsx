@@ -14,6 +14,7 @@ import { urlFor } from "@/sanity/sanity-urlFor";
 // Lib
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
+import { PortableText } from "@portabletext/react";
 
 // Image
 
@@ -24,16 +25,18 @@ export default function HomeTestimonials({
 }) {
    return (
       <section className={styles.testimonials}>
-         <div className={`${styles.container} container`}>
+         <div className={`${styles.container} container container-tight`}>
             {testimonialData && (
                <div className={styles.testimonialWrapper}>
                   {/* Header */}
                   <div>
-                     <h2
-                        className={`${styles.testimonialHeading} heading heading-3`}
+                     <div
+                        className={`${styles.testimonialHeading} portableText`}
                      >
-                        {testimonialData.testimonialTitle}
-                     </h2>
+                        <PortableText
+                           value={testimonialData.testimonialTitle}
+                        />
+                     </div>
                   </div>
                   {/* Sliding */}
                   <div>

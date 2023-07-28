@@ -1,9 +1,10 @@
 .header {
-   @apply fixed z-50 w-full py-6;
+   @apply fixed z-50 w-full py-5;
    @apply bg-transparent text-base;
    @apply whitespace-nowrap;
    @apply transition-all duration-300 ease-in;
    border-bottom: 1px solid transparent;
+   font-size: 16px;
 
    .container {
       @apply flex items-center gap-8;
@@ -15,14 +16,14 @@
       border-color: color($color-dark, 500);
 
       .primaryNav {
-         @apply gap-6;
+         @apply gap-8;
 
          &.open {
             @apply pt-6;
          }
       }
       .secondaryNav {
-         @apply gap-6;
+         @apply gap-8;
       }
    }
 
@@ -30,7 +31,7 @@
       @apply flex flex-1 items-center justify-between gap-8;
 
       img {
-         @apply h-12 w-auto;
+         @apply h-11 w-auto;
       }
 
       .separator {
@@ -174,13 +175,13 @@
 
       .primaryNav {
          @apply relative z-10;
-         @apply flex-row;
+         @apply flex-row gap-8;
          @apply py-0;
          @apply h-auto max-h-none bg-transparent;
 
          &.open {
             @apply relative;
-            @apply py-0;
+            @apply py-0 gap-8;
             @apply h-auto;
          }
       }
