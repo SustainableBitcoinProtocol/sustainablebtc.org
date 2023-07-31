@@ -7,22 +7,22 @@
    }
 
    &-1 {
-      @apply text-4xl;
+      @apply text-5xl;
    }
    &-2 {
-      @apply text-3xl;
+      @apply text-4xl;
    }
    &-3 {
-      @apply text-2xl;
+      @apply text-3xl;
    }
    &-4 {
-      @apply text-xl;
+      @apply text-2xl;
    }
    &-5 {
-      @apply text-lg font-extrabold;
+      @apply text-xl font-extrabold;
    }
    &-6 {
-      @apply text-base font-bold;
+      @apply text-lg font-bold;
    }
 
    &-gradient {
@@ -35,24 +35,6 @@
    }
 
    @include responsive(md) {
-      &-1 {
-         @apply text-5xl;
-      }
-      &-2 {
-         @apply text-4xl;
-      }
-      &-3 {
-         @apply text-3xl;
-      }
-      &-4 {
-         @apply text-2xl;
-      }
-      &-5 {
-         @apply text-xl;
-      }
-   }
-
-   @include responsive(lg) {
       &-1 {
          @apply text-6xl;
       }
@@ -83,7 +65,7 @@
    }
 
    @include responsive(lg) {
-      font-size: 1.05rem;
+      font-size: 1.1rem;
    }
 }
 
