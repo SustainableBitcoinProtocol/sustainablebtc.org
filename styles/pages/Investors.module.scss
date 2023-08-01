@@ -1,16 +1,17 @@
 .hero {
    .container {
-      @apply min-h-[80vh] max-w-[1000px] pt-10;
+      @apply min-h-[100vh] max-w-[1000px];
       @apply flex flex-col justify-center items-center gap-8;
       @apply text-center;
    }
 
    .heroImg {
-      @apply -mt-4;
+      @apply scale-150;
    }
 
    .heroHeading {
       @apply max-w-[600px] leading-[110%];
+      @apply mt-1;
       @include text-gradient(primary);
    }
 
@@ -20,12 +21,13 @@
 
    @include responsive(md) {
       .container {
-         @apply max-h-[100vh] pt-32;
+         @apply max-h-[100vh] pt-24;
       }
 
       .heroImg {
          @apply -mt-10;
          @apply max-w-[800px] mx-auto;
+         @apply scale-125;
       }
    }
 
@@ -36,6 +38,7 @@
 
       .heroImg {
          @apply max-w-max -mt-16;
+         @apply scale-125;
       }
 
       .heroHeading {
@@ -48,6 +51,7 @@
 }
 
 .investment {
+   margin-top: 2rem !important;
    .container {
       @apply max-w-[1100px];
       @apply flex flex-col justify-center items-center gap-8;

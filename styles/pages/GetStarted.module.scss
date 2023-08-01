@@ -1,12 +1,8 @@
 .hero {
    @apply pt-36 pb-20;
 
-   .container {
-      @apply max-w-[1000px];
-   }
-
    .heroHeading {
-      @apply leading-[110%] text-center max-w-[700px] mx-auto block;
+      @apply leading-[110%] text-center max-w-[900px] mx-auto block;
 
       strong {
          @include text-gradient(primary);

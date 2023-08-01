@@ -12,12 +12,9 @@
    @apply pt-40;
    @apply relative z-10;
 
-   .container {
-      @apply max-w-[1100px];
-   }
-
    .heroHeadingWrapper {
       @apply flex flex-col justify-center items-center gap-8;
+      @apply max-w-[1000px] mx-auto;
    }
 
    .heroHeading {
@@ -162,6 +159,7 @@
       @apply font-bold;
       @apply my-8;
       @include text-gradient(primary);
+      @include typo(heading, 6);
    }
 
    .comparisonSlider {
@@ -180,7 +178,7 @@
 
    @include responsive(lg) {
       .comparisonFeatures {
-         @apply text-lg my-12;
+         @apply my-12;
       }
       .comparisonSlider {
          @apply h-[60vh];
@@ -281,7 +279,6 @@
    }
 
    @include responsive(lg) {
-      @apply py-10;
       .sbcFeatures {
          @apply text-lg font-extrabold;
       }
@@ -300,6 +297,7 @@
       @apply flex justify-center flex-wrap gap-2 gap-x-4;
       @apply font-bold;
       @apply my-8;
+      @include typo(heading, 6);
    }
 
    .bitcoinMiners {
@@ -338,7 +336,7 @@
    }
    @include responsive(lg) {
       .bitcoinMinersFeatures {
-         @apply text-lg my-12 gap-8;
+         @apply my-12 gap-8;
       }
       .bitcoinMiners {
          @apply grid grid-cols-5;

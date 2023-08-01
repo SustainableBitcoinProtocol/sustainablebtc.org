@@ -29,12 +29,12 @@ const ContactUsHero = ({ heroData }: { heroData: any }) => {
             />
 
             {/* Heading */}
-            <div className={`${styles.heroHeading} heading heading-2`}>
+            <div className={`${styles.heroHeading} portableText`}>
                <PortableText value={heroData.heroHeading} />
             </div>
 
             {/* Description */}
-            <div className={`${styles.heroDescription} para`}>
+            <div className={`${styles.heroDescription} portableText`}>
                <PortableText value={heroData.heroDescription} />
             </div>
 

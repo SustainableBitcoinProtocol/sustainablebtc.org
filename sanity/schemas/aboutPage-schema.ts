@@ -129,6 +129,12 @@ const aboutPage = {
                            title: "Description",
                            type: "string",
                         },
+                        {
+                           name: "commitmentItemBlockDescription",
+                           title: "Description",
+                           type: "array",
+                           of: [{ type: "block" }],
+                        },
                      ],
                   },
                ],

@@ -94,7 +94,7 @@ const ContactUsForm = () => {
 
          setTimeout(function () {
             formMessageText.innerHTML = "";
-         }, 3000);
+         }, 8000);
          // Response Close
 
          // Button Enable

@@ -190,25 +190,24 @@
 
    .commitments {
       @apply grid grid-cols-1 gap-8;
-      @apply mt-8;
+      @apply mt-8 relative;
+
+      &::after {
+         content: "";
+         position: absolute;
+         top: 0;
+         left: 0.5rem;
+         transform: translateX(-50%);
+         width: 1px;
+         height: 100%;
+         background: $gradient-primary;
+         opacity: 0.3;
+      }
 
       .commitmentItem {
          @apply relative;
          @apply pl-8;
          @apply flex flex-col gap-2;
-
-         // Vertical Line
-         &:nth-child(1)::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0.5rem;
-            transform: translateX(-50%);
-            width: 1px;
-            height: calc((100% * 6) + (2.5rem * 8));
-            background: $gradient-primary;
-            opacity: 0.3;
-         }
 
          &::before {
             content: "";
@@ -220,6 +219,15 @@
             height: 0.8rem;
             border-radius: 100%;
             background: $gradient-primary;
+         }
+
+         ol,
+         ul {
+            @apply pl-6;
+
+            li {
+               @apply my-1;
+            }
          }
       }
    }
@@ -234,14 +242,23 @@
       .commitments {
          @apply grid grid-cols-2 gap-10 gap-y-4;
          @apply mt-16;
+         @apply relative;
+
+         &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 100%;
+            background: $gradient-primary;
+            opacity: 0.3;
+         }
 
          .commitmentItem {
             @apply relative;
             @apply py-10 pl-0;
-
-            &:nth-child(1)::after {
-               all: initial;
-            }
 
             // Horizontal Line
             &:nth-child(1)::after,
@@ -259,15 +276,7 @@
 
             // Verticle Line
             &:nth-child(2)::after {
-               content: "";
-               position: absolute;
-               top: 0;
-               left: -1.25rem;
-               transform: translateX(-50%);
-               width: 1px;
-               height: calc((100% * 2.5));
-               background: $gradient-primary;
-               opacity: 0.3;
+               all: initial;
             }
 
             &::before {
@@ -290,6 +299,23 @@
          @apply grid grid-cols-3 gap-x-20 gap-y-6;
          @apply mt-28;
 
+         &::after,
+         &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: calc((100% / 3) - 1rem);
+            transform: translate(-50%, -50%);
+            width: 1px;
+            height: 110%;
+            background: $gradient-primary;
+            opacity: 0.3;
+         }
+
+         &::before {
+            left: calc(((100% / 3) * 2) + 1rem);
+         }
+
          .commitmentItem {
             @apply py-12 pl-0;
 
@@ -302,20 +328,6 @@
                left: 0;
                width: calc((100% * 3) + (5rem * 2));
                height: 1px;
-               background: $gradient-primary;
-               opacity: 0.3;
-            }
-
-            // Verticle Line
-            &:nth-child(2)::after,
-            &:nth-child(3)::after {
-               content: "";
-               position: absolute;
-               top: calc(100% - 2rem);
-               left: -2.5rem;
-               transform: translate(-50%, -50%);
-               width: 1px;
-               height: calc((100% * 2));
                background: $gradient-primary;
                opacity: 0.3;
             }

@@ -23,7 +23,7 @@ const AboutUsSupport = ({ supportData }: { supportData: any }) => {
       <section className={styles.support}>
          <div className={`${styles.container} container`}>
             {/* Heading */}
-            <div className={`${styles.supportHeading} heading heading-2`}>
+            <div className={`${styles.supportHeading} portableText`}>
                <PortableText value={supportData.supportHeading} />
             </div>
 

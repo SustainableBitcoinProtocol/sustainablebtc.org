@@ -1,5 +1,5 @@
 .heading {
-   @apply font-black inline-block leading-[120%];
+   @apply font-black inline-block leading-[110%];
    color: color($color-light);
 
    * {
@@ -117,5 +117,11 @@
    }
    h6 {
       @include typo(heading, 6);
+   }
+
+   a {
+      color: #339dff;
+      text-decoration: underline;
+      text-underline-offset: 4px;
    }
 }

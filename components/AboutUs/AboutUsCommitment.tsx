@@ -18,7 +18,7 @@ const AboutUsCommitment = ({ commitmentData }: { commitmentData: any }) => {
       <section className={styles.commitment}>
          <div className={`${styles.container} container`}>
             {/* Heading */}
-            <div className={`${styles.commitmentHeading} heading heading-2`}>
+            <div className={`${styles.commitmentHeading} portableText`}>
                <PortableText value={commitmentData.commitmentHeading} />
             </div>
 
@@ -30,7 +30,11 @@ const AboutUsCommitment = ({ commitmentData }: { commitmentData: any }) => {
                         <h3 className="heading heading-5">
                            {item.commitmentItemHeading}
                         </h3>
-                        <p className="para">{item.commitmentItemDescription}</p>
+                        <div className="portableText">
+                           <PortableText
+                              value={item.commitmentItemBlockDescription}
+                           />
+                        </div>
                      </div>
                   </>
                ))}

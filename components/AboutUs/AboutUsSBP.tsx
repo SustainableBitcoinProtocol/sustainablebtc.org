@@ -20,11 +20,11 @@ const AboutUsSBP = ({ sbpData }: { sbpData: any }) => {
       <section className={styles.sbp}>
          <div className={`${styles.container} container`}>
             {/* Heading */}
-            <div className={`${styles.sbpHeading} heading heading-2`}>
+            <div className={`${styles.sbpHeading} portableText`}>
                <PortableText value={sbpData.sbpHeading} />
             </div>
             {/* Description */}
-            <div className={`${styles.sbpDescription} para`}>
+            <div className={`${styles.sbpDescription} portableText`}>
                <PortableText value={sbpData.sbpDescription} />
             </div>
 
@@ -32,10 +32,10 @@ const AboutUsSBP = ({ sbpData }: { sbpData: any }) => {
             <div className={styles.sbpVisionMission}>
                {/* Vision */}
                <div className={styles.sbpVision}>
-                  <div className="heading heading-4">
+                  <div className="portableText">
                      <PortableText value={sbpData.sbpVision.sbpVisionHeading} />
                   </div>
-                  <div className="para">
+                  <div className="portableText">
                      <PortableText
                         value={sbpData.sbpVision.sbpVisionDescription}
                      />
@@ -56,12 +56,12 @@ const AboutUsSBP = ({ sbpData }: { sbpData: any }) => {
 
                {/* Mission */}
                <div className={styles.sbpMission}>
-                  <div className="heading heading-4">
+                  <div className="portableText">
                      <PortableText
                         value={sbpData.sbpMission.sbpMissionHeading}
                      />
                   </div>
-                  <div className="para">
+                  <div className="portableText">
                      <PortableText
                         value={sbpData.sbpMission.sbpMissionDescription}
                      />

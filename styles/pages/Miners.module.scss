@@ -1,5 +1,5 @@
 .hero {
-   @apply py-32;
+   @apply pt-40;
    .heroImg {
       @apply hidden;
    }
@@ -9,7 +9,9 @@
    }
 
    .heroHeading {
-      @apply leading-[100%];
+      h1 {
+         @apply leading-[100%];
+      }
       strong {
          @include text-gradient(primary);
       }
@@ -106,7 +108,7 @@
 
    .useDescription {
       @apply block text-center;
-      @apply max-w-[700px] mx-auto;
+      @apply max-w-[800px] mx-auto;
 
       p:not(:last-child) {
          @apply mb-4;
@@ -270,8 +272,6 @@
 }
 
 .qualifyForm {
-   @apply my-28;
-
    .container {
       @apply max-w-[1000px];
       @apply flex justify-center items-center gap-6;
@@ -307,8 +307,6 @@
    }
 
    @include responsive(md) {
-      @apply my-32;
-
       .container {
          @apply gap-8;
       }
@@ -321,7 +319,7 @@
 
    @include responsive(lg) {
       .container {
-         @apply gap-20;
+         @apply gap-10;
       }
       .qualifyImage {
          @apply w-[200px];

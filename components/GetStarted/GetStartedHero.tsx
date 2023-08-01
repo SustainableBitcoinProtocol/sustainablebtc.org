@@ -17,13 +17,13 @@ const GetStartedHero = ({ heroData }: { heroData: any }) => {
    return (
       <>
          <section className={`${styles.hero} hero`}>
-            <div className={`${styles.container} container`}>
+            <div className={`${styles.container} container container-tight`}>
                {/* Heading */}
-               <div className={`${styles.heroHeading} heading heading-2`}>
+               <div className={`${styles.heroHeading} portableText`}>
                   <PortableText value={heroData.heroHeading} />
                </div>
                {/* Sub Heading */}
-               <div className={`${styles.heroSubHeading} heading heading-6`}>
+               <div className={`${styles.heroSubHeading} portableText`}>
                   <PortableText value={heroData.heroSubHeading} />
                </div>
 
@@ -48,7 +48,9 @@ const GetStartedHero = ({ heroData }: { heroData: any }) => {
                               {type.heroLoginTypeHeading}
                            </h3>
                            {/* Para */}
-                           <div className={styles.heroLoginTypeDescription}>
+                           <div
+                              className={`${styles.heroLoginTypeDescription} portableText`}
+                           >
                               <PortableText
                                  value={type.heroLoginTypeDescription}
                               />

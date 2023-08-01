@@ -28,7 +28,7 @@ const SBCHero = ({ heroData }: { heroData: any }) => {
          />
          {/* Hero */}
          <section className={`${styles.hero} hero`}>
-            <div className={`${styles.container} container`}>
+            <div className={`${styles.container} container container-tight`}>
                {heroData && (
                   <>
                      <div className={styles.heroHeadingWrapper}>
