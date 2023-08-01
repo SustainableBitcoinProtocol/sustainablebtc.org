@@ -163,6 +163,7 @@
 .sbc {
    @apply text-center grid place-content-center;
    @apply relative;
+   margin-top: 5rem !important;
 
    .sbcBg {
       @apply absolute top-0 left-0 w-full h-full;
@@ -362,7 +363,7 @@
          top: 50%;
          left: 50%;
          translate: -50% -50%;
-         scale: 0.75;
+         scale: 0.6;
          background: url("../../public/home/trust-shade.svg");
          background-repeat: no-repeat;
          background-position: center;
@@ -454,9 +455,9 @@
    }
    @include responsive(lg) {
       .image {
-         @apply max-w-[500px];
+         @apply max-w-[400px];
          &::before {
-            scale: 0.95;
+            scale: 0.75;
          }
       }
    }
