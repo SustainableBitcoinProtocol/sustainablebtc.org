@@ -10,6 +10,7 @@ import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
 // Custom Components
 import Header from "@/components/HeaderFooter/Header";
 import Footer from "@/components/Footer";
+import Breadcrum from "@/components/Breadcrum";
 
 // Importing icons
 import "bootstrap-icons/font/bootstrap-icons.css";
@@ -77,6 +78,8 @@ export default function RootLayout({
             />
             {/* Navbar */}
             <Header />
+            {/* Breadcrum */}
+            <Breadcrum />
             {/* Main */}
             <main>{children}</main>
             {/* Footer */}
