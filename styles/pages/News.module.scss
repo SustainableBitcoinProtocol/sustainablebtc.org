@@ -86,16 +86,25 @@
 
    .articleContent {
       @apply col-span-8;
-      @apply flex flex-col gap-8;
+      @apply flex flex-col gap-4 md:gap-6 lg:gap-8;
+      @apply p-4 md:p-6 lg:p-8;
+      @apply rounded-xl;
+
+      background: linear-gradient(
+         40deg,
+         rgba(#339dff, 0.05) 0%,
+         rgba(#0ec1d3, 0.05) 100%
+      );
+      border: 1px solid rgba(#339dff, 0.15);
    }
 
    .articleAside {
-      @apply col-span-4;
+      @apply col-span-4 lg:py-8;
       @apply sticky top-[100px] h-fit;
    }
    .articleImage {
       @apply w-full aspect-video overflow-hidden;
-      @apply rounded-xl;
+      @apply rounded-lg;
 
       img {
          @apply object-cover;
@@ -105,16 +114,11 @@
       @apply w-full h-[1px];
       background: $gradient-primary;
       @apply my-4;
-      @apply opacity-50;
+      @apply opacity-20;
    }
 
    .articleAsideCard {
-      @apply p-6 rounded-lg;
-      background: linear-gradient(
-         40deg,
-         rgba(#339dff, 0.05) 0%,
-         rgba(#0ec1d3, 0.05) 100%
-      );
+      @apply rounded-lg;
    }
 
    // related list
@@ -152,10 +156,6 @@
    @include responsive(lg) {
       .container {
          @apply grid grid-cols-12 gap-12;
-      }
-
-      .articleAsideCard {
-         @apply p-8;
       }
    }
 }

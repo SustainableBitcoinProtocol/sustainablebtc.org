@@ -26,6 +26,11 @@ const ArticleContent = ({ articleData }: { articleData: any }) => {
 
          {/* Content */}
          <div className={styles.articleContent}>
+            {/* Title */}
+            <h1 className={`${styles.articleTitle} heading heading-2`}>
+               <span>{articleData.title}</span>
+            </h1>
+
             {/* Image */}
             <div className={styles.articleImage}>
                {articleData.imageURL && (
@@ -40,15 +45,7 @@ const ArticleContent = ({ articleData }: { articleData: any }) => {
                )}
             </div>
 
-            {/* Title */}
-            <h1 className={`${styles.articleTitle} heading heading-2`}>
-               {articleData.title}
-            </h1>
-
             {/* MetaData */}
-
-            {/* separator */}
-            <div className={styles.separator}></div>
 
             {/* Content */}
             <div className={`${styles.articleBody} portableText`}>
