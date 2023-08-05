@@ -136,3 +136,10 @@ $gradients: (
    @extend .#{$type};
    @extend .#{$type}-#{$size} !optional;
 }
+
+// ! ======================================
+// ! spacings mixins
+// ! ======================================
+@mixin hero-spacing() {
+   @apply pt-48;
+}

@@ -31,7 +31,6 @@
             a {
                @include text-gradient(light);
                pointer-events: none;
-               @apply font-medium;
             }
          }
       }

@@ -1,5 +1,6 @@
 .hero {
-   @apply pt-36 pb-20;
+   @include hero-spacing;
+   @apply pb-20;
 
    .container {
       @apply max-w-[650px];
@@ -27,7 +28,7 @@
    }
 
    @include responsive(lg) {
-      @apply pt-48 pb-32;
+      @apply pb-24;
 
       .heroShape {
          @apply scale-125;

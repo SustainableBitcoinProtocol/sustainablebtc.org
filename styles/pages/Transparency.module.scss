@@ -1,5 +1,6 @@
 .hero {
-   @apply pt-32 pb-28;
+   @include hero-spacing;
+   @apply mb-24;
    @apply relative;
 
    .imgCloud {
@@ -79,8 +80,6 @@
    }
 
    @include responsive(md) {
-      @apply pt-48 pb-40;
-
       .heroDescription {
          p {
             font-size: 18px;

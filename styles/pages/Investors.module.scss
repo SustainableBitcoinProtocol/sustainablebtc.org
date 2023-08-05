@@ -1,12 +1,15 @@
 .hero {
+   @include hero-spacing;
+
    .container {
-      @apply min-h-[100vh] max-w-[1000px];
+      @apply max-w-[1000px];
       @apply flex flex-col justify-center items-center gap-8;
       @apply text-center;
    }
 
    .heroImg {
       @apply scale-150;
+      @apply mb-8;
    }
 
    .heroHeading {
@@ -20,10 +23,6 @@
    }
 
    @include responsive(md) {
-      .container {
-         @apply max-h-[100vh] pt-24;
-      }
-
       .heroImg {
          @apply -mt-10;
          @apply max-w-[800px] mx-auto;
@@ -32,10 +31,6 @@
    }
 
    @include responsive(lg) {
-      .container {
-         @apply min-h-[100vh]  pt-32;
-      }
-
       .heroImg {
          @apply max-w-max -mt-16;
          @apply scale-125;
@@ -51,7 +46,6 @@
 }
 
 .investment {
-   margin-top: 2rem !important;
    .container {
       @apply max-w-[1100px];
       @apply flex flex-col justify-center items-center gap-8;
@@ -102,9 +96,6 @@
    }
 
    @include responsive(md) {
-      .container {
-         @apply mt-20 mb-32;
-      }
       .investmentFormula {
          .investmentFormulaValue {
             @apply text-6xl font-black;
@@ -121,9 +112,6 @@
    }
 
    @include responsive(lg) {
-      .container {
-         @apply mt-24 mb-40;
-      }
       .investmentSubHeading {
          @apply my-2;
          font-size: 1.3rem;

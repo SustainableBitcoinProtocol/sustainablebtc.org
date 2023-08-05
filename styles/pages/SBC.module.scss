@@ -9,7 +9,7 @@
 }
 
 .hero {
-   @apply pt-40;
+   @include hero-spacing();
    @apply relative z-10;
 
    .heroHeadingWrapper {
@@ -42,7 +42,7 @@
    }
 
    @include responsive(lg) {
-      @apply pb-8;
+      @apply pb-4;
       .heroImg {
          @apply m-auto mt-28;
       }
