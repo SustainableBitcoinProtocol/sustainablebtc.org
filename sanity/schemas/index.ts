@@ -10,6 +10,7 @@ import aboutPage from "./aboutPage-schema";
 import getStartedPage from "./getStartedPage-schema";
 import contactPage from "./contactPage-schema";
 import news from "./news-schema";
+import miscellaneousPage from "./miscellaneousPage-schema";
 
 const schemas = [
    navbar,
@@ -23,6 +24,7 @@ const schemas = [
    getStartedPage,
    contactPage,
    news,
+   miscellaneousPage,
 ];
 
 export default schemas;

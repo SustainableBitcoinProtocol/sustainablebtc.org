@@ -93,14 +93,20 @@ const config = defineConfig({
                            .schemaType("contactPage")
                            .documentId("contactPage")
                      ),
+
+                  // Regular Documents
+                  S.documentTypeListItem("news").title("Articles / News"),
+                  S.documentTypeListItem("miscellaneousPage").title(
+                     "Miscellaneous Pages"
+                  ),
+
+                  // Header & Footer
                   S.listItem()
                      .title("Component / Navbar")
                      .id("navbar")
                      .child(
                         S.document().schemaType("navbar").documentId("navbar")
                      ),
-                  // Regular Documents
-                  S.documentTypeListItem("news").title("Articles / News"),
                   S.documentTypeListItem("footer").title("Component / Footer"),
                ]),
       }),

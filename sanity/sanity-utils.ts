@@ -162,4 +162,16 @@ export async function getArticleData(slug: string) {
       }`
    );
 }
+
+export async function getMiscPageData(slug: string) {
+   return client.fetch(
+      groq`*[_type=="miscellaneousPage" && slug.current == "${slug}"][0]{
+         _id,
+         _createdAt,
+         pageTitle,
+         slug,
+         content
+      }`
+   );
+}
 // #endregion
