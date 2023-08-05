@@ -1,4 +1,3 @@
-import projects from "./projects-schema";
 import navbar from "./navbar-schema";
 import footer from "./footer-schema";
 
@@ -10,9 +9,9 @@ import transparencyPage from "./transparencyPage-schema";
 import aboutPage from "./aboutPage-schema";
 import getStartedPage from "./getStartedPage-schema";
 import contactPage from "./contactPage-schema";
+import news from "./news-schema";
 
 const schemas = [
-   projects,
    navbar,
    footer,
    homePage,
@@ -23,6 +22,7 @@ const schemas = [
    aboutPage,
    getStartedPage,
    contactPage,
+   news,
 ];
 
 export default schemas;

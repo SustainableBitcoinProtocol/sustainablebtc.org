@@ -100,6 +100,7 @@ const config = defineConfig({
                         S.document().schemaType("navbar").documentId("navbar")
                      ),
                   // Regular Documents
+                  S.documentTypeListItem("news").title("Articles / News"),
                   S.documentTypeListItem("footer").title("Component / Footer"),
                ]),
       }),

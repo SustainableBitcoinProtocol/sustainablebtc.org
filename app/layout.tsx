@@ -1,8 +1,11 @@
+"use client";
+
 // Global Styles
 import "@/styles/global.scss";
 
 // Imports
 import localFont from "@next/font/local";
+import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
 
 // Custom Components
 import Header from "@/components/HeaderFooter/Header";
@@ -65,6 +68,13 @@ export default function RootLayout({
    return (
       <html lang="en" className={helveticaNowDisplay.className}>
          <body>
+            {/* Progressbar */}
+            <ProgressBar
+               height="4px"
+               color="linear-gradient(40deg, #339dff 0%, #0ec1d3 100%)"
+               options={{ showSpinner: false }}
+               shallowRouting
+            />
             {/* Navbar */}
             <Header />
             {/* Main */}

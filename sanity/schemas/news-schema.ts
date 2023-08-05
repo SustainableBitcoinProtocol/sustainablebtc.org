@@ -1,18 +1,23 @@
-const projects = {
-   name: "projects",
-   title: "Projects",
+const news = {
+   name: "news",
+   title: "news",
    type: "document",
    fields: [
       {
-         name: "name",
-         title: "Name",
+         name: "title",
+         title: "Title",
          type: "string",
       },
       {
          name: "slug",
          title: "Slug",
          type: "slug",
-         options: { source: "name" },
+         options: { source: "title" },
+      },
+      {
+         name: "description",
+         title: "Description",
+         type: "string",
       },
       {
          name: "image",
@@ -28,11 +33,6 @@ const projects = {
          ],
       },
       {
-         name: "url",
-         title: "URL",
-         type: "url",
-      },
-      {
          name: "content",
          title: "Content",
          type: "array",
@@ -41,4 +41,4 @@ const projects = {
    ],
 };
 
-export default projects;
+export default news;

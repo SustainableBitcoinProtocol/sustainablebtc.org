@@ -1,0 +1,159 @@
+.hero {
+   @apply pt-36 pb-20;
+
+   .articles {
+      @apply grid grid-cols-1 gap-8;
+   }
+
+   .articleCard {
+      @apply flex flex-col gap-4;
+
+      .articleImage {
+         @apply aspect-video w-full overflow-hidden;
+         @apply relative;
+         background: color($color-dark, 400);
+
+         img {
+            @apply transition-all duration-300 ease-out;
+            object-fit: cover;
+         }
+
+         &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: $gradient-primary;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            @apply transition-all duration-300 ease-out;
+         }
+      }
+
+      .articleTitle {
+         @apply line-clamp-2;
+         @apply font-semibold;
+      }
+
+      .articleDate {
+         @apply font-medium;
+         @include text-gradient(primary);
+         @apply mt-2;
+      }
+
+      .articleDescription {
+         @apply opacity-80;
+         @apply line-clamp-3;
+      }
+
+      &:hover {
+         .articleImage {
+            img {
+               rotate: -3deg;
+               scale: 1.2;
+            }
+
+            &::after {
+               opacity: 0.1;
+               visibility: visible;
+            }
+         }
+      }
+   }
+
+   @include responsive(md) {
+      .articles {
+         @apply grid grid-cols-2 gap-6 gap-y-8;
+      }
+   }
+
+   @include responsive(lg) {
+      @apply pt-48 pb-32;
+
+      .articles {
+         @apply grid grid-cols-3 gap-8 gap-y-12;
+      }
+   }
+}
+
+.article {
+   @apply pt-36 pb-20;
+   @apply relative;
+
+   .articleContent {
+      @apply col-span-8;
+      @apply flex flex-col gap-8;
+   }
+
+   .articleAside {
+      @apply col-span-4;
+      @apply sticky top-[100px] h-fit;
+   }
+   .articleImage {
+      @apply w-full aspect-video overflow-hidden;
+      @apply rounded-xl;
+
+      img {
+         @apply object-cover;
+      }
+   }
+   .separator {
+      @apply w-full h-[1px];
+      background: $gradient-primary;
+      @apply my-4;
+      @apply opacity-50;
+   }
+
+   .articleAsideCard {
+      @apply p-6 rounded-lg;
+      background: linear-gradient(
+         40deg,
+         rgba(#339dff, 0.05) 0%,
+         rgba(#0ec1d3, 0.05) 100%
+      );
+   }
+
+   // related list
+   .relatedList {
+      @apply flex flex-col gap-3 mt-6;
+
+      li {
+         @apply flex gap-3 items-center;
+      }
+
+      img {
+         @apply max-w-[6rem];
+      }
+
+      .relatedListHeading {
+         @include typo(para);
+         @apply text-base;
+
+         &:hover {
+            @include text-gradient(primary);
+         }
+      }
+
+      .separator {
+         @apply my-0 opacity-20;
+
+         &:last-child {
+            @apply hidden;
+         }
+      }
+   }
+   @include responsive(lg) {
+      @apply pt-48 pb-32;
+
+      .container {
+         @apply grid grid-cols-12 gap-12;
+      }
+
+      .articleAsideCard {
+         @apply p-8;
+      }
+   }
+}

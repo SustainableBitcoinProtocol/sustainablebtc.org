@@ -61,7 +61,7 @@ const Footer = () => {
                               <>
                                  <li key={i}>
                                     <Link
-                                       href={item.slug}
+                                       href={`/${item.slug}`}
                                        className={styles.footerLink}
                                     >
                                        {item.name}
@@ -81,7 +81,7 @@ const Footer = () => {
                            <>
                               <li key={i}>
                                  <Link
-                                    href={item.footerLinkSlug}
+                                    href={`/${item.footerLinkSlug}`}
                                     className={styles.footerLink}
                                  >
                                     {item.footerLinkName}

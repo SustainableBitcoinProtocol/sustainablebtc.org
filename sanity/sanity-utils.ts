@@ -133,4 +133,33 @@ export async function getTransparencyPageData() {
       }`
    );
 }
+
+export async function getNewsPageData() {
+   return client.fetch(
+      groq`*[_type=="news"]{
+         _id,
+         _createdAt,
+         title,
+         slug,
+         description,
+         "imageURL": image.asset->url,
+         image
+      }`
+   );
+}
+
+export async function getArticleData(slug: string) {
+   return client.fetch(
+      groq`*[_type=="news" && slug.current == "${slug}"][0]{
+         _id,
+         _createdAt,
+         title,
+         slug,
+         description,
+         "imageURL": image.asset->url,
+         image,
+         content
+      }`
+   );
+}
 // #endregion

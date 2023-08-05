@@ -87,7 +87,7 @@ const HeaderContent = ({ navbarData }: { navbarData: any }) => {
                                     key={i}
                                  >
                                     <Link
-                                       href={item.slug}
+                                       href={`/${item.slug}`}
                                        onClick={() =>
                                           window.innerWidth < 1440
                                              ? setIsNavbarToggled(
@@ -114,7 +114,7 @@ const HeaderContent = ({ navbarData }: { navbarData: any }) => {
                               if (item.isButton === true) {
                                  return (
                                     <Link
-                                       href={item.slug}
+                                       href={`/${item.slug}`}
                                        className="btn btn-primary"
                                        key={i}
                                        onClick={() =>
@@ -148,7 +148,7 @@ const HeaderContent = ({ navbarData }: { navbarData: any }) => {
                                              : null
                                        }
                                     >
-                                       <Link href={item.slug}>
+                                       <Link href={`/${item.slug}`}>
                                           <span>{item.name}</span>
                                        </Link>
                                     </li>
@@ -167,7 +167,7 @@ const HeaderContent = ({ navbarData }: { navbarData: any }) => {
                            if (item.isButton === true) {
                               return (
                                  <Link
-                                    href={item.slug}
+                                    href={`/${item.slug}`}
                                     className="btn btn-primary"
                                     key={i}
                                  >
@@ -185,7 +185,7 @@ const HeaderContent = ({ navbarData }: { navbarData: any }) => {
                                     }
                                     key={i}
                                  >
-                                    <Link href={item.slug}>
+                                    <Link href={`/${item.slug}`}>
                                        <span>{item.name}</span>
                                     </Link>
                                  </li>

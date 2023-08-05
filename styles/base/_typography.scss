@@ -86,8 +86,8 @@
 }
 
 .portableText {
+   @apply flex flex-col gap-2;
    p {
-      @apply mb-2;
       @include typo(para);
    }
    ul,
@@ -123,5 +123,10 @@
       color: #339dff;
       text-decoration: underline;
       text-underline-offset: 4px;
+   }
+
+   b,
+   strong {
+      @apply font-extrabold;
    }
 }
