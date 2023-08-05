@@ -9,7 +9,7 @@ const client = createClient({
    projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "",
    dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "",
    apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION || "",
-   useCdn: false,
+   useCdn: true,
 });
 // #endregion
 
@@ -55,7 +55,10 @@ export async function getHomePageData() {
          sbc,
          testimonials,
          trust
-      }`
+      }`,
+      {
+         next: { revalidate: 10 },
+      }
    );
 }
 
@@ -68,7 +71,10 @@ export async function getSBCPageData() {
          comparison,
          aboutSBC,
          bitcoinMiners
-      }`
+      }`,
+      {
+         next: { revalidate: 10 },
+      }
    );
 }
 
@@ -79,7 +85,10 @@ export async function getInvestorPageData() {
          hero,
          investment,
          support
-      }`
+      }`,
+      {
+         next: { revalidate: 10 },
+      }
    );
 }
 
@@ -88,7 +97,10 @@ export async function getGetStartedPageData() {
       groq`*[_type=="getStartedPage"][0]{
          _id,
          hero,
-      }`
+      }`,
+      {
+         next: { revalidate: 10 },
+      }
    );
 }
 
@@ -99,7 +111,10 @@ export async function getMinerPageData() {
          hero,
          use,
          qualify
-      }`
+      }`,
+      {
+         next: { revalidate: 10 },
+      }
    );
 }
 
@@ -112,7 +127,10 @@ export async function getAboutPageData() {
          commitment,
          team,
          support
-      }`
+      }`,
+      {
+         next: { revalidate: 10 },
+      }
    );
 }
 
@@ -121,7 +139,10 @@ export async function getContactPageData() {
       groq`*[_type=="contactPage"][0]{
          _id,
          hero,
-      }`
+      }`,
+      {
+         next: { revalidate: 10 },
+      }
    );
 }
 
@@ -130,7 +151,10 @@ export async function getTransparencyPageData() {
       groq`*[_type=="transparencyPage"][0]{
          _id,
          hero,
-      }`
+      }`,
+      {
+         next: { revalidate: 10 },
+      }
    );
 }
 
@@ -144,7 +168,10 @@ export async function getNewsPageData() {
          description,
          "imageURL": image.asset->url,
          image
-      }`
+      }`,
+      {
+         next: { revalidate: 10 },
+      }
    );
 }
 
@@ -159,7 +186,10 @@ export async function getArticleData(slug: string) {
          "imageURL": image.asset->url,
          image,
          content
-      }`
+      }`,
+      {
+         next: { revalidate: 10 },
+      }
    );
 }
 
@@ -171,7 +201,10 @@ export async function getMiscPageData(slug: string) {
          pageTitle,
          slug,
          content
-      }`
+      }`,
+      {
+         next: { revalidate: 10 },
+      }
    );
 }
 // #endregion
