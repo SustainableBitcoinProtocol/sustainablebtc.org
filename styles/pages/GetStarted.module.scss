@@ -32,12 +32,15 @@
       }
 
       .heroLoginTypeImage {
+         --size: 2.5rem !important;
+
          @apply absolute block;
          @apply top-0 -translate-y-1/2;
          background: color($color-dark);
          @apply rounded-md p-6;
          border: 1px solid #339dff;
-         width: 2.5rem !important;
+         width: var(--size);
+         height: var(--size);
          aspect-ratio: 1 / 1 !important;
          @apply grid place-content-center;
       }
@@ -87,8 +90,8 @@
          }
 
          .heroLoginTypeImage {
+            --size: 4rem !important;
             @apply p-4;
-            width: 4rem !important;
             aspect-ratio: 1 / 1 !important;
          }
       }

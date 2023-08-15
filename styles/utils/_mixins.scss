@@ -120,11 +120,18 @@ $gradients: (
    primary: linear-gradient(40deg, #339dff 0%, #0ec1d3 100%),
    primaryReverse: linear-gradient(-40deg, #339dff 0%, #0ec1d3 100%),
    light: linear-gradient(40deg, #fafafa 0%, #fafafa 100%),
+   initial: transparent,
 );
 @mixin text-gradient($color) {
    background: map-get($map: $gradients, $key: $color);
    -webkit-background-clip: text;
    -webkit-text-fill-color: transparent;
+
+   @if $color == initial {
+      background: $color;
+      -webkit-background-clip: initial !important;
+      -webkit-text-fill-color: initial !important;
+   }
 }
 @mixin gradient-text {
    background: linear-gradient(40deg, #339dff 0%, #0ec1d3 100%);

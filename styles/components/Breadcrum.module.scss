@@ -23,6 +23,11 @@
             @include text-gradient(primary);
          }
 
+         i {
+            @include text-gradient(initial);
+            color: #339dff;
+         }
+
          &:last-child {
             @apply hidden;
          }
