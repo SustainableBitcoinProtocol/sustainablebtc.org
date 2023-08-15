@@ -1,6 +1,5 @@
 .hero {
    @include hero-spacing;
-   @apply w-[100vw] overflow-hidden;
 
    .container {
       @apply max-w-[1000px];
