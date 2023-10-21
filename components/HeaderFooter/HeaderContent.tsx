@@ -185,9 +185,15 @@ const HeaderContent = ({ navbarData }: { navbarData: any }) => {
                                     }
                                     key={i}
                                  >
-                                    <Link href={`/${item.slug}`}>
-                                       <span>{item.name}</span>
-                                    </Link>
+                                    {item.slug.includes("http") ? (
+                                       <Link href={item.slug}>
+                                          <span>{item.name}</span>
+                                       </Link>
+                                    ) : (
+                                       <Link href={`/${item.slug}`}>
+                                          <span>{item.name}</span>
+                                       </Link>
+                                    )}
                                  </li>
                               );
                            }

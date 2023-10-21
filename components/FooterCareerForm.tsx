@@ -34,7 +34,7 @@ const FooterCareerForm = () => {
          } else {
             errorText.innerHTML = "";
 
-            // Send mail1
+            // Send mail
             emailjs
                .sendForm(
                   process.env.NEXT_PUBLIC_EMAILJS_SERVICE_KEY || "",
