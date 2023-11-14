@@ -53,6 +53,7 @@
       .heroClientLogo {
          @apply flex gap-6 items-center flex-wrap justify-center;
          @apply relative z-20;
+         @apply max-w-[1000px];
 
          img {
             @apply opacity-70;
@@ -120,7 +121,7 @@
       @apply pt-0;
 
       .container {
-         @apply min-h-[110vh];
+         @apply min-h-[120vh];
       }
       .heroDescription {
          @apply pt-10;
