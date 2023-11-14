@@ -3,6 +3,7 @@ import "@/styles/global.scss";
 
 // Imports
 import localFont from "@next/font/local";
+import Script from "next/script";
 
 // Custom Components
 import Header from "@/components/HeaderFooter/Header";
@@ -65,19 +66,35 @@ export default function RootLayout({
    children: React.ReactNode;
 }) {
    return (
-      <html lang="en" className={helveticaNowDisplay.className}>
-         <body>
-            {/* Progressbar */}
-            <ProgressBar />
-            {/* Navbar */}
-            <Header />
-            {/* Breadcrum */}
-            <Breadcrum />
-            {/* Main */}
-            <main>{children}</main>
-            {/* Footer */}
-            <Footer />
-         </body>
-      </html>
+      <>
+         <>
+            <Script
+               src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_MEASUREMENT_ID}`}
+            />
+            <Script id="google-analytics">
+               {`
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+         
+                  gtag('config', '${process.env.GA_MEASUREMENT_ID}');
+               `}
+            </Script>
+         </>
+         <html lang="en" className={helveticaNowDisplay.className}>
+            <body>
+               {/* Progressbar */}
+               <ProgressBar />
+               {/* Navbar */}
+               <Header />
+               {/* Breadcrum */}
+               <Breadcrum />
+               {/* Main */}
+               <main>{children}</main>
+               {/* Footer */}
+               <Footer />
+            </body>
+         </html>
+      </>
    );
 }
