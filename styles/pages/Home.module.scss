@@ -7,22 +7,21 @@
       @apply pt-10;
       @apply relative;
       @apply min-h-[100vh];
-      @apply grid place-content-center;
+      @apply flex items-center;
    }
 
    // Description
    .heroDescription {
       @apply relative z-20;
+      @apply flex flex-col justify-center items-center gap-6;
+      @apply max-w-[800px];
       @apply text-center;
-      @apply max-w-[1000px] mx-auto;
-      @apply flex flex-col gap-6;
 
       .heroHeading {
          h1 {
             @apply font-bold;
             @apply text-[2.5rem];
             line-height: 110%;
-            text-align: left;
          }
 
          b,
@@ -31,19 +30,18 @@
          }
       }
       .heroPara {
-         @apply px-2;
-         @apply max-w-[800px] mx-auto;
+         @apply max-w-[800px];
       }
       .heroBtnWrapper {
-         @apply flex flex-wrap justify-center gap-4;
+         @apply flex flex-wrap gap-4;
          @apply my-4;
       }
    }
 
    // Clients
    .heroClient {
-      @apply mt-10;
-      @apply flex flex-col gap-4 items-center justify-center;
+      @apply mt-20;
+      @apply flex md:hidden flex-col gap-4 items-center justify-center;
 
       .heroClientLogoTitle {
          @include typo(para);
@@ -99,6 +97,7 @@
          @apply pt-0;
       }
       .heroDescription {
+         @apply justify-start items-start text-left;
          .heroHeading {
             h1 {
                @apply text-5xl;
@@ -122,7 +121,7 @@
       @apply pt-0;
 
       .container {
-         @apply min-h-[120vh];
+         @apply min-h-[100vh];
       }
       .heroDescription {
          @apply pt-10;
@@ -154,7 +153,7 @@
 
       .imgHeroWindmill {
          @apply block;
-         @apply absolute bottom-0 right-0 z-20;
+         @apply absolute bottom-0 right-20 z-20;
          @apply max-h-[80vh] w-auto;
          @apply object-contain;
       }

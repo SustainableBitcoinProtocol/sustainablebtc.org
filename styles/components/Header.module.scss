@@ -81,7 +81,7 @@
       }
 
       .sbcValueChangeBy {
-         @apply flex items-center gap-1;
+         @apply flex items-center;
 
          &.positive {
             color: color($color-green, 600);
