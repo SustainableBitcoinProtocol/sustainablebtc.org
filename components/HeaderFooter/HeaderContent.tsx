@@ -107,7 +107,7 @@ const HeaderContent = ({
                         className={`${styles.sbcValueChangeBy} ${styles.positive}`}
                      >
                         <i className="bi bi-arrow-up"></i>
-                        <span>0%</span>
+                        <span>0.03%</span>
                      </span>
                   </div>
                   <div className={styles.sbc}>
