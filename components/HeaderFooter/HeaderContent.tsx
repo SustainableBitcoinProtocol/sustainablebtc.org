@@ -18,6 +18,7 @@ import { Autoplay } from "swiper/modules";
 // Images
 import logo from "@/public/logo.svg";
 import sbcIcon from "@/public/sbc-icon.svg";
+import bitcoinIcon from "@/public/bitcoin-icon.svg";
 
 const HeaderContent = ({
    navbarData,
@@ -94,15 +95,37 @@ const HeaderContent = ({
                   </div>
                </div>
                {/* SBC Value */}
-               <div className={styles.sbc}>
-                  <Image src={sbcIcon} alt="SBC" className={styles.sbcLogo} />
-                  <span className={styles.sbcValue}>$ 1,314</span>
-                  <span
-                     className={`${styles.sbcValueChangeBy} ${styles.positive}`}
-                  >
-                     <i className="bi bi-arrow-up"></i>
-                     <span>0%</span>
-                  </span>
+               <div className={styles.ticker}>
+                  <div className={styles.sbc}>
+                     <Image
+                        src={bitcoinIcon}
+                        alt="SBC"
+                        className={styles.sbcLogo}
+                     />
+                     <span className={styles.sbcValue}>$ 35,562</span>
+                     <span
+                        className={`${styles.sbcValueChangeBy} ${styles.positive}`}
+                     >
+                        <i className="bi bi-arrow-up"></i>
+                        <span>0%</span>
+                     </span>
+                  </div>
+                  <div className={styles.sbc}>
+                     <Image
+                        src={sbcIcon}
+                        alt="SBC"
+                        className={styles.sbcLogo}
+                     />
+                     <span className={styles.sbcValue}>$ 1,314</span>
+
+                     {/* If it's less than 0% make it negative & arrow-down */}
+                     <span
+                        className={`${styles.sbcValueChangeBy} ${styles.positive}`}
+                     >
+                        <i className="bi bi-arrow-up"></i>
+                        <span>0%</span>
+                     </span>
+                  </div>
                </div>
             </div>
          </aside>

@@ -23,12 +23,17 @@
    }
 
    --no-of-slides: 14;
-   --slides-in-view: 5;
+   --slides-in-view: 3;
    --slide-width: 6rem;
    --slide-height: 2.5rem;
    --iteration-time: 20s;
 
    @include responsive(lg) {
+      --slides-in-view: 5;
+      --slide-width: 7rem;
+      --slide-height: 3.5rem;
+   }
+   @include responsive(xl) {
       --slides-in-view: 7;
       --slide-width: 7rem;
       --slide-height: 3.5rem;
@@ -57,6 +62,21 @@
       width: calc(var(--slides-in-view) * var(--slide-width));
       overflow: hidden;
       margin: 0 auto;
+      position: relative;
+
+      &::after {
+         content: "";
+         position: absolute;
+         top: 0;
+         right: 0;
+         width: 20%;
+         height: 100%;
+         background: linear-gradient(
+            to left,
+            rgba(color($color-green), 1) 0%,
+            rgba(color($color-green), 0) 100%
+         );
+      }
 
       .globalLeaderSlide {
          animation: scroll var(--iteration-time) linear infinite;
@@ -78,8 +98,18 @@
       }
    }
 
+   .ticker {
+      @apply flex items-center gap-6;
+      font-size: 0.9rem;
+   }
+
    .sbc {
       @apply flex items-center gap-2;
+      white-space: nowrap;
+
+      img {
+         width: 1.7rem;
+      }
 
       .sbcValue {
          font-weight: 600;
