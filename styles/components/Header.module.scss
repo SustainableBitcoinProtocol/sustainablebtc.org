@@ -8,19 +8,20 @@
       @apply flex justify-between items-center;
    }
 
-   --no-of-slides: 14;
-   --slides-in-view: 3;
-   --slide-width: 5.5rem;
+   --no-of-slides: 16;
+   --slides-in-view: 2;
+   --slide-width: 7rem;
    --slide-height: 2.5rem;
    --iteration-time: 20s;
 
    @include responsive(md) {
-      --slides-in-view: 3;
-      --slide-width: 6rem;
+      --no-of-slides: 14;
+      --slides-in-view: 2;
+      --slide-width: 7rem;
       --slide-height: 2.5rem;
    }
    @include responsive(lg) {
-      --slides-in-view: 5;
+      --slides-in-view: 4;
       --slide-width: 7rem;
       --slide-height: 3rem;
    }
@@ -42,16 +43,18 @@
    }
 
    .globalLeader {
-      @apply flex flex-col;
+      @apply flex;
 
       .globalLeaderHeading {
-         padding-block: 0.7rem 0.2rem;
+         padding-block: 0.7rem;
          padding-right: 1rem;
          font-size: 0.8rem;
          font-weight: 500;
          line-height: 120%;
          background: color($color-green);
+         white-space: nowrap;
          // @apply hidden;
+         box-shadow: 10px 0px 10px 0px rgba(0, 0, 0, 0.2);
       }
 
       @include responsive(md) {
@@ -109,26 +112,33 @@
 
          img {
             max-height: var(--slide-height);
-            filter: grayscale(100%) brightness(0);
+         }
+         &:not(:has(.sbc)) {
+            img {
+               filter: grayscale(100%) brightness(0);
+            }
+         }
+         &:has(.sbc) {
+            @include responsive(md) {
+               display: none !important;
+            }
          }
       }
    }
 
    .ticker {
       @apply flex items-center justify-end gap-x-6 gap-y-1 flex-wrap;
-      font-size: 0.8rem;
-
-      @include responsive(md) {
-         font-size: 0.9rem;
-      }
+      @apply hidden md:flex;
    }
 
    .sbc {
-      @apply flex items-center gap-2;
+      @apply flex items-center;
+      gap: 2px;
       white-space: nowrap;
+      font-size: 0.8rem;
 
       img {
-         width: 1.2rem;
+         width: 1rem;
       }
 
       .sbcValue {
@@ -137,6 +147,8 @@
 
       .sbcValueChangeBy {
          @apply flex items-center;
+         font-size: 0.5rem;
+         font-weight: 600;
 
          &.positive {
             color: color($color-green, 600);
@@ -148,8 +160,14 @@
       }
 
       @include responsive(md) {
+         @apply gap-2;
+         font-size: 0.9rem;
          img {
             width: 1.7rem;
+         }
+         .sbcValueChangeBy {
+            font-size: inherit;
+            font-weight: inherit;
          }
       }
    }
