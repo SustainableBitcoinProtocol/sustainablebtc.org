@@ -96,7 +96,7 @@ const HeaderContent = ({
                {/* SBC Value */}
                <div className={styles.sbc}>
                   <Image src={sbcIcon} alt="SBC" className={styles.sbcLogo} />
-                  <span className={styles.sbcValue}>$ 1,120</span>
+                  <span className={styles.sbcValue}>$ 1,314</span>
                   <span
                      className={`${styles.sbcValueChangeBy} ${styles.positive}`}
                   >
