@@ -25,6 +25,10 @@ $color-red: (
    300: #e13535,
    default: #f83939,
 );
+$color-green: (
+   600: hsl(144, 81%, 20%),
+   default: #34ea7e,
+);
 @function color($color, $weight: default) {
    @return map-get($map: $color, $key: $weight);
 }
