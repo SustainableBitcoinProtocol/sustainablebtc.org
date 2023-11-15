@@ -71,7 +71,7 @@ export default function HomeHero({ heroData }: { heroData: any }) {
                      </div>
 
                      {/* logos */}
-                     <div className={styles.heroClient}>
+                     {/* <div className={styles.heroClient}>
                         <h3 className={styles.heroClientLogoTitle}>
                            {heroData.heroCompanyIconsTitle}
                         </h3>
@@ -91,7 +91,7 @@ export default function HomeHero({ heroData }: { heroData: any }) {
                               )
                            )}
                         </div>
-                     </div>
+                     </div> */}
                   </>
                )}
             </div>

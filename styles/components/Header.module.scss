@@ -1,42 +1,33 @@
 .headerTopBar {
    background-color: color($color-green);
    color: color($color-dark);
-   @apply hidden md:block;
+   // @apply hidden md:block;
    @apply relative z-10;
 
    .container {
       @apply flex justify-between items-center;
    }
 
-   .globalLeaderHeading {
-      padding-block: 0.5rem;
-      padding-right: 1rem;
-      font-size: 0.8rem;
-      font-weight: 500;
-      line-height: 120%;
-      background: color($color-green);
-      box-shadow: 10px 0px 10px 0px rgba(0, 0, 0, 0.2);
-
-      @include responsive(lg) {
-         padding-block: 0.8rem;
-      }
-   }
-
    --no-of-slides: 14;
    --slides-in-view: 3;
-   --slide-width: 6rem;
+   --slide-width: 5.5rem;
    --slide-height: 2.5rem;
    --iteration-time: 20s;
 
+   @include responsive(md) {
+      --slides-in-view: 3;
+      --slide-width: 6rem;
+      --slide-height: 2.5rem;
+   }
    @include responsive(lg) {
       --slides-in-view: 5;
       --slide-width: 7rem;
-      --slide-height: 3.5rem;
+      --slide-height: 3rem;
    }
    @include responsive(xl) {
-      --slides-in-view: 7;
+      --slides-in-view: 6;
       --slide-width: 7rem;
-      --slide-height: 3.5rem;
+      --slide-height: 3rem;
    }
 
    @keyframes scroll {
@@ -51,8 +42,33 @@
    }
 
    .globalLeader {
-      @apply flex items-center gap-4;
-      // width: calc(2 * var(--no-of-slides));
+      @apply flex flex-col;
+
+      .globalLeaderHeading {
+         padding-block: 0.7rem 0.2rem;
+         padding-right: 1rem;
+         font-size: 0.8rem;
+         font-weight: 500;
+         line-height: 120%;
+         background: color($color-green);
+         // @apply hidden;
+      }
+
+      @include responsive(md) {
+         @apply flex-row gap-4 items-center;
+
+         .globalLeaderHeading {
+            padding-block: 0.8rem 0.8rem;
+            box-shadow: 10px 0px 10px 0px rgba(0, 0, 0, 0.2);
+         }
+      }
+
+      @include responsive(lg) {
+         .globalLeaderHeading {
+            padding-block: 1rem;
+            font-size: 0.9rem;
+         }
+      }
    }
    .globalLeaderSlider {
       display: flex;
@@ -99,8 +115,12 @@
    }
 
    .ticker {
-      @apply flex items-center gap-6;
-      font-size: 0.9rem;
+      @apply flex items-center justify-end gap-x-6 gap-y-1 flex-wrap;
+      font-size: 0.8rem;
+
+      @include responsive(md) {
+         font-size: 0.9rem;
+      }
    }
 
    .sbc {
@@ -108,7 +128,7 @@
       white-space: nowrap;
 
       img {
-         width: 1.7rem;
+         width: 1.2rem;
       }
 
       .sbcValue {
@@ -124,6 +144,12 @@
 
          &.negative {
             color: color($color-red);
+         }
+      }
+
+      @include responsive(md) {
+         img {
+            width: 1.7rem;
          }
       }
    }

@@ -58,7 +58,7 @@ const HeaderContent = ({
                {/* Global Leaders */}
                <div className={styles.globalLeader}>
                   <h6 className={styles.globalLeaderHeading}>
-                     Trusted by <br /> Global Leaders
+                     Trusted by Global Leaders
                   </h6>
                   {/* Logo Slider */}
                   <div className={styles.globalLeaderSlider}>
