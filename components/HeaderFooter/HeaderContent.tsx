@@ -58,7 +58,7 @@ const HeaderContent = ({
                {/* Global Leaders */}
                <div className={styles.globalLeader}>
                   <h6 className={styles.globalLeaderHeading}>
-                     Trusted by <br /> Global Leaders
+                     Trusted by Global Leaders
                   </h6>
                   {/* Logo Slider */}
                   <div className={styles.globalLeaderSlider}>
@@ -92,6 +92,40 @@ const HeaderContent = ({
                            </div>
                         </>
                      ))}
+                     <div className={`md:hidden ${styles.globalLeaderSlide}`}>
+                        <div className={styles.sbc}>
+                           <Image
+                              src={bitcoinIcon}
+                              alt="SBC"
+                              className={styles.sbcLogo}
+                           />
+                           <span className={styles.sbcValue}>$ 35,562</span>
+                           <span
+                              className={`${styles.sbcValueChangeBy} ${styles.positive}`}
+                           >
+                              <i className="bi bi-arrow-up"></i>
+                              <span>0.03%</span>
+                           </span>
+                        </div>
+                     </div>
+                     <div className={`mad:hidden ${styles.globalLeaderSlide}`}>
+                        <div className={styles.sbc}>
+                           <Image
+                              src={sbcIcon}
+                              alt="SBC"
+                              className={styles.sbcLogo}
+                           />
+                           <span className={styles.sbcValue}>$ 1,314</span>
+
+                           {/* If it's less than 0% make it negative & arrow-down */}
+                           <span
+                              className={`${styles.sbcValueChangeBy} ${styles.positive}`}
+                           >
+                              <i className="bi bi-arrow-up"></i>
+                              <span>0%</span>
+                           </span>
+                        </div>
+                     </div>
                   </div>
                </div>
                {/* SBC Value */}
