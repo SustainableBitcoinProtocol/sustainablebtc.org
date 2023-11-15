@@ -47,7 +47,7 @@ const Header = () => {
    return (
       <header
          className={`${styles.header} ${
-            clientWindowHeight > 98 / 2 ? styles.fixToTop : ""
+            clientWindowHeight > 48 / 2 ? styles.fixToTop : ""
          }`}
       >
          <div className={`${styles.container} container`}>

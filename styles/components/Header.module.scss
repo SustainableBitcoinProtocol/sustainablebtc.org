@@ -1,5 +1,101 @@
+.headerTopBar {
+   background-color: color($color-green);
+   color: color($color-dark);
+   @apply hidden md:block;
+   @apply relative z-10;
+
+   .container {
+      @apply flex justify-between items-center;
+   }
+
+   .globalLeaderHeading {
+      padding-block: 0.5rem;
+      padding-right: 1rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      line-height: 120%;
+      background: color($color-green);
+      box-shadow: 10px 0px 10px 0px rgba(0, 0, 0, 0.2);
+   }
+
+   --no-of-slides: 14;
+   --slides-in-view: 5;
+   --slide-width: 6rem;
+   --slide-height: 2.5rem;
+   --iteration-time: 10s;
+
+   @include responsive(lg) {
+      --slides-in-view: 7;
+      --slide-height: 3rem;
+   }
+
+   @keyframes scroll {
+      0% {
+         transform: translateX(0);
+      }
+      100% {
+         transform: translateX(
+            calc(var(--slide-width) * var(--no-of-slides) * -1)
+         );
+      }
+   }
+
+   .globalLeader {
+      @apply flex items-center gap-4;
+      // width: calc(2 * var(--no-of-slides));
+   }
+   .globalLeaderSlider {
+      display: flex;
+      /*justify-content: center;*/
+      align-items: center;
+
+      width: calc(var(--slides-in-view) * var(--slide-width));
+      overflow: hidden;
+      margin: 0 auto;
+
+      .globalLeaderSlide {
+         animation: scroll var(--iteration-time) linear infinite;
+         display: flex;
+         justify-content: center;
+         flex-direction: column;
+         width: var(--slide-width);
+         height: var(--slide-height);
+
+         flex: 0 0 auto;
+         box-sizing: border-box;
+         padding-inline: 1rem;
+         /*border: 1px dotted darkblue;*/
+
+         img {
+            max-height: var(--slide-height);
+            filter: grayscale(100%) brightness(0);
+         }
+      }
+   }
+
+   .sbc {
+      @apply flex items-center gap-2;
+
+      .sbcValue {
+         font-weight: 600;
+      }
+
+      .sbcValueChangeBy {
+         @apply flex items-center gap-1;
+
+         &.positive {
+            color: color($color-green, 600);
+         }
+
+         &.negative {
+            color: color($color-red);
+         }
+      }
+   }
+}
+
 .header {
-   @apply fixed z-50 w-full py-5;
+   @apply absolute z-50 w-full py-5;
    @apply bg-transparent text-base;
    @apply whitespace-nowrap;
    @apply transition-all duration-300 ease-in;
@@ -10,7 +106,7 @@
    }
 
    &.fixToTop {
-      @apply py-3;
+      @apply fixed py-3 top-0;
       background: color($color-dark);
       border-color: color($color-dark, 500);
 

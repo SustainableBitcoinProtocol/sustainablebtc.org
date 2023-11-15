@@ -26,6 +26,16 @@ export async function getNavbarData() {
       }`
    );
 }
+export async function getNavbarGlobalLeaderstData() {
+   return client.fetch(
+      groq`*[_type=="homePage"][0]{
+         hero
+      }`,
+      {
+         next: { revalidate: 10 },
+      }
+   );
+}
 
 export async function getFooterData(): Promise<FooterType[]> {
    return client.fetch(

@@ -9,10 +9,23 @@ import Image from "next/image";
 import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
 
+// Lib
+import { urlFor } from "@/sanity/sanity-urlFor";
+import { PortableText } from "@portabletext/react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+
 // Images
 import logo from "@/public/logo.svg";
+import sbcIcon from "@/public/sbc-icon.svg";
 
-const HeaderContent = ({ navbarData }: { navbarData: any }) => {
+const HeaderContent = ({
+   navbarData,
+   navbarGlobalLeadersData,
+}: {
+   navbarData: any;
+   navbarGlobalLeadersData: any;
+}) => {
    // =====================================================================
    // ! Get activelink
    let activeLink = useSelectedLayoutSegment();
@@ -39,6 +52,60 @@ const HeaderContent = ({ navbarData }: { navbarData: any }) => {
 
    return (
       <>
+         <aside className={`${styles.headerTopBar}`}>
+            <div className={`${styles.container} container`}>
+               {/* Global Leaders */}
+               <div className={styles.globalLeader}>
+                  <h6 className={styles.globalLeaderHeading}>
+                     Trusted by <br /> Global Leaders
+                  </h6>
+                  {/* Logo Slider */}
+                  <div className={styles.globalLeaderSlider}>
+                     {navbarGlobalLeadersData.map((image: any) => (
+                        <>
+                           <div
+                              className={styles.globalLeaderSlide}
+                              title={image.alt}
+                           >
+                              <Image
+                                 src={urlFor(image).url()}
+                                 alt={image.alt}
+                                 width={300}
+                                 height={100}
+                              />
+                           </div>
+                        </>
+                     ))}
+                     {navbarGlobalLeadersData.map((image: any) => (
+                        <>
+                           <div
+                              className={styles.globalLeaderSlide}
+                              title={image.alt}
+                           >
+                              <Image
+                                 src={urlFor(image).url()}
+                                 alt={image.alt}
+                                 width={300}
+                                 height={100}
+                              />
+                           </div>
+                        </>
+                     ))}
+                  </div>
+               </div>
+               {/* SBC Value */}
+               <div className={styles.sbc}>
+                  <Image src={sbcIcon} alt="SBC" className={styles.sbcLogo} />
+                  <span className={styles.sbcValue}>$ 1,120</span>
+                  <span
+                     className={`${styles.sbcValueChangeBy} ${styles.positive}`}
+                  >
+                     <i className="bi bi-arrow-up"></i>
+                     <span>23%</span>
+                  </span>
+               </div>
+            </div>
+         </aside>
          <header
             className={`${styles.header} ${
                clientWindowHeight > 98 / 2 ? styles.fixToTop : ""
