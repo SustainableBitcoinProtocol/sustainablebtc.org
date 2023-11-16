@@ -22,7 +22,8 @@ export async function getNavbarData() {
       groq`*[_type=="navbar"][8]{
          _id,
          primaryNavigation,
-         secondaryNavigation
+         secondaryNavigation,
+         statistics,
       }`
    );
 }
