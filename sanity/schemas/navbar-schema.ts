@@ -56,6 +56,46 @@ const navbar = {
             },
          ],
       },
+      {
+         name: "statistics",
+         title: "Statistics",
+         type: "array",
+         of: [
+            {
+               type: "document",
+               fields: [
+                  {
+                     name: "statName",
+                     title: "Statistics Name",
+                     type: "string",
+                  },
+                  {
+                     name: "statImage",
+                     title: "Statistics Image",
+                     type: "image",
+                     options: { hotspot: true },
+                     fields: [
+                        {
+                           name: "alt",
+                           title: "Alt",
+                           type: "string",
+                        },
+                     ],
+                  },
+                  {
+                     name: "statValue",
+                     title: "Statistics Value",
+                     type: "number",
+                  },
+                  {
+                     name: "statChangedBy",
+                     title: "Statistics Changed By",
+                     type: "number",
+                  },
+               ],
+            },
+         ],
+      },
    ],
 };
 

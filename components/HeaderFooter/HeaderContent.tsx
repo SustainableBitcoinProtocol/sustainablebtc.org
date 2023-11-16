@@ -92,74 +92,93 @@ const HeaderContent = ({
                            </div>
                         </>
                      ))}
-                     <div className={`md:hidden ${styles.globalLeaderSlide}`}>
-                        <div className={styles.sbc}>
-                           <Image
-                              src={bitcoinIcon}
-                              alt="SBC"
-                              className={styles.sbcLogo}
-                           />
-                           <span className={styles.sbcValue}>$ 35,562</span>
-                           <span
-                              className={`${styles.sbcValueChangeBy} ${styles.positive}`}
-                           >
-                              <i className="bi bi-arrow-up"></i>
-                              <span>0.03%</span>
-                           </span>
-                        </div>
-                     </div>
-                     <div className={`mad:hidden ${styles.globalLeaderSlide}`}>
-                        <div className={styles.sbc}>
-                           <Image
-                              src={sbcIcon}
-                              alt="SBC"
-                              className={styles.sbcLogo}
-                           />
-                           <span className={styles.sbcValue}>$ 1,314</span>
 
-                           {/* If it's less than 0% make it negative & arrow-down */}
-                           <span
-                              className={`${styles.sbcValueChangeBy} ${styles.positive}`}
-                           >
-                              <i className="bi bi-arrow-up"></i>
-                              <span>0%</span>
-                           </span>
-                        </div>
-                     </div>
+                     {navbarData.statistics &&
+                        navbarData.statistics.map((item: any, i: number) => {
+                           return (
+                              <>
+                                 <div
+                                    className={`md:hidden ${styles.globalLeaderSlide}`}
+                                 >
+                                    <div className={styles.sbc}>
+                                       <Image
+                                          src={urlFor(item.statImage).url()}
+                                          alt={item.alt}
+                                          className={styles.sbcLogo}
+                                          width={20}
+                                          height={20}
+                                       />
+                                       <span className={styles.sbcValue}>
+                                          {new Intl.NumberFormat("en-US", {
+                                             style: "currency",
+                                             currency: "USD",
+                                          }).format(item.statValue)}
+                                       </span>
+                                       <span
+                                          className={`${
+                                             styles.sbcValueChangeBy
+                                          } ${
+                                             item.statChangedBy >= 0
+                                                ? styles.positive
+                                                : styles.negative
+                                          }`}
+                                       >
+                                          <i
+                                             className={`bi bi-arrow-${
+                                                item.statChangedBy >= 0
+                                                   ? "up"
+                                                   : "down"
+                                             }`}
+                                          ></i>
+                                          <span>{item.statChangedBy}%</span>
+                                       </span>
+                                    </div>
+                                 </div>
+                              </>
+                           );
+                        })}
                   </div>
                </div>
                {/* SBC Value */}
                <div className={styles.ticker}>
-                  <div className={styles.sbc}>
-                     <Image
-                        src={bitcoinIcon}
-                        alt="SBC"
-                        className={styles.sbcLogo}
-                     />
-                     <span className={styles.sbcValue}>$ 35,562</span>
-                     <span
-                        className={`${styles.sbcValueChangeBy} ${styles.positive}`}
-                     >
-                        <i className="bi bi-arrow-up"></i>
-                        <span>0.03%</span>
-                     </span>
-                  </div>
-                  <div className={styles.sbc}>
-                     <Image
-                        src={sbcIcon}
-                        alt="SBC"
-                        className={styles.sbcLogo}
-                     />
-                     <span className={styles.sbcValue}>$ 1,314</span>
-
-                     {/* If it's less than 0% make it negative & arrow-down */}
-                     <span
-                        className={`${styles.sbcValueChangeBy} ${styles.positive}`}
-                     >
-                        <i className="bi bi-arrow-up"></i>
-                        <span>0%</span>
-                     </span>
-                  </div>
+                  {navbarData.statistics &&
+                     navbarData.statistics.map((item: any, i: number) => {
+                        return (
+                           <>
+                              <div className={styles.sbc}>
+                                 <Image
+                                    src={urlFor(item.statImage).url()}
+                                    alt={item.alt}
+                                    className={styles.sbcLogo}
+                                    width={20}
+                                    height={20}
+                                 />
+                                 <span className={styles.sbcValue}>
+                                    {new Intl.NumberFormat("en-US", {
+                                       style: "currency",
+                                       currency: "USD",
+                                    }).format(item.statValue)}
+                                 </span>
+                                 <span
+                                    className={`${styles.sbcValueChangeBy} ${
+                                       item.statChangedBy >= 0
+                                          ? styles.positive
+                                          : styles.negative
+                                    }`}
+                                 >
+                                    <i
+                                       className={`bi bi-arrow-${
+                                          item.statChangedBy >= 0
+                                             ? "up"
+                                             : "down"
+                                       }`}
+                                    ></i>
+                                    <span>{item.statChangedBy}%</span>
+                                 </span>
+                              </div>
+                           </>
+                        );
+                     })}
                </div>
             </div>
          </aside>
