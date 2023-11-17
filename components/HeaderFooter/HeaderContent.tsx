@@ -73,21 +73,7 @@ const HeaderContent = ({
                                  alt={image.alt}
                                  width={300}
                                  height={100}
-                              />
-                           </div>
-                        </>
-                     ))}
-                     {navbarGlobalLeadersData.map((image: any) => (
-                        <>
-                           <div
-                              className={styles.globalLeaderSlide}
-                              title={image.alt}
-                           >
-                              <Image
-                                 src={urlFor(image).url()}
-                                 alt={image.alt}
-                                 width={300}
-                                 height={100}
+                                 loading="eager"
                               />
                            </div>
                         </>
@@ -107,6 +93,70 @@ const HeaderContent = ({
                                           className={styles.sbcLogo}
                                           width={20}
                                           height={20}
+                                          loading="eager"
+                                       />
+                                       <span className={styles.sbcValue}>
+                                          {new Intl.NumberFormat("en-US", {
+                                             style: "currency",
+                                             currency: "USD",
+                                          }).format(item.statValue)}
+                                       </span>
+                                       <span
+                                          className={`${
+                                             styles.sbcValueChangeBy
+                                          } ${
+                                             item.statChangedBy >= 0
+                                                ? styles.positive
+                                                : styles.negative
+                                          }`}
+                                       >
+                                          <i
+                                             className={`bi bi-arrow-${
+                                                item.statChangedBy >= 0
+                                                   ? "up"
+                                                   : "down"
+                                             }`}
+                                          ></i>
+                                          <span>{item.statChangedBy}%</span>
+                                       </span>
+                                    </div>
+                                 </div>
+                              </>
+                           );
+                        })}
+
+                     {navbarGlobalLeadersData.map((image: any) => (
+                        <>
+                           <div
+                              className={styles.globalLeaderSlide}
+                              title={image.alt}
+                           >
+                              <Image
+                                 src={urlFor(image).url()}
+                                 alt={image.alt}
+                                 width={300}
+                                 height={100}
+                                 loading="eager"
+                              />
+                           </div>
+                        </>
+                     ))}
+
+                     {navbarData.statistics &&
+                        navbarData.statistics.map((item: any, i: number) => {
+                           return (
+                              <>
+                                 <div
+                                    className={`md:hidden ${styles.globalLeaderSlide}`}
+                                 >
+                                    <div className={styles.sbc}>
+                                       <Image
+                                          src={urlFor(item.statImage).url()}
+                                          alt={item.alt}
+                                          className={styles.sbcLogo}
+                                          width={20}
+                                          height={20}
+                                          loading="eager"
                                        />
                                        <span className={styles.sbcValue}>
                                           {new Intl.NumberFormat("en-US", {
