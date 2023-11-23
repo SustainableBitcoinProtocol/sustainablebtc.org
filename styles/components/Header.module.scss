@@ -110,6 +110,10 @@
          padding-inline: 1rem;
          /*border: 1px dotted darkblue;*/
 
+         &.price {
+            width: 8rem !important;
+         }
+
          img {
             max-height: var(--slide-height);
          }

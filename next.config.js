@@ -6,7 +6,7 @@ const nextConfig = {
       prependData: `@import "imports.scss";`,
    },
    images: {
-      domains: ['cdn.sanity.io']
+      domains: ['cdn.sanity.io', 'lcw.nyc3.cdn.digitaloceanspaces.com']
    }
 }
 
