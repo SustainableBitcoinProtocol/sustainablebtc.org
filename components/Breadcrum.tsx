@@ -59,12 +59,12 @@ const Breadcrum = () => {
                {breadcrumbs.map((breadcrumb: any, i: number) => {
                   return (
                      <>
-                        <li key={breadcrumb.href}>
+                        <li key={i}>
                            <Link href={breadcrumb.href}>
                               {convertBreadcrumb(breadcrumb.breadcrumb)}
                            </Link>
                         </li>
-                        <li>/</li>
+                        <li key={i + 100}>/</li>
                      </>
                   );
                })}
