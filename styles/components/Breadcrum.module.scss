@@ -1,5 +1,5 @@
 .breadcrum {
-   @apply absolute top-[9rem] left-0 w-full z-20 pointer-events-none;
+   @apply absolute top-[8rem] left-0 w-full z-20 pointer-events-none;
 
    &.hide {
       display: none !important;
@@ -45,6 +45,6 @@
       @apply top-[7.5rem];
    }
    @include responsive(lg) {
-      @apply top-[8rem];
+      @apply top-[8.5rem];
    }
 }

@@ -9,10 +9,26 @@ const news = {
          type: "string",
       },
       {
+         name: "url",
+         title: "URL",
+         type: "url",
+      },
+      {
          name: "slug",
          title: "Slug",
          type: "slug",
          options: { source: "title" },
+      },
+      {
+         name: "btnIsRedirect",
+         title: "Is news available outside of our website?",
+         type: "boolean",
+         initialValue: false,
+      },
+      {
+         name: "date",
+         title: "Date of Published",
+         type: "date",
       },
       {
          name: "description",

@@ -27,13 +27,22 @@ const NewsHero = ({ newsPageData }: { newsPageData: any }) => {
                            <div className={styles.articleCard}>
                               {/* Image */}
                               <div className={styles.articleImage}>
-                                 <Link href={`news/${news.slug.current}`}>
+                                 <Link
+                                    href={`${
+                                       news.btnIsRedirect
+                                          ? news.url
+                                          : `news/${news.slug.current}`
+                                    }`}
+                                    target={`${
+                                       news.btnIsRedirect ? "_blank" : ""
+                                    }`}
+                                 >
                                     {news.imageURL && (
                                        <Image
                                           src={news.imageURL}
                                           alt={news.image.alt}
-                                          width={1920}
-                                          height={1280}
+                                          // height={1280}
+                                          fill
                                        />
                                     )}
                                  </Link>
@@ -41,7 +50,16 @@ const NewsHero = ({ newsPageData }: { newsPageData: any }) => {
 
                               <div>
                                  {/* Title */}
-                                 <Link href={`news/${news.slug.current}`}>
+                                 <Link
+                                    href={`${
+                                       news.btnIsRedirect
+                                          ? news.url
+                                          : `news/${news.slug.current}`
+                                    }`}
+                                    target={`${
+                                       news.btnIsRedirect ? "_blank" : ""
+                                    }`}
+                                 >
                                     <h4
                                        className={`${styles.articleTitle} heading heading-5`}
                                        title={news.title}
@@ -51,14 +69,15 @@ const NewsHero = ({ newsPageData }: { newsPageData: any }) => {
                                  </Link>
                                  {/* Publish Date */}
                                  <p className={styles.articleDate}>
-                                    {new Date(
-                                       news._createdAt
-                                    ).toLocaleDateString("en-US", {
-                                       timeZone: "UTC",
-                                       month: "long",
-                                       day: "2-digit",
-                                       year: "numeric",
-                                    })}
+                                    {new Date(news.date).toLocaleDateString(
+                                       "en-US",
+                                       {
+                                          timeZone: "UTC",
+                                          month: "long",
+                                          day: "2-digit",
+                                          year: "numeric",
+                                       }
+                                    )}
                                  </p>
                               </div>
 
@@ -71,7 +90,14 @@ const NewsHero = ({ newsPageData }: { newsPageData: any }) => {
 
                               {/* CTA */}
                               <Link
-                                 href={`news/${news.slug.current}`}
+                                 href={`${
+                                    news.btnIsRedirect
+                                       ? news.url
+                                       : `news/${news.slug.current}`
+                                 }`}
+                                 target={`${
+                                    news.btnIsRedirect ? "_blank" : ""
+                                 }`}
                                  className="btn btn-secondary"
                               >
                                  <span>Read More</span>

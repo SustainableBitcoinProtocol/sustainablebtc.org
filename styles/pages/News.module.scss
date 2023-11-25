@@ -3,7 +3,7 @@
    @apply pb-20;
 
    .articles {
-      @apply grid grid-cols-1 gap-8;
+      @apply grid grid-cols-1 gap-8 gap-y-12;
    }
 
    .articleCard {
