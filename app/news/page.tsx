@@ -9,8 +9,7 @@ export const metadata: Metadata = {
 };
 
 const page = () => {
-   // return <NewsPage />;
-   return <></>;
+   return <NewsPage />;
 };
 
 export default page;
