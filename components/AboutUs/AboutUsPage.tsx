@@ -22,8 +22,8 @@ export default async function AboutUsPage() {
       <div>
          <AboutUsHero heroData={heroData} />
          <AboutUsSBP sbpData={sbpData} />
-         <AboutUsCommitment commitmentData={commitmentData} />
          <AboutUsTeam teamData={teamData} />
+         <AboutUsCommitment commitmentData={commitmentData} />
          <AboutUsSupport supportData={supportData} />
       </div>
    );
