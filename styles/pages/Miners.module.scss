@@ -1,5 +1,6 @@
 .hero {
    @apply pt-40;
+
    .heroImg {
       @apply hidden;
    }
@@ -52,6 +53,23 @@
             opacity: 0.8;
             max-height: 40px;
             width: auto;
+         }
+      }
+
+      &.heroClientsTop {
+         @apply block;
+         @apply my-8;
+      }
+      &.heroClientsBottom {
+         @apply hidden;
+      }
+
+      @include responsive(lg) {
+         &.heroClientsTop {
+            @apply hidden;
+         }
+         &.heroClientsBottom {
+            @apply block;
          }
       }
    }

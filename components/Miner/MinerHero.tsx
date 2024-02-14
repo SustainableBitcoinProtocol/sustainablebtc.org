@@ -25,6 +25,73 @@ const MinerHero = ({ heroData }: { heroData: any }) => {
       <>
          <section className={`${styles.hero} hero`}>
             <div className={`${styles.container} container`}>
+               {/* Clients */}
+               <div
+                  className={`${styles.heroClients} ${styles.heroClientsTop}`}
+               >
+                  {/* Heading */}
+                  <div
+                     className={`${styles.heroClientHeading} heading heading-5`}
+                  >
+                     <PortableText
+                        value={heroData.heroClients.heroClientHeading}
+                     />
+                  </div>
+
+                  {/* Slider */}
+                  <Swiper
+                     spaceBetween={24}
+                     loop={true}
+                     autoplay={{
+                        delay: 1,
+                        disableOnInteraction: false,
+                     }}
+                     speed={1200}
+                     freeMode={true}
+                     grabCursor={true}
+                     breakpoints={{
+                        100: {
+                           slidesPerView: 4,
+                           spaceBetween: 20,
+                        },
+                        768: {
+                           slidesPerView: 6,
+                           spaceBetween: 40,
+                        },
+                        1024: {
+                           slidesPerView: 8,
+                           spaceBetween: 50,
+                        },
+                     }}
+                     modules={[Autoplay]}
+                  >
+                     {heroData.heroClients.heroClientLogos.map((image: any) => (
+                        <>
+                           <SwiperSlide className={styles.heroClientImage}>
+                              <Image
+                                 src={urlFor(image).url()}
+                                 alt="Logo"
+                                 width={300}
+                                 height={100}
+                              />
+                           </SwiperSlide>
+                        </>
+                     ))}
+                     {heroData.heroClients.heroClientLogos.map((image: any) => (
+                        <>
+                           <SwiperSlide className={styles.heroClientImage}>
+                              <Image
+                                 src={urlFor(image).url()}
+                                 alt="Logo"
+                                 width={300}
+                                 height={100}
+                              />
+                           </SwiperSlide>
+                        </>
+                     ))}
+                  </Swiper>
+               </div>
+
                {/* Hero Wrapper */}
                <div className={styles.heroWrapper}>
                   {/* Left */}
@@ -76,7 +143,9 @@ const MinerHero = ({ heroData }: { heroData: any }) => {
                </div>
 
                {/* Clients */}
-               <div className={styles.heroClients}>
+               <div
+                  className={`${styles.heroClients} ${styles.heroClientsBottom}`}
+               >
                   {/* Heading */}
                   <div
                      className={`${styles.heroClientHeading} heading heading-5`}
