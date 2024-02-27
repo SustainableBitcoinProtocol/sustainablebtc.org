@@ -487,9 +487,9 @@ const HeaderContent = ({
                                              : null
                                        }
                                     >
-                                       <Link href={`/${item.slug}`}>
+                                       <a href={`${item.slug}`}>
                                           <span>{item.name}</span>
-                                       </Link>
+                                       </a>
                                     </li>
                                  );
                               }
