@@ -525,9 +525,9 @@ const HeaderContent = ({
                                     key={i}
                                  >
                                     {item.slug.includes("http") ? (
-                                       <Link href={item.slug}>
+                                       <a href={item.slug}>
                                           <span>{item.name}</span>
-                                       </Link>
+                                       </a>
                                     ) : (
                                        <Link href={`/${item.slug}`}>
                                           <span>{item.name}</span>
