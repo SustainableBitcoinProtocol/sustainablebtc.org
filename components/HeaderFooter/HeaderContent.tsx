@@ -425,18 +425,33 @@ const HeaderContent = ({
                                     className={isActive ? styles.active : ""}
                                     key={i}
                                  >
-                                    <Link
-                                       href={`/${item.slug}`}
-                                       onClick={() =>
-                                          window.innerWidth < 1440
-                                             ? setIsNavbarToggled(
-                                                  !isNavbarToggled
-                                               )
-                                             : null
-                                       }
-                                    >
-                                       <span>{item.name}</span>
-                                    </Link>
+                                    {item.slug.includes("http") ? (
+                                       <a
+                                          href={`${item.slug}`}
+                                          onClick={() =>
+                                             window.innerWidth < 1440
+                                                ? setIsNavbarToggled(
+                                                     !isNavbarToggled
+                                                  )
+                                                : null
+                                          }
+                                       >
+                                          <span>{item.name}</span>
+                                       </a>
+                                    ) : (
+                                       <Link
+                                          href={`/${item.slug}`}
+                                          onClick={() =>
+                                             window.innerWidth < 1440
+                                                ? setIsNavbarToggled(
+                                                     !isNavbarToggled
+                                                  )
+                                                : null
+                                          }
+                                       >
+                                          <span>{item.name}</span>
+                                       </Link>
+                                    )}
                                  </li>
                               </>
                            );

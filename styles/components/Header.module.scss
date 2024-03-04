@@ -307,7 +307,7 @@
          }
       }
       .secondaryNav {
-         @apply flex items-center gap-8;
+         @apply flex items-center gap-6;
 
          li a {
             @apply py-1;
@@ -328,14 +328,14 @@
    @include responsive(xl) {
       &.fixToTop {
          .primaryNav {
-            @apply gap-8 p-0;
+            @apply gap-6 p-0;
 
             &.open {
                @apply gap-8 p-0;
             }
          }
          .secondaryNav {
-            @apply gap-8;
+            @apply gap-6;
          }
       }
 
@@ -353,7 +353,7 @@
 
       .primaryNav {
          @apply relative z-10;
-         @apply flex-row gap-8;
+         @apply flex-row gap-6;
          @apply py-0;
          @apply h-auto max-h-none bg-transparent;
 
