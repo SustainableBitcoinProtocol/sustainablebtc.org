@@ -160,6 +160,43 @@
    }
 }
 
+.miners {
+   @apply mt-16;
+   min-height: initial;
+
+   .heroClientHeading {
+      @apply px-16 block text-center leading-[110%] mb-4;
+   }
+   .heroClientImage {
+      height: 100px;
+      @apply grid place-content-center;
+
+      img {
+         filter: brightness(0) invert(1);
+         opacity: 0.8;
+         max-height: 40px;
+         width: auto;
+      }
+   }
+
+   &.heroClientsTop {
+      @apply block;
+      @apply my-8;
+   }
+   &.heroClientsBottom {
+      @apply hidden;
+   }
+
+   @include responsive(lg) {
+      &.heroClientsTop {
+         @apply hidden;
+      }
+      &.heroClientsBottom {
+         @apply block;
+      }
+   }
+}
+
 .sbc {
    @apply text-center grid place-content-center;
    @apply relative;
@@ -259,6 +296,7 @@
    }
 
    @include responsive(lg) {
+      margin-top: 5rem !important;
       .sbcFeatures {
          @apply text-lg font-extrabold;
       }
