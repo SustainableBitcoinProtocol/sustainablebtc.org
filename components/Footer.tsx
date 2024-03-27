@@ -60,12 +60,21 @@ const Footer = () => {
                            return (
                               <>
                                  <li key={i}>
-                                    <Link
-                                       href={`/${item.slug}`}
-                                       className={styles.footerLink}
-                                    >
-                                       {item.name}
-                                    </Link>
+                                    {item.slug.includes("http") ? (
+                                       <a
+                                          href={item.slug}
+                                          className={styles.footerLink}
+                                       >
+                                          <span>{item.name}</span>
+                                       </a>
+                                    ) : (
+                                       <Link
+                                          href={`/${item.slug}`}
+                                          className={styles.footerLink}
+                                       >
+                                          {item.name}
+                                       </Link>
+                                    )}
                                  </li>
                               </>
                            );
