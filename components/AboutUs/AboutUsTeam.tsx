@@ -50,6 +50,18 @@ const AboutUsTeam = ({ teamData }: { teamData: any }) => {
                               {member.sbpTeamMemberDesignation}
                            </p>
 
+                           {/* Linkedin */}
+                           {member.sbpTeamMemberLinkedIn && (
+                              <a
+                                 href={`${member.sbpTeamMemberLinkedIn}`}
+                                 className={`${styles.memberLinkedIn}`}
+                                 title="View Profile"
+                                 target="_BLANK"
+                              >
+                                 <i className="bi bi-linkedin"></i>
+                              </a>
+                           )}
+
                            {/* Separator */}
                            <div className={styles.memberSeparator}></div>
 
@@ -108,6 +120,18 @@ const AboutUsTeam = ({ teamData }: { teamData: any }) => {
                            <p className={`${styles.memberDesignation} para`}>
                               {member.sbpAdvisorsMemberDesignation}
                            </p>
+
+                           {/* Linkedin */}
+                           {member.sbpAdvisorsMemberLinkedIn && (
+                              <a
+                                 href={`${member.sbpAdvisorsMemberLinkedIn}`}
+                                 className={`${styles.memberLinkedIn}`}
+                                 title="View Profile"
+                                 target="_BLANK"
+                              >
+                                 <i className="bi bi-linkedin"></i>
+                              </a>
+                           )}
 
                            {/* Separator */}
                            <div className={styles.memberSeparator}></div>

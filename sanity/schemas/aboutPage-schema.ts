@@ -215,6 +215,12 @@ const aboutPage = {
                                     hotspot: true,
                                  },
                               },
+                              // Linkedin
+                              {
+                                 name: "sbpTeamMemberLinkedIn",
+                                 title: "LinkedIn URL",
+                                 type: "url",
+                              },
                            ],
                         },
                      ],
@@ -289,6 +295,12 @@ const aboutPage = {
                                     layout: "grid",
                                     hotspot: true,
                                  },
+                              },
+                              // Linkedin
+                              {
+                                 name: "sbpAdvisorsMemberLinkedIn",
+                                 title: "LinkedIn URL",
+                                 type: "url",
                               },
                            ],
                         },
