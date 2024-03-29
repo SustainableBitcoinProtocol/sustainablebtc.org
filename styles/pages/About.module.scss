@@ -455,9 +455,9 @@
             @apply w-[240px];
          }
 
-         .memberExperience {
-            @apply flex-nowrap;
-         }
+         // .memberExperience {
+         //    @apply flex-nowrap;
+         // }
       }
    }
    @include responsive(lg) {
