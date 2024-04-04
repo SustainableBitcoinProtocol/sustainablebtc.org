@@ -287,12 +287,77 @@
          font-weight: 500;
       }
 
-      li a:hover {
+      li a:hover,
+      li .navDropdown:hover label {
          @include text-gradient(primary);
       }
 
       .secondaryInPrimary {
          @apply flex flex-col items-center gap-8 flex-1;
+      }
+
+      // dropdown action
+      .navDropdown {
+         @apply relative;
+
+         .navDropdownCheckbox {
+            @apply hidden;
+         }
+         .navDropdownLabel {
+            @apply flex justify-center items-center gap-2;
+            @apply select-none;
+         }
+         .navDropdownMenu {
+            @apply h-0 overflow-hidden;
+            @apply flex-1 mt-0 py-0;
+            background: rgba(color($color-dark, 600), 0.8);
+
+            li {
+               @apply py-2 px-20 text-center;
+            }
+            li a:hover {
+               @include text-gradient(primary);
+            }
+         }
+
+         .navDropdownCheckbox:checked ~ .navDropdownMenu {
+            @apply h-full mt-4 py-2;
+            @apply border-t-2;
+            border-color: #339dff;
+         }
+
+         @include responsive(xl) {
+            @apply relative py-3;
+
+            .navDropdownLabel {
+               @apply w-fit;
+            }
+            .navDropdownMenu {
+               @apply w-fit h-full;
+               @apply h-auto mt-0 py-2;
+               @apply absolute top-full left-[50%] -translate-x-1/2;
+               @apply border-t-2;
+               border-color: #339dff;
+               opacity: 0;
+               visibility: hidden;
+
+               li {
+                  @apply px-8;
+               }
+            }
+
+            .navDropdownCheckbox:checked ~ .navDropdownMenu {
+               @apply w-fit h-full;
+               @apply h-auto mt-0 py-2;
+               @apply border-t-2;
+               border-color: #339dff;
+            }
+
+            &:hover .navDropdownMenu {
+               opacity: 1;
+               visibility: visible;
+            }
+         }
       }
    }
 
@@ -356,6 +421,7 @@
          @apply flex-row gap-6;
          @apply py-0;
          @apply h-auto max-h-none bg-transparent;
+         @apply overflow-visible;
 
          &.open {
             @apply relative;

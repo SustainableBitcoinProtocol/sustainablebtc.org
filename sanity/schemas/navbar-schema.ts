@@ -17,9 +17,37 @@ const navbarItemFields = [
       initialValue: false,
    },
    {
+      name: "isDropdown",
+      title: "Is Dropdown?",
+      type: "boolean",
+      initialValue: false,
+   },
+   {
       name: "iconName",
       title: "Icon Name",
       type: "string",
+   },
+   {
+      name: "dropdownNavigation",
+      title: "Dropdown Navigation",
+      type: "array",
+      of: [
+         {
+            type: "document",
+            fields: [
+               {
+                  name: "name",
+                  title: "Name",
+                  type: "string",
+               },
+               {
+                  name: "slug",
+                  title: "Slug",
+                  type: "string",
+               },
+            ],
+         },
+      ],
    },
 ];
 
@@ -53,46 +81,6 @@ const navbar = {
             {
                type: "document",
                fields: navbarItemFields,
-            },
-         ],
-      },
-      {
-         name: "statistics",
-         title: "Statistics",
-         type: "array",
-         of: [
-            {
-               type: "document",
-               fields: [
-                  {
-                     name: "statName",
-                     title: "Statistics Name",
-                     type: "string",
-                  },
-                  {
-                     name: "statImage",
-                     title: "Statistics Image",
-                     type: "image",
-                     options: { hotspot: true },
-                     fields: [
-                        {
-                           name: "alt",
-                           title: "Alt",
-                           type: "string",
-                        },
-                     ],
-                  },
-                  {
-                     name: "statValue",
-                     title: "Statistics Value",
-                     type: "number",
-                  },
-                  {
-                     name: "statChangedBy",
-                     title: "Statistics Changed By",
-                     type: "number",
-                  },
-               ],
             },
          ],
       },

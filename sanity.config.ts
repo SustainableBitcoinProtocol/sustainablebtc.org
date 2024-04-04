@@ -15,6 +15,7 @@ const singletonTypes = new Set([
    "aboutPage",
    "getStartedPage",
    "contactPage",
+   "faqPage",
 ]);
 
 const config = defineConfig({
@@ -92,6 +93,12 @@ const config = defineConfig({
                         S.document()
                            .schemaType("contactPage")
                            .documentId("contactPage")
+                     ),
+                  S.listItem()
+                     .title("Page / FAQs")
+                     .id("faqPage")
+                     .child(
+                        S.document().schemaType("faqPage").documentId("faqPage")
                      ),
 
                   // Regular Documents

@@ -22,8 +22,7 @@ export async function getNavbarData() {
       groq`*[_type=="navbar"][8]{
          _id,
          primaryNavigation,
-         secondaryNavigation,
-         statistics,
+         secondaryNavigation
       }`
    );
 }
@@ -162,6 +161,18 @@ export async function getTransparencyPageData() {
       groq`*[_type=="transparencyPage"][0]{
          _id,
          hero,
+      }`,
+      {
+         next: { revalidate: 10 },
+      }
+   );
+}
+
+export async function faqPageData() {
+   return client.fetch(
+      groq`*[_type=="faqPage"][0]{
+         _id,
+         faqs,
       }`,
       {
          next: { revalidate: 10 },

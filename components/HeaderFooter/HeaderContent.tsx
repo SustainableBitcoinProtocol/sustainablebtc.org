@@ -101,6 +101,7 @@ const HeaderContent = ({
 
    return (
       <>
+         {/* Navigation Top Strip */}
          <aside className={`${styles.headerTopBar}`}>
             <div className={`${styles.container} container`}>
                {/* Global Leaders */}
@@ -378,6 +379,8 @@ const HeaderContent = ({
                </div>
             </div>
          </aside>
+
+         {/* Main Navigation */}
          <header
             className={`${styles.header} ${
                clientWindowHeight > 98 / 2 ? styles.fixToTop : ""
@@ -412,6 +415,8 @@ const HeaderContent = ({
                      isNavbarToggled ? styles.open : ""
                   }`}
                >
+                  {/* Primary Navigation
+                      Conditions: Always Visible */}
                   {navbarData.primaryNavigation &&
                      navbarData.primaryNavigation.map(
                         (item: any, i: number) => {
@@ -439,18 +444,115 @@ const HeaderContent = ({
                                           <span>{item.name}</span>
                                        </a>
                                     ) : (
-                                       <Link
-                                          href={`/${item.slug}`}
-                                          onClick={() =>
-                                             window.innerWidth < 1440
-                                                ? setIsNavbarToggled(
-                                                     !isNavbarToggled
-                                                  )
-                                                : null
-                                          }
-                                       >
-                                          <span>{item.name}</span>
-                                       </Link>
+                                       // handling condition for dropdown
+                                       <>
+                                          {item.isDropdown ? (
+                                             <div
+                                                className={`${styles.navDropdown}`}
+                                             >
+                                                {/* Dropdown Toggle Checkbox */}
+                                                <input
+                                                   type="checkbox"
+                                                   name={item.name}
+                                                   id={item.name}
+                                                   className={`${styles.navDropdownCheckbox}`}
+                                                />
+
+                                                {/* Main Link */}
+                                                <label
+                                                   htmlFor={item.name}
+                                                   className={`${styles.navDropdownLabel}`}
+                                                >
+                                                   <span>{item.name}</span>
+                                                   <span>
+                                                      <i
+                                                         className={`bi bi-${item.iconName}`}
+                                                      ></i>
+                                                   </span>
+                                                </label>
+
+                                                {/* Dropdown Menu */}
+                                                <ul
+                                                   className={`${styles.navDropdownMenu}`}
+                                                >
+                                                   <>
+                                                      {item.dropdownNavigation &&
+                                                         item.dropdownNavigation.map(
+                                                            (
+                                                               dropdownItem: any,
+                                                               j: number
+                                                            ) => {
+                                                               return (
+                                                                  <>
+                                                                     <li
+                                                                        key={j}
+                                                                     >
+                                                                        {dropdownItem.slug.includes(
+                                                                           "http"
+                                                                        ) ? (
+                                                                           <a
+                                                                              href={`${dropdownItem.slug}`}
+                                                                              onClick={() =>
+                                                                                 window.innerWidth <
+                                                                                 1440
+                                                                                    ? setIsNavbarToggled(
+                                                                                         !isNavbarToggled
+                                                                                      )
+                                                                                    : null
+                                                                              }
+                                                                           >
+                                                                              <span>
+                                                                                 {
+                                                                                    dropdownItem.name
+                                                                                 }
+                                                                              </span>
+                                                                           </a>
+                                                                        ) : (
+                                                                           <>
+                                                                              <Link
+                                                                                 href={`/${dropdownItem.slug}`}
+                                                                                 onClick={() =>
+                                                                                    window.innerWidth <
+                                                                                    1440
+                                                                                       ? setIsNavbarToggled(
+                                                                                            !isNavbarToggled
+                                                                                         )
+                                                                                       : null
+                                                                                 }
+                                                                              >
+                                                                                 <span>
+                                                                                    {
+                                                                                       dropdownItem.name
+                                                                                    }
+                                                                                 </span>
+                                                                              </Link>
+                                                                           </>
+                                                                        )}
+                                                                     </li>
+                                                                  </>
+                                                               );
+                                                            }
+                                                         )}
+                                                   </>
+                                                </ul>
+                                             </div>
+                                          ) : (
+                                             <>
+                                                <Link
+                                                   href={`/${item.slug}`}
+                                                   onClick={() =>
+                                                      window.innerWidth < 1440
+                                                         ? setIsNavbarToggled(
+                                                              !isNavbarToggled
+                                                           )
+                                                         : null
+                                                   }
+                                                >
+                                                   <span>{item.name}</span>
+                                                </Link>
+                                             </>
+                                          )}
+                                       </>
                                     )}
                                  </li>
                               </>
@@ -458,6 +560,8 @@ const HeaderContent = ({
                         }
                      )}
 
+                  {/* Secondary Navigation
+                      Condition: Visible only on toggle enabled state */}
                   <ul className={styles.secondaryInPrimary}>
                      <li>
                         <hr />
@@ -513,7 +617,8 @@ const HeaderContent = ({
                   </ul>
                </ul>
 
-               {/* Scondary Nav */}
+               {/* Scondary Nav 
+                   Condition: Visible only on desktop and larger screen */}
                <ul className={styles.secondaryNav}>
                   {navbarData.secondaryNavigation &&
                      navbarData.secondaryNavigation.map(
