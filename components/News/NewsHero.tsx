@@ -22,9 +22,9 @@ const NewsHero = ({ newsPageData }: { newsPageData: any }) => {
             <div className={`${styles.container} container`}>
                <div className={styles.articles}>
                   {newsPageData &&
-                     newsPageData.map((news: any) => (
+                     newsPageData.map((news: any, i: any) => (
                         <>
-                           <div className={styles.articleCard}>
+                           <div className={styles.articleCard} key={i}>
                               {/* Image */}
                               <div className={styles.articleImage}>
                                  <Link

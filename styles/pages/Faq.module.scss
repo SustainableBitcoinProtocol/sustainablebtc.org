@@ -1,0 +1,42 @@
+.faqHeader {
+   @apply pb-0 min-h-[0px];
+   .container {
+      @apply max-w-[1000px];
+   }
+
+   .heading {
+      @apply mb-8;
+   }
+}
+
+.hero {
+   @include hero-spacing;
+   @apply mb-24;
+   @apply relative;
+
+   @include responsive(md) {
+   }
+
+   .container {
+      max-width: 1000px;
+   }
+
+   .faqWrapper {
+      @apply my-12;
+   }
+
+   .faqQuestion {
+      @include text-gradient(primary);
+      @apply mb-4;
+      font-size: 1.5rem;
+   }
+
+   @include responsive(lg) {
+      .faqWrapper {
+         @apply my-16;
+      }
+   }
+   .faqQuestion {
+      @apply text-2xl;
+   }
+}

@@ -168,7 +168,7 @@ export async function getTransparencyPageData() {
    );
 }
 
-export async function faqPageData() {
+export async function getFaqPageData() {
    return client.fetch(
       groq`*[_type=="faqPage"][0]{
          _id,

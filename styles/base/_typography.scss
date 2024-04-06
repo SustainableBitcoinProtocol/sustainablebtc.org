@@ -98,6 +98,7 @@
       list-style-type: circle;
    }
    ol {
+      @apply pl-6;
       list-style-type: decimal;
    }
    h1 {
@@ -128,5 +129,12 @@
    b,
    strong {
       @apply font-extrabold;
+   }
+
+   blockquote {
+      border-left: 3px solid #339dff;
+      padding: 0.8rem 1rem;
+      background: rgba($color: #339dff, $alpha: 0.1);
+      margin-block: 1rem;
    }
 }
