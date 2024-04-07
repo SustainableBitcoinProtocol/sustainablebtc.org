@@ -3,9 +3,18 @@ import React from "react";
 // Styles
 import styles from "@/styles/pages/Faq.module.scss";
 
-import FaqQuestions from "./FaqQuestions";
+// Next/React
+import Link from "next/link";
+import Image from "next/image";
 
-// import Sanity
+// Sanity
+import { urlFor } from "@/sanity/sanity-urlFor";
+
+// Lib
+import { PortableText } from "@portabletext/react";
+
+// Componrnts
+import FaqQuestions from "./FaqQuestions";
 import { getFaqPageData } from "@/sanity/sanity-utils";
 
 export default async function TransparencyPage() {
@@ -15,15 +24,26 @@ export default async function TransparencyPage() {
    return (
       <>
          <section className={`${styles.hero} hero`}>
-            {/* Heading */}
-            <div className={`${styles.faqHeader}`}>
-               <div className={`${styles.container} container`}>
+            <div className={`${styles.container} container`}>
+               {/* Heading */}
+               <div className={`${styles.faqHeader}`}>
                   <h1 className={`${styles.heading} heading heading-2`}>
                      Frequently Asked Questions
                   </h1>
                </div>
+
+               <div className={`${styles.faqWrapper}`}>
+                  {faqsData.map((item: any, i: number) => (
+                     <>
+                        <FaqQuestions
+                           key={i}
+                           question={item.faqQuestion}
+                           answer={item.faqAnswer}
+                        />
+                     </>
+                  ))}
+               </div>
             </div>
-            <FaqQuestions faqsData={faqsData} />
          </section>
       </>
    );

@@ -22,21 +22,111 @@
    }
 
    .faqWrapper {
-      @apply my-12;
+      @apply grid grid-cols-1 mt-8;
+
+      .faqQuestionAnswer {
+         @apply flex flex-col;
+
+         &:first-child {
+            .faqQuestion {
+               border-top: 1px solid rgba(#339dff, 0.5);
+            }
+         }
+
+         .faqQuestion {
+            // @include text-gradient(primary);
+            font-size: 1.1rem;
+            font-weight: 400;
+            @apply flex justify-between items-center gap-8;
+            @apply py-4;
+            border-bottom: 1px solid rgba(#339dff, 0.5);
+            cursor: pointer;
+
+            span {
+               @apply leading-[140%];
+               font-weight: 400;
+            }
+
+            i {
+               font-size: 1.5rem;
+               @include text-gradient(primary);
+            }
+
+            &:hover {
+               @include text-gradient(primary);
+            }
+         }
+
+         .faqAnswer {
+            @apply hidden;
+         }
+
+         &.active {
+            background: rgba(color($color-light), 0.05);
+            .faqQuestion {
+               border-bottom: none;
+               @include text-gradient(primary);
+               @apply p-4;
+
+               span {
+                  font-weight: 700;
+               }
+            }
+            .faqAnswer {
+               @apply block;
+               @apply p-4 pt-0;
+               @apply pb-4;
+               border-bottom: 1px solid rgba(#339dff, 0.5);
+            }
+         }
+      }
    }
 
-   .faqQuestion {
-      @include text-gradient(primary);
-      @apply mb-4;
-      font-size: 1.5rem;
+   @include responsive(md) {
+      .faqWrapper {
+         @apply grid grid-cols-2 gap-8 gap-y-0 mt-10 mb-24;
+
+         .faqQuestionAnswer {
+            &:first-child,
+            &:nth-child(2) {
+               .faqQuestion {
+                  border-top: 1px solid rgba(#339dff, 0.5);
+               }
+            }
+
+            .faqQuestion {
+               @apply h-full;
+               @apply px-2;
+            }
+            .faqAnswer {
+               @apply px-2;
+            }
+
+            &.active {
+               @apply col-span-2;
+
+               .faqQuestion {
+                  border-top: 1px solid rgba(#339dff, 0.5);
+                  @apply p-8;
+               }
+               .faqAnswer {
+                  @apply p-8 pt-0 pb-8;
+               }
+            }
+         }
+      }
    }
 
    @include responsive(lg) {
+      // .faqQuestionAnswer {
+      //    @apply my-16;
+      // }
       .faqWrapper {
-         @apply my-16;
+         .faqQuestionAnswer {
+            .faqQuestion {
+               @apply text-xl;
+            }
+         }
       }
-   }
-   .faqQuestion {
-      @apply text-2xl;
    }
 }
