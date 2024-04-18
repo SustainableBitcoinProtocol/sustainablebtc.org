@@ -1,0 +1,40 @@
+.modal {
+   color: color($color-dark);
+   .modalHeader {
+      @apply flex justify-between items-center;
+      @apply w-full pb-4;
+      @apply border-b;
+
+      &__heading {
+         color: color($color-dark) !important;
+      }
+
+      i {
+         font-size: 1.5rem;
+      }
+   }
+
+   .modalBody {
+      @apply py-4;
+
+      .formGroup {
+         label {
+            font-weight: 500;
+            margin-bottom: 4px;
+         }
+         input:focus {
+            background: transparent;
+            border-color: color($color-dark);
+         }
+      }
+      .btnWrapper {
+         @apply flex justify-start items-center gap-4 flex-wrap;
+      }
+   }
+
+   .modalFooter {
+      @apply flex justify-end items-center gap-4;
+      @apply w-full pt-4;
+      @apply border-t;
+   }
+}

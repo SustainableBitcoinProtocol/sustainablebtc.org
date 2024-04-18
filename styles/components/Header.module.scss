@@ -281,6 +281,10 @@
          @apply py-1;
          @include text-gradient(light);
       }
+      li .navModalLink {
+         @include text-gradient(light);
+         cursor: pointer;
+      }
 
       li.active a {
          @include gradient-text;
@@ -288,7 +292,8 @@
       }
 
       li a:hover,
-      li .navDropdown:hover label {
+      li .navDropdown:hover label,
+      li .navModalLink:hover {
          @include text-gradient(primary);
       }
 

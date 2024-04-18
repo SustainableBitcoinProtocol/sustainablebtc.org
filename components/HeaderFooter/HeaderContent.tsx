@@ -23,6 +23,9 @@ import bitcoinIcon from "@/public/bitcoin-icon.svg";
 import { getBtcInfo } from "@/utils/livecoinwatch";
 import { getSbcInfo } from "@/utils/sbp";
 
+// components
+import ModalWhitepaperEmail from "../Modals/ModalWhitepaperEmail";
+
 const HeaderContent = ({
    navbarData,
    navbarGlobalLeadersData,
@@ -99,6 +102,12 @@ const HeaderContent = ({
    }, []);
    // =====================================================================
 
+   // ! Modals variable
+   const [modalIsOpen, setModalIsOpen] = useState(false);
+   function openModal() {
+      setModalIsOpen(true);
+   }
+   // =====================================================================
    return (
       <>
          {/* Navigation Top Strip */}
@@ -490,23 +499,55 @@ const HeaderContent = ({
                                                                         {dropdownItem.slug.includes(
                                                                            "http"
                                                                         ) ? (
-                                                                           <a
-                                                                              href={`${dropdownItem.slug}`}
-                                                                              onClick={() =>
-                                                                                 window.innerWidth <
-                                                                                 1440
-                                                                                    ? setIsNavbarToggled(
-                                                                                         !isNavbarToggled
-                                                                                      )
-                                                                                    : null
-                                                                              }
-                                                                           >
-                                                                              <span>
-                                                                                 {
-                                                                                    dropdownItem.name
-                                                                                 }
-                                                                              </span>
-                                                                           </a>
+                                                                           <>
+                                                                              {dropdownItem.slug ===
+                                                                              "https://www.sustainablebtc.org/whitepaper.pdf" ? (
+                                                                                 <>
+                                                                                    <div
+                                                                                       className={`${styles.navModalLink}`}
+                                                                                       onClick={() => {
+                                                                                          if (
+                                                                                             window.innerWidth <
+                                                                                             1440
+                                                                                          ) {
+                                                                                             setIsNavbarToggled(
+                                                                                                !isNavbarToggled
+                                                                                             );
+                                                                                             openModal();
+                                                                                          } else {
+                                                                                             openModal();
+                                                                                          }
+                                                                                       }}
+                                                                                    >
+                                                                                       <span>
+                                                                                          {
+                                                                                             dropdownItem.name
+                                                                                          }
+                                                                                       </span>
+                                                                                    </div>
+                                                                                 </>
+                                                                              ) : (
+                                                                                 <>
+                                                                                    <a
+                                                                                       href={`${dropdownItem.slug}`}
+                                                                                       onClick={() =>
+                                                                                          window.innerWidth <
+                                                                                          1440
+                                                                                             ? setIsNavbarToggled(
+                                                                                                  !isNavbarToggled
+                                                                                               )
+                                                                                             : null
+                                                                                       }
+                                                                                    >
+                                                                                       <span>
+                                                                                          {
+                                                                                             dropdownItem.name
+                                                                                          }
+                                                                                       </span>
+                                                                                    </a>
+                                                                                 </>
+                                                                              )}
+                                                                           </>
                                                                         ) : (
                                                                            <>
                                                                               <Link
@@ -661,6 +702,11 @@ const HeaderContent = ({
                </ul>
             </div>
          </header>
+         {/* Modals */}
+         <ModalWhitepaperEmail
+            modalIsOpen={modalIsOpen}
+            setModalIsOpen={setModalIsOpen}
+         />
       </>
    );
 };
