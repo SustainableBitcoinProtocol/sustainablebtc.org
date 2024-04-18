@@ -60,8 +60,7 @@ const ModalWhitepaperEmail = ({
                {/* Modal Body */}
                <div className={`${styles.modalBody}`}>
                   <p>
-                     Thankyou for showing interest in our whitepaper. It's free
-                     to download.
+                     {`Thankyou for showing interest in our whitepaper. It's free to download.`}
                   </p>
                   <div className={`${styles.formGroup} form-group`}>
                      <label htmlFor="email">
