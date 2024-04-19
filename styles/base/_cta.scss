@@ -51,6 +51,15 @@
       }
    }
 
+   &-dark {
+      @apply border border-[#1e203f];
+      background: color($color-dark);
+
+      &:hover {
+         background: color($color-dark, 600) !important;
+      }
+   }
+
    &:hover {
       background-image: linear-gradient(-40deg, #339dff 0%, #0ec1d3 100%),
          linear-gradient(-40deg, #339dff 0%, #0ec1d3 100%);
