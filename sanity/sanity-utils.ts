@@ -135,8 +135,19 @@ export async function getAboutPageData() {
          hero,
          sbp,
          commitment,
-         team,
          support
+      }`,
+      {
+         next: { revalidate: 10 },
+      }
+   );
+}
+
+export async function getOurTeamPageData() {
+   return client.fetch(
+      groq`*[_type=="aboutPage"][0]{
+         _id,
+         team
       }`,
       {
          next: { revalidate: 10 },

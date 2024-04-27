@@ -1,5 +1,5 @@
 // Styles
-import styles from "@/styles/pages/About.module.scss";
+import styles from "@/styles/pages/OurTeam.module.scss";
 
 // Next/React
 import Link from "next/link";
@@ -13,9 +13,9 @@ import { PortableText } from "@portabletext/react";
 
 // Image
 
-const AboutUsTeam = ({ teamData }: { teamData: any }) => {
+const OurTeam = ({ teamData }: { teamData: any }) => {
    return (
-      <section className={styles.team}>
+      <section className={`${styles.team} hero`}>
          <div className={`${styles.container} container`}>
             {/* Our Team */}
             <div className={styles.sbpTeam}>
@@ -162,4 +162,4 @@ const AboutUsTeam = ({ teamData }: { teamData: any }) => {
    );
 };
 
-export default AboutUsTeam;
+export default OurTeam;
