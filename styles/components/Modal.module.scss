@@ -62,7 +62,7 @@
       @apply relative z-10;
 
       .form {
-         @apply flex flex-col gap-2;
+         @apply flex flex-col;
          @apply mt-4;
       }
 
@@ -87,6 +87,10 @@
                opacity: 0.8;
                font-size: 0.9rem;
             }
+         }
+
+         .error {
+            @apply block mb-4 font-medium;
          }
       }
 

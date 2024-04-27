@@ -1,9 +1,11 @@
 "use client";
 
 // Importing Libraries
-import React, { useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Modal from "react-modal";
 import Image from "next/image";
+import axios from "axios";
+import validator from "validator";
 
 // Importing styles
 import styles from "@/styles/components/Modal.module.scss";
@@ -37,9 +39,98 @@ const ModalWhitepaperEmail = ({
    modalIsOpen: any;
    setModalIsOpen: any;
 }) => {
+   // Managing state variable of email
+   const [email, setEmail] = useState("");
+
+   // Managing reference variables for email
+   const emailForm = useRef(null);
+   const emailError = useRef(null);
+
+   // Function for close modal
    function closeModal() {
       setModalIsOpen(false);
    }
+
+   // Function to handle form submit event
+   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      var emailErrorText: HTMLElement = emailError.current!;
+
+      // If an input field is empty, don't submit the form
+      if (!email) {
+         emailErrorText.innerHTML = "Email is required!";
+         return;
+      } else {
+         if (!validator.isEmail(email)) {
+            emailErrorText.innerHTML = "Invalid Email!";
+            return;
+         }
+         emailErrorText.innerHTML = "";
+      }
+
+      try {
+         // Collect the response
+         const hubspot_response = await submit_hubspot_form(email);
+
+         // Error handling
+         console.log(hubspot_response); // make sure it succeeded!
+
+         if (hubspot_response.status === 200) {
+            // Download Whitepaper
+            fetch("whitepaper.pdf").then((response) => {
+               response.blob().then((blob) => {
+                  // Creating new object of PDF file
+                  const fileURL = window.URL.createObjectURL(blob);
+
+                  // Setting various property values
+                  let alink = document.createElement("a");
+                  alink.href = fileURL;
+                  alink.download = "sbp-whitepaper.pdf";
+                  alink.click();
+               });
+            });
+
+            // Reset & Close Modals
+            setTimeout(() => {
+               (emailForm.current as any).reset();
+               setEmail("");
+               closeModal();
+            }, 1000);
+         }
+      } catch (error) {
+         console.error("Error submitting email:", error);
+      }
+   };
+
+   // Send data to hubspot
+   const submit_hubspot_form = async (email: string) => {
+      const region = process.env.NEXT_PUBLIC_HUBSPOT_REGION;
+      const portalId = process.env.NEXT_PUBLIC_HUBSPOT_PORTAL_ID;
+      const formGuid = process.env.NEXT_PUBLIC_HUBSPOT_FORM_WHITEPAPER_ID;
+      const config = {
+         // important!
+         headers: {
+            "Content-Type": "application/json",
+         },
+      };
+
+      const response = await axios.post(
+         `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formGuid}`,
+         {
+            region,
+            portalId,
+            formGuid,
+            fields: [
+               {
+                  name: "email",
+                  value: email,
+               },
+            ],
+         },
+         config
+      );
+      return response;
+   };
 
    return (
       <>
@@ -56,10 +147,16 @@ const ModalWhitepaperEmail = ({
                      Download SBP Whitepaper
                   </h3>
                   <p className={`${styles.para} para`}>
-                     Thankyou for showing interest in SBP. <br />
-                     Our whitepaper is available for free to download.
+                     Thank you for your interest in SBP. <br />
+                     Our whitepaper is available for free download.
                   </p>
-                  <form action="#" className={`${styles.form}`}>
+
+                  <form
+                     action="#"
+                     className={`${styles.form}`}
+                     onSubmit={handleSubmit}
+                     ref={emailForm}
+                  >
                      <div className={`${styles.formGroup} form-group`}>
                         <label htmlFor="email">
                            Email <span>*</span>
@@ -69,8 +166,12 @@ const ModalWhitepaperEmail = ({
                            className="form-control"
                            placeholder="Enter your email"
                            name="email"
+                           onChange={(e) => setEmail(e.target.value)}
                         />
-                        <span className="error"></span>
+                        <span
+                           className={`${styles.error} error`}
+                           ref={emailError}
+                        ></span>
                      </div>
                      <button className={`${styles.formBtn} btn btn-dark`}>
                         <i className="bi bi-download"></i>
