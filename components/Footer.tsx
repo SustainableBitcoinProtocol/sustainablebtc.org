@@ -93,14 +93,99 @@ const Footer = () => {
                               );
                            }
                         )}
-
-                     <li
-                        className={styles.footerLink}
-                        onClick={() => openModal()}
-                     >
-                        <span>Whitepaper</span>
-                     </li>
                   </ul>
+
+                  {/* Dropdown Links */}
+                  <ul>
+                     {navbarData &&
+                        navbarData.primaryNavigation.map(
+                           (item: any, i: number) => {
+                              return (
+                                 <>
+                                    {item.isDropdown && (
+                                       <>
+                                          {item.dropdownNavigation &&
+                                             item.dropdownNavigation.map(
+                                                (
+                                                   dropdownItem: any,
+                                                   j: number
+                                                ) => {
+                                                   return (
+                                                      <>
+                                                         <li key={j}>
+                                                            {dropdownItem.slug.includes(
+                                                               "http"
+                                                            ) ? (
+                                                               <>
+                                                                  {dropdownItem.slug ===
+                                                                  "https://www.sustainablebtc.org/whitepaper.pdf" ? (
+                                                                     <>
+                                                                        <div
+                                                                           className={`${styles.footerLink}`}
+                                                                           onClick={() => {
+                                                                              if (
+                                                                                 window.innerWidth <
+                                                                                 1440
+                                                                              ) {
+                                                                                 openModal();
+                                                                              } else {
+                                                                                 openModal();
+                                                                              }
+                                                                           }}
+                                                                        >
+                                                                           <span>
+                                                                              {
+                                                                                 dropdownItem.name
+                                                                              }
+                                                                           </span>
+                                                                        </div>
+                                                                     </>
+                                                                  ) : (
+                                                                     <>
+                                                                        <a
+                                                                           href={`${dropdownItem.slug}`}
+                                                                           className={
+                                                                              styles.footerLink
+                                                                           }
+                                                                        >
+                                                                           <span>
+                                                                              {
+                                                                                 dropdownItem.name
+                                                                              }
+                                                                           </span>
+                                                                        </a>
+                                                                     </>
+                                                                  )}
+                                                               </>
+                                                            ) : (
+                                                               <>
+                                                                  <Link
+                                                                     href={`/${dropdownItem.slug}`}
+                                                                     className={
+                                                                        styles.footerLink
+                                                                     }
+                                                                  >
+                                                                     <span>
+                                                                        {
+                                                                           dropdownItem.name
+                                                                        }
+                                                                     </span>
+                                                                  </Link>
+                                                               </>
+                                                            )}
+                                                         </li>
+                                                      </>
+                                                   );
+                                                }
+                                             )}
+                                       </>
+                                    )}
+                                 </>
+                              );
+                           }
+                        )}
+                  </ul>
+
                   {/* Footer Links */}
                   <ul>
                      {footerData &&

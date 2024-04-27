@@ -32,6 +32,7 @@
          .footerLink {
             @include text-gradient(light);
             @apply relative inline-block w-fit;
+            @apply cursor-pointer;
 
             &::after {
                content: "";
