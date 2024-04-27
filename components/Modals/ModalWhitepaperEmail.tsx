@@ -41,6 +41,7 @@ const ModalWhitepaperEmail = ({
 }) => {
    // Managing state variable of email
    const [email, setEmail] = useState("");
+   const [isDisabled, setIsDisabled] = useState(false);
 
    // Managing reference variables for email
    const emailForm = useRef(null);
@@ -56,13 +57,17 @@ const ModalWhitepaperEmail = ({
       e.preventDefault();
       var emailErrorText: HTMLElement = emailError.current!;
 
+      setIsDisabled(true);
+
       // If an input field is empty, don't submit the form
       if (!email) {
          emailErrorText.innerHTML = "Email is required!";
+         setIsDisabled(false);
          return;
       } else {
          if (!validator.isEmail(email)) {
             emailErrorText.innerHTML = "Invalid Email!";
+            setIsDisabled(false);
             return;
          }
          emailErrorText.innerHTML = "";
@@ -75,7 +80,10 @@ const ModalWhitepaperEmail = ({
          // Error handling
          console.log(hubspot_response); // make sure it succeeded!
 
-         if (hubspot_response.status === 200) {
+         if (
+            hubspot_response.status === 200 ||
+            hubspot_response.status === 201
+         ) {
             // Download Whitepaper
             fetch("whitepaper.pdf").then((response) => {
                response.blob().then((blob) => {
@@ -95,10 +103,12 @@ const ModalWhitepaperEmail = ({
                (emailForm.current as any).reset();
                setEmail("");
                closeModal();
+               setIsDisabled(false);
             }, 1000);
          }
       } catch (error) {
-         console.error("Error submitting email:", error);
+         emailErrorText.innerHTML = "Something went wrong. Please try later!";
+         setIsDisabled(false);
       }
    };
 
@@ -173,7 +183,10 @@ const ModalWhitepaperEmail = ({
                            ref={emailError}
                         ></span>
                      </div>
-                     <button className={`${styles.formBtn} btn btn-dark`}>
+                     <button
+                        className={`${styles.formBtn} btn btn-dark`}
+                        disabled={isDisabled}
+                     >
                         <i className="bi bi-download"></i>
                         <span>Download Now</span>
                      </button>
