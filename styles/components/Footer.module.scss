@@ -27,11 +27,11 @@
 
          // Footer Links
          ul {
-            @apply grid gap-2;
+            @apply flex flex-col gap-2;
          }
          .footerLink {
             @include text-gradient(light);
-            @apply relative inline-block;
+            @apply relative inline-block w-fit;
 
             &::after {
                content: "";

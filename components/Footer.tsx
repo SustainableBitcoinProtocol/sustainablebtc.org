@@ -16,11 +16,19 @@ import { FooterType } from "@/types/footer-type";
 
 // Custom Components
 import FooterCareerForm from "./FooterCareerForm";
+import ModalWhitepaperEmail from "./Modals/ModalWhitepaperEmail";
 
 const Footer = () => {
    // Data
    const [footerData, setFooterData] = useState<FooterType>();
    const [navbarData, setNavbarData] = useState<any>();
+
+   // ! Modals variable
+   const [modalIsOpen, setModalIsOpen] = useState(false);
+   function openModal() {
+      setModalIsOpen(true);
+   }
+
    useEffect(() => {
       const setFooter = async () => {
          setFooterData((await getFooterData())[0]);
@@ -30,117 +38,133 @@ const Footer = () => {
    }, []);
 
    return (
-      <footer className={styles.footer}>
-         {/* Career Form */}
-         <FooterCareerForm />
+      <>
+         <footer className={styles.footer}>
+            {/* Career Form */}
+            <FooterCareerForm />
 
-         {/* Top Footer */}
-         <div className={styles.footerContent}>
-            <div className={`${styles.container} container`}>
-               {/* Description */}
-               <div className={styles.footerAbout}>
-                  {footerData?.logoURL && (
-                     <>
-                        <Image
-                           src={footerData.logoURL}
-                           alt="SBP Short Logo"
-                           width={10}
-                           height={4}
-                        />
-                     </>
-                  )}
-                  {footerData && <PortableText value={footerData.about} />}
-               </div>
+            {/* Top Footer */}
+            <div className={styles.footerContent}>
+               <div className={`${styles.container} container`}>
+                  {/* Description */}
+                  <div className={styles.footerAbout}>
+                     {footerData?.logoURL && (
+                        <>
+                           <Image
+                              src={footerData.logoURL}
+                              alt="SBP Short Logo"
+                              width={10}
+                              height={4}
+                           />
+                        </>
+                     )}
+                     {footerData && <PortableText value={footerData.about} />}
+                  </div>
 
-               {/* Navigation Links */}
-               <ul>
-                  {navbarData &&
-                     navbarData.primaryNavigation.map(
-                        (item: any, i: number) => {
+                  {/* Navigation Links */}
+                  <ul>
+                     {navbarData &&
+                        navbarData.primaryNavigation.map(
+                           (item: any, i: number) => {
+                              return (
+                                 <>
+                                    {!item.isDropdown && (
+                                       <>
+                                          <li key={i}>
+                                             {item.slug.includes("http") ? (
+                                                <a
+                                                   href={item.slug}
+                                                   className={styles.footerLink}
+                                                >
+                                                   <span>{item.name}</span>
+                                                </a>
+                                             ) : (
+                                                <Link
+                                                   href={`/${item.slug}`}
+                                                   className={styles.footerLink}
+                                                >
+                                                   {item.name}
+                                                </Link>
+                                             )}
+                                          </li>
+                                       </>
+                                    )}
+                                 </>
+                              );
+                           }
+                        )}
+
+                     <li
+                        className={styles.footerLink}
+                        onClick={() => openModal()}
+                     >
+                        <span>Whitepaper</span>
+                     </li>
+                  </ul>
+                  {/* Footer Links */}
+                  <ul>
+                     {footerData &&
+                        footerData.footerLinks.map((item: any, i: number) => {
                            return (
                               <>
                                  <li key={i}>
-                                    {!item.isDropdown && (
-                                       <>
-                                          {item.slug.includes("http") ? (
-                                             <a
-                                                href={item.slug}
-                                                className={styles.footerLink}
-                                             >
-                                                <span>{item.name}</span>
-                                             </a>
-                                          ) : (
-                                             <Link
-                                                href={`/${item.slug}`}
-                                                className={styles.footerLink}
-                                             >
-                                                {item.name}
-                                             </Link>
-                                          )}
-                                       </>
-                                    )}
+                                    <Link
+                                       href={`/${item.footerLinkSlug}`}
+                                       className={styles.footerLink}
+                                    >
+                                       {item.footerLinkName}
+                                    </Link>
                                  </li>
                               </>
                            );
-                        }
-                     )}
-               </ul>
-
-               {/* Footer Links */}
-               <ul>
-                  {footerData &&
-                     footerData.footerLinks.map((item: any, i: number) => {
-                        return (
-                           <>
-                              <li key={i}>
-                                 <Link
-                                    href={`/${item.footerLinkSlug}`}
-                                    className={styles.footerLink}
-                                 >
-                                    {item.footerLinkName}
-                                 </Link>
-                              </li>
-                           </>
-                        );
-                     })}
-
-                  {/* Social */}
-                  <li className={styles.footerSocialMedia}>
-                     {footerData &&
-                        footerData.socialLinks.map((item: any, i: number) => {
-                           const socialMediaName = new URL(
-                              item.socialMedia
-                           ).hostname
-                              .replace("www.", "")
-                              .replace(".com", "")
-                              .toLowerCase();
-                           return (
-                              <>
-                                 <a
-                                    className="btn btn-primary btn-rounded btn-sm"
-                                    href={item.socialMedia}
-                                    target="_blank"
-                                    key={i}
-                                    aria-label={socialMediaName}
-                                 >
-                                    <i
-                                       className={`bi bi-${socialMediaName}`}
-                                    ></i>
-                                 </a>
-                              </>
-                           );
                         })}
-                  </li>
-               </ul>
+
+                     {/* Social */}
+                     <li className={styles.footerSocialMedia}>
+                        {footerData &&
+                           footerData.socialLinks.map(
+                              (item: any, i: number) => {
+                                 const socialMediaName = new URL(
+                                    item.socialMedia
+                                 ).hostname
+                                    .replace("www.", "")
+                                    .replace(".com", "")
+                                    .toLowerCase();
+                                 return (
+                                    <>
+                                       <a
+                                          className="btn btn-primary btn-rounded btn-sm"
+                                          href={item.socialMedia}
+                                          target="_blank"
+                                          key={i}
+                                          aria-label={socialMediaName}
+                                       >
+                                          <i
+                                             className={`bi bi-${socialMediaName}`}
+                                          ></i>
+                                       </a>
+                                    </>
+                                 );
+                              }
+                           )}
+                     </li>
+                  </ul>
+               </div>
             </div>
-         </div>
-         {/* Copyright */}
-         <div className={styles.copyright}>
-            <div className={`${styles.container} container`}>
-               <p>{footerData?.copyright}</p>
+            {/* Copyright */}
+            <div className={styles.copyright}>
+               <div className={`${styles.container} container`}>
+                  <p>{footerData?.copyright}</p>
+               </div>
             </div>
-         </div>
-      </footer>
+         </footer>
+
+         {/* Modals */}
+         <ModalWhitepaperEmail
+            modalIsOpen={modalIsOpen}
+            setModalIsOpen={setModalIsOpen}
+         />
+      </>
    );
 };
 
