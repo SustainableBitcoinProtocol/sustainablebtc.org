@@ -93,7 +93,8 @@ const ModalWhitepaperEmail = ({
                   // Setting various property values
                   let alink = document.createElement("a");
                   alink.href = fileURL;
-                  alink.download = "sbp-whitepaper.pdf";
+                  alink.target = "_blank";
+                  // alink.download = "sbp-whitepaper.pdf";
                   alink.click();
                });
             });
@@ -187,8 +188,8 @@ const ModalWhitepaperEmail = ({
                         className={`${styles.formBtn} btn btn-dark`}
                         disabled={isDisabled}
                      >
-                        <i className="bi bi-download"></i>
-                        <span>Download Now</span>
+                        <i className="bi bi-eye"></i>
+                        <span>View Now</span>
                      </button>
                   </form>
                </div>
