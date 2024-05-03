@@ -101,8 +101,13 @@ const config = defineConfig({
                         S.document().schemaType("faqPage").documentId("faqPage")
                      ),
 
+                  // Blog
+                  S.documentTypeListItem("blogCategories").title(
+                     "Blog / Categories"
+                  ),
+                  S.documentTypeListItem("news").title("Blog / Articles"),
+
                   // Regular Documents
-                  S.documentTypeListItem("news").title("Articles / News"),
                   S.documentTypeListItem("miscellaneousPage").title(
                      "Miscellaneous Pages"
                   ),

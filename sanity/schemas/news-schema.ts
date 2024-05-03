@@ -20,6 +20,19 @@ const news = {
          options: { source: "title" },
       },
       {
+         name: "categories",
+         title: "Categories",
+         type: "array",
+         of: [
+            {
+               type: "reference",
+               name: "newsArticleCategory",
+               title: "Category",
+               to: [{ type: "blogCategories" }],
+            },
+         ],
+      },
+      {
          name: "btnIsRedirect",
          title: "Is news available outside of our website?",
          type: "boolean",

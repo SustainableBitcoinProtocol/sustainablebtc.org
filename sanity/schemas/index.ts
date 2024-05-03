@@ -12,6 +12,7 @@ import contactPage from "./contactPage-schema";
 import news from "./news-schema";
 import miscellaneousPage from "./miscellaneousPage-schema";
 import faqPage from "./faqPage-schema";
+import blogCategories from "../components/blogCategories-schema";
 
 const schemas = [
    navbar,
@@ -27,6 +28,7 @@ const schemas = [
    news,
    miscellaneousPage,
    faqPage,
+   blogCategories,
 ];
 
 export default schemas;

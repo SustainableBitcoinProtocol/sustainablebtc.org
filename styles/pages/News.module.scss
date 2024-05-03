@@ -2,12 +2,56 @@
    @include hero-spacing;
    @apply pb-20;
 
+   .heroHeading {
+      @apply text-center block mb-4;
+      strong {
+         @include text-gradient(primary);
+      }
+   }
+
+   .heroSubHeading {
+      @apply text-center block mb-10;
+      font-weight: normal;
+
+      strong {
+         @apply font-extrabold;
+         @include text-gradient(primary);
+         // border-bottom: 1px solid #339dff;
+      }
+   }
+
+   .categoryFilter {
+      @apply flex flex-wrap justify-center gap-4;
+      @apply mb-20;
+
+      li {
+         @apply grid place-content-center;
+         @apply py-2 px-8 rounded-full cursor-pointer;
+         background: linear-gradient(
+            40deg,
+            rgba(#339dff, 0.2) 0%,
+            rgba(#0ec1d3, 0.2) 100%
+         );
+
+         &:hover {
+            background: linear-gradient(
+               40deg,
+               rgba(#339dff, 0.4) 0%,
+               rgba(#0ec1d3, 0.4) 100%
+            );
+         }
+         &.active {
+            background: $gradient-primary;
+         }
+      }
+   }
+
    .articles {
       @apply grid grid-cols-1 gap-8 gap-y-12;
    }
 
    .articleCard {
-      @apply flex flex-col gap-4;
+      @apply flex flex-col gap-4 pb-12;
 
       .articleImage {
          @apply aspect-video w-full overflow-hidden;
@@ -45,6 +89,19 @@
          @apply mt-2;
       }
 
+      .articleCategories {
+         @apply flex flex-wrap gap-2;
+
+         div {
+            @apply inline-block py-1 px-3 rounded-md text-sm;
+            background: linear-gradient(
+               40deg,
+               rgba(#339dff, 0.5) 0%,
+               rgba(#0ec1d3, 0.5) 100%
+            );
+         }
+      }
+
       .articleDescription {
          @apply opacity-80;
          @apply line-clamp-3;
@@ -70,11 +127,18 @@
       .articles {
          @apply grid grid-cols-2 gap-6 gap-y-8;
       }
+
+      .articleCard {
+         @apply flex flex-col gap-4 max-w-[calc(100%/2-2rem)] px-4 pb-12;
+      }
    }
 
    @include responsive(lg) {
       .articles {
          @apply grid grid-cols-3 gap-8 gap-y-12;
+      }
+      .articleCard {
+         @apply flex flex-col gap-4 max-w-[calc(100%/3-2rem)] px-4 pb-12;
       }
    }
 }

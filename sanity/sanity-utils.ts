@@ -193,18 +193,30 @@ export async function getFaqPageData() {
 
 export async function getNewsPageData() {
    return client.fetch(
-      groq`*[_type=="news"] | order(date desc){
-         _id,
-         _createdAt,
-         title,
-         url,
-         slug,
-         btnIsRedirect,
-         date,
-         description,
-         "imageURL": image.asset->url,
-         image
-      }`,
+      groq`
+         {
+            "news": 
+               *[_type=="news"] | order(date desc){
+                  _id,
+                  _createdAt,
+                  title,
+                  url,
+                  slug,
+                  categories[]->,
+                  btnIsRedirect,
+                  date,
+                  description,
+                  "imageURL": image.asset->url,
+                  image
+               },
+            "categories": 
+               *[_type=="blogCategories"]{
+                  _id,
+                  _createdAt,
+                  categoryKey,
+                  title,
+               }
+         }`,
       {
          next: { revalidate: 10 },
       }
