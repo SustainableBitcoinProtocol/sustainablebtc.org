@@ -67,19 +67,20 @@ const OurTeam = ({ teamData }: { teamData: any }) => {
 
                            {/* Experience */}
                            <div className={styles.memberExperience}>
-                              {member.sbpTeamMemberExperience.map(
-                                 (logo: any) => (
-                                    <>
-                                       <Image
-                                          src={urlFor(logo).url()}
-                                          alt={logo.alt}
-                                          width={100}
-                                          height={50}
-                                          title={logo.alt}
-                                       />
-                                    </>
-                                 )
-                              )}
+                              {member.sbpTeamMemberExperience &&
+                                 member.sbpTeamMemberExperience.map(
+                                    (logo: any) => (
+                                       <>
+                                          <Image
+                                             src={urlFor(logo).url()}
+                                             alt={logo.alt}
+                                             width={100}
+                                             height={50}
+                                             title={logo.alt}
+                                          />
+                                       </>
+                                    )
+                                 )}
                            </div>
                         </div>
                      </>
@@ -133,25 +134,30 @@ const OurTeam = ({ teamData }: { teamData: any }) => {
                               </a>
                            )}
 
-                           {/* Separator */}
-                           <div className={styles.memberSeparator}></div>
+                           {member.sbpAdvisorsMemberExperience && (
+                              <>
+                                 {/* Separator */}
+                                 <div className={styles.memberSeparator}></div>
 
-                           {/* Experience */}
-                           <div className={styles.memberExperience}>
-                              {member.sbpAdvisorsMemberExperience.map(
-                                 (logo: any) => (
-                                    <>
-                                       <Image
-                                          src={urlFor(logo).url()}
-                                          alt={logo.alt}
-                                          width={100}
-                                          height={50}
-                                          title={logo.alt}
-                                       />
-                                    </>
-                                 )
-                              )}
-                           </div>
+                                 {/* Experience */}
+                                 <div className={styles.memberExperience}>
+                                    {member.sbpAdvisorsMemberExperience &&
+                                       member.sbpAdvisorsMemberExperience.map(
+                                          (logo: any) => (
+                                             <>
+                                                <Image
+                                                   src={urlFor(logo).url()}
+                                                   alt={logo.alt}
+                                                   width={100}
+                                                   height={50}
+                                                   title={logo.alt}
+                                                />
+                                             </>
+                                          )
+                                       )}
+                                 </div>
+                              </>
+                           )}
                         </div>
                      </>
                   ))}
