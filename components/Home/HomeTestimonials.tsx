@@ -60,15 +60,21 @@ export default function HomeTestimonials({
                               >
                                  {/* Image */}
                                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                                 <Image
-                                    src={urlFor(item.testimonyImage)
-                                       .width(400)
-                                       .url()}
-                                    alt={item.testimonyImage.alt}
-                                    className={styles.testimonialTestimonyImage}
-                                    width={400}
-                                    height={400}
-                                 />
+                                 {item.testimonyImage && (
+                                    <>
+                                       <Image
+                                          src={urlFor(item.testimonyImage)
+                                             .width(400)
+                                             .url()}
+                                          alt={item.testimonyImage.alt}
+                                          className={
+                                             styles.testimonialTestimonyImage
+                                          }
+                                          width={400}
+                                          height={400}
+                                       />
+                                    </>
+                                 )}
 
                                  {/* Content */}
                                  <div>
@@ -87,7 +93,7 @@ export default function HomeTestimonials({
                                           src={urlFor(item.testimonyCompanyLogo)
                                              .width(300)
                                              .url()}
-                                          alt={item.testimonyImage.alt}
+                                          alt={item.testimonyCompanyLogo.alt}
                                           width={200}
                                           height={100}
                                           className={
