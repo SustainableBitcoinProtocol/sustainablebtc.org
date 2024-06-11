@@ -10,8 +10,8 @@
    }
 
    .heroSubHeading {
-      @apply text-center block mb-10;
-      font-weight: normal;
+      @apply text-center block mb-10 leading-normal;
+      font-weight: 400;
 
       strong {
          @apply font-extrabold;
@@ -21,12 +21,13 @@
    }
 
    .categoryFilter {
-      @apply flex flex-wrap justify-center gap-4;
-      @apply mb-20;
+      @apply flex flex-wrap justify-center gap-3;
+      @apply mt-16 mb-20;
 
       li {
          @apply grid place-content-center;
          @apply py-2 px-8 rounded-full cursor-pointer;
+         @apply font-medium;
          background: linear-gradient(
             40deg,
             rgba(#339dff, 0.2) 0%,
@@ -43,6 +44,65 @@
          &.active {
             background: $gradient-primary;
          }
+      }
+   }
+
+   .allCategoryHero {
+      @apply flex flex-wrap;
+
+      @include responsive(lg) {
+         & .articleCard:nth-child(1) {
+            width: 100%;
+            max-width: initial;
+            @apply flex gap-8 pb-10;
+            @apply flex-row;
+
+            .articleImage {
+               max-width: initial;
+               width: calc((100% * 2.3));
+            }
+
+            .content {
+               @apply gap-4;
+            }
+
+            .articleTitle {
+               @apply text-4xl;
+            }
+
+            .articleDescription {
+               @apply line-clamp-none;
+            }
+         }
+      }
+      & .articleCard {
+         .content {
+            @apply flex flex-col gap-3;
+         }
+         .articleDescription {
+            @apply mb-2;
+         }
+         .articleDate {
+            @apply mt-0;
+         }
+
+         @include responsive(lg) {
+            @apply pb-4;
+         }
+      }
+
+      label {
+         @apply absolute top-4 left-4 z-10;
+         @apply px-4 py-1;
+         @apply text-sm;
+         @apply rounded-sm;
+
+         background: linear-gradient(
+            40deg,
+            rgba(#339dff, 0.9) 0%,
+            rgba(#0ec1d3, 0.9) 100%
+         );
+         backdrop-filter: blur(2px);
       }
    }
 
@@ -83,10 +143,13 @@
          @apply font-semibold;
       }
 
+      .articleInfoData {
+         @apply flex justify-between items-center;
+      }
+
       .articleDate {
-         @apply font-medium;
+         @apply font-medium text-sm;
          @include text-gradient(primary);
-         @apply mt-2;
       }
 
       .articleCategories {
@@ -115,9 +178,54 @@
             }
 
             &::after {
-               opacity: 0.1;
+               opacity: 0.2;
                visibility: visible;
             }
+         }
+      }
+   }
+
+   .categoryWiseSliders {
+      @apply my-20;
+
+      .sliderHeader {
+         @apply my-8;
+         @apply flex justify-between items-center;
+
+         .sliderHeading {
+            @apply font-bold;
+         }
+
+         .sliderControl {
+            @apply flex items-center gap-6;
+         }
+
+         .sliderControlLink {
+            @include gradient-text;
+            @apply underline underline-offset-4 decoration-[#339dff];
+            @apply cursor-pointer;
+
+            &:hover {
+               @include text-gradient(primaryReverse);
+               @apply decoration-[#0ec1d3];
+            }
+         }
+         .sliderControlBtns {
+            @apply flex items-center gap-2 text-lg;
+         }
+
+         @include responsive(md) {
+            @apply px-4;
+         }
+      }
+
+      .sliderBody {
+         .articleCard {
+            @apply m-0 p-0;
+         }
+
+         @include responsive(md) {
+            @apply px-4;
          }
       }
    }

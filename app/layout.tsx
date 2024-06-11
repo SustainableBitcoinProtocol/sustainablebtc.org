@@ -13,6 +13,9 @@ import ProgressBar from "@/components/ProgressBar";
 
 // Importing icons
 import "bootstrap-icons/font/bootstrap-icons.css";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/free-mode";
 
 // Defining Fonts
 const helveticaNowDisplay = localFont({
