@@ -17,13 +17,7 @@ import imgModalForeground from "@/public/home/modalWhitepaperForeground.png";
 // Bind modal to the appElement
 // Modal.setAppElement("#modalWhitepaperEmail");
 
-const ModalWhitepaperEmail = ({
-   modalIsOpen,
-   setModalIsOpen,
-}: {
-   modalIsOpen: any;
-   setModalIsOpen: any;
-}) => {
+const ModalWhitepaperEmail = () => {
    // Managing state variable of email
    const [email, setEmail] = useState("");
    const [isDisabled, setIsDisabled] = useState(false);
@@ -31,11 +25,6 @@ const ModalWhitepaperEmail = ({
    // Managing reference variables for email
    const emailForm = useRef(null);
    const emailError = useRef(null);
-
-   // Function for close modal
-   function closeModal() {
-      setModalIsOpen(false);
-   }
 
    // Function to handle form submit event
    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -88,7 +77,6 @@ const ModalWhitepaperEmail = ({
             setTimeout(() => {
                (emailForm.current as any).reset();
                setEmail("");
-               //closeModal();
                setIsDisabled(false);
             }, 1000);
          }
