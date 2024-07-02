@@ -89,17 +89,25 @@ export default function HomeTestimonials({
                                           {item.testimonyName}
                                        </h3>
                                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                                       <Image
-                                          src={urlFor(item.testimonyCompanyLogo)
-                                             .width(300)
-                                             .url()}
-                                          alt={item.testimonyCompanyLogo.alt}
-                                          width={200}
-                                          height={100}
-                                          className={
-                                             styles.testimonialTestimonyCompanyLogo
-                                          }
-                                       />
+                                       {item.testimonyCompanyLogo && (
+                                          <>
+                                             <Image
+                                                src={urlFor(
+                                                   item.testimonyCompanyLogo
+                                                )
+                                                   .width(300)
+                                                   .url()}
+                                                alt={
+                                                   item.testimonyCompanyLogo.alt
+                                                }
+                                                width={200}
+                                                height={100}
+                                                className={
+                                                   styles.testimonialTestimonyCompanyLogo
+                                                }
+                                             />
+                                          </>
+                                       )}
                                     </div>
                                  </div>
                               </SwiperSlide>
