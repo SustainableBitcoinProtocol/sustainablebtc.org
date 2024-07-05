@@ -42,6 +42,13 @@
             border-bottom: 1px solid rgba(#339dff, 0.5);
             cursor: pointer;
 
+            &.noAnswer {
+               @include text-gradient(primary);
+
+               span {
+                  font-weight: 700;
+               }
+            }
             span {
                @apply leading-[140%];
                font-weight: 400;

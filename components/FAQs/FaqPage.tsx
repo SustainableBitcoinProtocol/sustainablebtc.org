@@ -13,13 +13,13 @@ import { urlFor } from "@/sanity/sanity-urlFor";
 // Lib
 import { PortableText } from "@portabletext/react";
 
-// Componrnts
+// Components
 import FaqQuestions from "./FaqQuestions";
 import { getFaqPageData } from "@/sanity/sanity-utils";
 
 export default async function TransparencyPage() {
    const faqPageData = await getFaqPageData();
-   const faqsData = faqPageData.faqs || null;
+   const faqsData = faqPageData.faqs || [];
 
    return (
       <>
@@ -33,14 +33,12 @@ export default async function TransparencyPage() {
                </div>
 
                <div className={`${styles.faqWrapper}`}>
-                  {faqsData.map((item: any, i: number) => (
-                     <>
-                        <FaqQuestions
-                           key={i}
-                           question={item.faqQuestion}
-                           answer={item.faqAnswer}
-                        />
-                     </>
+                  {faqsData.map((item:any, i:number) => (
+                     <FaqQuestions
+                        key={i}
+                        question={item.faqQuestion}
+                        answer={item.faqAnswer}
+                     />
                   ))}
                </div>
             </div>
