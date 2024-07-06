@@ -311,6 +311,7 @@
          .navDropdownLabel {
             @apply flex justify-center items-center gap-2;
             @apply select-none;
+
          }
          .navDropdownMenu {
             @apply h-0 overflow-hidden;

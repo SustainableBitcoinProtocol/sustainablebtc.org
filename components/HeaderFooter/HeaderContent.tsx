@@ -25,6 +25,7 @@ import { getSbcInfo } from "@/utils/sbp";
 
 // components
 import ModalWhitepaperEmail from "../Modals/ModalWhitepaperEmail";
+import { useRouter, usePathname } from "next/navigation";
 
 const HeaderContent = ({
    navbarData,
@@ -35,7 +36,14 @@ const HeaderContent = ({
 }) => {
    // =====================================================================
    // ! Get activelink
-   let activeLink = useSelectedLayoutSegment();
+   const pathname = usePathname(); // Use useRouter to get the full path
+   const [activeLink, setActiveLink] = useState<string>("");
+
+   useEffect(() => {
+      // do nothing if slug is "/"
+      if (pathname === "/") setActiveLink(pathname);
+      else setActiveLink(pathname.substring(1, pathname.length));
+   }, [pathname]);
    // =====================================================================
 
    // =====================================================================
@@ -470,7 +478,7 @@ const HeaderContent = ({
                                                 {/* Main Link */}
                                                 <label
                                                    htmlFor={item.name}
-                                                   className={`${styles.navDropdownLabel}`}
+                                                   className={`${styles.navDropdownLabel}  `}
                                                 >
                                                    <span>{item.name}</span>
                                                    <span>
@@ -538,8 +546,9 @@ const HeaderContent = ({
                                                                                                )
                                                                                              : null
                                                                                        }
+                                                                                       className={isActive ? styles.active : ""}
                                                                                     >
-                                                                                       <span>
+                                                                                       <span >
                                                                                           {
                                                                                              dropdownItem.name
                                                                                           }
@@ -559,7 +568,9 @@ const HeaderContent = ({
                                                                                             !isNavbarToggled
                                                                                          )
                                                                                        : null
+                                                                                       
                                                                                  }
+                                                                                 className={isActive ? styles.active : ""}
                                                                               >
                                                                                  <span>
                                                                                     {

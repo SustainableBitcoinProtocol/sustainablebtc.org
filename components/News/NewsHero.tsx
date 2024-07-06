@@ -63,7 +63,8 @@ const NewsHero = ({ newsPageData }: { newsPageData: any }) => {
             <div className={`${styles.container} container`}>
                {/* Heading */}
                <div className={`${styles.heroHeading} heading heading-1`}>
-                  <strong>Learn</strong>
+                  <strong> SBP News and Accolades
+                  </strong>
                </div>
                {/* Sub Heading */}
                <div className={`${styles.heroSubHeading} heading heading-5`}>
