@@ -64,7 +64,8 @@ export async function getHomePageData() {
          hero,
          sbc,
          testimonials,
-         trust
+         trust,
+         whitepaperdownload
       }`,
       {
          next: { revalidate: 10 },

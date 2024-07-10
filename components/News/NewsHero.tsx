@@ -63,8 +63,9 @@ const NewsHero = ({ newsPageData }: { newsPageData: any }) => {
             <div className={`${styles.container} container`}>
                {/* Heading */}
                <div className={`${styles.heroHeading} heading heading-1`}>
-                  <strong> SBP News and Accolades
-                  </strong>
+                  <strong>SBP</strong>
+                  &nbsp;in the&nbsp;
+                  <strong>Media</strong>
                </div>
                {/* Sub Heading */}
                <div className={`${styles.heroSubHeading} heading heading-5`}>
@@ -75,7 +76,7 @@ const NewsHero = ({ newsPageData }: { newsPageData: any }) => {
                </div>
 
                {/* Categories */}
-               <ul className={`${styles.categoryFilter}`}>
+               {/* <ul className={`${styles.categoryFilter}`}>
                   <li
                      className={`${
                         isCategoryActive == "*" ? styles.active : ""
@@ -109,7 +110,7 @@ const NewsHero = ({ newsPageData }: { newsPageData: any }) => {
                         )}
                      </>
                   ))}
-               </ul>
+               </ul> */}
 
                {isCategoryActive === "*" && (
                   <>
@@ -175,10 +176,9 @@ const NewsHero = ({ newsPageData }: { newsPageData: any }) => {
                                                 <div
                                                    className={`${styles.articleInfoData}`}
                                                 >
-                                                   <div
+                                                   {/* <div
                                                       className={`${styles.articleCategories}`}
                                                    >
-                                                      {/* Category */}
                                                       {news.categories.map(
                                                          (
                                                             category: any,
@@ -193,7 +193,7 @@ const NewsHero = ({ newsPageData }: { newsPageData: any }) => {
                                                             </>
                                                          )
                                                       )}
-                                                   </div>
+                                                   </div> */}
 
                                                    {/* Publish Date */}
                                                    <p
@@ -417,10 +417,9 @@ const NewsHero = ({ newsPageData }: { newsPageData: any }) => {
                                                                      <div
                                                                         className={`${styles.articleInfoData}`}
                                                                      >
-                                                                        <div
+                                                                        {/* <div
                                                                            className={`${styles.articleCategories}`}
                                                                         >
-                                                                           {/* Category */}
                                                                            {news.categories.map(
                                                                               (
                                                                                  category: any,
@@ -435,7 +434,7 @@ const NewsHero = ({ newsPageData }: { newsPageData: any }) => {
                                                                                  </>
                                                                               )
                                                                            )}
-                                                                        </div>
+                                                                        </div> */}
 
                                                                         {/* Publish Date */}
                                                                         <p
@@ -520,10 +519,10 @@ const NewsHero = ({ newsPageData }: { newsPageData: any }) => {
                                  <>
                                     <div
                                        className={`
-                              filter-item 
-                              ${styles.articleCard}
-                              ${category}
-                              `}
+                                          filter-item 
+                                          ${styles.articleCard}
+                                          ${category}
+                                          `}
                                        key={i}
                                     >
                                        {/* Image */}
@@ -586,7 +585,7 @@ const NewsHero = ({ newsPageData }: { newsPageData: any }) => {
                                        </div>
 
                                        {/* Categories */}
-                                       <div
+                                       {/* <div
                                           className={`${styles.articleCategories}`}
                                        >
                                           {news.categories.map(
@@ -596,7 +595,7 @@ const NewsHero = ({ newsPageData }: { newsPageData: any }) => {
                                                 </>
                                              )
                                           )}
-                                       </div>
+                                       </div> */}
 
                                        {/* Description */}
                                        <p

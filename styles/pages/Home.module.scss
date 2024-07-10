@@ -316,8 +316,6 @@
          @apply rounded-lg;
          @apply p-6;
 
-         border: 1px solid #339dff;
-         background: rgba($color: #fafafa, $alpha: 0.07);
       }
 
       .testimonialHeading {
@@ -479,8 +477,10 @@
       }
    }
 
-   .trustCTA {
+   .downloadwhitepaperCTA {
       @apply mt-4;
+      
+      
    }
 
    @include responsive(md) {
@@ -499,4 +499,47 @@
          }
       }
    }
+}
+.downloadwhitepaper{
+
+   @apply overflow-hidden;
+   @apply min-h-fit;
+   @apply py-4;
+ 
+
+   .wrapper {
+      background: linear-gradient(40deg, #339dff 0%, #0ec1d3 100%);      
+      border: 1px solid #339dff;
+      border-radius: 20px;
+      display: flex;
+      @apply grid gap-8;
+      @apply flex items-center text-center justify-center gap-8;
+
+   }
+   .content {
+      @apply flex flex-col items-center text-center justify-center gap-8;
+   }
+   .downloadwhitepaperHeading {
+      @apply leading-[100%];
+
+      strong {
+         @include text-gradient(light);
+      }
+   }
+   .downloadwhitepaperCTA {
+      @apply mt-4;
+      color: color($color-light);
+      
+   }
+
+   @include responsive(md) {
+      .wrapper {
+         @apply grid-cols-2;
+      }
+      .content {
+         @apply items-start text-left;
+      }
+      
+   }
+
 }

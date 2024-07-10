@@ -6,6 +6,7 @@ import HomeMiners from "./HomeMiners";
 import HomeSBC from "./HomeSBC";
 import HomeTestimonials from "./HomeTestimonials";
 import HomeTrust from "./HomeTrust";
+import HomeWhitepaperDownload from "./HomeWhitepaperDownload";
 
 // import Sanity
 import { getHomePageData, getMinerPageData } from "@/sanity/sanity-utils";
@@ -19,14 +20,16 @@ export default async function HomePage() {
    const sbcData = homePageData.sbc || null;
    const testimonialData = homePageData.testimonials || null;
    const trustData = homePageData.trust || null;
+   const whitepaperdownloadData = homePageData.whitepaperdownload || null;
 
    return (
       <>
          <HomeHero heroData={heroData} />
-         <HomeMiners minerData={minerData}/>
+         <HomeMiners minerData={minerData} />
          <HomeSBC sbcData={sbcData} />
          <HomeTestimonials testimonialData={testimonialData} />
          <HomeTrust trustData={trustData} />
+         {/* <HomeWhitepaperDownload whitepaperdownloadData={whitepaperdownloadData} /> */}
       </>
    );
 }

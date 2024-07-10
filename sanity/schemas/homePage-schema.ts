@@ -312,24 +312,24 @@ const homePage = {
          ],
       },
       {
-         name: "tog",
-         title: "Trust",
+         name: "whitepaperdownload",
+         title: "WhitepaperDownload",
          type: "document",
          fields: [
             {
-               name: "trustHeading",
+               name: "whitepaperdownloadHeading",
                title: "Heading",
                type: "array",
                of: [{ type: "block" }],
             },
             {
-               name: "trustDescription",
+               name: "whitepaperdownloadDescription",
                title: "Description",
                type: "array",
                of: [{ type: "block" }],
             },
             {
-               name: "trustCTA",
+               name: "whitepaperdownloadCTA",
                title: "CTA",
                type: "array",
                of: [

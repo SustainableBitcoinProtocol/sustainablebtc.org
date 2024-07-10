@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import NewsPage from "@/components/News/NewsPage";
 
 export const metadata: Metadata = {
-   title: " SBP News and Accolades | Sustainable Bitcoin Protocol",
+   title: " SBP in the Media | Sustainable Bitcoin Protocol",
    description:
       "Sustainable Bitcoin Protocol helps accelerate the bitcoin network's transition to clean energy.",
 };
