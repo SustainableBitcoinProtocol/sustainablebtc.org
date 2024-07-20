@@ -26,6 +26,8 @@ $color-red: (
    default: #f83939,
 );
 $color-green: (
+   400: #34ea7e,
+   500: #16D563,
    600: hsl(144, 81%, 20%),
    default: #34ea7e,
 );
@@ -36,3 +38,9 @@ $color-green: (
 // Fonts
 // =========================
 $font-primary: "Helvetica Now Display", sans-serif;
+
+
+// Radius
+// =========================
+$inner-radius: 0.625rem;
+$outer-radius: $inner-radius * 2;

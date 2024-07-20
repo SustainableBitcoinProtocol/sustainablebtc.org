@@ -32,6 +32,7 @@
     "react-compare-slider": "^2.2.0",
     "react-dom": "18.2.0",
     "react-modal": "^3.16.1",
+    "react-modal-video": "^2.0.2",
     "react-tsparticles": "^2.10.1",
     "sanity": "^3.14.1",
     "swiper": "^10.3.1",
@@ -42,6 +43,7 @@
   "devDependencies": {
     "@types/isotope-layout": "^3.0.13",
     "@types/react-modal": "^3.16.3",
+    "@types/react-modal-video": "^1.2.3",
     "@types/validator": "^13.11.9",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.25",

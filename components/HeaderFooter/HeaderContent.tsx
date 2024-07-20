@@ -120,7 +120,7 @@ const HeaderContent = ({
       <>
          {/* Navigation Top Strip */}
          <aside className={`${styles.headerTopBar}`}>
-            <div className={`${styles.container} container`}>
+            <div className={`${styles.container}`}>
                {/* Global Leaders */}
                <div className={styles.globalLeader}>
                   <h6 className={styles.globalLeaderHeading}>
@@ -546,9 +546,13 @@ const HeaderContent = ({
                                                                                                )
                                                                                              : null
                                                                                        }
-                                                                                       className={isActive ? styles.active : ""}
+                                                                                       className={
+                                                                                          isActive
+                                                                                             ? styles.active
+                                                                                             : ""
+                                                                                       }
                                                                                     >
-                                                                                       <span >
+                                                                                       <span>
                                                                                           {
                                                                                              dropdownItem.name
                                                                                           }
@@ -568,9 +572,12 @@ const HeaderContent = ({
                                                                                             !isNavbarToggled
                                                                                          )
                                                                                        : null
-                                                                                       
                                                                                  }
-                                                                                 className={isActive ? styles.active : ""}
+                                                                                 className={
+                                                                                    isActive
+                                                                                       ? styles.active
+                                                                                       : ""
+                                                                                 }
                                                                               >
                                                                                  <span>
                                                                                     {

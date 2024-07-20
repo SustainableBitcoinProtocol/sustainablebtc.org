@@ -1,4 +1,6 @@
+
 .hero {
+
    @apply relative overflow-hidden;
    @apply pt-16;
 
@@ -308,7 +310,61 @@
       }
    }
 }
+//about
+.about {
+   @apply overflow-hidden;
+   @apply min-h-fit;
+   @apply py-4;
+   .wrapper {
+      @apply grid gap-8;
+   }
 
+   .image {
+      @apply relative grid place-content-center;
+      @apply w-fit mx-auto max-w-[300px];
+
+      img {
+         @apply relative z-20;
+      }}
+
+   .content {
+      @apply flex flex-col items-center text-center justify-center gap-8;
+   }
+
+   .aboutHeading {
+      @include text-gradient(primaryReverse);
+
+      @apply leading-[100%];
+
+      strong {
+         @include text-gradient(primary);
+      }
+   }
+
+   .aboutCTA {
+      @apply mt-4;
+      border-radius: 20px
+      
+      
+   }
+
+   @include responsive(md) {
+      .wrapper {
+         @apply grid-cols-2;
+      }
+      .content {
+         @apply items-start text-left;
+      }
+   }
+   @include responsive(lg) {
+      .image {
+         @apply max-w-[400px];
+         &::before {
+            scale: 0.75;
+         }
+      }
+   }
+}
 .testimonials {
    .container {
       .testimonialWrapper {
@@ -477,7 +533,7 @@
       }
    }
 
-   .downloadwhitepaperCTA {
+   .trustCTA {
       @apply mt-4;
       
       
@@ -511,13 +567,14 @@
       background: linear-gradient(40deg, #339dff 0%, #0ec1d3 100%);      
       border: 1px solid #339dff;
       border-radius: 20px;
-      display: flex;
+      @apply py-6;
+      @apply px-4;
       @apply grid gap-8;
-      @apply flex items-center text-center justify-center gap-8;
+      @apply flex items-center text-center justify-center gap-x-14;
 
    }
    .content {
-      @apply flex flex-col items-center text-center justify-center gap-8;
+      @apply flex flex-col items-center text-center justify-center gap-4;
    }
    .downloadwhitepaperHeading {
       @apply leading-[100%];
@@ -540,6 +597,45 @@
          @apply items-start text-left;
       }
       
+   }
+
+}
+.faq {
+   @apply overflow-hidden;
+   @apply min-h-fit;
+   @apply py-4;
+   .wrapper {
+      //@apply flex items-center text-center justify-center gap-x-14;
+
+   }
+
+
+
+   .content {
+      @apply flex flex-row  text-center gap-2;
+   }
+
+   .faqHeading {
+      @apply leading-[100%];
+
+      strong {
+         @include text-gradient(primary);
+      }
+   }
+
+   .faqCTA {
+      @apply mt-4;
+      
+      
+   }
+
+   @include responsive(md) {
+      .wrapper {
+         @apply grid-cols-2;
+      }
+      .content {
+         @apply items-start text-left;
+      }
    }
 
 }

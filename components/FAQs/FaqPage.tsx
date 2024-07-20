@@ -3,6 +3,7 @@ import React from "react";
 // Styles
 import styles from "@/styles/pages/Faq.module.scss";
 
+
 // Next/React
 import Link from "next/link";
 import Image from "next/image";
@@ -34,7 +35,8 @@ export default async function TransparencyPage() {
 
                <div className={`${styles.faqWrapper}`}>
                   {faqsData.map((item:any, i:number) => (
-                     <FaqQuestions
+                     
+                     <FaqQuestions 
                         key={i}
                         question={item.faqQuestion}
                         answer={item.faqAnswer}

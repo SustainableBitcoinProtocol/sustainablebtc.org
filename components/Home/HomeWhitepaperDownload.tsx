@@ -29,6 +29,9 @@ const HomeWhitepaperDownload = ({
                         value={whitepaperdownloadData.whitepaperdownloadHeading}
                      />
                   </div>
+                  <div className={`${styles.trustDescription} portableText`}>
+                     <PortableText value={whitepaperdownloadData.whitepaperdownloadDescription} />
+                  </div>
                </div>
                <div className={styles.downloadwhitepaperCTA}>
                   {whitepaperdownloadData.whitepaperdownloadCTA.map(

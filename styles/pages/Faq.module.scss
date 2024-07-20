@@ -9,17 +9,8 @@
    }
 }
 
-.hero {
-   @include hero-spacing;
-   @apply mb-24;
-   @apply relative;
-
-   @include responsive(md) {
-   }
-
-   .container {
-      max-width: 1000px;
-   }
+.hero, .homeFaq{
+   
 
    .faqWrapper {
       @apply grid grid-cols-1 mt-8;
@@ -134,6 +125,58 @@
                @apply text-xl;
             }
          }
+      }
+   }
+}
+
+.hero {
+   @include hero-spacing;
+   @apply mb-24;
+   @apply relative;
+
+   @include responsive(md) {
+   }
+
+   .container {
+      max-width: 1000px;
+   }
+}
+
+.homeFaq{
+   @apply overflow-hidden;
+   @apply min-h-fit;
+   @apply py-4;
+   .wrapper {
+      //@apply flex items-center text-center justify-center gap-x-14;
+
+   }
+
+
+
+   .content {
+      @apply flex flex-row  text-center gap-2;
+   }
+
+   .faqHeading {
+      @apply leading-[100%];
+
+      strong {
+         @include text-gradient(primary);
+      }
+   }
+
+   .faqCTA {
+      @apply mt-4;
+      
+      
+   }
+
+   @include responsive(md) {
+      .wrapper {
+         @apply grid-cols-2;
+      }
+      .content {
+         @apply items-start text-left;
       }
    }
 }

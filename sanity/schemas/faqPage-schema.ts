@@ -15,6 +15,7 @@ const faqPage = {
          name: "faqs",
          title: "FAQs",
          type: "array",
+         
          of: [
             {
                type: "document",
@@ -29,6 +30,12 @@ const faqPage = {
                      title: "Answer",
                      type: "array",
                      of: [{ type: "block" }],
+                  },
+                  {
+                     name: "faqAvailableOnHomePage",
+                     title: "Is available on Home Page?",
+                     type: "boolean",
+                     initialValue: false,
                   },
                ],
             },

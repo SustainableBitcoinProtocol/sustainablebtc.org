@@ -213,6 +213,37 @@ const homePage = {
             },
          ],
       },
+      //about
+      {
+         name: "about",
+         title: "About",
+         type: "document",
+         fields: [
+            {
+               name: "aboutHeading",
+               title: "Heading",
+               type: "array",
+               of: [{ type: "block" }],
+            },
+            {
+               name: "aboutDescription",
+               title: "Description",
+               type: "array",
+               of: [{ type: "block" }],
+            },
+            {
+               name: "aboutCTA",
+               title: "CTA",
+               type: "array",
+               of: [
+                  {
+                     type: "document",
+                     fields: btn,
+                  },
+               ],
+            },
+         ],
+      },
       // Testimonials
       {
          name: "testimonials",
@@ -341,6 +372,44 @@ const homePage = {
             },
          ],
       },
+      {
+         name: "faq",
+         title: "Faq",
+         type: "document",
+         fields: [
+            {
+               name: "faqHeading",
+               title: "Heading",
+               type: "array",
+               of: [{ type: "block" }],
+            },
+            {
+               name: "faqCTA",
+               title: "CTA",
+               type: "array",
+               of: [
+                  {
+                     type: "document",
+                     fields: btn,
+                  },
+               ],
+            },
+            {
+               name: "faqQuestion",
+               title: "Question",
+               type: "string",
+            },
+            {
+               name: "faqAnswer",
+               title: "Answer",
+               type: "array",
+               of: [{ type: "block" }],
+            },
+
+         ],
+      },
+      
+      
    ],
 };
 
