@@ -285,23 +285,23 @@
             gap 0.5s ease-in-out 0s;
       }
 
-      li a {
+      li:not(.containBtn) a {
          @apply py-1;
          @include text-gradient(light);
       }
-      li .navModalLink {
+      li:not(.containBtn) .navModalLink {
          @include text-gradient(light);
          cursor: pointer;
       }
 
-      li.active a {
+      li:not(.containBtn).active a {
          @include gradient-text;
          font-weight: 500;
       }
 
-      li a:hover,
-      li .navDropdown:hover label,
-      li .navModalLink:hover {
+      li:not(.containBtn) a:hover,
+      li:not(.containBtn) .navDropdown:hover label,
+      li:not(.containBtn) .navModalLink:hover {
          @include text-gradient(primary);
       }
 
@@ -387,17 +387,17 @@
       .secondaryNav {
          @apply flex items-center gap-6;
 
-         li a {
+         li:not(.containBtn) a {
             @apply py-1;
             @include text-gradient(light);
          }
 
-         li.active a {
+         li:not(.containBtn).active a {
             @include gradient-text;
             font-weight: 500;
          }
 
-         li a:hover {
+         li:not(.containBtn) a:hover {
             @include text-gradient(primary);
          }
       }

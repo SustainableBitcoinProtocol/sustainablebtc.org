@@ -155,7 +155,7 @@ const SBCAbout = ({ aboutSbcData }: { aboutSbcData: any }) => {
                <>
                   {/* Heading */}
                   <div>
-                     <div className={`${styles.sbcHeading} portableText`}>
+                     <div className={`${styles.sbcHeading }  portableText`}>
                         <PortableText value={aboutSbcData.aboutSBCHeading} />
                      </div>
                      <div className={`${styles.sbcSubHeading} portableText`}>
@@ -164,7 +164,7 @@ const SBCAbout = ({ aboutSbcData }: { aboutSbcData: any }) => {
                   </div>
 
                   {/* Description */}
-                  <div className={`${styles.sbcDescription} portableText`}>
+                  <div className={`${styles.sbcDescription } portableText`}>
                      <PortableText value={aboutSbcData.aboutSBCDescription} />
                   </div>
 

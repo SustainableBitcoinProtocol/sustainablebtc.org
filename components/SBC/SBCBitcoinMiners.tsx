@@ -51,7 +51,7 @@ const SBCBitcoinMiners = ({
                               {/* eslint-disable-next-line @next/next/no-img-element */}
                               <img
                                  src={urlFor(item).url()}
-                                 alt={item.alt}
+                                 alt="bitcoinminnerimg"
                                  width={`auto`}
                                  height={`auto`}
                               />

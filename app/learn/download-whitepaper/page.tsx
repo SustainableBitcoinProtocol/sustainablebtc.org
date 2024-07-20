@@ -171,6 +171,8 @@ const ModalWhitepaperEmail = () => {
                         alt="Hero Background"
                         className={styles.imgModalBackdrop}
                         objectFit="contain"
+                        loading="eager"
+                        priority
                      />
 
                      {/* Foredrop Image */}
@@ -179,6 +181,7 @@ const ModalWhitepaperEmail = () => {
                         alt="Hero Background"
                         className={styles.imgModalForeground}
                         objectFit="contain"
+                        loading="eager"
                      />
                   </div>
                </div>

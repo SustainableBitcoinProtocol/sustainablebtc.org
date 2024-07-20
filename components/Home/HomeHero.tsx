@@ -102,6 +102,7 @@ export default function HomeHero({ heroData }: { heroData: any }) {
                alt="Windmill"
                className={styles.imgHeroWindmill}
                loading="eager"
+               fetchPriority="high"
             />
 
             {/* Cloud */}
@@ -110,16 +111,18 @@ export default function HomeHero({ heroData }: { heroData: any }) {
                alt="Windmill"
                className={styles.imgHeroCloud}
                loading="eager"
+               fetchPriority="high"
             />
          </div>
 
          {/* Background Image */}
-         <Image
+         {/* <Image
             src={imgHeroBg}
             alt="Hero Background"
             className={styles.imgHeroBg}
             objectFit="contain"
-         />
+            fetchPriority="high"
+         /> */}
       </section>
    );
 }

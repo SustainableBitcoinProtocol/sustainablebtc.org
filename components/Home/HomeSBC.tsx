@@ -199,7 +199,7 @@ export default function HomeSBC({ sbcData }: { sbcData: any }) {
                   {/* Features */}
                   <ul className={styles.sbcFeatures}>
                      {sbcData.sbcFeatures.map((element: string) => (
-                        <div key={element}>{element}</div>
+                        <li key={element}>{element}</li>
                      ))}
                   </ul>
 

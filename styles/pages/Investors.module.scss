@@ -15,7 +15,7 @@
    .heroHeading {
       @apply max-w-[600px] leading-[110%];
       @apply mt-1;
-      @include text-gradient(primary);
+      // @include text-gradient(primary);
    }
 
    .heroSubHeading {

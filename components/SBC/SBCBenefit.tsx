@@ -42,9 +42,9 @@ const SBCBenefit = ({ benefitsData }: { benefitsData: any }) => {
                                        height={90}
                                     />
                                  </div>
-                                 <h6 className={`heading heading-6`} key={i}>
+                                 <h1 className={`heading heading-6`} key={i}>
                                     {benefit.benefitsItemTitle}
-                                 </h6>
+                                 </h1>
                               </div>
                            </>
                         )

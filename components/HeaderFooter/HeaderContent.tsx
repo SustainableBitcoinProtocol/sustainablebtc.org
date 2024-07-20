@@ -137,7 +137,7 @@ const HeaderContent = ({
                            >
                               <Image
                                  src={urlFor(image).url()}
-                                 alt={image.alt}
+                                 alt="leader name"
                                  width={300}
                                  height={100}
                                  loading="eager"
@@ -154,7 +154,7 @@ const HeaderContent = ({
                               <div className={styles.sbc}>
                                  <Image
                                     src={btcInfo.png64}
-                                    alt={btcInfo.name}
+                                    alt="btcInfo"
                                     className={styles.sbcLogo}
                                     width={20}
                                     height={20}
@@ -234,7 +234,7 @@ const HeaderContent = ({
                            >
                               <Image
                                  src={urlFor(image).url()}
-                                 alt={image.alt}
+                                 alt="our partners"
                                  width={300}
                                  height={100}
                                  loading="eager"
@@ -251,7 +251,7 @@ const HeaderContent = ({
                               <div className={styles.sbc}>
                                  <Image
                                     src={btcInfo.png64}
-                                    alt={btcInfo.name}
+                                    alt="btcinfo"
                                     className={styles.sbcLogo}
                                     width={20}
                                     height={20}
@@ -330,7 +330,7 @@ const HeaderContent = ({
                         <div className={styles.sbc}>
                            <Image
                               src={btcInfo.png64}
-                              alt={btcInfo.name}
+                              alt="biticon"
                               className={styles.sbcLogo}
                               width={20}
                               height={20}
@@ -621,6 +621,7 @@ const HeaderContent = ({
 
                   {/* Secondary Navigation
                       Condition: Visible only on toggle enabled state */}
+                      <li>
                   <ul className={styles.secondaryInPrimary}>
                      <li>
                         <hr />
@@ -630,23 +631,24 @@ const HeaderContent = ({
                            (item: any, i: number) => {
                               if (item.isButton === true) {
                                  return (
-                                    <Link
-                                       href={`/${item.slug}`}
-                                       className="btn btn-primary"
-                                       key={i}
-                                       onClick={() =>
-                                          window.innerWidth < 1440
-                                             ? setIsNavbarToggled(
-                                                  !isNavbarToggled
-                                               )
-                                             : null
-                                       }
-                                    >
-                                       <span>{item.name}</span>
-                                       <i
-                                          className={`bi bi-${item.iconName}`}
-                                       ></i>
-                                    </Link>
+                                    <li key={i} className={styles.containBtn}>
+                                       <Link
+                                          href={`/${item.slug}`}
+                                          className="btn btn-primary"
+                                          onClick={() =>
+                                             window.innerWidth < 1440
+                                                ? setIsNavbarToggled(
+                                                     !isNavbarToggled
+                                                  )
+                                                : null
+                                          }
+                                       >
+                                          <span>{item.name}</span>
+                                          <i
+                                             className={`bi bi-${item.iconName}`}
+                                          ></i>
+                                       </Link>
+                                    </li>
                                  );
                               } else {
                                  return (
@@ -674,6 +676,7 @@ const HeaderContent = ({
                            }
                         )}
                   </ul>
+                  </li>
                </ul>
 
                {/* Scondary Nav 
@@ -684,14 +687,15 @@ const HeaderContent = ({
                         (item: any, i: number) => {
                            if (item.isButton === true) {
                               return (
-                                 <Link
-                                    href={`/${item.slug}`}
-                                    className="btn btn-primary"
-                                    key={i}
-                                 >
-                                    <span>{item.name}</span>
-                                    <i className={`bi bi-${item.iconName}`}></i>
-                                 </Link>
+                                 <li className={styles.containBtn} key={i}>
+                                    <Link
+                                       href={`/${item.slug}`}
+                                       className="btn btn-primary"
+                                    >
+                                       <span>{item.name}</span>
+                                       <i className={`bi bi-${item.iconName}`}></i>
+                                    </Link>
+                                 </li>
                               );
                            } else {
                               return (

@@ -349,17 +349,17 @@ export default function Home() {
                         >
                            {sbcData.sbcHeading}
                         </h2>
-                        <h4
+                        <h3
                            className={`${styles.sbcSubHeading} heading heading-4`}
                         >
                            {sbcData.sbcSubHeading}
-                        </h4>
+                        </h3>
                      </div>
 
                      {/* Features */}
                      <ul className={styles.sbcFeatures}>
                         {sbcData.sbcFeatures.map((element: string) => (
-                           <div key={element}>{element}</div>
+                           <li key={element}>{element}</li>
                         ))}
                      </ul>
 
