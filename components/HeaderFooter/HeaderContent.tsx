@@ -116,6 +116,7 @@ const HeaderContent = ({
       setModalIsOpen(true);
    }
    // =====================================================================
+
    return (
       <>
          {/* Navigation Top Strip */}
@@ -410,9 +411,6 @@ const HeaderContent = ({
                      <Image src={logo} alt="Logo" />
                   </Link>
 
-                  {/* separator */}
-                  <div area-hidden="true" className={styles.separator}></div>
-
                   {/* Menu Toggle */}
                   <div
                      className={`${styles.btnNavToggle} ${
@@ -634,7 +632,7 @@ const HeaderContent = ({
                                     <li key={i} className={styles.containBtn}>
                                        <Link
                                           href={`/${item.slug}`}
-                                          className="btn btn-primary"
+                                          className="btn btn-primary btn-sm"
                                           onClick={() =>
                                              window.innerWidth < 1440
                                                 ? setIsNavbarToggled(
@@ -690,7 +688,7 @@ const HeaderContent = ({
                                  <li className={styles.containBtn} key={i}>
                                     <Link
                                        href={`/${item.slug}`}
-                                       className="btn btn-primary"
+                                       className="btn btn-primary btn-sm"
                                     >
                                        <span>{item.name}</span>
                                        <i className={`bi bi-${item.iconName}`}></i>
@@ -724,6 +722,7 @@ const HeaderContent = ({
                </ul>
             </div>
          </header>
+         
          {/* Modals */}
          <ModalWhitepaperEmail
             modalIsOpen={modalIsOpen}

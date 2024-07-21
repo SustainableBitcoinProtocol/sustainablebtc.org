@@ -49,7 +49,7 @@
          display: inline-block;
          @include flex-center;
          height: 40px;
-         padding-inline: .625rem;
+         padding-inline: 0.625rem;
          font-size: 0.8rem;
          font-weight: 800;
          line-height: 100%;
@@ -136,7 +136,7 @@
    .ticker {
       @apply flex items-center justify-end gap-x-6 gap-y-1 flex-wrap;
       @apply hidden md:flex;
-      background: rgba(250, 250, 250, 0.60);
+      background: rgba(250, 250, 250, 0.6);
       height: 40px;
       padding-inline: 1rem;
       border-top-left-radius: $inner-radius;
@@ -186,20 +186,20 @@
 }
 
 .header {
-   @apply absolute z-50 w-full py-5;
+   @apply absolute z-50 w-full;
    @apply bg-transparent text-base;
    @apply whitespace-nowrap;
    @apply transition-all duration-300 ease-in;
-   border-bottom: 1px solid transparent;
 
    .container {
       @apply flex items-center gap-8;
+      @apply p-3 my-4 rounded-lg mx-4 max-w-none;
+      background: rgba($color: color($color-light), $alpha: 0.1);
+      backdrop-filter: blur(10px);
    }
 
    &.fixToTop {
-      @apply fixed py-3 top-0;
-      background: color($color-dark);
-      border-color: color($color-dark, 500);
+      @apply fixed top-0;
 
       .primaryNav {
          @apply gap-8;
@@ -217,7 +217,7 @@
       @apply flex flex-1 items-center justify-between gap-8;
 
       img {
-         @apply h-12 w-auto;
+         @apply h-10 w-auto;
       }
 
       .separator {
@@ -270,8 +270,8 @@
 
    .primaryNav {
       @apply absolute w-full left-0 top-full -z-10 overflow-hidden;
-      @apply flex flex-col items-center gap-8 flex-1;
-      @apply py-0;
+      @apply flex flex-col items-center justify-center gap-8 flex-1;
+      @apply py-0 text-sm;
       transition: max-height 1s cubic-bezier(0.99, 0.2, 0.2, 0.99) 0s,
          padding 0.8s ease-in-out 0s, gap 0.5s ease-in-out 0s;
       @apply max-h-0;
@@ -378,6 +378,9 @@
       @apply hidden;
    }
 
+   @include responsive(md){
+   }
+
    @include responsive(lg) {
       .primaryNav {
          .secondaryInPrimary {
@@ -385,7 +388,7 @@
          }
       }
       .secondaryNav {
-         @apply flex items-center gap-6;
+         @apply flex items-center gap-6 text-sm;
 
          li:not(.containBtn) a {
             @apply py-1;
@@ -404,6 +407,10 @@
    }
 
    @include responsive(xl) {
+      .container {
+         @apply mx-auto max-w-[1300px];
+      }
+
       &.fixToTop {
          .primaryNav {
             @apply gap-6 p-0;
@@ -433,7 +440,7 @@
          @apply relative z-10;
          @apply flex-row gap-6;
          @apply py-0;
-         @apply h-auto max-h-none bg-transparent;
+         @apply h-auto bg-transparent;
          @apply overflow-visible;
 
          &.open {

@@ -1,7 +1,7 @@
 .btn {
    @apply flex items-center gap-3;
    @apply py-4 px-8;
-   @apply rounded-md;
+   @apply rounded-full;
 
    @apply font-medium leading-[100%];
 
@@ -58,6 +58,10 @@
       &:hover {
          background: color($color-dark, 600) !important;
       }
+   }
+
+   &-sm{
+      @apply h-10 px-6 py-0;
    }
 
    &:hover {
