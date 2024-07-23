@@ -22,7 +22,13 @@
          }
 
          .footerSocialMedia {
-            @apply flex items-center flex-wrap gap-3 mt-4;
+            @apply flex  items-center flex gap-3 mt-4;
+            a{
+               @apply p-0;
+               @include flex-center
+            }
+            
+            
          }
 
          // Footer Links

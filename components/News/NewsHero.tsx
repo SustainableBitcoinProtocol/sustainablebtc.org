@@ -63,9 +63,7 @@ const NewsHero = ({ newsPageData }: { newsPageData: any }) => {
             <div className={`${styles.container} container`}>
                {/* Heading */}
                <div className={`${styles.heroHeading} heading heading-1`}>
-                  <strong>SBP</strong>
-                  &nbsp;in the&nbsp;
-                  <strong>Media</strong>
+                  SBP&nbsp;in the&nbsp;Media
                </div>
                {/* Sub Heading */}
                <div className={`${styles.heroSubHeading} heading heading-5`}>
@@ -292,11 +290,13 @@ const NewsHero = ({ newsPageData }: { newsPageData: any }) => {
                                                 >
                                                    <button
                                                       className={`${category.categoryKey}-arrow-left`}
+                                                      aria-label="previous"
                                                    >
                                                       <i className="bi bi-caret-left-fill"></i>
                                                    </button>
                                                    <button
                                                       className={`${category.categoryKey}-arrow-right`}
+                                                      aria-label="next"
                                                    >
                                                       <i className="bi bi-caret-right-fill"></i>
                                                    </button>
@@ -528,11 +528,13 @@ const NewsHero = ({ newsPageData }: { newsPageData: any }) => {
                                        {/* Image */}
                                        <div className={styles.articleImage}>
                                           <Link
+                                             area-label="alt-link"
                                              href={`${
                                                 news.btnIsRedirect
                                                    ? news.url
                                                    : `news/${news.slug.current}`
                                              }`}
+                                             
                                              target={`${
                                                 news.btnIsRedirect
                                                    ? "_blank"

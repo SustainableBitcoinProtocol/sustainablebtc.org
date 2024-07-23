@@ -38,6 +38,7 @@ export default function NotFound() {
             </h2>
             <div className={styles.btnGroup}>
                <a
+
                   href="/sustainable-bitcoin-certificate"
                   className="btn btn-primary"
                >

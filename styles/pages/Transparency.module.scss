@@ -68,7 +68,7 @@
          @apply flex-1;
          @apply max-w-[300px] mx-auto text-center;
 
-         h5 {
+         h3 {
             font-size: 1.25rem;
             @include text-gradient(primary);
          }

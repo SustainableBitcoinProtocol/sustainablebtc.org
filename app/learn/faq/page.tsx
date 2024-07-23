@@ -4,7 +4,7 @@ import FaqPage from "@/components/FAQs/FaqPage";
 
 export const metadata: Metadata = {
    title: "FAQs | Sustainable Bitcoin Protocol",
-   description: "",
+   description: "Sustainable Bitcoin Protocol helps accelerate the bitcoin network's transition to clean energy.",
 };
 
 const page = () => {

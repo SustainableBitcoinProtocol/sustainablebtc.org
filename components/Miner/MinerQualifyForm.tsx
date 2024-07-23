@@ -137,38 +137,47 @@ const MinerQualifyForm = () => {
                   {/* About User */}
                   <div>
                      {/* heading */}
-                     <h6 className={`heading heading-6`}>
+                     <h3 className={`heading heading-6`}>
                         Let&apos;s know more about you
-                     </h6>
+                     </h3>
                      {/* form groups */}
                      <div className="grid-2">
                         <div className="form-group">
+                           <label htmlFor="full-name"> </label>
                            <input
                               type="text"
+                              id="full-name"
                               className="form-control"
                               placeholder="Full Name *"
                               name="name"
                            />
                            <span className="error" ref={nameErr}></span>
+                          
                         </div>
                         <div className="form-group">
+                           <label htmlFor="email"></label>
                            <input
                               type="text"
+                              id="email"
                               className="form-control"
                               placeholder="Email *"
                               name="email"
                            />
                            <span className="error" ref={emailErr}></span>
+                           
                         </div>
                      </div>
                      <div className="form-group">
+                        <label htmlFor="company-name"></label>
                         <input
                            type="text"
+                           id="company-name"
                            className="form-control"
                            placeholder="Company's Name"
                            name="company"
                         />
                         <span className="error" ref={companyErr}></span>
+                        
                      </div>
                      {/* Message */}
                      <input type="hidden" name="message" />
@@ -177,30 +186,33 @@ const MinerQualifyForm = () => {
                   {/* Help */}
                   <div>
                      {/* heading */}
-                     <h6 className={`heading heading-6`}>
+                     <label className={`heading heading-6`} htmlFor="documentation-op">
                         Do you have clean energy documentation for your mining
                         operations?
-                     </h6>
+                     </label>
                      {/* form groups */}
                      <div className="form-group">
                         <select
                            name="documentation"
-                           id=""
+                           id="documentation-op"
                            className="form-control"
                         >
+                             
                            <option value="">----Select---- *</option>
                            <option value="Yes">Yes</option>
                            <option value="No">No</option>
                         </select>
-                        <span className="error" ref={documentationErr}></span>
+                     <span className="error" ref={documentationErr}></span>
                      </div>
                   </div>
                   {/* CTA */}
+                  <label htmlFor="documentation-button">
                   <button className="btn btn-primary" ref={submitBtn}>
                      <span>Submit</span>
                      <i className="bi bi-arrow-right"></i>
                   </button>
                   <span className="error text-center" ref={formMessage}></span>
+                  </label>
                </form>
             </div>
          </div>

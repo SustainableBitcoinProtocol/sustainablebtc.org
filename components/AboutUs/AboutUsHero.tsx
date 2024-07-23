@@ -34,6 +34,9 @@ const AboutUsHero = ({ heroData }: { heroData: any }) => {
             src={imgHeroOverlay}
             alt="Hero Overlay"
             className={styles.imgHeroOverlay}
+            loading="eager"
+            priority
+
          />
 
          {/* Hero Shape */}

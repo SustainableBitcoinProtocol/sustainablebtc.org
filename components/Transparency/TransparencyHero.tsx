@@ -18,8 +18,8 @@ const TransparencyHero = ({ heroData }: { heroData: any }) => {
    return (
       <section className={`${styles.hero} hero`}>
          {/* Cloud */}
-         <Image src={imgCloud} alt="Cloud" className={styles.imgCloud} />
-         <Image src={imgCloud} alt="Cloud" className={styles.imgCloud2} />
+         <Image src={imgCloud} alt="Cloud" className={styles.imgCloud}  loading="eager" />
+         <Image src={imgCloud} alt="Cloud" className={styles.imgCloud2} loading="eager" priority />
 
          <div className={`${styles.container} container`}>
             {/* Heading */}
@@ -46,6 +46,7 @@ const TransparencyHero = ({ heroData }: { heroData: any }) => {
                            className={styles.heroTypeImage}
                            width={200}
                            height={200}
+                           
                         />
                      </div>
                   </>

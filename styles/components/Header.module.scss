@@ -167,7 +167,8 @@
          }
 
          &.negative {
-            color: color($color-red);
+            color: color($color-red,400);
+            
          }
       }
 
