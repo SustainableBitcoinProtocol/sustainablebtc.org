@@ -554,17 +554,15 @@
 }
 .downloadwhitepaper {
    @apply overflow-hidden;
-   @apply min-h-fit;
-   @apply py-4;
+
+   .container {
+      background: linear-gradient(40deg, #339dff 0%, #0ec1d3 100%);
+      @apply rounded-lg relative overflow-hidden;
+   }
 
    .wrapper {
-      background: linear-gradient(40deg, #339dff 0%, #0ec1d3 100%);
-      border: 1px solid #339dff;
-      border-radius: 20px;
-      @apply py-6;
-      @apply px-4;
-      @apply grid gap-8;
-      @apply flex items-center text-center justify-center gap-x-14;
+      @apply py-12;
+      @apply grid gap-8 justify-center items-center text-center;
    }
    .content {
       @apply flex flex-col items-center text-center justify-center gap-4;
@@ -577,13 +575,25 @@
       }
    }
    .downloadwhitepaperCTA {
-      @apply mt-4;
       color: color($color-light);
+   }
+   .whitepaperdownloadCTABtn {
+      background: color($color-dark, 500);
+      border-color: color($color-light);
+
+      &:hover {
+         background: color($color-dark, 300);
+      }
+   }
+   .whitepaperBg {
+      @apply absolute top-1/2 left-1/2 -translate-y-1/2;
+      @apply h-[400px] aspect-square opacity-50;
    }
 
    @include responsive(md) {
       .wrapper {
-         @apply grid-cols-2;
+         @apply px-24 py-16;
+         @apply flex items-center justify-between gap-12 text-left;
       }
       .content {
          @apply items-start text-left;

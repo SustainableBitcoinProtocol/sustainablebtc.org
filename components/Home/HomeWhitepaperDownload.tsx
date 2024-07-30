@@ -4,6 +4,7 @@ import styles from "@/styles/pages/Home.module.scss";
 // Next/React
 import Link from "next/link";
 import Image from "next/image";
+import imgFooterFormBg from "@/public/home/whitepaperBG.svg";
 
 // Sanity
 import { urlFor } from "@/sanity/sanity-urlFor";
@@ -18,7 +19,7 @@ const HomeWhitepaperDownload = ({
 }) => {
    return (
       <section className={styles.downloadwhitepaper}>
-         <div className={`${styles.container} container container-tight`}>
+         <div className={`${styles.container} container`}>
             <div className={styles.wrapper}>
                {/* Content */}
                <div className={styles.content}>
@@ -30,7 +31,11 @@ const HomeWhitepaperDownload = ({
                      />
                   </div>
                   <div className={`${styles.trustDescription} portableText`}>
-                     <PortableText value={whitepaperdownloadData.whitepaperdownloadDescription} />
+                     <PortableText
+                        value={
+                           whitepaperdownloadData.whitepaperdownloadDescription
+                        }
+                     />
                   </div>
                </div>
                <div className={styles.downloadwhitepaperCTA}>
@@ -41,14 +46,14 @@ const HomeWhitepaperDownload = ({
                               <Link
                                  key={i}
                                  href={cta.btnOptions.btnSlug}
-                                 className={`btn btn-${cta.btnOptions.btnType}`}
+                                 className={`btn btn-${cta.btnOptions.btnType} ${styles.whitepaperdownloadCTABtn}`}
                               >
-                                 <span>{cta.btnText}</span>
                                  {cta.btnOptions.btnIcon !== "NA" && (
                                     <i
                                        className={`bi bi-${cta.btnOptions.btnIcon}`}
                                     ></i>
                                  )}
+                                 <span>{cta.btnText}</span>
                               </Link>
                            )}
                         </>
@@ -56,6 +61,13 @@ const HomeWhitepaperDownload = ({
                   )}
                </div>
             </div>
+
+            {/* Image */}
+            <Image
+               src={imgFooterFormBg}
+               alt="Background Whitepaper Form"
+               className={styles.whitepaperBg}
+            />
          </div>
       </section>
    );
