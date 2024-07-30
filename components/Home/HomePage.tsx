@@ -34,8 +34,8 @@ export default async function HomePage() {
       <>
          <HomeHero heroData={heroData} />
          <HomeMiners minerData={minerData} />
-         <HomeSBC sbcData={sbcData} />
          <HomeAbout aboutData={aboutData} />
+         <HomeSBC sbcData={sbcData} />
          <HomeTestimonials testimonialData={testimonialData} />
          <HomeTrust trustData={trustData} />
          <HomeWhitepaperDownload

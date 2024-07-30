@@ -56,16 +56,16 @@ const Breadcrum = () => {
                   </Link>
                </li>
                <li>/</li>
-               {breadcrumbs.map((breadcrumb: any, i: number) => {
+               {breadcrumbs.map((breadcrumb: any, i: any) => {
                   return (
-                     <>
-                        <li key={i}>
+                     <React.Fragment key={i}>
+                        <li key={`breadcrumb-${i}`}>
                            <Link href={breadcrumb.href}>
                               {convertBreadcrumb(breadcrumb.breadcrumb)}
                            </Link>
                         </li>
-                        <li key={i + 100}>/</li>
-                     </>
+                        <li key={`separator-${i}`}>/</li>
+                     </React.Fragment>
                   );
                })}
             </ul>

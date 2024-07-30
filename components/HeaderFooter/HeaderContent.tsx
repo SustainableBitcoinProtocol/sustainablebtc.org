@@ -129,13 +129,9 @@ const HeaderContent = ({
                   </h6>
                   {/* Logo Slider */}
                   <div className={styles.globalLeaderSlider}>
-                     {navbarGlobalLeadersData.map((image: any) => (
-                        <>
-                           <div
-                              className={styles.globalLeaderSlide}
-                              title={image.alt}
-                              key={image.alt}
-                           >
+                  {navbarGlobalLeadersData.map((image: any) =>
+                   (
+                        <div className={styles.globalLeaderSlide} title={image.alt} key={image.alt}>
                               <Image
                                  src={urlFor(image).url()}
                                  alt="leader name"
@@ -143,10 +139,8 @@ const HeaderContent = ({
                                  height={100}
                                  loading="eager"
                               />
-                           </div>
-                        </>
-                     ))}
-
+                        </div>
+                   ))}
                      <>
                         <div
                            className={`md:hidden ${styles.globalLeaderSlide} ${styles.price}`}

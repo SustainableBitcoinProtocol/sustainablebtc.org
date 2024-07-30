@@ -21,98 +21,91 @@ export default function HomeHero({ heroData }: { heroData: any }) {
       <section className={`${styles.hero} hero`}>
          <div className={`${styles.container} container`}>
             {/* content */}
-            <div>
-               {heroData && (
-                  <>
-                     {/* descriptive */}
-                     <div className={styles.heroDescription}>
-                        <div className={`${styles.heroHeading} portableText`}>
-                           <PortableText value={heroData.heroHeading} />
-                        </div>
-                        <div className={`${styles.heroPara} portableText`}>
-                           <PortableText value={heroData.heroDesc} />
-                        </div>
-                        <div className={styles.heroBtnWrapper}>
-                           {heroData.heroCTA1.heroBtn1Visible && (
-                              <Link
-                                 href={heroData.heroCTA1.heroBtn1Slug}
-                                 className={`btn btn-${heroData.heroCTA1.heroBtn1Type} ${styles.heroBtn}`}
-                              >
-                                 <span>{heroData.heroCTA1.heroBtn1Text}</span>
-                                 {heroData.heroCTA1.heroBtn1Icon !== "NA" ? (
-                                    <>
-                                       <i
-                                          className={`bi bi-${heroData.heroCTA1.heroBtn1Icon}`}
-                                       ></i>
-                                    </>
-                                 ) : (
-                                    <></>
-                                 )}
-                              </Link>
-                           )}
-                           {heroData.heroCTA2.heroBtn2Visible && (
-                              <Link
-                                 href={heroData.heroCTA2.heroBtn2Slug}
-                                 className={`btn btn-${heroData.heroCTA2.heroBtn2Type} ${styles.heroBtn}`}
-                              >
-                                 <span>{heroData.heroCTA2.heroBtn2Text}</span>
-                                 {heroData.heroCTA2.heroBtn2Icon !== "NA" ? (
-                                    <>
-                                       <i
-                                          className={`bi bi-${heroData.heroCTA2.heroBtn2Icon}`}
-                                       ></i>
-                                    </>
-                                 ) : (
-                                    <></>
-                                 )}
-                              </Link>
-                           )}
-                        </div>
+            {heroData && (
+               <>
+                  {/* descriptive */}
+                  <div className={styles.heroDescription}>
+                     <div className={`${styles.heroHeading} portableText`}>
+                        <PortableText value={heroData.heroHeading} />
                      </div>
+                     <div className={`${styles.heroPara} portableText`}>
+                        <PortableText value={heroData.heroDesc} />
+                     </div>
+                     <div className={styles.heroBtnWrapper}>
+                        {heroData.heroCTA1.heroBtn1Visible && (
+                           <Link
+                              href={heroData.heroCTA1.heroBtn1Slug}
+                              className={`btn btn-${heroData.heroCTA1.heroBtn1Type} ${styles.heroBtn}`}
+                           >
+                              <span>{heroData.heroCTA1.heroBtn1Text}</span>
+                              {heroData.heroCTA1.heroBtn1Icon !== "NA" ? (
+                                 <>
+                                    <i
+                                       className={`bi bi-${heroData.heroCTA1.heroBtn1Icon}`}
+                                    ></i>
+                                 </>
+                              ) : (
+                                 <></>
+                              )}
+                           </Link>
+                        )}
+                        {heroData.heroCTA2.heroBtn2Visible && (
+                           <Link
+                              href={heroData.heroCTA2.heroBtn2Slug}
+                              className={`btn btn-${heroData.heroCTA2.heroBtn2Type} ${styles.heroBtn}`}
+                           >
+                              <span>{heroData.heroCTA2.heroBtn2Text}</span>
+                              {heroData.heroCTA2.heroBtn2Icon !== "NA" ? (
+                                 <>
+                                    <i
+                                       className={`bi bi-${heroData.heroCTA2.heroBtn2Icon}`}
+                                    ></i>
+                                 </>
+                              ) : (
+                                 <></>
+                              )}
+                           </Link>
+                        )}
+                     </div>
+                  </div>
 
-                     {/* logos */}
-                     {/* <div className={styles.heroClient}>
-                        <h3 className={styles.heroClientLogoTitle}>
-                           {heroData.heroCompanyIconsTitle}
-                        </h3>
+                  {/* logos */}
+                  {/* <div className={styles.heroClient}>
+                     <h3 className={styles.heroClientLogoTitle}>
+                        {heroData.heroCompanyIconsTitle}
+                     </h3>
 
-                        <div className={styles.heroClientLogo}>
-                           {heroData.heroCompanyImages.map(
-                              (item: any, i: number) => (
-                                 <div key={i}>
-                                    <Image
-                                       src={urlFor(item).url()}
-                                       alt="client logo"
-                                       layout="responsive"
-                                       width={100}
-                                       height={50}
-                                    />
-                                 </div>
-                              )
-                           )}
-                        </div>
-                     </div> */}
-                  </>
-               )}
+                     <div className={styles.heroClientLogo}>
+                        {heroData.heroCompanyImages.map(
+                           (item: any, i: number) => (
+                              <div key={i}>
+                                 <Image
+                                    src={urlFor(item).url()}
+                                    alt="client logo"
+                                    layout="responsive"
+                                    width={100}
+                                    height={50}
+                                 />
+                              </div>
+                           )
+                        )}
+                     </div>
+                  </div> */}
+               </>
+            )}
+
+
+            {/* Hero Video */}
+            <div className={styles.videoHeroBg}>
+               <video
+                  autoPlay
+                  loop
+                  muted
+                  preload="none"
+               >
+                  <source src="/about/hero-bg-video.mp4" />
+               </video>
             </div>
-
-            {/* Windmill */}
-            <Image
-               src={imgHeroWindmill}
-               alt="Windmill"
-               className={styles.imgHeroWindmill}
-               loading="eager"
-               fetchPriority="high"
-            />
-
-            {/* Cloud */}
-            <Image
-               src={imgHeroCloud}
-               alt="Windmill"
-               className={styles.imgHeroCloud}
-               loading="eager"
-               fetchPriority="high"
-            />
          </div>
 
          {/* Background Image */}

@@ -1,41 +1,74 @@
-
 .hero {
-
    @apply relative overflow-hidden;
    @apply pt-16;
 
    // Container
    .container {
-      @apply pt-10;
+      @apply mt-8 px-3;
       @apply relative;
       @apply min-h-[80vh];
-      @apply flex items-center;
+      @apply flex items-center justify-center rounded-md;
+   }
+
+   // Video
+   .videoHeroBg {
+      @apply absolute top-0 left-0 right-0 bottom-0 object-cover rounded-md;
+
+      video {
+         @apply rounded-md object-cover w-full h-full;
+      }
+
+      &::before {
+         content: "";
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         @apply rounded-md;
+         background: linear-gradient(
+               0deg,
+               rgba(#1e203f, 0) 0%,
+               rgba(#1e203f, 0.95) 100%
+            ),
+            radial-gradient(
+               circle at center,
+               rgba(30, 32, 63, 0) 0%,
+               rgba(30, 32, 63, 1) 100%
+            );
+      }
+   }
+
+   // Content Wrapper
+   .heroContentWrapper {
    }
 
    // Description
    .heroDescription {
       @apply relative z-20;
       @apply flex flex-col justify-center items-center gap-6;
-      @apply max-w-[800px];
       @apply text-center;
+      @apply w-full;
 
       .heroHeading {
+         @apply max-w-[800px];
          h1 {
-            @apply font-bold;
-            @apply text-[2.5rem];
+            @apply font-black;
+            @apply text-[3rem];
             line-height: 110%;
          }
 
          b,
          strong {
             @apply font-black;
+            @include gradient-text;
          }
       }
       .heroPara {
          @apply max-w-[800px];
       }
       .heroBtnWrapper {
-         @apply flex flex-wrap gap-4;
+         @apply flex flex-wrap justify-center gap-4;
          @apply my-4;
       }
    }
@@ -70,36 +103,12 @@
       }
    }
 
-   // Hero Background
-   .imgHeroBg {
-      @apply absolute top-0 left-0;
-      @apply w-auto min-h-[100vh];
-      @apply object-cover object-left;
-      @apply select-none pointer-events-none;
-      opacity: 0.6;
-   }
-
-   // Hero Windmill
-   .imgHeroWindmill {
-      @apply hidden;
-      @apply select-none pointer-events-none;
-   }
-
-   // Hero Cloud
-   .imgHeroCloud {
-      @apply absolute top-10 left-44 z-10 opacity-70;
-      @apply max-h-[70vh] w-auto;
-      @apply object-contain;
-      @apply select-none pointer-events-none;
-   }
-
    // responsive
    @include responsive(md) {
       .container {
          @apply pt-0;
       }
       .heroDescription {
-         @apply justify-start items-start text-left;
          .heroHeading {
             h1 {
                @apply text-5xl;
@@ -112,18 +121,13 @@
             }
          }
       }
-      .imgHeroCloud {
-         @apply absolute top-0 left-1/2 z-10;
-         @apply max-h-[70vh] w-auto;
-         @apply object-contain;
-      }
    }
 
    @include responsive(lg) {
       @apply pt-0;
 
       .container {
-         @apply min-h-[100vh];
+         @apply w-full mt-24;
       }
       .heroDescription {
          @apply pt-10;
@@ -147,30 +151,18 @@
             }
          }
       }
-
-      .imgHeroBg {
-         @apply w-full h-full;
-         @apply object-bottom;
-      }
-
-      .imgHeroWindmill {
-         @apply block;
-         @apply absolute bottom-0 right-20 z-20;
-         @apply max-h-[80vh] w-auto;
-         @apply object-contain;
-      }
    }
 }
 
 .miners {
-   @apply mt-16;
+   margin-block: 100px !important;
    min-height: initial;
 
    .heroClientHeading {
-      @apply px-16 block text-center leading-[110%] mb-4;
+      @apply px-16 block text-center leading-[110%] mb-12 font-medium text-xl;
    }
    .heroClientImage {
-      height: 100px;
+      height: auto;
       @apply grid place-content-center;
 
       img {
@@ -313,56 +305,63 @@
 //about
 .about {
    @apply overflow-hidden;
-   @apply min-h-fit;
-   @apply py-4;
+   @apply py-12;
+   margin-block: 0 !important;
+   background: linear-gradient(
+      39deg,
+      rgba(51, 157, 255, 0.03) 0%,
+      rgba(14, 193, 211, 0.03) 100%
+   );
+
    .wrapper {
-      @apply grid gap-8;
+      @apply grid gap-8 justify-center;
    }
 
    .image {
-      @apply relative grid place-content-center;
-      @apply w-fit mx-auto max-w-[300px];
-
       img {
-         @apply relative z-20;
-      }}
+         @apply aspect-video;
+         @apply max-w-[630px] w-full;
+      }
+   }
 
    .content {
       @apply flex flex-col items-center text-center justify-center gap-8;
    }
 
-   .aboutHeading {
-      @include text-gradient(primaryReverse);
+   .heading {
+      h4 {
+         @include gradient-text;
+         @apply leading-[100%];
+         @apply text-xl font-normal;
 
-      @apply leading-[100%];
-
-      strong {
-         @include text-gradient(primary);
+         strong {
+            @apply text-4xl font-black block;
+         }
       }
    }
 
    .aboutCTA {
       @apply mt-4;
-      border-radius: 20px
-      
-      
+      border-radius: 20px;
    }
 
    @include responsive(md) {
+      @apply py-24;
       .wrapper {
-         @apply grid-cols-2;
+         @apply grid grid-cols-2 gap-12 items-center;
       }
       .content {
          @apply items-start text-left;
       }
-   }
-   @include responsive(lg) {
-      .image {
-         @apply max-w-[400px];
-         &::before {
-            scale: 0.75;
+      .heading {
+         h4 {
+            strong {
+               @apply inline-block;
+            }
          }
       }
+   }
+   @include responsive(lg) {
    }
 }
 .testimonials {
@@ -371,7 +370,6 @@
          @apply max-w-[750px] mx-auto;
          @apply rounded-lg;
          @apply p-6;
-
       }
 
       .testimonialHeading {
@@ -535,8 +533,6 @@
 
    .trustCTA {
       @apply mt-4;
-      
-      
    }
 
    @include responsive(md) {
@@ -556,22 +552,19 @@
       }
    }
 }
-.downloadwhitepaper{
-
+.downloadwhitepaper {
    @apply overflow-hidden;
    @apply min-h-fit;
    @apply py-4;
- 
 
    .wrapper {
-      background: linear-gradient(40deg, #339dff 0%, #0ec1d3 100%);      
+      background: linear-gradient(40deg, #339dff 0%, #0ec1d3 100%);
       border: 1px solid #339dff;
       border-radius: 20px;
       @apply py-6;
       @apply px-4;
       @apply grid gap-8;
       @apply flex items-center text-center justify-center gap-x-14;
-
    }
    .content {
       @apply flex flex-col items-center text-center justify-center gap-4;
@@ -586,7 +579,6 @@
    .downloadwhitepaperCTA {
       @apply mt-4;
       color: color($color-light);
-      
    }
 
    @include responsive(md) {
@@ -596,9 +588,7 @@
       .content {
          @apply items-start text-left;
       }
-      
    }
-
 }
 .faq {
    @apply overflow-hidden;
@@ -606,10 +596,7 @@
    @apply py-4;
    .wrapper {
       //@apply flex items-center text-center justify-center gap-x-14;
-
    }
-
-
 
    .content {
       @apply flex flex-row  text-center gap-2;
@@ -625,8 +612,6 @@
 
    .faqCTA {
       @apply mt-4;
-      
-      
    }
 
    @include responsive(md) {
@@ -637,5 +622,4 @@
          @apply items-start text-left;
       }
    }
-
 }

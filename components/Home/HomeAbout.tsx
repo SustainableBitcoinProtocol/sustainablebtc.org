@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import ModalVideo from "react-modal-video";
-import 'react-modal-video/css/modal-video.min.css';
+import "react-modal-video/css/modal-video.min.css";
 
 // Lib
 import { PortableText } from "@portabletext/react";
@@ -19,7 +19,7 @@ const HomeAbout = ({ aboutData }: { aboutData: any }) => {
 
    return (
       <section className={styles.about}>
-         <div className={`${styles.container} container container-tight`}>
+         <div className={`${styles.container} container`}>
             <div className={styles.wrapper}>
                {/* Image */}
                <div className={styles.image} onClick={() => setIsOpen(true)}>
@@ -27,9 +27,8 @@ const HomeAbout = ({ aboutData }: { aboutData: any }) => {
                </div>
 
                {/* Modal Video */}
-               <ModalVideo 
+               <ModalVideo
                   channel="youtube"
-                  
                   isOpen={isOpen}
                   videoId="diTPUsqeG94?autoplay=0"
                   onClose={() => setIsOpen(false)}
@@ -37,7 +36,7 @@ const HomeAbout = ({ aboutData }: { aboutData: any }) => {
 
                {/* Content */}
                <div className={styles.content}>
-                  <div className={`${styles.Heading} portableText`}>
+                  <div className={`${styles.heading} portableText`}>
                      <PortableText value={aboutData.aboutHeading} />
                   </div>
                   <div className={`${styles.trustDescription} portableText`}>

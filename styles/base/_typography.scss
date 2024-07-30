@@ -57,15 +57,15 @@
 }
 
 .para {
-   @apply leading-[140%];
-   opacity: 0.95;
+   @apply leading-[150%];
+   opacity: 0.9;
 
    &-small {
       @apply text-sm;
    }
 
    @include responsive(lg) {
-      font-size: 1.1rem;
+      font-size: 1rem;
    }
 }
 
@@ -86,7 +86,7 @@
 }
 
 .portableText {
-   @apply flex flex-col gap-2;
+   @apply flex flex-col gap-3;
    p {
       @include typo(para);
    }

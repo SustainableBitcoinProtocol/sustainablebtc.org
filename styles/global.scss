@@ -30,11 +30,13 @@ section {
 }
 
 .container {
-   padding-inline: 1.25rem;
+   margin-inline: 1rem;
    width: auto;
-   margin-inline: auto;
 
    @include responsive(md) {
+      max-width: initial;
+   }
+   @include responsive(xl) {
       max-width: 1300px;
       margin-inline: auto;
    }
