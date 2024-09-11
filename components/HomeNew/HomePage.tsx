@@ -5,10 +5,10 @@ import HomeHero from "./HomeHero";
 import HomeMiners from "./HomeMiners";
 import HomeAbout from "./HomeAbout";
 import HomeTestimonials from "./HomeTestimonials";
-// import HomeSBC from "./HomeSBC";
-// import HomeTrust from "./HomeTrust";
-// import HomeWhitepaperDownload from "./HomeWhitepaperDownload";
-// import HomeFaq from "./HomeFaq";
+import HomeSBC from "./HomeSBC";
+import HomeTrust from "./HomeTrust";
+import HomeFaq from "./HomeFaq";
+import HomeWhitepaperDownload from "./HomeWhitepaperDownload";
 
 // import Sanity
 import {
@@ -44,13 +44,13 @@ export default async function HomePage() {
          {/* Testimonials */}
          <HomeTestimonials testimonialData={testimonialData} />
          {/* SBC */}
-
+         <HomeSBC sbcData={sbcData} />
          {/* Trust */}
-
+         <HomeTrust trustData={trustData} />
          {/* FAQs */}
-
+         <HomeFaq faqData={faqData} faqsData={faqsData} />
          {/* Download Whitepaper */}
-
+         <HomeWhitepaperDownload whitepaperdownloadData={whitepaperdownloadData} />
          {/* Contact Form */}
 
 

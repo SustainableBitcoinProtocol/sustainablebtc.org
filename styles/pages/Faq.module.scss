@@ -143,40 +143,30 @@
 }
 
 .homeFaq{
-   @apply overflow-hidden;
-   @apply min-h-fit;
-   @apply py-4;
-   .wrapper {
-      //@apply flex items-center text-center justify-center gap-x-14;
-
+   .container{
+      @apply grid gap-8
+   }
+   .wrapper{
+      @apply flex flex-col gap-4;
    }
 
-
-
-   .content {
-      @apply flex flex-row  text-center gap-2;
-   }
-
-   .faqHeading {
-      @apply leading-[100%];
-
-      strong {
-         @include text-gradient(primary);
-      }
-   }
-
-   .faqCTA {
-      @apply mt-4;
-      
-      
-   }
-
+   // #region Responsive
+   // Responsive for Tablet
    @include responsive(md) {
-      .wrapper {
-         @apply grid-cols-2;
+      .container{
+         @apply relative;
+         @apply flex gap-12;
       }
-      .content {
-         @apply items-start text-left;
+      .wrapper{
+         @apply sticky top-[70px] h-fit;
       }
    }
+
+   // Responsive for Desktop
+   @include responsive(lg) {
+      
+   }
+   @include responsive(xl) {
+   }
+   // #endregion
 }

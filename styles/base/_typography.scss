@@ -58,14 +58,11 @@
 
 .para {
    @apply leading-[150%];
-   opacity: 0.9;
+   opacity: 0.95;
+   font-size: 1.1rem;
 
    &-small {
       @apply text-sm;
-   }
-
-   @include responsive(lg) {
-      font-size: 1rem;
    }
 }
 

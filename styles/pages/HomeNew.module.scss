@@ -320,8 +320,8 @@
       width: 100%;
    }
 
-   .swiper-slide{
-      max-width: 300px !important
+   .swiper-slide {
+      max-width: 300px !important;
    }
 
    .testimonialSlide {
@@ -334,7 +334,7 @@
          rgba(14, 193, 211, 0.1) 100%
       );
 
-      .testimonialSlideInner{
+      .testimonialSlideInner {
          @apply p-8;
          @apply flex flex-col gap-6; //layout
       }
@@ -344,7 +344,8 @@
       }
 
       .testimonialTestimony {
-         @apply italic font-normal;
+         @apply not-italic font-normal;
+         font-size: 1.1rem;
       }
 
       .testimonialTestimonyName {
@@ -352,7 +353,7 @@
          @apply mt-4 mb-2;
          @include gradient-text;
       }
-      hr{
+      hr {
          width: 3rem;
          margin-block: 1rem;
       }
@@ -383,7 +384,7 @@
             rgba(#1e203f, 0) 0%,
             rgba(#1e203f, 1) 95%
          );
-         z-index: 1000;
+         z-index: 20;
       }
 
       .testimonialWrapper {
@@ -398,10 +399,10 @@
          }
       }
 
-      .testimonialSlide{
+      .testimonialSlide {
          max-width: 450px !important;
 
-         &.activeSlide{
+         &.activeSlide {
             background: linear-gradient(
                39deg,
                rgba(51, 157, 255, 0.3) 0%,
@@ -409,12 +410,367 @@
             );
          }
 
-         .testimonialTestimony{
-            @apply text-lg not-italic
+         .testimonialTestimony {
+            @apply text-lg not-italic;
          }
       }
    }
    @include responsive(xl) {
    }
    // #endregion
+}
+
+.sbc {
+   @apply relative; //position
+   @apply grid place-content-center; //layout
+   @apply text-center; //font
+
+   // background styling
+   .sbcBg {
+      @apply absolute top-0 left-0; //position
+      @apply w-full h-full; //block
+
+      canvas {
+         position: absolute !important;
+         @apply top-0 left-0 right-0 bottom-0; //position
+      }
+   }
+
+   // Container styles
+   .container {
+      @apply relative z-10; //position
+      @apply flex flex-col gap-8; //layout
+      @apply max-w-[800px]; //box
+   }
+
+   // Styling Icon
+   .sbcIcon {
+      scale: 0.8;
+      translate: 0 10%;
+      @apply block m-auto relative z-20;
+
+      img {
+         @apply relative z-20;
+      }
+
+      &::before {
+         content: "";
+         position: absolute;
+         top: 0;
+         left: 0;
+         translate: -35% -35%;
+         background: url("../../public/home/sbc-icon-bg.svg");
+         width: 338px;
+         height: 342px;
+         z-index: 0;
+         animation: rotation 8s infinite linear;
+      }
+
+      @keyframes rotation {
+         from {
+            transform: translate(0%, 1%) rotate(0deg);
+         }
+         50% {
+            transform: translate(0%, -2%) rotate(180deg);
+         }
+         to {
+            transform: translate(0%, 1%) rotate(359deg);
+         }
+      }
+   }
+
+   // Typography
+   .sbcSubHeading {
+      @apply block my-1; //box
+
+      * {
+         @apply font-medium;
+      }
+   }
+
+   .sbcFeatures {
+      @apply flex justify-center flex-wrap gap-4; //layout
+      @apply font-bold; //font
+
+      .sbcFeatureCard {
+         @apply flex flex-col justify-center items-center gap-4 flex-1;
+         @apply p-6 rounded-xl border-b-[#339dff] border-b-2;
+         @apply text-center font-bold whitespace-nowrap;
+
+         background: linear-gradient(
+            39deg,
+            rgba(51, 157, 255, 0.1) 0%,
+            rgba(14, 193, 211, 0.1) 100%
+         );
+      }
+   }
+
+   .sbcBtn {
+      @apply mx-auto; //box
+   }
+
+   // #region Responsive
+   // Responsive for Tablet
+   @include responsive(md) {
+      .sbcIcon {
+         scale: 0.9;
+         translate: 0 5%;
+      }
+   }
+
+   // Responsive for Desktop
+   @include responsive(lg) {
+      .sbcIcon {
+         scale: 1;
+      }
+      .sbcFeatures {
+         .sbcFeatureCard {
+            @include transition-light;
+
+            &:hover {
+               background: linear-gradient(
+                  39deg,
+                  rgba(51, 157, 255, 0.3) 0%,
+                  rgba(14, 193, 211, 0.3) 100%
+               );
+               transform: translateY(-1rem);
+            }
+         }
+      }
+   }
+   @include responsive(xl) {
+   }
+   // #endregion
+}
+
+.trust {
+   @apply min-h-fit overflow-hidden; //box
+   padding-block: 50px !important;
+   background: linear-gradient(
+      39deg,
+      rgba(51, 157, 255, 0.1) 0%,
+      rgba(14, 193, 211, 0.1) 100%
+   );
+
+   .wrapper {
+      @apply grid gap-8;
+   }
+
+   // image animation
+   .image {
+      @apply relative grid place-content-center;
+      @apply w-fit mx-auto max-w-[300px];
+
+      img {
+         @apply relative z-20;
+      }
+
+      &::before {
+         content: "";
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         translate: -50% -50%;
+         scale: 0.6;
+         background: url("../../public/home/trust-shade.svg");
+         background-repeat: no-repeat;
+         background-position: center;
+         width: 200%;
+         height: 200%;
+         z-index: 0;
+         animation: rotation 15s infinite linear;
+      }
+
+      @keyframes rotation {
+         from {
+            transform: translate(0%, 0%) rotate(0deg);
+         }
+         50% {
+            transform: translate(0%, -5%) rotate(180deg);
+         }
+         to {
+            transform: translate(0%, 0%) rotate(359deg);
+         }
+      }
+
+      // Bitcoin
+      .bitcoin {
+         @apply absolute;
+         @apply transition-all divide-gray-300 ease-out;
+         animation: blinkAnimation 5s infinite;
+
+         &1 {
+            @apply top-1/2 -left-[10px];
+            animation-delay: 0.2s;
+         }
+
+         &2 {
+            @apply top-0 left-1/2 -translate-x-1/2 -translate-y-1/2;
+         }
+
+         &3 {
+            @apply top-[30%] right-[17%];
+            animation-delay: 0.4s;
+         }
+
+         &4 {
+            @apply bottom-[20%] right-[26%];
+            animation-delay: 0.5s;
+         }
+
+         &5 {
+            @apply bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2;
+            animation-delay: 1s;
+         }
+
+         @keyframes blinkAnimation {
+            from {
+               opacity: 1;
+            }
+            50% {
+               opacity: 0;
+            }
+            to {
+               opacity: 1;
+            }
+         }
+      }
+   }
+
+   .content {
+      @apply flex flex-col items-center justify-center gap-8; //layout
+      @apply text-center; //font
+   }
+
+   .trustHeading {
+      @apply leading-[100%];
+
+      h4{
+         @apply text-3xl;
+      }
+
+      strong {
+         font-weight: 900;
+         @include text-gradient(primary);
+      }
+   }
+
+   .trustCTA {
+      @apply mt-4;
+   }
+
+   // #region Responsive
+   // Responsive for Tablet
+   @include responsive(md) {
+      .wrapper {
+         @apply grid-cols-2;
+      }
+      .content {
+         @apply items-start text-left;
+      }
+      .trustHeading {
+         h4{
+            @apply text-4xl;
+         }
+      }
+   }
+
+   // Responsive for Desktop
+   @include responsive(lg) {
+      .image {
+         @apply max-w-[400px];
+         &::before {
+            scale: 0.75;
+         }
+      }
+   }
+   @include responsive(xl) {
+   }
+   // #endregion
+}
+
+.homeFaq {
+   .container{
+      @apply grid gap-8
+   }
+   .wrapper{
+      @apply flex flex-col gap-4;
+   }
+
+   // #region Responsive
+   // Responsive for Tablet
+   @include responsive(md) {
+      .container{
+         @apply relative;
+         @apply flex gap-12;
+      }
+      .wrapper{
+         @apply sticky top-[70px] h-fit;
+      }
+   }
+
+   // Responsive for Desktop
+   @include responsive(lg) {
+      .wrapper{
+         @apply w-[200px];
+      }
+   }
+   @include responsive(xl) {
+   }
+   // #endregion
+}
+
+.downloadwhitepaper {
+   @apply overflow-hidden;
+   min-height: fit-content;
+
+   .container {
+      background: linear-gradient(40deg, #339dff 0%, #0ec1d3 100%);
+      @apply rounded-3xl relative overflow-hidden;
+   }
+
+   .wrapper {
+      @apply py-12;
+      @apply grid gap-8 justify-center items-center text-center;
+   }
+   .content {
+      @apply flex flex-col items-center text-center justify-center gap-2;
+   }
+   .downloadwhitepaperHeading {
+      @apply leading-[100%];
+
+      strong {
+         @include text-gradient(light);
+      }
+   }
+   .downloadwhitepaperCTA {
+      color: color($color-light);
+      @include grid-center;
+   }
+   .whitepaperdownloadCTABtn {
+      background: color($color-dark, 500);
+      border-color: color($color-light);
+
+      &:hover {
+         background: color($color-dark, 300);
+      }
+   }
+   .whitepaperBg {
+      @apply absolute top-1/2 left-1/2 -translate-y-1/2;
+      @apply h-[400px] aspect-square opacity-50;
+   }
+
+   @include responsive(md) {
+      .wrapper {
+         @apply px-16 py-12;
+         @apply flex items-center justify-between gap-12 text-left;
+      }
+      .content {
+         @apply items-start text-left;
+      }
+   }
+
+   @include responsive(lg){
+      // @apply px-24;
+   }
 }

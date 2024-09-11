@@ -158,7 +158,31 @@ const homePage = {
                name: "sbcFeatures",
                title: "SBC Features",
                type: "array",
-               of: [{ type: "string" }],
+               of: [
+                  {
+                     type: "document",
+                     fields: [
+                        {
+                           name: "featureName",
+                           title: "Feature Name",
+                           type: "string",
+                        },
+                        {
+                           name: "featureImage",
+                           title: "Feature's Image",
+                           type: "image",
+                           options: { hotspot: true },
+                           fields: [
+                              {
+                                 name: "alt",
+                                 title: "Alt",
+                                 type: "string",
+                              },
+                           ],
+                        },
+                     ],
+                  },
+               ]
             },
             {
                name: "sbcDescription",
