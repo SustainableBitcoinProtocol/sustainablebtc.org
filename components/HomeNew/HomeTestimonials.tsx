@@ -1,13 +1,13 @@
 "use client";
 
 // Styles
-import styles from "@/styles/pages/Home.module.scss";
+import styles from "@/styles/pages/HomeNew.module.scss";
 import "swiper/css";
 
 // Next/React
 import Link from "next/link";
 import Image from "next/image";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 // Sanity
 import { urlFor } from "@/sanity/sanity-urlFor";
@@ -30,6 +30,15 @@ export default function HomeTestimonials({
       ...testimonialData.testimonialItems,
       ...testimonialData.testimonialItems,
    ];
+   const [activeIndex, setActiveIndex] = useState(0);
+
+   useEffect(() => {
+      if (swiperRef.current) {
+        swiperRef.current.on('slideChange', () => {
+          setActiveIndex(swiperRef.current?.realIndex || 0);
+        });
+      }
+    }, []);
 
    return (
       <section className={styles.testimonials}>
@@ -63,26 +72,30 @@ export default function HomeTestimonials({
                   {/* Sliding */}
                   <div className={styles.testimonialSlider}>
                      <Swiper
-                        slidesPerView={2}
                         autoplay={{
                            delay: 10000,
-                           disableOnInteraction: true,
+                           disableOnInteraction: false,
                         }}
                         loop={true}
+                        spaceBetween={16}
+                        slidesPerView="auto" 
+                        centeredSlides={false}
                         navigation={{
                            nextEl: ".swiper-button-next",
                            prevEl: ".swiper-button-prev",
                         }}
                         onSwiper={(swiper) => {
-                           swiperRef.current = swiper; // Set reference to Swiper instance
-                        }}
+                           swiperRef.current = swiper;
+                         }}
                         modules={[Autoplay, Navigation]}
                      >
                         {duplicatedItems.map((item: any, i: number) => (
                            <SwiperSlide
                               key={i}
-                              className={styles.testimonialSlide}
+                              className={`${styles.testimonialSlide}
+                                          ${activeIndex === i ? styles.activeSlide : ''}`}
                            >
+                              <div className={styles.testimonialSlideInner}>
                               {/* Image */}
                               {/* eslint-disable-next-line @next/next/no-img-element */}
                               {item.testimonyImage && (
@@ -106,6 +119,8 @@ export default function HomeTestimonials({
                                  <p className={styles.testimonialTestimony}>
                                     {`"${item.testimony}"`}
                                  </p>
+
+                                 <hr />
 
                                  <div>
                                     <h3
@@ -132,6 +147,7 @@ export default function HomeTestimonials({
                                        </>
                                     )}
                                  </div>
+                              </div>
                               </div>
                            </SwiperSlide>
                         ))}

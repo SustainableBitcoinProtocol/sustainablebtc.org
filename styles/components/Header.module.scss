@@ -279,30 +279,34 @@
       background: color($color-dark, 400);
 
       &.open {
-         @apply max-h-[100vh] z-0;
-         @apply py-8;
+         @apply max-h-[72vh] z-0 overflow-y-auto;
+         @apply py-8 rounded-md;
+         @apply justify-start;
          transition: padding 0.5s linear 0s,
             max-height 1s cubic-bezier(0.99, 0.2, 0.2, 0.99) 0.2s,
             gap 0.5s ease-in-out 0s;
       }
 
-      li:not(.containBtn) a {
+      li a {
+         @apply py-4;
+      }
+      li:not(:has(a.btn)){
          @apply py-1;
          @include text-gradient(light);
       }
-      li:not(.containBtn) .navModalLink {
+      li .navModalLink {
          @include text-gradient(light);
          cursor: pointer;
       }
 
-      li:not(.containBtn).active a {
+      li.active a {
          @include gradient-text;
          font-weight: 500;
       }
 
-      li:not(.containBtn) a:hover,
-      li:not(.containBtn) .navDropdown:hover label,
-      li:not(.containBtn) .navModalLink:hover {
+      li:not(:has(a.btn)):hover,
+      li .navDropdown:hover label,
+      li .navModalLink:hover {
          @include text-gradient(primary);
       }
 
@@ -335,7 +339,7 @@
          }
 
          .navDropdownCheckbox:checked ~ .navDropdownMenu {
-            @apply h-full mt-4 py-2;
+            @apply h-full mt-4  py-2;
             @apply border-t-2;
             border-color: #339dff;
          }
@@ -403,6 +407,12 @@
 
          li:not(.containBtn) a:hover {
             @include text-gradient(primary);
+         }
+
+         .navDropdown{
+            .navDropdownMenu{
+               background: rgba(color($color-dark, 600), 0.8) !important;
+            }
          }
       }
    }

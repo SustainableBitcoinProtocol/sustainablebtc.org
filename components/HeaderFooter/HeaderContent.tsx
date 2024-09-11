@@ -407,9 +407,8 @@ const HeaderContent = ({
 
                   {/* Menu Toggle */}
                   <div
-                     className={`${styles.btnNavToggle} ${
-                        isNavbarToggled ? styles.open : ""
-                     }`}
+                     className={`${styles.btnNavToggle} 
+                                 ${isNavbarToggled ? styles.open : ""}`}
                      onClick={() => setIsNavbarToggled(!isNavbarToggled)}
                   >
                      <span></span>
@@ -420,9 +419,9 @@ const HeaderContent = ({
 
                {/* Primary nav */}
                <ul
-                  className={`${styles.primaryNav} ${
-                     isNavbarToggled ? styles.open : ""
-                  }`}
+                  className={`${styles.primaryNav} 
+                              ${isNavbarToggled ? styles.open : ""}
+                              ${isNavbarToggled ? "navbarOpen" : ""}`}
                >
                   {/* Primary Navigation
                       Conditions: Always Visible */}
@@ -626,7 +625,7 @@ const HeaderContent = ({
                                     <li key={i} className={styles.containBtn}>
                                        <Link
                                           href={`/${item.slug}`}
-                                          className="btn btn-primary btn-sm"
+                                          className={`${styles.btn} "btn btn-primary btn-sm"`}
                                           onClick={() =>
                                              window.innerWidth < 1440
                                                 ? setIsNavbarToggled(

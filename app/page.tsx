@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 // Import
-import HomePage from "@/components/Home/HomePage";
+import HomePage from "@/components/HomeNew/HomePage";
 
 export const metadata: Metadata = {
    title: "Sustainable Bitcoin Protocol | BTC Energy Consumption Solution",

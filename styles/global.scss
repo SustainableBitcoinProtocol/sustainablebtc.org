@@ -21,10 +21,13 @@ section {
    @apply min-h-[50vh];
 
    &:not(.hero) {
-      @apply my-28;
+      @apply my-[50px]; // chagne this to 50px
 
+      @include responsive(md) {
+         @apply my-[70px]; // chagne this to 100px
+      }
       @include responsive(lg) {
-         @apply my-40;
+         @apply my-[100px]; // chagne this to 100px
       }
    }
 }
