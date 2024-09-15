@@ -294,7 +294,8 @@
          @apply py-1;
          @include text-gradient(light);
       }
-      li .navModalLink {
+      li .navModalLink,
+      li .navDropdown label {
          @include text-gradient(light);
          cursor: pointer;
       }
