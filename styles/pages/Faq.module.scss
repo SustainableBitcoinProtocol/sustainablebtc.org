@@ -10,8 +10,6 @@
 }
 
 .hero, .homeFaq{
-   
-
    .faqWrapper {
       @apply grid grid-cols-1 mt-8;
 
@@ -143,11 +141,18 @@
 }
 
 .homeFaq{
+   min-height: initial;
    .container{
-      @apply grid gap-8
+      @apply grid gap-4;
    }
    .wrapper{
       @apply flex flex-col gap-4;
+   }
+   .faqWrapper{
+      *{
+
+         font-size: 1.1rem !important; //resetting font size
+      }
    }
 
    // #region Responsive
@@ -155,18 +160,42 @@
    @include responsive(md) {
       .container{
          @apply relative;
-         @apply flex gap-12;
+         @apply flex gap-8;
       }
       .wrapper{
-         @apply sticky top-[70px] h-fit;
+         @apply w-fit h-fit gap-8;
+      }
+      .faqWrapper{
+         @apply w-full;
+         @apply grid grid-cols-1 gap-0 gap-y-0 mt-0 mb-0;
+
+         .faqQuestionAnswer {
+
+            &.active {
+               @apply col-span-1;
+
+               .faqQuestion {
+                  border-top: 1px solid rgba(#339dff, 0.5);
+                  @apply p-4;
+               }
+               .faqAnswer {
+                  @apply p-4 pt-0 pb-4;
+               }
+            }
+         }
       }
    }
 
    // Responsive for Desktop
    @include responsive(lg) {
-      
+      .container{
+         @apply mx-auto;
+      }
    }
    @include responsive(xl) {
+      .container{
+         @apply gap-12
+      }
    }
    // #endregion
 }

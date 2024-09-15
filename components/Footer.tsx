@@ -59,6 +59,39 @@ const Footer = () => {
                         </>
                      )}
                      {footerData && <PortableText value={footerData.about} />}
+                     {/* CTA */}
+                     <div className={styles.footerCTA}>
+                        <a href="mailto:info@sustainablebtc.org">info@sustainablebtc.org</a>
+                     </div>
+                      {/* Social */}
+                      <div className={styles.footerSocialMedia}>
+                        {footerData &&
+                           footerData.socialLinks.map(
+                              (item: any, i: number) => {
+                                 const socialMediaName = new URL(
+                                    item.socialMedia
+                                 ).hostname
+                                    .replace("www.", "")
+                                    .replace(".com", "")
+                                    .toLowerCase();
+                                 return (
+                                    <>
+                                       <a
+                                          className="btn btn-primary btn-rounded btn-sm"
+                                          href={item.socialMedia}
+                                          target="_blank"
+                                          key={i}
+                                          aria-label={socialMediaName}
+                                       >
+                                          <i
+                                             className={`bi bi-${socialMediaName}`}
+                                          ></i>
+                                       </a>
+                                    </>
+                                 );
+                              }
+                           )}
+                     </div>
                   </div>
 
                   {/* Navigation Links */}
@@ -203,36 +236,6 @@ const Footer = () => {
                               </>
                            );
                         })}
-
-                     {/* Social */}
-                     <li className={styles.footerSocialMedia}>
-                        {footerData &&
-                           footerData.socialLinks.map(
-                              (item: any, i: number) => {
-                                 const socialMediaName = new URL(
-                                    item.socialMedia
-                                 ).hostname
-                                    .replace("www.", "")
-                                    .replace(".com", "")
-                                    .toLowerCase();
-                                 return (
-                                    <>
-                                       <a
-                                          className="btn btn-primary btn-rounded btn-sm"
-                                          href={item.socialMedia}
-                                          target="_blank"
-                                          key={i}
-                                          aria-label={socialMediaName}
-                                       >
-                                          <i
-                                             className={`bi bi-${socialMediaName}`}
-                                          ></i>
-                                       </a>
-                                    </>
-                                 );
-                              }
-                           )}
-                     </li>
                   </ul>
                </div>
             </div>

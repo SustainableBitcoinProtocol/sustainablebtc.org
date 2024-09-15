@@ -21,8 +21,19 @@
             }
          }
 
+         .footerCTA{
+            @apply flex flex-col gap-2;
+            @include gradient-text;
+            border-bottom: 1px solid #339dff;
+
+            a:hover{
+               @include text-gradient(primaryReverse);
+               border-color: #339dff;
+            }
+         }
+
          .footerSocialMedia {
-            @apply flex  items-center flex gap-3 mt-4;
+            @apply flex  items-center flex gap-3 mt-2;
             a{
                @apply p-0;
                @include flex-center
@@ -66,7 +77,7 @@
       }
       @include responsive(lg) {
          .container {
-            @apply flex-nowrap gap-40;
+            @apply flex-nowrap gap-28;
             .footerAbout {
                p {
                   @apply max-w-[500px];
@@ -129,7 +140,7 @@
 
             input,
             textarea {
-               @apply rounded-md;
+               @apply rounded-full;
                @apply bg-transparent;
                @apply py-3 px-6;
 

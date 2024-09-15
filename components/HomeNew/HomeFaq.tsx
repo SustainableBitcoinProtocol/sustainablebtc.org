@@ -12,7 +12,7 @@ const HomeFaq = ({ faqData, faqsData }: { faqData: any; faqsData: any }) => {
    return (
       <>
          <section className={styles.homeFaq}>
-            <div className={`${styles.container} container`}>
+            <div className={`${styles.container} container container-tight`}>
                <div className={styles.wrapper}>
                   {/* Content */}
                   <div className={styles.content}>
