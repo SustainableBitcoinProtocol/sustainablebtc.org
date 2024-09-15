@@ -1,14 +1,14 @@
-import React from "react";
+import React, {Suspense} from "react";
 
 // import components
-import HomeHero from "./HomeHero";
-import HomeMiners from "./HomeMiners";
-import HomeAbout from "./HomeAbout";
-import HomeTestimonials from "./HomeTestimonials";
-import HomeSBC from "./HomeSBC";
-import HomeTrust from "./HomeTrust";
-import HomeFaq from "./HomeFaq";
-import HomeWhitepaperDownload from "./HomeWhitepaperDownload";
+const HomeHero = React.lazy(() => import("./HomeHero"));
+const HomeMiners = React.lazy(() => import("./HomeMiners"));
+const HomeAbout = React.lazy(() => import("./HomeAbout"));
+const HomeTestimonials = React.lazy(() => import("./HomeTestimonials"));
+const HomeSBC = React.lazy(() => import("./HomeSBC"));
+const HomeTrust = React.lazy(() => import("./HomeTrust"));
+const HomeFaq = React.lazy(() => import("./HomeFaq"));
+const HomeWhitepaperDownload = React.lazy(() => import("./HomeWhitepaperDownload"));
 
 // import Sanity
 import {
@@ -19,9 +19,11 @@ import {
 
 export default async function HomePage() {
    // Get Data
-   const homePageData = await getHomePageData();
-   const minerPageData = await getMinerPageData();
-   const faqPageData = await getFaqPageData();
+   const [homePageData, minerPageData, faqPageData] = await Promise.all([
+      getHomePageData(),
+      getMinerPageData(),
+      getFaqPageData(),
+   ]);
 
    const heroData = homePageData.hero || null;
    const minerData = minerPageData.hero || null;
@@ -36,34 +38,44 @@ export default async function HomePage() {
    return (
       <>
          {/* Hero */}
-         <HomeHero heroData={heroData} />
+         <Suspense fallback={<div></div>}>
+            <HomeHero heroData={heroData} />
+         </Suspense>
+
          {/* Client Data */}
-         <HomeMiners minerData={minerData} />
+         <Suspense fallback={<div></div>}>
+            <HomeMiners minerData={minerData} />
+         </Suspense>
+
          {/* About Us */}
-         <HomeAbout aboutData={aboutData} />
+         <Suspense fallback={<div></div>}>
+            <HomeAbout aboutData={aboutData} />
+         </Suspense>
+
          {/* Testimonials */}
-         <HomeTestimonials testimonialData={testimonialData} />
+         <Suspense fallback={<div></div>}>
+            <HomeTestimonials testimonialData={testimonialData} />
+         </Suspense>
+
          {/* SBC */}
-         <HomeSBC sbcData={sbcData} />
+         <Suspense fallback={<div></div>}>
+            <HomeSBC sbcData={sbcData} />
+         </Suspense>
+
          {/* Trust */}
-         <HomeTrust trustData={trustData} />
+         <Suspense fallback={<div></div>}>
+            <HomeTrust trustData={trustData} />
+         </Suspense>
+
          {/* FAQs */}
-         <HomeFaq faqData={faqData} faqsData={faqsData} />
+         <Suspense fallback={<div></div>}>
+            <HomeFaq faqData={faqData} faqsData={faqsData} />
+         </Suspense>
+
          {/* Download Whitepaper */}
-         <HomeWhitepaperDownload whitepaperdownloadData={whitepaperdownloadData} />
-         {/* Contact Form */}
-
-
-         {/* <HomeHero heroData={heroData} />
-         <HomeMiners minerData={minerData} />
-         <HomeAbout aboutData={aboutData}  />
-         <HomeSBC sbcData={sbcData} />
-         <HomeTestimonials testimonialData={testimonialData} />
-         <HomeTrust trustData={trustData} />
-         <HomeWhitepaperDownload
-            whitepaperdownloadData={whitepaperdownloadData}
-         />
-         <HomeFaq faqData={faqData} faqsData={faqsData} /> */}
+         <Suspense fallback={<div></div>}>
+            <HomeWhitepaperDownload whitepaperdownloadData={whitepaperdownloadData} />
+         </Suspense>
       </>
    );
 }
