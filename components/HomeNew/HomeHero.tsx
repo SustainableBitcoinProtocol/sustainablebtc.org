@@ -24,7 +24,7 @@ export default function HomeHero({ heroData }: { heroData: any }) {
                   {/* descriptive */}
                   <div className={styles.heroDescription}>
                      <div className={`${styles.heroIcon}`}>
-                        <Image src={imgSbcIcon} alt="SBC Icon" />
+                        <Image src={imgSbcIcon} alt="SBC Icon" priority/>
                      </div>
                      <div className={`${styles.heroHeading} portableText`}>
                         <PortableText value={heroData.heroHeading} />
@@ -75,13 +75,8 @@ export default function HomeHero({ heroData }: { heroData: any }) {
 
             {/* Hero Video */}
             <div className={styles.videoHeroBg}>
-               <video
-                  autoPlay
-                  loop
-                  muted
-                  preload="none"
-               >
-                  <source src="/about/hero-bg-video.mp4" />
+               <video autoPlay loop muted preload="metadata">
+                  <source src="/about/hero-bg-video.mp4" type="video/mp4" />
                </video>
             </div>
          </div>
