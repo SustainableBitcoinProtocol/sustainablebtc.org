@@ -22,17 +22,17 @@ const HomeAbout = ({ aboutData }: { aboutData: any }) => {
          <div className={`${styles.container} container`}>
             <div className={styles.wrapper}>
                {/* Image */}
-               {/* <div className={styles.image} onClick={() => setIsOpen(true)}>
+               <div className={styles.image} onClick={() => setIsOpen(true)}>
                   <Image src={imgAboutBase} alt="AboutUS" />
-               </div> */}
+               </div>
 
                {/* Modal Video */}
-               {/* <ModalVideo
+               <ModalVideo
                   channel="youtube"
                   isOpen={isOpen}
-                  videoId="diTPUsqeG94?autoplay=0"
+                  videoId="qOxwcyU8AdA?autoplay=0"
                   onClose={() => setIsOpen(false)}
-               /> */}
+               />
 
                {/* Content */}
                <div className={styles.content}>
