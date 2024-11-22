@@ -123,7 +123,8 @@ const RegisterForAnEventPage = () => {
                curiousInGeneral: false,
             });
          } else {
-            setGlobalError((await response.json()).message);
+            let errorMessage = (await response.json()).message;
+            setGlobalError(errorMessage);
             setGlobalSuccess("");
          }
       } catch (error: any) {
@@ -208,7 +209,7 @@ const RegisterForAnEventPage = () => {
                         onChange={handleChange}
                      />
                      <span className={styles.checkmark}></span>
-                     <div>{`Sign-Up for our newsletter`}</div>
+                     <div>{`Sign-up for our newsletter`}</div>
                   </label>
                   <label htmlFor='wantToPurchaseSBC' className={styles.formCheckboxGroup}>
                      <input
