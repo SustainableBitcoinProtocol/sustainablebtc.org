@@ -191,7 +191,7 @@ const RegisterForAnEventPage = () => {
                      name="message"
                      id=""
                      className="form-control"
-                     placeholder="Tell us what we can help you with"
+                     placeholder="Message"
                      value={formData.message}
                      onChange={handleChange}
                   ></textarea>
@@ -221,7 +221,7 @@ const RegisterForAnEventPage = () => {
                         onChange={handleChange}
                      />
                      <span className={styles.checkmark}></span>
-                     <div>{`I want to purchase SBC`}</div>
+                     <div>{`I want to invest in SBC`}</div>
                   </label>
                   <label htmlFor='isMiner' className={styles.formCheckboxGroup}>
                      <input
