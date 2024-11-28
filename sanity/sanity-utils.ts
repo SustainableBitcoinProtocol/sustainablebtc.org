@@ -62,6 +62,7 @@ export async function getHomePageData() {
       groq`*[_type=="homePage"][0]{
          _id,
          hero,
+         countdown,
          sbc,
          about,
          testimonials,

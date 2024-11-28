@@ -16,6 +16,7 @@ import {
    getMinerPageData,
    getFaqPageData,
 } from "@/sanity/sanity-utils";
+import HomeCounter from "./HomeCounter";
 
 export default async function HomePage() {
    // Get Data
@@ -26,6 +27,7 @@ export default async function HomePage() {
    ]);
 
    const heroData = homePageData.hero || null;
+   const countdownData = homePageData.countdown || null;
    const minerData = minerPageData.hero || null;
    const sbcData = homePageData.sbc || null;
    const aboutData = homePageData.about || null;
@@ -40,6 +42,11 @@ export default async function HomePage() {
          {/* Hero */}
          <Suspense fallback={<div></div>}>
             <HomeHero heroData={heroData} />
+         </Suspense>
+         
+         {/* Counter */}
+         <Suspense fallback={<div></div>}>
+            <HomeCounter countdownData={countdownData} />
          </Suspense>
 
          {/* Client Data */}

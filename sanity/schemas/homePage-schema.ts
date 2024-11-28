@@ -136,6 +136,31 @@ const homePage = {
             },
          ],
       },
+      // Countdown
+      {
+         name: "countdown",
+         title: "Count Down",
+         type: "document",
+         fields: [
+            {
+               name: "countdownHeading",
+               title: "Countdown Heading",
+               type: "array",
+               of: [{ type: "block" }],
+            },
+            {
+               name: "countdownSubHeading",
+               title: "Countdown SubHeading",
+               type: "array",
+               of: [{ type: "block" }],
+            },
+            {
+               name: "countdownDate",
+               title: "Countdown Date",
+               type: "datetime",
+            },
+         ]
+      },
       // SBC
       {
          name: "sbc",
@@ -366,6 +391,7 @@ const homePage = {
             },
          ],
       },
+      // Download Whitepaper
       {
          name: "whitepaperdownload",
          title: "WhitepaperDownload",
@@ -396,6 +422,7 @@ const homePage = {
             },
          ],
       },
+      // FAQs
       {
          name: "faq",
          title: "Faq",

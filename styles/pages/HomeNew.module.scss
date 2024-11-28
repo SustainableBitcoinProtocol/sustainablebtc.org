@@ -28,11 +28,9 @@
          height: 100%;
          @apply rounded-md;
          background: rgb(30, 32, 63);
-         background: radial-gradient(
-            circle,
-            rgba(30, 32, 63, 0.3) 0%,
-            rgba(30, 32, 63, 1) 95%
-         );
+         background: radial-gradient(circle,
+               rgba(30, 32, 63, 0.3) 0%,
+               rgba(30, 32, 63, 1) 95%);
       }
    }
 
@@ -70,9 +68,11 @@
             from {
                transform: translate(0%, 1%) rotate(0deg);
             }
+
             50% {
                transform: translate(0%, -2%) rotate(180deg);
             }
+
             to {
                transform: translate(0%, 1%) rotate(359deg);
             }
@@ -81,7 +81,7 @@
 
       // heading
       .heroHeading {
-         @apply max-w-[800px]; //box
+         @apply max-w-[1000px]; //box
 
          h1 {
             @apply font-black text-3xl leading-[110%]; //font
@@ -122,10 +122,12 @@
             scale: 1;
             translate: 0 5%;
          }
+
          .heroHeading {
             h1 {
                @apply text-4xl leading-[120%]; //font
             }
+
             b,
             strong {
                display: initial !important;
@@ -146,17 +148,20 @@
          .heroIcon {
             scale: 1.2;
          }
+
          .heroHeading {
             @apply mt-4;
 
             h1 {
                @apply text-5xl leading-[120%]; //font
             }
+
             b,
             strong {
                display: initial !important;
             }
          }
+
          .heroPara {
             p {
                @apply text-lg;
@@ -164,8 +169,131 @@
          }
       }
    }
-   @include responsive(xl) {
+
+   @include responsive(xl) {}
+
+   // #endregion
+}
+
+.countdown {
+   margin: 0 0 !important; // removing the margins
+   background: color($color-green);
+   padding-block: 2rem;
+   min-height: initial;
+
+   .countdownWrapper{
+      @apply flex flex-col flex-wrap items-center justify-center gap-y-2 gap-6;
    }
+   
+
+   .countdownHeading *,
+   .countdownSubHeading *{
+      color: color($color-dark)
+   }
+
+   .countdownHeading .icon{
+      @apply hidden
+   }
+   .countdownSubHeading{
+      white-space: nowrap
+   }
+
+   .countdownClock {
+      @apply flex items-start gap-2 w-fit;
+      @apply text-center p-4;
+
+      .countdownClockBlock {
+         @apply flex flex-col items-center justify-center gap-1;
+
+         *{
+            color: color($color-dark);
+         }
+
+         &:nth-child(odd) {
+            @apply w-14;
+      
+            .countdownClockBlockHeading{
+               background: color($color-white);
+               @apply w-14 h-14 rounded-lg;
+               @apply grid place-content-center;
+            }
+         }
+
+         &:nth-child(even) {
+            .countdownClockBlockHeading{
+               @apply h-12;
+               @apply grid place-content-center;
+            }
+         }
+
+         .countdownClockBlockPara{
+            @apply h-4
+         }
+
+         &.gradientText{
+            .countdownClockBlockHeading{
+               background: $gradient-primary;
+               color: color($color-white)
+            }
+         }
+      }
+   }
+
+   .countdownForm{
+      .countdownFormInputs{
+         @apply flex items-center gap-2;
+
+         .formGroup{
+            margin: 0;
+         }
+
+         input{
+            @apply rounded-full h-[48px] py-0;
+            border-color: color($color-dark);
+            background: color($color-white);
+            color: color($color-dark);
+         }
+      }
+   }
+
+   // #region Responsive
+   // Responsive for Tablet
+   @include responsive(md) {}
+
+   // Responsive for Desktop
+   @include responsive(lg) {
+      .countdownWrapper{
+         @apply flex-row;
+      }
+      .countdownSubHeading{
+         @apply w-full text-center
+      }
+   }
+
+   @include responsive(xl) {
+      padding-block: 1rem;
+
+      .countdownWrapper{
+         @apply flex-nowrap;
+      }
+
+      .countdownHeading{
+         @apply flex flex-row items-center gap-2;
+
+         .icon{
+            @apply block
+         }
+
+         i{
+            @apply text-3xl
+         }
+      }
+
+      .countdownSubHeading{
+         @apply w-fit text-left
+      }
+   }
+
    // #endregion
 }
 
@@ -203,21 +331,19 @@
    }
 
    // Responsive for Desktop
-   @include responsive(lg) {
-   }
-   @include responsive(xl) {
-   }
+   @include responsive(lg) {}
+
+   @include responsive(xl) {}
+
    // #endregion
 }
 
 .about {
    @apply pt-5 pb-12 overflow-hidden; //box
    margin-block: 50px !important;
-   background: linear-gradient(
-      39deg,
-      rgba(51, 157, 255, 0.1) 0%,
-      rgba(14, 193, 211, 0.1) 100%
-   );
+   background: linear-gradient(39deg,
+         rgba(51, 157, 255, 0.1) 0%,
+         rgba(14, 193, 211, 0.1) 100%);
 
    .container {
       @apply mx-auto px-4;
@@ -287,11 +413,13 @@
          }
       }
    }
+
    @include responsive(xl) {
       .wrapper {
          @apply gap-12 items-center;
       }
    }
+
    // #endregion
 }
 
@@ -328,11 +456,9 @@
       @apply h-full rounded-lg; //box
       max-width: 400px !important;
 
-      background: linear-gradient(
-         39deg,
-         rgba(51, 157, 255, 0.1) 0%,
-         rgba(14, 193, 211, 0.1) 100%
-      );
+      background: linear-gradient(39deg,
+            rgba(51, 157, 255, 0.1) 0%,
+            rgba(14, 193, 211, 0.1) 100%);
 
       .testimonialSlideInner {
          @apply p-8;
@@ -353,10 +479,12 @@
          @apply mt-4 mb-2;
          @include gradient-text;
       }
+
       hr {
          width: 3rem;
          margin-block: 1rem;
       }
+
       .testimonialTestimonyCompanyLogo {
          filter: brightness(0) invert(1);
          height: 1rem;
@@ -366,8 +494,7 @@
 
    // #region Responsive
    // Responsive for Tablet
-   @include responsive(md) {
-   }
+   @include responsive(md) {}
 
    // Responsive for Desktop
    @include responsive(lg) {
@@ -379,11 +506,9 @@
          top: 0;
          right: 0;
          pointer-events: none;
-         background: linear-gradient(
-            to right,
-            rgba(#1e203f, 0) 0%,
-            rgba(#1e203f, 1) 95%
-         );
+         background: linear-gradient(to right,
+               rgba(#1e203f, 0) 0%,
+               rgba(#1e203f, 1) 95%);
          z-index: 20;
       }
 
@@ -403,11 +528,9 @@
          max-width: 450px !important;
 
          &.activeSlide {
-            background: linear-gradient(
-               39deg,
-               rgba(51, 157, 255, 0.3) 0%,
-               rgba(14, 193, 211, 0.3) 100%
-            );
+            background: linear-gradient(39deg,
+                  rgba(51, 157, 255, 0.3) 0%,
+                  rgba(14, 193, 211, 0.3) 100%);
          }
 
          .testimonialTestimony {
@@ -415,8 +538,9 @@
          }
       }
    }
-   @include responsive(xl) {
-   }
+
+   @include responsive(xl) {}
+
    // #endregion
 }
 
@@ -470,9 +594,11 @@
          from {
             transform: translate(0%, 1%) rotate(0deg);
          }
+
          50% {
             transform: translate(0%, -2%) rotate(180deg);
          }
+
          to {
             transform: translate(0%, 1%) rotate(359deg);
          }
@@ -497,11 +623,9 @@
          @apply p-6 rounded-xl border-b-[#339dff] border-b-2;
          @apply text-center font-bold whitespace-nowrap;
 
-         background: linear-gradient(
-            39deg,
-            rgba(51, 157, 255, 0.1) 0%,
-            rgba(14, 193, 211, 0.1) 100%
-         );
+         background: linear-gradient(39deg,
+               rgba(51, 157, 255, 0.1) 0%,
+               rgba(14, 193, 211, 0.1) 100%);
       }
    }
 
@@ -523,34 +647,32 @@
       .sbcIcon {
          scale: 1;
       }
+
       .sbcFeatures {
          .sbcFeatureCard {
             @include transition-light;
 
             &:hover {
-               background: linear-gradient(
-                  39deg,
-                  rgba(51, 157, 255, 0.3) 0%,
-                  rgba(14, 193, 211, 0.3) 100%
-               );
+               background: linear-gradient(39deg,
+                     rgba(51, 157, 255, 0.3) 0%,
+                     rgba(14, 193, 211, 0.3) 100%);
                transform: translateY(-1rem);
             }
          }
       }
    }
-   @include responsive(xl) {
-   }
+
+   @include responsive(xl) {}
+
    // #endregion
 }
 
 .trust {
    @apply min-h-fit overflow-hidden; //box
    padding-block: 50px !important;
-   background: linear-gradient(
-      39deg,
-      rgba(51, 157, 255, 0.1) 0%,
-      rgba(14, 193, 211, 0.1) 100%
-   );
+   background: linear-gradient(39deg,
+         rgba(51, 157, 255, 0.1) 0%,
+         rgba(14, 193, 211, 0.1) 100%);
 
    .wrapper {
       @apply grid gap-8;
@@ -585,9 +707,11 @@
          from {
             transform: translate(0%, 0%) rotate(0deg);
          }
+
          50% {
             transform: translate(0%, -5%) rotate(180deg);
          }
+
          to {
             transform: translate(0%, 0%) rotate(359deg);
          }
@@ -627,9 +751,11 @@
             from {
                opacity: 1;
             }
+
             50% {
                opacity: 0;
             }
+
             to {
                opacity: 1;
             }
@@ -645,7 +771,7 @@
    .trustHeading {
       @apply leading-[100%];
 
-      h4{
+      h4 {
          @apply text-3xl;
       }
 
@@ -665,11 +791,13 @@
       .wrapper {
          @apply grid-cols-2;
       }
+
       .content {
          @apply items-start text-left;
       }
+
       .trustHeading {
-         h4{
+         h4 {
             @apply text-4xl;
          }
       }
@@ -679,44 +807,49 @@
    @include responsive(lg) {
       .image {
          @apply max-w-[400px];
+
          &::before {
             scale: 0.75;
          }
       }
    }
-   @include responsive(xl) {
-   }
+
+   @include responsive(xl) {}
+
    // #endregion
 }
 
 .homeFaq {
-   .container{
+   .container {
       @apply grid gap-8
    }
-   .wrapper{
+
+   .wrapper {
       @apply flex flex-col gap-4;
    }
 
    // #region Responsive
    // Responsive for Tablet
    @include responsive(md) {
-      .container{
+      .container {
          @apply relative;
          @apply flex gap-12;
       }
-      .wrapper{
+
+      .wrapper {
          @apply sticky top-[70px] h-fit;
       }
    }
 
    // Responsive for Desktop
    @include responsive(lg) {
-      .wrapper{
+      .wrapper {
          @apply w-[200px];
       }
    }
-   @include responsive(xl) {
-   }
+
+   @include responsive(xl) {}
+
    // #endregion
 }
 
@@ -733,9 +866,11 @@
       @apply py-12;
       @apply grid gap-8 justify-center items-center text-center;
    }
+
    .content {
       @apply flex flex-col items-center text-center justify-center gap-2;
    }
+
    .downloadwhitepaperHeading {
       @apply leading-[100%];
 
@@ -743,10 +878,12 @@
          @include text-gradient(light);
       }
    }
+
    .downloadwhitepaperCTA {
       color: color($color-light);
       @include grid-center;
    }
+
    .whitepaperdownloadCTABtn {
       background: color($color-dark, 500);
       border-color: color($color-light);
@@ -755,6 +892,7 @@
          background: color($color-dark, 300);
       }
    }
+
    .whitepaperBg {
       @apply absolute top-1/2 left-1/2 -translate-y-1/2;
       @apply h-[400px] aspect-square opacity-50;
@@ -765,12 +903,13 @@
          @apply px-16 py-12;
          @apply flex items-center justify-between gap-12 text-left;
       }
+
       .content {
          @apply items-start text-left;
       }
    }
 
-   @include responsive(lg){
+   @include responsive(lg) {
       // @apply px-24;
    }
 }
