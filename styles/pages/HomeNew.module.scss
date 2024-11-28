@@ -5,7 +5,7 @@
    .container {
       @apply relative; //position
       @apply flex items-center justify-center rounded-md; //layout
-      @apply mt-8 px-8 min-h-[80vh]; //box
+      @apply mt-8 px-8 min-h-[81vh]; //box
    }
 
    // Video background
@@ -232,7 +232,7 @@
 
          &.gradientText{
             .countdownClockBlockHeading{
-               background: $gradient-primary;
+               background: color($color-dark);
                color: color($color-white)
             }
          }
@@ -339,11 +339,9 @@
 }
 
 .about {
-   @apply pt-5 pb-12 overflow-hidden; //box
-   margin-block: 50px !important;
-   background: linear-gradient(39deg,
-         rgba(51, 157, 255, 0.1) 0%,
-         rgba(14, 193, 211, 0.1) 100%);
+   @apply overflow-hidden; //box
+   min-height: initial !important;
+   margin-block: 5rem !important;
 
    .container {
       @apply mx-auto px-4;
@@ -354,10 +352,8 @@
    }
 
    .image {
-      img {
-         @apply aspect-video cursor-pointer;
-         @apply max-w-[630px] w-full mx-auto;
-      }
+      @apply aspect-video cursor-pointer;
+      @apply w-full mx-auto rounded-3xl;
    }
 
    .content {
@@ -385,19 +381,15 @@
    // #region Responsive
    // Responsive for Tablet
    @include responsive(md) {
-      margin-block: 70px !important;
    }
 
    // Responsive for Desktop
    @include responsive(lg) {
-      @apply py-[100px] overflow-hidden; //box
+      @apply overflow-hidden; //box
+      margin-block: 100px !important;
 
       .wrapper {
          @apply grid grid-cols-2 gap-8 items-start;
-      }
-
-      .image {
-         order: 2;
       }
 
       .content {
@@ -416,7 +408,15 @@
 
    @include responsive(xl) {
       .wrapper {
-         @apply gap-12 items-center;
+         @apply grid grid-cols-5 gap-12 items-center;
+      }
+
+      .image {
+         @apply col-span-3
+      }
+
+      .content{
+         @apply col-span-2;
       }
    }
 

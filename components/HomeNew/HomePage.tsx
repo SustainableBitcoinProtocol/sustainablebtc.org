@@ -49,14 +49,19 @@ export default async function HomePage() {
             <HomeCounter countdownData={countdownData} />
          </Suspense>
 
-         {/* Client Data */}
-         <Suspense fallback={<div></div>}>
-            <HomeMiners minerData={minerData} />
-         </Suspense>
-
          {/* About Us */}
          <Suspense fallback={<div></div>}>
             <HomeAbout aboutData={aboutData} />
+         </Suspense>
+
+         {/* Trust */}
+         <Suspense fallback={<div></div>}>
+            <HomeTrust trustData={trustData} />
+         </Suspense>
+
+         {/* Client Data */}
+         <Suspense fallback={<div></div>}>
+            <HomeMiners minerData={minerData} />
          </Suspense>
 
          {/* Testimonials */}
@@ -69,20 +74,16 @@ export default async function HomePage() {
             <HomeSBC sbcData={sbcData} />
          </Suspense>
 
-         {/* Trust */}
+         {/* Download Whitepaper */}
          <Suspense fallback={<div></div>}>
-            <HomeTrust trustData={trustData} />
+            <HomeWhitepaperDownload whitepaperdownloadData={whitepaperdownloadData} />
          </Suspense>
-
+         
          {/* FAQs */}
          <Suspense fallback={<div></div>}>
             <HomeFaq faqData={faqData} faqsData={faqsData} />
          </Suspense>
 
-         {/* Download Whitepaper */}
-         <Suspense fallback={<div></div>}>
-            <HomeWhitepaperDownload whitepaperdownloadData={whitepaperdownloadData} />
-         </Suspense>
       </>
    );
 }
