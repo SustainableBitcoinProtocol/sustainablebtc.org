@@ -38,8 +38,6 @@
                @apply p-0;
                @include flex-center
             }
-            
-            
          }
 
          // Footer Links
@@ -128,7 +126,7 @@
       }
       .careerBg {
          @apply absolute top-1/2 -right-20 -translate-y-1/2;
-         @apply opacity-30;
+         @apply opacity-20;
          @apply max-w-[300px] w-full;
       }
 
@@ -202,8 +200,35 @@
          .formCheckboxGroupWrapper{
             @apply flex flex-col flex-wrap gap-6;
 
-            .formCheckboxGroup{
-               @apply flex items-center gap-1;
+            .formCheckboxGroup {
+               @apply flex items-center gap-2;
+               @apply cursor-pointer font-normal text-sm normal-case;
+   
+               input[type="checkbox"] {
+                  display: none;
+               }
+   
+               .checkmark {
+                  @apply w-4 h-4;
+                  @apply inline-block relative bg-white;
+                  @apply border-none outline-none rounded-sm;
+                  transition: background 0.3s ease;
+               }
+   
+               input[type="checkbox"]:checked + .checkmark {
+                  background: $gradient-primary;
+               }
+   
+               input[type="checkbox"]:checked + .checkmark::after {
+                  content: "";
+                  @apply absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: rotate(45deg) translate(-100%, -20%);
+                  @apply w-[4px] h-[8px];
+                  border: solid white;
+                  border-width: 0 2px 2px 0;
+               }
             }
          }
       }
