@@ -1,9 +1,11 @@
-import React, {Suspense} from "react";
+import React, {Suspense, useEffect} from "react";
 
 // import components
 const HomeHero = React.lazy(() => import("./HomeHero"));
+const HomeCounter = React.lazy(() => import("./HomeCounter"));
 const HomeMiners = React.lazy(() => import("./HomeMiners"));
 const HomeAbout = React.lazy(() => import("./HomeAbout"));
+const HomeScheduleCall = React.lazy(() => import("./HomeScheduleCall"));
 const HomeTestimonials = React.lazy(() => import("./HomeTestimonials"));
 const HomeSBC = React.lazy(() => import("./HomeSBC"));
 const HomeTrust = React.lazy(() => import("./HomeTrust"));
@@ -16,7 +18,6 @@ import {
    getMinerPageData,
    getFaqPageData,
 } from "@/sanity/sanity-utils";
-import HomeCounter from "./HomeCounter";
 
 export default async function HomePage() {
    // Get Data
@@ -31,6 +32,7 @@ export default async function HomePage() {
    const minerData = minerPageData.hero || null;
    const sbcData = homePageData.sbc || null;
    const aboutData = homePageData.about || null;
+   const scheduleCallData = homePageData.scheduleCall || null;
    const testimonialData = homePageData.testimonials || null;
    const trustData = homePageData.trust || null;
    const whitepaperdownloadData = homePageData.whitepaperdownload || null;
@@ -52,6 +54,11 @@ export default async function HomePage() {
          {/* About Us */}
          <Suspense fallback={<div></div>}>
             <HomeAbout aboutData={aboutData} />
+         </Suspense>
+
+         {/* Schedule a Call */}
+         <Suspense fallback={<div></div>}>
+            <HomeScheduleCall scheduleCallData={scheduleCallData} />
          </Suspense>
 
          {/* Trust */}
@@ -78,7 +85,7 @@ export default async function HomePage() {
          <Suspense fallback={<div></div>}>
             <HomeWhitepaperDownload whitepaperdownloadData={whitepaperdownloadData} />
          </Suspense>
-         
+
          {/* FAQs */}
          <Suspense fallback={<div></div>}>
             <HomeFaq faqData={faqData} faqsData={faqsData} />

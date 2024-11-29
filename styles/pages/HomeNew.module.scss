@@ -423,6 +423,38 @@
    // #endregion
 }
 
+.scheduleCall{
+   background: $gradient-primary;
+   padding-block: 4rem;
+   min-height: initial;
+   
+   .container{
+      @apply flex flex-col justify-between items-center gap-8;
+      @apply text-center;
+      @apply max-w-[1000px];
+   }
+
+   .scheduleCallCTA{
+      white-space: nowrap;
+
+      button, a{
+         background: color($color-dark);
+         border-color: color($color-dark);
+
+         &:hover{
+            background: $gradient-primary
+         }
+      }
+   }
+
+   @include responsive(md){
+      .container{
+         @apply flex-row  gap-10;
+         @apply text-left mx-auto;
+      }
+   }
+}
+
 .testimonials {
    @apply relative; //position
 

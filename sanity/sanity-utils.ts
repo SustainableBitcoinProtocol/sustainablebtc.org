@@ -65,6 +65,7 @@ export async function getHomePageData() {
          countdown,
          sbc,
          about,
+         scheduleCall,
          testimonials,
          trust,
          whitepaperdownload,

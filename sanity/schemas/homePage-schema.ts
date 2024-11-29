@@ -293,6 +293,31 @@ const homePage = {
             },
          ],
       },
+      // Schedule a Call
+      {
+         name: "scheduleCall",
+         title: "Schedule a Call",
+         type: "document",
+         fields: [
+            {
+               name: "scheduleCallHeading",
+               title: "Schedule Call Heading",
+               type: "array",
+               of: [{ type: "block" }],
+            },
+            {
+               name: "scheduleCallHeadingCTA",
+               title: "CTA",
+               type: "array",
+               of: [
+                  {
+                     type: "document",
+                     fields: btn,
+                  },
+               ],
+            },
+         ]
+      },
       // Testimonials
       {
          name: "testimonials",
