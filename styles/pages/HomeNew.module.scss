@@ -298,7 +298,7 @@
 }
 
 .miners {
-   margin-block: 50px !important;
+   margin-block: 80px !important;
    min-height: initial !important;
 
    // Heading
@@ -323,15 +323,15 @@
    // #region Responsive
    // Responsive for Tablet
    @include responsive(md) {
-      margin-block: 70px !important;
-
       .heroClientHeading {
          @apply text-lg; //font
       }
    }
 
    // Responsive for Desktop
-   @include responsive(lg) {}
+   @include responsive(lg) {
+      margin-block: 100px !important;
+   }
 
    @include responsive(xl) {}
 
@@ -427,6 +427,7 @@
    background: $gradient-primary;
    padding-block: 4rem;
    min-height: initial;
+   margin-bottom: 0 !important;
    
    .container{
       @apply flex flex-col justify-between items-center gap-8;
@@ -495,6 +496,16 @@
       .testimonialSlideInner {
          @apply p-8;
          @apply flex flex-col gap-6; //layout
+
+         .testimonialTestimonyCompanyLogo{
+            @apply h-7 my-2;
+            filter: brightness(0) invert(1);
+            width: auto;
+         }
+      }
+
+      .testimonialImageHeader{
+         @apply flex flex-row gap-8
       }
 
       .testimonialTestimonyImage {
@@ -515,12 +526,6 @@
       hr {
          width: 3rem;
          margin-block: 1rem;
-      }
-
-      .testimonialTestimonyCompanyLogo {
-         filter: brightness(0) invert(1);
-         height: 1rem;
-         width: auto;
       }
    }
 
@@ -701,10 +706,11 @@
 
 .trust {
    @apply min-h-fit overflow-hidden; //box
-   padding-block: 50px !important;
+   padding-block: 4rem !important;
    background: linear-gradient(39deg,
          rgba(51, 157, 255, 0.1) 0%,
          rgba(14, 193, 211, 0.1) 100%);
+   margin-block: 0 !important;
 
    .wrapper {
       @apply grid gap-8;

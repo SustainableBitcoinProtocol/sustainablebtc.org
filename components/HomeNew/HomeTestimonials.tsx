@@ -34,11 +34,11 @@ export default function HomeTestimonials({
 
    useEffect(() => {
       if (swiperRef.current) {
-        swiperRef.current.on('slideChange', () => {
-          setActiveIndex(swiperRef.current?.realIndex || 0);
-        });
+         swiperRef.current.on('slideChange', () => {
+            setActiveIndex(swiperRef.current?.realIndex || 0);
+         });
       }
-    }, []);
+   }, []);
 
    return (
       <section className={styles.testimonials}>
@@ -78,7 +78,7 @@ export default function HomeTestimonials({
                         }}
                         loop={true}
                         spaceBetween={16}
-                        slidesPerView="auto" 
+                        slidesPerView="auto"
                         centeredSlides={false}
                         navigation={{
                            nextEl: ".swiper-button-next",
@@ -86,7 +86,7 @@ export default function HomeTestimonials({
                         }}
                         onSwiper={(swiper) => {
                            swiperRef.current = swiper;
-                         }}
+                        }}
                         modules={[Autoplay, Navigation]}
                      >
                         {duplicatedItems.map((item: any, i: number) => (
@@ -96,58 +96,59 @@ export default function HomeTestimonials({
                                           ${activeIndex === i ? styles.activeSlide : ''}`}
                            >
                               <div className={styles.testimonialSlideInner}>
-                              {/* Image */}
-                              {/* eslint-disable-next-line @next/next/no-img-element */}
-                              {item.testimonyImage && (
-                                 <>
-                                    <Image
-                                       src={urlFor(item.testimonyImage)
-                                          .width(400)
-                                          .url()}
-                                       alt={item.testimonyImage.alt}
-                                       className={
-                                          styles.testimonialTestimonyImage
-                                       }
-                                       width={400}
-                                       height={400}
-                                    />
-                                 </>
-                              )}
+                                 {/* Image */}
+                                 {/* eslint-disable-next-line @next/next/no-img-element */}
+                                 {item.testimonyImage && (
+                                    <div className={styles.testimonialImageHeader}>
+                                       <Image
+                                          src={urlFor(item.testimonyImage)
+                                             .width(400)
+                                             .url()}
+                                          alt={item.testimonyImage.alt}
+                                          className={
+                                             styles.testimonialTestimonyImage
+                                          }
+                                          width={400}
+                                          height={400}
+                                       />
 
-                              {/* Content */}
-                              <div>
-                                 <p className={styles.testimonialTestimony}>
-                                    {`"${item.testimony}"`}
-                                 </p>
+                                       {/* eslint-disable-next-line @next/next/no-img-element */}
+                                       {item.testimonyCompanyLogo && (
+                                          <>
+                                             <Image
+                                                src={urlFor(
+                                                   item.testimonyCompanyLogo
+                                                )
+                                                   .width(300)
+                                                   .url()}
+                                                alt={item.testimonyCompanyLogo.alt}
+                                                width={200}
+                                                height={100}
+                                                className={
+                                                   styles.testimonialTestimonyCompanyLogo
+                                                }
+                                             />
+                                          </>
+                                       )}
+                                    </div>
+                                 )}
 
-                                 <hr />
-
+                                 {/* Content */}
                                  <div>
-                                    <h3
-                                       className={`${styles.testimonialTestimonyName}`}
-                                    >
-                                       {item.testimonyName}
-                                    </h3>
-                                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                                    {item.testimonyCompanyLogo && (
-                                       <>
-                                          <Image
-                                             src={urlFor(
-                                                item.testimonyCompanyLogo
-                                             )
-                                                .width(300)
-                                                .url()}
-                                             alt={item.testimonyCompanyLogo.alt}
-                                             width={200}
-                                             height={100}
-                                             className={
-                                                styles.testimonialTestimonyCompanyLogo
-                                             }
-                                          />
-                                       </>
-                                    )}
+                                    <p className={styles.testimonialTestimony}>
+                                       {`"${item.testimony}"`}
+                                    </p>
+
+                                    <hr />
+
+                                    <div>
+                                       <h3
+                                          className={`${styles.testimonialTestimonyName}`}
+                                       >
+                                          {item.testimonyName}
+                                       </h3>
+                                    </div>
                                  </div>
-                              </div>
                               </div>
                            </SwiperSlide>
                         ))}
