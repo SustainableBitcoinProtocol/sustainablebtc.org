@@ -135,12 +135,28 @@
       form {
          @apply flex flex-col gap-3 items-start w-full max-w-[700px] mt-4;
 
+         .formGroupWrapper,
+         .formCheckboxGroupWrapper{
+            @apply w-full;
+         }
+
+         .formGroupWrapper{
+            @apply grid gap-2 flex-1 max-w-none;
+
+            input{
+               @apply rounded-full;
+            }
+
+            textarea{
+               @apply rounded-3xl max-h-[80px]
+            }
+         }
+
          .formGroup {
             @apply flex-1 m-0 w-full;
 
             input,
             textarea {
-               @apply rounded-full;
                @apply bg-transparent;
                @apply py-3 px-6;
 
@@ -182,18 +198,32 @@
                }
             }
          }
+
+         .formCheckboxGroupWrapper{
+            @apply flex flex-col flex-wrap gap-6;
+
+            .formCheckboxGroup{
+               @apply flex items-center gap-1;
+            }
+         }
       }
 
       @include responsive(sm) {
-         form {
-            @apply flex-row gap-4;
-         }
       }
 
       @include responsive(md) {
+         form {
+            @apply flex-row gap-8;
+
+            .formCheckboxGroupWrapper{
+               @apply my-0 w-fit;
+            }
+         }
+
          .careerBg {
             @apply right-0;
          }
+
          .careerContent {
             .heading {
                @apply text-5xl;
@@ -209,8 +239,28 @@
             @apply max-w-[450px] w-auto;
          }
 
-         form {
-            @apply mt-6 mb-4;
+         .careerContentText{
+            @apply min-w-[200px];
+            @apply flex flex-col gap-4;
+         }
+
+         .careerContent{
+            @apply flex flex-row items-start gap-12
+         }
+
+         form{
+            @apply mt-0 max-w-[initial];
+
+            .formCheckboxGroupWrapper{
+               @apply whitespace-nowrap;
+               @apply max-w-[280px];
+            }
+         }
+      }
+
+      @include responsive(xl) {
+         .careerContentText{
+            @apply min-w-[400px];
          }
       }
    }
