@@ -2,6 +2,9 @@
 import React, { useEffect } from 'react';
 import { PortableText } from '@portabletext/react';
 import Link from 'next/link';
+import Image from 'next/image';
+
+import imgFooterFormBg from "@/public/home/whitepaperBG.svg";
 
 import styles from "@/styles/pages/HomeNew.module.scss";
 
@@ -30,6 +33,14 @@ const HomeScheduleCall = ({ scheduleCallData }: { scheduleCallData: any }) => {
                ))}
             </div>
          </div>
+
+         {/* Image */}
+         <Image
+            src={imgFooterFormBg}
+            alt="Background Whitepaper Form"
+            className={styles.scheduleCallBg}
+            loading='lazy'
+         />
       </section>
    )
 }

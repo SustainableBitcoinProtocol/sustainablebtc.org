@@ -193,6 +193,11 @@ const homePage = {
                            type: "string",
                         },
                         {
+                           name: "featureDescription",
+                           title: "Feature Description",
+                           type: "string",
+                        },
+                        {
                            name: "featureImage",
                            title: "Feature's Image",
                            type: "image",

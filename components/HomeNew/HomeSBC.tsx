@@ -26,130 +26,137 @@ export default function HomeSBC({ sbcData }: { sbcData: any }) {
 
    return (
       <section className={styles.sbc}>
-         {/* Image Animation */}
-         <div>
-            <Particles
-               className={styles.sbcBg}
-               id="tsparticles"
-               init={particlesInit}
-               options={{
-                  particles: {
-                     number: {
-                        value: 60,
-                        density: {
-                           enable: true,
-                           value_area: 800,
-                        },
-                     },
-                     color: {
-                        value: "#ffffff",
-                     },
-                     shape: {
-                        type: "circle",
-                        stroke: {
-                           width: 0,
-                           color: "#000000",
-                        },
-                        polygon: {
-                           nb_sides: 5,
-                        },
-                        image: {
-                           src: "img/github.svg",
-                           width: 100,
-                           height: 100,
-                        },
-                     },
-                     opacity: {
-                        value: 0.1,
-                        random: false,
-                        anim: {
-                           enable: false,
-                           speed: 1,
-                           opacity_min: 0.1,
-                           sync: false,
-                        },
-                     },
-                     size: {
-                        value: 5,
-                        random: true,
-                        anim: {
-                           enable: false,
-                           speed: 40,
-                           size_min: 0.1,
-                           sync: false,
-                        },
-                     },
-                     line_linked: {
-                        enable: true,
-                        distance: 120,
-                        color: "#ffffff",
-                        opacity: 0.2,
-                        width: 1,
-                     },
-                     move: {
-                        enable: true,
-                        speed: 2,
-                        direction: "none",
-                        random: false,
-                        straight: false,
-                        out_mode: "out",
-                        bounce: false,
-                        attract: {
-                           enable: false,
-                           rotateX: 600,
-                           rotateY: 1200,
-                        },
-                     },
-                  },
-                  interactivity: {
-                     detect_on: "canvas",
-                     events: {
-                        onhover: {
-                           enable: true,
-                           mode: "grab",
-                        },
-                        onclick: {
-                           enable: true,
-                           mode: "push",
-                        },
-                        resize: true,
-                     },
-                     modes: {
-                        grab: {
-                           distance: 150,
-                           line_linked: {
-                              opacity: 0.5,
+
+         <div className={`${styles.container} container`}>
+
+            {/* Image Animation */}
+            <div>
+               <Particles
+                  className={styles.sbcBg}
+                  id="tsparticles"
+                  init={particlesInit}
+                  options={{
+                     particles: {
+                        number: {
+                           value: 60,
+                           density: {
+                              enable: true,
+                              value_area: 800,
                            },
                         },
-                        bubble: {
-                           distance: 400,
-                           size: 40,
-                           duration: 2,
-                           opacity: 8,
-                           speed: 3,
+                        color: {
+                           value: "#ffffff",
                         },
-                        repulse: {
-                           distance: 200,
-                           duration: 0.4,
+                        shape: {
+                           type: "circle",
+                           stroke: {
+                              width: 0,
+                              color: "#000000",
+                           },
+                           polygon: {
+                              nb_sides: 5,
+                           },
+                           image: {
+                              src: "img/github.svg",
+                              width: 100,
+                              height: 100,
+                           },
                         },
-                        push: {
-                           particles_nb: 4,
+                        opacity: {
+                           value: 0.1,
+                           random: false,
+                           anim: {
+                              enable: false,
+                              speed: 1,
+                              opacity_min: 0.1,
+                              sync: false,
+                           },
                         },
-                        remove: {
-                           particles_nb: 2,
+                        size: {
+                           value: 5,
+                           random: true,
+                           anim: {
+                              enable: false,
+                              speed: 40,
+                              size_min: 0.1,
+                              sync: false,
+                           },
+                        },
+                        line_linked: {
+                           enable: true,
+                           distance: 120,
+                           color: "#ffffff",
+                           opacity: 0.2,
+                           width: 1,
+                        },
+                        move: {
+                           enable: true,
+                           speed: 2,
+                           direction: "none",
+                           random: false,
+                           straight: false,
+                           out_mode: "out",
+                           bounce: false,
+                           attract: {
+                              enable: false,
+                              rotateX: 600,
+                              rotateY: 1200,
+                           },
                         },
                      },
-                  },
-                  fullScreen: { enable: false },
-                  retina_detect: false,
-               }}
-            />
-         </div>
+                     interactivity: {
+                        detect_on: "canvas",
+                        events: {
+                           onhover: {
+                              enable: true,
+                              mode: "grab",
+                           },
+                           onclick: {
+                              enable: true,
+                              mode: "push",
+                           },
+                           resize: true,
+                        },
+                        modes: {
+                           grab: {
+                              distance: 150,
+                              line_linked: {
+                                 opacity: 0.5,
+                              },
+                           },
+                           bubble: {
+                              distance: 400,
+                              size: 40,
+                              duration: 2,
+                              opacity: 8,
+                              speed: 3,
+                           },
+                           repulse: {
+                              distance: 200,
+                              duration: 0.4,
+                           },
+                           push: {
+                              particles_nb: 4,
+                           },
+                           remove: {
+                              particles_nb: 2,
+                           },
+                        },
+                     },
+                     fullScreen: { enable: false },
+                     retina_detect: false,
+                  }}
+               />
+            </div>
 
-         <div className={`${styles.container} container container-tight`}>
+
             {/* Sbc Image */}
-            <div className={styles.sbcIcon}>
-               <Image src={imgSbcIcon} alt="SBC Icon" />
+            <div className={styles.sbcImageWrapper}>
+               <h1 className="heading heading-2">Our Token</h1>
+               <div className={styles.sbcIcon}>
+                  <Image src={imgSbcIcon} alt="SBC Icon" />
+               </div>
+               <h1 className="heading heading-2">The SBC</h1>
             </div>
 
             {/* Line */}
@@ -205,21 +212,24 @@ export default function HomeSBC({ sbcData }: { sbcData: any }) {
                         <li key={i} className={styles.sbcFeatureCard}>
                            {element.featureImage && (
                               <Image src={urlFor(element.featureImage)
-                                          .width(48)
-                                          .url()} alt={element.featureImage.alt} 
-                                    width={48}
-                                    height={48} />
+                                 .width(48)
+                                 .url()} alt={element.featureImage.alt}
+                                 width={48}
+                                 height={48} />
                            )}
-                           
-                           <h6>{element.featureName}</h6>
+
+                           <h5 className="heading heading-5">{element.featureName}</h5>
+                           <p className="para">{element.featureDescription}</p>
                         </li>
                      ))}
                   </ul>
 
                   {/* Description */}
-                  <div className={`${styles.sbcDescription} portableText`}>
-                     <PortableText value={sbcData.sbcDescription} />
-                  </div>
+                  {sbcData.sbcDescription &&
+                     <div className={`${styles.sbcDescription} portableText`}>
+                        <PortableText value={sbcData.sbcDescription} />
+                     </div>
+                  }
 
                   {/* CTA */}
                   {sbcData.sbcBtn1.sbcBtn1Visible && (

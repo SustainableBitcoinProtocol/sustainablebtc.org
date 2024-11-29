@@ -428,6 +428,8 @@
    padding-block: 4rem;
    min-height: initial;
    margin-bottom: 0 !important;
+   position: relative;
+   overflow: hidden;
    
    .container{
       @apply flex flex-col justify-between items-center gap-8;
@@ -446,6 +448,11 @@
             background: $gradient-primary
          }
       }
+   }
+
+   .scheduleCallBg {
+      @apply absolute top-1/2 left-1/2 -translate-y-1/2;
+      @apply h-[400px] aspect-square opacity-50;
    }
 
    @include responsive(md){
@@ -583,13 +590,13 @@
 
 .sbc {
    @apply relative; //position
-   @apply grid place-content-center; //layout
    @apply text-center; //font
 
    // background styling
    .sbcBg {
       @apply absolute top-0 left-0; //position
       @apply w-full h-full; //block
+      z-index: -1;
 
       canvas {
          position: absolute !important;
@@ -601,10 +608,19 @@
    .container {
       @apply relative z-10; //position
       @apply flex flex-col gap-8; //layout
-      @apply max-w-[800px]; //box
+      @apply py-10 rounded-3xl overflow-hidden; //box
+      border: 1px solid rgba(#339dff, 0.5);
    }
 
    // Styling Icon
+   .sbcImageWrapper{
+      @apply flex items-center gap-8;
+      @apply w-fit mx-auto;
+
+      h1{
+         @apply hidden;
+      }
+   }
    .sbcIcon {
       scale: 0.8;
       translate: 0 10%;
@@ -652,17 +668,20 @@
    }
 
    .sbcFeatures {
-      @apply flex justify-center flex-wrap gap-4; //layout
-      @apply font-bold; //font
+      @apply flex flex-col gap-4 px-4; //layout
 
       .sbcFeatureCard {
          @apply flex flex-col justify-center items-center gap-4 flex-1;
          @apply p-6 rounded-xl border-b-[#339dff] border-b-2;
-         @apply text-center font-bold whitespace-nowrap;
+         @apply text-center;
 
          background: linear-gradient(39deg,
-               rgba(51, 157, 255, 0.1) 0%,
-               rgba(14, 193, 211, 0.1) 100%);
+               rgba(51, 157, 255, 0.2) 0%,
+               rgba(14, 193, 211, 0.2) 100%);
+
+               p{
+                  @apply w-full
+               }
       }
    }
 
@@ -677,6 +696,19 @@
          scale: 0.9;
          translate: 0 5%;
       }
+      .sbcFeatures{
+         @apply flex-row flex-wrap;
+      }
+      .sbcFeatureCard{
+         @apply max-w-[400px]
+      }
+      .sbcImageWrapper{
+         h1{
+            @apply block;
+            border-bottom: 2px solid #339dff;
+            padding-bottom: 0.25rem;
+         }
+      }
    }
 
    // Responsive for Desktop
@@ -686,15 +718,16 @@
       }
 
       .sbcFeatures {
+         @apply max-w-[1000px] mx-auto;
          .sbcFeatureCard {
-            @include transition-light;
+            // @include transition-light;
 
-            &:hover {
-               background: linear-gradient(39deg,
-                     rgba(51, 157, 255, 0.3) 0%,
-                     rgba(14, 193, 211, 0.3) 100%);
-               transform: translateY(-1rem);
-            }
+            // &:hover {
+            //    background: linear-gradient(39deg,
+            //          rgba(51, 157, 255, 0.3) 0%,
+            //          rgba(14, 193, 211, 0.3) 100%);
+            //    transform: translateY(-1rem);
+            // }
          }
       }
    }
