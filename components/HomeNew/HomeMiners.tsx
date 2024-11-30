@@ -34,6 +34,7 @@ const HomeMiners = ({ minerData }: { minerData: any }) => {
 
                {/* Slider */}
                <Swiper
+                  className='swiper-smooth-transition'
                   spaceBetween={24}
                   loop={true}
                   autoplay={{

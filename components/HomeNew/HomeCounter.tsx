@@ -146,31 +146,31 @@ const HomeCounter = ({ countdownData }: { countdownData: any }) => {
                {/* Countdown */}
                <div className={styles.countdownClock}>
                   <div className={styles.countdownClockBlock}>
-                     <h3 className={`heading heading-5 ${styles.countdownClockBlockHeading}`}>{timeLeft.days}</h3>
+                     <h3 className={`heading heading-6 ${styles.countdownClockBlockHeading}`}>{timeLeft.days}</h3>
                      <div className={`para para-small ${styles.countdownClockBlockPara}`}>Days</div>
                   </div>
                   <div className={styles.countdownClockBlock}>
-                     <h3 className={`heading heading-5 ${styles.countdownClockBlockHeading}`}>:</h3>
+                     <h3 className={`heading heading-6 ${styles.countdownClockBlockHeading}`}>:</h3>
                      <div className={`para para-small ${styles.countdownClockBlockPara}`}></div>
                   </div>
                   <div className={styles.countdownClockBlock}>
-                     <h3 className={`heading heading-5 ${styles.countdownClockBlockHeading}`}>{timeLeft.hours}</h3>
+                     <h3 className={`heading heading-6 ${styles.countdownClockBlockHeading}`}>{timeLeft.hours}</h3>
                      <div className={`para para-small ${styles.countdownClockBlockPara}`}>Hours</div>
                   </div>
                   <div className={styles.countdownClockBlock}>
-                     <h3 className={`heading heading-5 ${styles.countdownClockBlockHeading}`}>:</h3>
+                     <h3 className={`heading heading-6 ${styles.countdownClockBlockHeading}`}>:</h3>
                      <div className={`para para-small ${styles.countdownClockBlockPara}`}></div>
                   </div>
                   <div className={styles.countdownClockBlock}>
-                     <h3 className={`heading heading-5 ${styles.countdownClockBlockHeading}`}>{timeLeft.minutes}</h3>
+                     <h3 className={`heading heading-6 ${styles.countdownClockBlockHeading}`}>{timeLeft.minutes}</h3>
                      <div className={`para para-small ${styles.countdownClockBlockPara}`}>Minutes</div>
                   </div>
                   <div className={styles.countdownClockBlock}>
-                     <h3 className={`heading heading-5 ${styles.countdownClockBlockHeading}`}>:</h3>
+                     <h3 className={`heading heading-6 ${styles.countdownClockBlockHeading}`}>:</h3>
                      <div className={`para para-small ${styles.countdownClockBlockPara}`}></div>
                   </div>
                   <div className={`${styles.countdownClockBlock} ${styles.gradientText}`}>
-                     <h3 className={`heading heading-5 ${styles.countdownClockBlockHeading}`}>{timeLeft.seconds}</h3>
+                     <h3 className={`heading heading-6 ${styles.countdownClockBlockHeading}`}>{timeLeft.seconds}</h3>
                      <div className={`para para-small ${styles.countdownClockBlockPara}`}>Seconds</div>
                   </div>
                </div>

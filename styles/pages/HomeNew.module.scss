@@ -100,6 +100,7 @@
 
          p {
             @apply text-base; //font
+            border-bottom: 1px solid #339dff;
          }
       }
 
@@ -190,7 +191,9 @@
    .countdownSubHeading *{
       color: color($color-dark)
    }
-
+   .countdownHeading{
+      h6{font-weight: 900 !important;}
+   }
    .countdownHeading .icon{
       @apply hidden
    }
@@ -210,11 +213,11 @@
          }
 
          &:nth-child(odd) {
-            @apply w-14;
+            @apply w-12;
       
             .countdownClockBlockHeading{
                background: color($color-white);
-               @apply w-14 h-14 rounded-lg;
+               @apply w-12 h-12 rounded-lg;
                @apply grid place-content-center;
             }
          }
@@ -285,7 +288,7 @@
          }
 
          i{
-            @apply text-3xl
+            @apply text-2xl
          }
       }
 
@@ -368,12 +371,10 @@
    .heading {
       h4 {
          @apply text-xl font-normal leading-[140%]; //font
-         @include gradient-text;
 
          strong {
             @apply block; //box
             @apply text-3xl font-black; //font
-            @include text-gradient(initial);
          }
       }
    }
@@ -434,7 +435,7 @@
    .container{
       @apply flex flex-col justify-between items-center gap-8;
       @apply text-center;
-      @apply max-w-[1000px];
+      @apply max-w-[1200px];
    }
 
    .scheduleCallCTA{
@@ -442,10 +443,10 @@
 
       button, a{
          background: color($color-dark);
-         border-color: color($color-dark);
+         border-color: color($color-light);
 
          &:hover{
-            background: $gradient-primary
+            background: color($color-dark, 600);
          }
       }
    }
@@ -455,9 +456,9 @@
       @apply h-[400px] aspect-square opacity-50;
    }
 
-   @include responsive(md){
+   @include responsive(lg){
       .container{
-         @apply flex-row  gap-10;
+         @apply flex-row  gap-12;
          @apply text-left mx-auto;
       }
    }
@@ -882,6 +883,10 @@
          &::before {
             scale: 0.75;
          }
+      }
+
+      .content{
+         @apply max-w-[450px];
       }
    }
 
