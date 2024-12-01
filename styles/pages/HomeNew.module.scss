@@ -28,9 +28,11 @@
          height: 100%;
          @apply rounded-md;
          background: rgb(30, 32, 63);
-         background: radial-gradient(circle,
-               rgba(30, 32, 63, 0.3) 0%,
-               rgba(30, 32, 63, 1) 95%);
+         background: radial-gradient(
+            circle,
+            rgba(30, 32, 63, 0.3) 0%,
+            rgba(30, 32, 63, 1) 95%
+         );
       }
    }
 
@@ -100,7 +102,10 @@
 
          p {
             @apply text-base; //font
-            border-bottom: 1px solid #339dff;
+            text-decoration: underline;
+            text-decoration-color: #339dff;
+            text-underline-offset: 0.5rem;
+            line-height: 200%
          }
       }
 
@@ -171,7 +176,8 @@
       }
    }
 
-   @include responsive(xl) {}
+   @include responsive(xl) {
+   }
 
    // #endregion
 }
@@ -179,78 +185,79 @@
 .countdown {
    margin: 0 0 !important; // removing the margins
    background: color($color-green);
-   padding-block: 2rem;
+   padding-block: 1rem;
    min-height: initial;
 
-   .countdownWrapper{
-      @apply flex flex-col flex-wrap items-center justify-center gap-y-2 gap-6;
+   .countdownWrapper {
+      @apply flex flex-col flex-wrap items-center justify-center gap-y-1 gap-6;
    }
-   
 
    .countdownHeading *,
-   .countdownSubHeading *{
-      color: color($color-dark)
+   .countdownSubHeading * {
+      color: color($color-dark);
    }
-   .countdownHeading{
-      h6{font-weight: 900 !important;}
+   .countdownHeading {
+      h6 {
+         font-weight: 900 !important;
+      }
    }
-   .countdownHeading .icon{
-      @apply hidden
+   .countdownHeading .icon {
+      @apply hidden;
    }
-   .countdownSubHeading{
-      white-space: nowrap
+   .countdownSubHeading {
+      white-space: nowrap;
    }
 
    .countdownClock {
       @apply flex items-start gap-2 w-fit;
-      @apply text-center p-4;
+      @apply text-center pt-2 p-4;
 
       .countdownClockBlock {
          @apply flex flex-col items-center justify-center gap-1;
 
-         *{
+         * {
             color: color($color-dark);
          }
 
          &:nth-child(odd) {
-            @apply w-12;
-      
-            .countdownClockBlockHeading{
+            @apply w-10;
+
+            .countdownClockBlockHeading {
                background: color($color-white);
-               @apply w-12 h-12 rounded-lg;
+               @apply w-10 h-10 rounded-lg;
                @apply grid place-content-center;
             }
          }
 
          &:nth-child(even) {
-            .countdownClockBlockHeading{
-               @apply h-12;
+            .countdownClockBlockHeading {
+               @apply h-10;
                @apply grid place-content-center;
             }
          }
 
-         .countdownClockBlockPara{
-            @apply h-4
+         .countdownClockBlockPara {
+            @apply h-4;
          }
 
-         &.gradientText{
-            .countdownClockBlockHeading{
+         &.gradientText {
+            .countdownClockBlockHeading {
                background: color($color-dark);
-               color: color($color-white)
+               color: color($color-white);
             }
          }
       }
    }
 
-   .countdownForm{
-      .countdownFormInputs{
+   .countdownForm {
+      .countdownFormInputs {
          @apply flex items-center gap-2;
 
-         .formGroup{
+         .formGroup {
             margin: 0;
          }
 
-         input{
+         input {
             @apply rounded-full h-[48px] py-0;
             border-color: color($color-dark);
             background: color($color-white);
@@ -261,39 +268,63 @@
 
    // #region Responsive
    // Responsive for Tablet
-   @include responsive(md) {}
+   @include responsive(md) {
+   }
 
    // Responsive for Desktop
    @include responsive(lg) {
-      .countdownWrapper{
-         @apply flex-row;
+      .countdownWrapper {
+         @apply flex-row flex-nowrap;
       }
-      .countdownSubHeading{
-         @apply w-full text-center
+      .countdownSubHeading {
+         @apply w-max text-center whitespace-normal;
+      }
+      .countdownClock {
+         .countdownClockBlock {
+            &:nth-child(odd) {
+               @apply w-12;
+
+               .countdownClockBlockHeading {
+                  background: color($color-white);
+                  @apply w-12 h-12;
+               }
+            }
+
+            &:nth-child(even) {
+               .countdownClockBlockHeading {
+                  @apply h-12;
+               }
+            }
+
+            &.gradientText {
+               .countdownClockBlockHeading {
+                  background: color($color-dark);
+                  color: color($color-white);
+               }
+            }
+         }
       }
    }
 
    @include responsive(xl) {
-      padding-block: 1rem;
-
-      .countdownWrapper{
+      .countdownWrapper {
          @apply flex-nowrap;
       }
 
-      .countdownHeading{
+      .countdownHeading {
          @apply flex flex-row items-center gap-2;
 
-         .icon{
-            @apply block
+         .icon {
+            @apply block;
          }
 
-         i{
-            @apply text-2xl
+         i {
+            @apply text-2xl;
          }
       }
 
-      .countdownSubHeading{
-         @apply w-fit text-left
+      .countdownSubHeading {
+         @apply w-fit text-left;
       }
    }
 
@@ -336,7 +367,8 @@
       margin-block: 100px !important;
    }
 
-   @include responsive(xl) {}
+   @include responsive(xl) {
+   }
 
    // #endregion
 }
@@ -413,10 +445,10 @@
       }
 
       .image {
-         @apply col-span-3
+         @apply col-span-3;
       }
 
-      .content{
+      .content {
          @apply col-span-2;
       }
    }
@@ -424,28 +456,29 @@
    // #endregion
 }
 
-.scheduleCall{
+.scheduleCall {
    background: $gradient-primary;
    padding-block: 4rem;
    min-height: initial;
    margin-bottom: 0 !important;
    position: relative;
    overflow: hidden;
-   
-   .container{
+
+   .container {
       @apply flex flex-col justify-between items-center gap-8;
       @apply text-center;
       @apply max-w-[1200px];
    }
 
-   .scheduleCallCTA{
+   .scheduleCallCTA {
       white-space: nowrap;
 
-      button, a{
+      button,
+      a {
          background: color($color-dark);
          border-color: color($color-light);
 
-         &:hover{
+         &:hover {
             background: color($color-dark, 600);
          }
       }
@@ -456,8 +489,8 @@
       @apply h-[400px] aspect-square opacity-50;
    }
 
-   @include responsive(lg){
-      .container{
+   @include responsive(lg) {
+      .container {
          @apply flex-row  gap-12;
          @apply text-left mx-auto;
       }
@@ -497,23 +530,25 @@
       @apply h-full rounded-lg; //box
       max-width: 400px !important;
 
-      background: linear-gradient(39deg,
-            rgba(51, 157, 255, 0.1) 0%,
-            rgba(14, 193, 211, 0.1) 100%);
+      background: linear-gradient(
+         39deg,
+         rgba(51, 157, 255, 0.1) 0%,
+         rgba(14, 193, 211, 0.1) 100%
+      );
 
       .testimonialSlideInner {
          @apply p-8;
          @apply flex flex-col gap-6; //layout
 
-         .testimonialTestimonyCompanyLogo{
+         .testimonialTestimonyCompanyLogo {
             @apply h-7 my-2;
             filter: brightness(0) invert(1);
             width: auto;
          }
       }
 
-      .testimonialImageHeader{
-         @apply flex flex-row gap-8
+      .testimonialImageHeader {
+         @apply flex flex-row gap-8;
       }
 
       .testimonialTestimonyImage {
@@ -539,7 +574,8 @@
 
    // #region Responsive
    // Responsive for Tablet
-   @include responsive(md) {}
+   @include responsive(md) {
+   }
 
    // Responsive for Desktop
    @include responsive(lg) {
@@ -551,9 +587,11 @@
          top: 0;
          right: 0;
          pointer-events: none;
-         background: linear-gradient(to right,
-               rgba(#1e203f, 0) 0%,
-               rgba(#1e203f, 1) 95%);
+         background: linear-gradient(
+            to right,
+            rgba(#1e203f, 0) 0%,
+            rgba(#1e203f, 1) 95%
+         );
          z-index: 20;
       }
 
@@ -573,9 +611,11 @@
          max-width: 450px !important;
 
          &.activeSlide {
-            background: linear-gradient(39deg,
-                  rgba(51, 157, 255, 0.3) 0%,
-                  rgba(14, 193, 211, 0.3) 100%);
+            background: linear-gradient(
+               39deg,
+               rgba(51, 157, 255, 0.3) 0%,
+               rgba(14, 193, 211, 0.3) 100%
+            );
          }
 
          .testimonialTestimony {
@@ -584,7 +624,8 @@
       }
    }
 
-   @include responsive(xl) {}
+   @include responsive(xl) {
+   }
 
    // #endregion
 }
@@ -614,11 +655,11 @@
    }
 
    // Styling Icon
-   .sbcImageWrapper{
+   .sbcImageWrapper {
       @apply flex items-center gap-8;
       @apply w-fit mx-auto;
 
-      h1{
+      h1 {
          @apply hidden;
       }
    }
@@ -676,13 +717,15 @@
          @apply p-6 rounded-xl border-b-[#339dff] border-b-2;
          @apply text-center;
 
-         background: linear-gradient(39deg,
-               rgba(51, 157, 255, 0.2) 0%,
-               rgba(14, 193, 211, 0.2) 100%);
+         background: linear-gradient(
+            39deg,
+            rgba(51, 157, 255, 0.2) 0%,
+            rgba(14, 193, 211, 0.2) 100%
+         );
 
-               p{
-                  @apply w-full
-               }
+         p {
+            @apply w-full;
+         }
       }
    }
 
@@ -697,14 +740,14 @@
          scale: 0.9;
          translate: 0 5%;
       }
-      .sbcFeatures{
+      .sbcFeatures {
          @apply flex-row flex-wrap;
       }
-      .sbcFeatureCard{
-         @apply max-w-[400px]
+      .sbcFeatureCard {
+         @apply max-w-[400px];
       }
-      .sbcImageWrapper{
-         h1{
+      .sbcImageWrapper {
+         h1 {
             @apply block;
             border-bottom: 2px solid #339dff;
             padding-bottom: 0.25rem;
@@ -733,7 +776,8 @@
       }
    }
 
-   @include responsive(xl) {}
+   @include responsive(xl) {
+   }
 
    // #endregion
 }
@@ -741,9 +785,11 @@
 .trust {
    @apply min-h-fit overflow-hidden; //box
    padding-block: 4rem !important;
-   background: linear-gradient(39deg,
-         rgba(51, 157, 255, 0.1) 0%,
-         rgba(14, 193, 211, 0.1) 100%);
+   background: linear-gradient(
+      39deg,
+      rgba(51, 157, 255, 0.1) 0%,
+      rgba(14, 193, 211, 0.1) 100%
+   );
    margin-block: 0 !important;
 
    .wrapper {
@@ -885,19 +931,20 @@
          }
       }
 
-      .content{
+      .content {
          @apply max-w-[450px];
       }
    }
 
-   @include responsive(xl) {}
+   @include responsive(xl) {
+   }
 
    // #endregion
 }
 
 .homeFaq {
    .container {
-      @apply grid gap-8
+      @apply grid gap-8;
    }
 
    .wrapper {
@@ -924,7 +971,8 @@
       }
    }
 
-   @include responsive(xl) {}
+   @include responsive(xl) {
+   }
 
    // #endregion
 }

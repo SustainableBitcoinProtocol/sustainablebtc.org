@@ -41,7 +41,7 @@ const HomeMiners = ({ minerData }: { minerData: any }) => {
                      delay: 1,
                      disableOnInteraction: false,
                   }}
-                  speed={1200}
+                  speed={2400}
                   freeMode={true}
                   grabCursor={true}
                   breakpoints={{
