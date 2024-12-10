@@ -260,4 +260,19 @@ export async function getMiscPageData(slug: string) {
       }
    );
 }
+
+export async function getInvestPageData() {
+   return client.fetch(
+      groq`*[_type=="investPage"][0]{
+         _id,
+         hero,
+         sbc,
+         useCase,
+         scheduleCall
+      }`,
+      {
+         next: { revalidate: 10 },
+      }
+   );
+}
 // #endregion

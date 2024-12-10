@@ -13,6 +13,7 @@ import news from "./news-schema";
 import miscellaneousPage from "./miscellaneousPage-schema";
 import faqPage from "./faqPage-schema";
 import blogCategories from "../components/blogCategories-schema";
+import investPage from "./investPage-schema";
 
 const schemas = [
    navbar,
@@ -29,6 +30,7 @@ const schemas = [
    miscellaneousPage,
    faqPage,
    blogCategories,
+   investPage
 ];
 
 export default schemas;

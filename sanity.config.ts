@@ -16,6 +16,7 @@ const singletonTypes = new Set([
    "getStartedPage",
    "contactPage",
    "faqPage",
+   "investPage"
 ]);
 
 const config = defineConfig({
@@ -99,6 +100,14 @@ const config = defineConfig({
                      .id("faqPage")
                      .child(
                         S.document().schemaType("faqPage").documentId("faqPage")
+                     ),
+                  S.listItem()
+                     .title("Page / Invest")
+                     .id("investPage")
+                     .child(
+                        S.document()
+                           .schemaType("investPage")
+                           .documentId("investPage")
                      ),
 
                   // Blog
