@@ -265,6 +265,7 @@ export async function getInvestPageData() {
    return client.fetch(
       groq`*[_type=="investPage"][0]{
          _id,
+         pageAccess,
          hero,
          sbc,
          useCase,

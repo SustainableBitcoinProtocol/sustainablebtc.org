@@ -10,6 +10,19 @@ const investPage = {
          title: "Page Title",
          type: "string",
       },
+      // Password
+      {
+         name: "pageAccess",
+         title: "Access Key for the page",
+         type: "document",
+         fields: [
+            {
+               name: "accessKey",
+               title: "Access Key",
+               type: "string",
+            },
+         ],
+      },
       // Hero
       {
          name: "hero",
