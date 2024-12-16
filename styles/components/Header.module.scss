@@ -2,7 +2,7 @@
    background-color: color($color-green);
    color: color($color-dark);
    // @apply hidden md:block;
-   @apply relative z-10 max-h-[44px];
+   @apply relative z-30 max-h-[44px];
 
    .container {
       @apply flex justify-between items-center;

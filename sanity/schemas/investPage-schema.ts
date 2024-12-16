@@ -12,14 +12,20 @@ const investPage = {
       },
       // Password
       {
-         name: "pageAccess",
-         title: "Access Key for the page",
+         name: "paywall",
+         title: "Pay Wall",
          type: "document",
          fields: [
             {
-               name: "accessKey",
+               name: "paywallAccessKey",
                title: "Access Key",
                type: "string",
+            },
+            {
+               name: "paywallHeading",
+               title: "Heading",
+               type: "array",
+               of: [{ type: "block" }],
             },
          ],
       },
