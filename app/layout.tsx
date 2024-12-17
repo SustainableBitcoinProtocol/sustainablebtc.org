@@ -1,9 +1,12 @@
+"use client";
+
 // Global Styles
 import "@/styles/global.scss";
 
 // Imports
 import localFont from "@next/font/local";
 import Script from "next/script";
+import { usePathname } from "next/navigation";
 
 // Custom Components
 import Header from "@/components/HeaderFooter/Header";
@@ -20,46 +23,9 @@ import "swiper/css/free-mode";
 // Defining Fonts
 const helveticaNowDisplay = localFont({
    src: [
-      {
-         path: "../public/fonts/helvetica-now-display/HelveticaNowDisplay-Thin.ttf",
-         weight: "100",
-         style: "normal",
-      },
-      {
-         path: "../public/fonts/helvetica-now-display/HelveticaNowDisplay-ExtLt.ttf",
-         weight: "200",
-         style: "normal",
-      },
-      {
-         path: "../public/fonts/helvetica-now-display/HelveticaNowDisplay-Light.ttf",
-         weight: "300",
-         style: "normal",
-      },
-      {
-         path: "../public/fonts/helvetica-now-display/HelveticaNowDisplay-Regular.ttf",
-         weight: "400",
-         style: "normal",
-      },
-      {
-         path: "../public/fonts/helvetica-now-display/HelveticaNowDisplay-Medium.ttf",
-         weight: "500",
-         style: "normal",
-      },
-      {
-         path: "../public/fonts/helvetica-now-display/HelveticaNowDisplay-Bold.ttf",
-         weight: "700",
-         style: "normal",
-      },
-      {
-         path: "../public/fonts/helvetica-now-display/HelveticaNowDisplay-ExtraBold.ttf",
-         weight: "800",
-         style: "normal",
-      },
-      {
-         path: "../public/fonts/helvetica-now-display/HelveticaNowDisplay-Black.ttf",
-         weight: "900",
-         style: "normal",
-      },
+      { path: "../public/fonts/helvetica-now-display/HelveticaNowDisplay-Thin.ttf", weight: "100", style: "normal" },
+      { path: "../public/fonts/helvetica-now-display/HelveticaNowDisplay-Regular.ttf", weight: "400", style: "normal" },
+      { path: "../public/fonts/helvetica-now-display/HelveticaNowDisplay-Bold.ttf", weight: "700", style: "normal" },
    ],
 });
 
@@ -68,6 +34,11 @@ export default function RootLayout({
 }: {
    children: React.ReactNode;
 }) {
+   const pathname = usePathname();
+
+   // Check if the current route starts with /studio
+   const isStudioRoute = pathname?.startsWith("/studio");
+
    return (
       <>
          <>
@@ -86,16 +57,23 @@ export default function RootLayout({
          </>
          <html lang="en" className={helveticaNowDisplay.className}>
             <body>
-               {/* Progressbar */}
-               <ProgressBar />
-               {/* Navbar */}
-               <Header />
-               {/* Breadcrum */}
-               <Breadcrum />
-               {/* Main */}
-               <main>{children}</main>
-               {/* Footer */}
-               <Footer />
+               {/* Conditionally exclude layout components */}
+               {isStudioRoute ? (
+                  <main>{children}</main> // Sanity Studio page without layout
+               ) : (
+                  <>
+                     {/* Progressbar */}
+                     <ProgressBar />
+                     {/* Navbar */}
+                     <Header />
+                     {/* Breadcrum */}
+                     <Breadcrum />
+                     {/* Main */}
+                     <main>{children}</main>
+                     {/* Footer */}
+                     <Footer />
+                  </>
+               )}
             </body>
          </html>
       </>
