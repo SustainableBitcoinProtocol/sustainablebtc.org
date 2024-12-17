@@ -1,26 +1,12 @@
-"use client";
-
 // Global Styles
 import "@/styles/global.scss";
 
 // Imports
 import localFont from "@next/font/local";
 import Script from "next/script";
-import { usePathname } from "next/navigation";
+import ConditionalLayout from "@/components/ConditionalLayout";
 
-// Custom Components
-import Header from "@/components/HeaderFooter/Header";
-import Footer from "@/components/Footer";
-import Breadcrum from "@/components/Breadcrum";
-import ProgressBar from "@/components/ProgressBar";
-
-// Importing icons
-import "bootstrap-icons/font/bootstrap-icons.css";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/free-mode";
-
-// Defining Fonts
+// Importing fonts
 const helveticaNowDisplay = localFont({
    src: [
       { path: "../public/fonts/helvetica-now-display/HelveticaNowDisplay-Thin.ttf", weight: "100", style: "normal" },
@@ -30,15 +16,10 @@ const helveticaNowDisplay = localFont({
 });
 
 export default function RootLayout({
-   children, // will be a page or nested layout
+   children,
 }: {
    children: React.ReactNode;
 }) {
-   const pathname = usePathname();
-
-   // Check if the current route starts with /studio
-   const isStudioRoute = pathname?.startsWith("/studio");
-
    return (
       <>
          <>
@@ -57,23 +38,8 @@ export default function RootLayout({
          </>
          <html lang="en" className={helveticaNowDisplay.className}>
             <body>
-               {/* Conditionally exclude layout components */}
-               {isStudioRoute ? (
-                  <main>{children}</main> // Sanity Studio page without layout
-               ) : (
-                  <>
-                     {/* Progressbar */}
-                     <ProgressBar />
-                     {/* Navbar */}
-                     <Header />
-                     {/* Breadcrum */}
-                     <Breadcrum />
-                     {/* Main */}
-                     <main>{children}</main>
-                     {/* Footer */}
-                     <Footer />
-                  </>
-               )}
+               {/* Conditionally Render Layout */}
+               <ConditionalLayout>{children}</ConditionalLayout>
             </body>
          </html>
       </>
