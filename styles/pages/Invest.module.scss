@@ -165,6 +165,12 @@
       @apply list-disc;
    }
 
+   .useCaseHeading{
+      *{
+         font-weight: 900
+      }
+   }
+
    @include responsive(md) {
       .container {
          @apply grid grid-cols-2 gap-2;

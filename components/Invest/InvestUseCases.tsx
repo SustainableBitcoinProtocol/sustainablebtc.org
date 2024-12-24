@@ -8,7 +8,7 @@ const InvestUseCases = ({useCaseData} : {useCaseData:any}) => {
   return (
     <section className={styles.useCases}>
       <div className={`${styles.container} container`}>
-         <div className={`portableText`}>
+         <div className={`${styles.useCaseHeading} portableText`}>
             <PortableText value={useCaseData.useCaseHeading} />
          </div>
          <div>
