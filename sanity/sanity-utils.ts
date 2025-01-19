@@ -92,6 +92,17 @@ export async function getSBCPageData() {
       }
    );
 }
+export async function getSBC2025PageData() {
+   return client.fetch(
+      groq`*[_type=="sbcPage"][0]{
+         _id,
+         hero,
+      }`,
+      {
+         next: { revalidate: 10 },
+      }
+   );
+}
 
 export async function getInvestorPageData() {
    return client.fetch(
@@ -99,7 +110,9 @@ export async function getInvestorPageData() {
          _id,
          hero,
          investment,
-         support
+         support,
+         investorHelp,
+         scheduleCall
       }`,
       {
          next: { revalidate: 10 },

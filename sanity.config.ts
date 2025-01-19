@@ -9,6 +9,7 @@ const singletonTypes = new Set([
    "navbar",
    "homePage",
    "sbcPage",
+   "sbcPage2025",
    "investorsPage",
    "minersPage",
    "transparencyPage",
@@ -46,6 +47,12 @@ const config = defineConfig({
                      .id("sbcPage")
                      .child(
                         S.document().schemaType("sbcPage").documentId("sbcPage")
+                     ),
+                  S.listItem()
+                     .title("Page / SBC2025")
+                     .id("sbcPage2025")
+                     .child(
+                        S.document().schemaType("sbcPage2025").documentId("sbcPage2025")
                      ),
                   S.listItem()
                      .title("Page / Investors")

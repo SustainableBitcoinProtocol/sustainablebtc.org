@@ -24,7 +24,7 @@ const InvestorHero = ({ heroData }: { heroData: any }) => {
                   <>
                      <div>
                         <h2
-                           className={`${styles.heroSubHeading} heading heading-3`}
+                           className={`${styles.heroSubHeading} heading heading-4`}
                         >
                            {heroData.heroSubHeading}
                         </h2>

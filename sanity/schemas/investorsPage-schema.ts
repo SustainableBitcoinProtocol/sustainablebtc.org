@@ -34,6 +34,38 @@ const investorsPage = {
             },
          ],
       },
+      // Investor Help
+      {
+         name: "investorHelp",
+         title: "Investor Help",
+         type: "document",
+         fields: [
+            {
+               name: "investorHelpHeading",
+               title: "Heading",
+               type: "array",
+               of: [{ type: "block" }],
+            },
+            {
+               name: "investorHelpDescription",
+               title: "Description",
+               type: "array",
+               of: [{ type: "block" }],
+            },
+            {
+               name: "investorHelpBulletHeading",
+               title: "Bullet Heading",
+               type: "array",
+               of: [{ type: "block" }],
+            },
+            {
+               name: "investorHelpBullets",
+               title: "Bullets",
+               type: "array",
+               of: [{ type: "block" }],
+            },
+         ],
+      },
       // Investment
       {
          name: "investment",
@@ -143,6 +175,31 @@ const investorsPage = {
                ],
             },
          ],
+      },
+      // Schedule a Call
+      {
+         name: "scheduleCall",
+         title: "Schedule a Call",
+         type: "document",
+         fields: [
+            {
+               name: "scheduleCallHeading",
+               title: "Schedule Call Heading",
+               type: "array",
+               of: [{ type: "block" }],
+            },
+            {
+               name: "scheduleCallHeadingCTA",
+               title: "CTA",
+               type: "array",
+               of: [
+                  {
+                     type: "document",
+                     fields: btn,
+                  },
+               ],
+            },
+         ]
       },
    ],
 };

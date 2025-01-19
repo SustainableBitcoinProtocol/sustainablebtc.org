@@ -3,6 +3,7 @@ import footer from "./footer-schema";
 
 import homePage from "./homePage-schema";
 import sbcPage from "./sbcPage-schema";
+import sbcPage2025 from "./sbcPage2025-schema";
 import investorsPage from "./investorsPage-schema";
 import minersPage from "./minersPage-schema";
 import transparencyPage from "./transparencyPage-schema";
@@ -20,6 +21,7 @@ const schemas = [
    footer,
    homePage,
    sbcPage,
+   sbcPage2025,
    investorsPage,
    minersPage,
    transparencyPage,

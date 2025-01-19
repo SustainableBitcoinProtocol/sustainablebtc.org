@@ -14,8 +14,8 @@
 
    .heroHeading {
       @apply max-w-[600px] leading-[110%];
-      @apply mt-1;
-      // @include text-gradient(primary);
+      @apply mt-4;
+      @include text-gradient(primary);
    }
 
    .heroSubHeading {
@@ -32,7 +32,7 @@
 
    @include responsive(lg) {
       .heroImg {
-         @apply max-w-max -mt-16;
+         @apply max-w-max -mt-28;
          @apply scale-125;
       }
 
@@ -194,6 +194,237 @@
                @apply py-6;
             }
          }
+      }
+   }
+}
+
+.investorHelp {
+   @apply min-h-fit overflow-hidden; //box
+   padding-block: 4rem !important;
+   margin-block: 100px;
+   background: linear-gradient(
+      39deg,
+      rgba(51, 157, 255, 0.1) 0%,
+      rgba(14, 193, 211, 0.1) 100%
+   );
+
+   .wrapper {
+      @apply grid gap-y-16;
+   }
+
+   // image animation
+   .image {
+      @apply relative grid place-content-center;
+      @apply w-fit mx-auto max-w-[300px];
+
+      img {
+         @apply relative z-20;
+      }
+
+      &::before {
+         content: "";
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         translate: -50% -50%;
+         scale: 0.6;
+         background: url("../../public/home/trust-shade.svg");
+         background-repeat: no-repeat;
+         background-position: center;
+         width: 200%;
+         height: 200%;
+         z-index: 0;
+         animation: rotation 15s infinite linear;
+      }
+
+      @keyframes rotation {
+         from {
+            transform: translate(0%, 0%) rotate(0deg);
+         }
+
+         50% {
+            transform: translate(0%, -5%) rotate(180deg);
+         }
+
+         to {
+            transform: translate(0%, 0%) rotate(359deg);
+         }
+      }
+
+      // Bitcoin
+      .bitcoin {
+         @apply absolute;
+         @apply transition-all divide-gray-300 ease-out;
+         animation: blinkAnimation 5s infinite;
+
+         &1 {
+            @apply top-1/2 -left-[10px];
+            animation-delay: 0.2s;
+         }
+
+         &2 {
+            @apply top-0 left-1/2 -translate-x-1/2 -translate-y-1/2;
+         }
+
+         &3 {
+            @apply top-[30%] right-[17%];
+            animation-delay: 0.4s;
+         }
+
+         &4 {
+            @apply bottom-[20%] right-[26%];
+            animation-delay: 0.5s;
+         }
+
+         &5 {
+            @apply bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2;
+            animation-delay: 1s;
+         }
+
+         @keyframes blinkAnimation {
+            from {
+               opacity: 1;
+            }
+
+            50% {
+               opacity: 0;
+            }
+
+            to {
+               opacity: 1;
+            }
+         }
+      }
+   }
+
+   .content {
+      @apply flex flex-col items-center justify-center gap-6; //layout
+      @apply text-center; //font
+   }
+
+   .trustHeading {
+      @apply leading-[100%];
+
+      h4 {
+         @apply text-3xl;
+      }
+
+      strong {
+         font-weight: 900;
+         @include text-gradient(primary);
+      }
+   }
+
+   .trustBullet {
+      @apply text-left w-full;
+
+      ul {
+         list-style-type: disc;
+
+         li {
+            margin-bottom: 8px;
+         }
+      }
+   }
+
+   // #region Responsive
+   // Responsive for Tablet
+   @include responsive(md) {
+      .wrapper {
+         @apply grid-cols-2;
+      }
+
+      .content {
+         @apply items-start text-left pr-8;
+      }
+
+      .trustHeading {
+         h4 {
+            @apply text-4xl;
+         }
+      }
+   }
+
+   // Responsive for Desktop
+   @include responsive(lg) {
+      .image {
+         @apply max-w-[400px];
+
+         &::before {
+            scale: 0.75;
+         }
+
+         .bitcoin {
+            &1 {
+               @apply top-1/2 -left-[10px];
+               animation-delay: 0.2s;
+            }
+
+            &2 {
+               @apply top-1/2 left-1/2 -translate-x-1/2 -translate-y-[210px];
+            }
+
+            &3 {
+               @apply top-[30%] right-[20%];
+               animation-delay: 0.4s;
+            }
+
+            &4 {
+               @apply bottom-[25%] right-[26%];
+               animation-delay: 0.5s;
+            }
+
+            &5 {
+               @apply bottom-1/2 left-1/2 -translate-x-1/2 translate-y-[210px];
+               animation-delay: 1s;
+            }
+         }
+      }
+   }
+
+   @include responsive(xl) {
+   }
+
+   // #endregion
+}
+
+.scheduleCall {
+   background: $gradient-primary;
+   padding-block: 4rem;
+   min-height: initial;
+   margin-bottom: 0 !important;
+   position: relative;
+   overflow: hidden;
+
+   .container {
+      @apply flex flex-col justify-between items-center gap-8;
+      @apply text-center;
+      @apply max-w-[1200px];
+   }
+
+   .scheduleCallCTA {
+      white-space: nowrap;
+
+      button,
+      a {
+         background: color($color-dark);
+         border-color: color($color-light);
+
+         &:hover {
+            background: color($color-dark, 600);
+         }
+      }
+   }
+
+   .scheduleCallBg {
+      @apply absolute top-1/2 left-1/2 -translate-y-1/2;
+      @apply h-[400px] aspect-square opacity-50;
+   }
+
+   @include responsive(lg) {
+      .container {
+         @apply flex-row  gap-12;
+         @apply text-left mx-auto;
       }
    }
 }
