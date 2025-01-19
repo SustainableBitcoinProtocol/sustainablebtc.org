@@ -22,9 +22,9 @@ export default async function InvestorPage() {
       <>
          <InvestorHero heroData={heroData} />
          <InvestorHelp investorHelpData={investorHelpData} />
-         <InvestorInvestment investmentData={investmentData} />
+         {/* <InvestorInvestment investmentData={investmentData} /> */}
          <InvestorScheduleCall scheduleCallData={scheduleCallData}/>
-         <InvestorSupport supportData={supportData} />
+         {/* <InvestorSupport supportData={supportData} /> */}
       </>
    );
 }

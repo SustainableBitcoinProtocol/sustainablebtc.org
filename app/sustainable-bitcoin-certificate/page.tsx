@@ -1,6 +1,7 @@
 import React from "react";
 import { Metadata } from "next";
 import SBC2025Page from "@/components/SBC2025/SBCPage";
+import SBCPage from "@/components/SBC/SBCPage";
 
 export const metadata: Metadata = {
    title: "Sustainable Bitcoin Certificate | Sustainable Bitcoin Protocol",
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
 const SBC = () => {
    return (
       <>
-         <SBC2025Page />
+         <SBCPage />
       </>
    );
 };
