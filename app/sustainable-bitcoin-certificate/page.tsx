@@ -12,7 +12,8 @@ export const metadata: Metadata = {
 const SBC = () => {
    return (
       <>
-         <SBC2025Page />
+         {/* <SBC2025Page /> */}
+         <SBCPage />
       </>
    );
 };

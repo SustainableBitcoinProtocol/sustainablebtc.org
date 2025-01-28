@@ -1,3 +1,4 @@
+"use client";
 // Styles
 import styles from "@/styles/pages/News.module.scss";
 
@@ -11,10 +12,23 @@ import { urlFor } from "@/sanity/sanity-urlFor";
 
 // Lib
 import { PortableText } from "@portabletext/react";
+import { useEffect, useState } from "react";
 
 // Images
 
 const ArticleSidebar = ({ latestNewsData }: { latestNewsData: any }) => {
+   const [latestRelatedPost, setLatestRelatedPost] = useState([]);
+
+   useEffect(()=>{
+      const latestPosts = latestNewsData.news
+        .sort((a:any, b:any) => new Date(b._createdAt).getTime() - new Date(a._createdAt).getTime())
+        .slice(0, 5);
+
+      setLatestRelatedPost(latestPosts);
+
+   }, [latestNewsData])
+
+   
    return (
       <aside className={styles.articleAside}>
          {/* Recent Posts */}
@@ -23,7 +37,7 @@ const ArticleSidebar = ({ latestNewsData }: { latestNewsData: any }) => {
 
             <ul className={styles.relatedList}>
                {latestNewsData &&
-                  latestNewsData.map((news: any) => (
+                  latestRelatedPost.map((news: any) => (
                      <>
                         <li>
                            {/* Image */}
@@ -37,7 +51,18 @@ const ArticleSidebar = ({ latestNewsData }: { latestNewsData: any }) => {
                            )}
                            {/* Content */}
                            <div>
-                              <Link href={news.slug.current}>
+                              <Link 
+                                 href={`${
+                                    news.btnIsRedirect
+                                       ? news.url
+                                       : `../news/${news.slug.current}`
+                                 }`}
+                                 target={`${
+                                    news.btnIsRedirect
+                                       ? "_blank"
+                                       : ""
+                                 }`}   
+                              >
                                  <h5 className={styles.relatedListHeading}>
                                     {news.title}
                                  </h5>
