@@ -1,5 +1,7 @@
 .hero {
    @include hero-spacing;
+   @include grid-center;
+   min-height: 20vh;
 
    .container {
       @apply max-w-[1000px];
@@ -201,7 +203,7 @@
 .investorHelp {
    @apply min-h-fit overflow-hidden; //box
    padding-block: 4rem !important;
-   margin-block: 100px;
+   margin-block: 100px 0;
    background: linear-gradient(
       39deg,
       rgba(51, 157, 255, 0.1) 0%,
@@ -347,6 +349,8 @@
 
    // Responsive for Desktop
    @include responsive(lg) {
+      margin-bottom: 0 !important;
+
       .image {
          @apply max-w-[400px];
 
@@ -392,6 +396,7 @@
    background: $gradient-primary;
    padding-block: 4rem;
    min-height: initial;
+   margin-top: 0 !important;
    margin-bottom: 0 !important;
    position: relative;
    overflow: hidden;
@@ -422,6 +427,9 @@
    }
 
    @include responsive(lg) {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+
       .container {
          @apply flex-row  gap-12;
          @apply text-left mx-auto;

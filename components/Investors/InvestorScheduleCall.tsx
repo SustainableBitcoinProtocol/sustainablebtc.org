@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 import imgFooterFormBg from "@/public/home/whitepaperBG.svg";
 
-import styles from "@/styles/pages/HomeNew.module.scss";
+import styles from "@/styles/pages/Investors.module.scss";
 
 const InvestorScheduleCall = ({ scheduleCallData }: { scheduleCallData: any }) => {
    return (

@@ -12,7 +12,7 @@ import { urlFor } from "@/sanity/sanity-urlFor";
 import { PortableText } from "@portabletext/react";
 
 // Images
-import imgHero from "@/public/investors/heroImg.png";
+// import imgHero from "@/public/investors/heroImg.png";
 
 const InvestorHero = ({ heroData }: { heroData: any }) => {
    return (
@@ -39,9 +39,9 @@ const InvestorHero = ({ heroData }: { heroData: any }) => {
                         <PortableText value={heroData.heroPara} />
                      </div>
 
-                     <div className={styles.heroImg}>
+                     {/* <div className={styles.heroImg}>
                         <Image src={imgHero} alt="Hero Image" loading="eager" />
-                     </div>
+                     </div> */}
                   </>
                )}
             </div>
