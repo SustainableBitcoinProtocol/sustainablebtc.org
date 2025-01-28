@@ -45,6 +45,14 @@ const investPage = {
                name: "heroYoutubVideo",
                title: "Youtube Video",
                type: "string",
+            },
+            {
+               name: "heroVideo",
+               title: "Upload Video",
+               type: 'file',
+               options: {
+                  accept: 'video/*',
+               },
             }
          ],
       },

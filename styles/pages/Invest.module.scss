@@ -8,7 +8,14 @@
    }
 
    .image {
-      @apply w-full  aspect-video rounded-xl;
+      @apply w-full  aspect-video rounded-xl;      
+   }
+
+   .videoIframe{
+      pointer-events:  none !important;
+      &:hover{
+         pointer-events:  none !important;
+      }
    }
 
    @include responsive(md) {
