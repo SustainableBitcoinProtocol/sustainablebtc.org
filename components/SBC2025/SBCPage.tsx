@@ -11,7 +11,22 @@ export default async function SBC2025Page() {
 
    return (
       <>
+         {/* Hero */}
          <SBC2025Hero heroData={heroData} />
+
+         {/* What are SBC */}
+
+         {/* Trusted by global leaders */}
+
+         {/* Key features of SBC */}
+
+         {/* Problem & Solution */}
+
+         {/* How SBCs are created */}
+
+         {/* Schedule a call */}
+
+         {/* Benefits of investing */}
       </>
    );
 }

@@ -1,3 +1,4 @@
+import { title } from "process";
 import btn from "../components/btn-schema";
 
 const sbcPage2025 = {
@@ -44,13 +45,13 @@ const sbcPage2025 = {
          fields: [
             {
                name: "whatSBCHeading",
-               title: "SubHeading",
+               title: "Heading",
                type: "array",
                of: [{ type: "block" }],
             },
             {
                name: "whatSBCDescription",
-               title: "Title",
+               title: "Content",
                type: "array",
                of: [{ type: "block" }],
             },
@@ -65,30 +66,61 @@ const sbcPage2025 = {
                   },
                ],
             },
+            {
+               name: "whatSBCTable",
+               title: "Table",
+               type: "document",
+               fields: [
+                  {
+                     name: "whatSBCTableHeadings",
+                     title: "Table Heading",
+                     type: "array",
+                     of: [{type: "string"}]
+                  },
+                  {
+                     name: "whatSBCTableRows",
+                     title: "Table Rows",
+                     type: "array",
+                     of: [
+                       {
+                         type: "object",
+                         fields: [
+                           {
+                             name: "columns",
+                             title: "Row Columns",
+                             type: "array",
+                             of: [{ type: "string" }]
+                           }
+                         ]
+                       }
+                     ]
+                   }
+               ],
+            }
          ],
       },
       // Benefits
       {
-         name: "benefits",
-         title: "Benefits",
+         name: "keyFeatures",
+         title: "Key Features of SBC",
          type: "document",
          fields: [
             {
-               name: "benefitsHeading",
+               name: "keyFeaturesHeading",
                title: "Heading",
                type: "array",
                of: [{ type: "block" }],
             },
             {
-               name: "benefitsItems",
-               title: "Benefits Items",
+               name: "keyFeaturesItems",
+               title: "Key Features Items",
                type: "array",
                of: [
                   {
                      type: "document",
                      fields: [
                         {
-                           name: "benefitsItemImage",
+                           name: "keyFeaturesItemImage",
                            title: "Image",
                            type: "image",
                            options: { hotspot: true },
@@ -101,17 +133,105 @@ const sbcPage2025 = {
                            ],
                         },
                         {
-                           name: "benefitsItemTitle",
+                           name: "keyFeaturesItemTitle",
                            title: "Title",
+                           type: "string",
+                        },
+                        {
+                           name: "keyFeaturesItemDescription",
+                           title: "Description",
                            type: "string",
                         },
                      ],
                   },
                ],
+            }
+         ],
+      },
+      // Problems & Solution
+      {
+         name: "problemAndSolution",
+         title: "Problem & Solution",
+         type: "document",
+         fields: [
+            {
+               name: "problemsHeading",
+               title: "Problem Heading",
+               type: "array",
+               of: [{ type: "block" }],
             },
             {
-               name: "benefitsCTA",
-               title: "Call to Actions",
+               name: "problems",
+               title: "Problems",
+               type: "array",
+               of: [{ type: "block" }],
+            },
+            {
+               name: "solutionHeading",
+               title: "Soluiton Heading",
+               type: "array",
+               of: [{ type: "block" }],
+            },
+            {
+               name: "solution",
+               title: "Solutions",
+               type: "array",
+               of: [{ type: "block" }],
+            },
+         ],
+      },
+      // How SBCs are created
+      {
+         name: "howSBC",
+         title: "How SBC",
+         type: "document",
+         fields: [
+            {
+               name: "howSBC",
+               title: "How SBC Heading",
+               type: "array",
+               of: [{ type: "block" }],
+            },
+            {
+               name: "howSBCItems",
+               title: "Questions",
+               type: "array",
+               of: [
+                  {
+                     type: "document",
+                     fields: [
+                        {
+                           name: "howSBCItemQuestion",
+                           title: "Question",
+                           type: "string",
+                        },
+                        {
+                           name: "howSBCItemAnswer",
+                           title: "Answer",
+                           type: "array",
+                           of: [{ type: "block" }],
+                        },
+                     ],
+                  },
+               ]
+            }
+         ],
+      },
+      // Schedule a Call
+      {
+         name: "scheduleCall",
+         title: "Schedule a Call",
+         type: "document",
+         fields: [
+            {
+               name: "scheduleCallHeading",
+               title: "Schedule Call Heading",
+               type: "array",
+               of: [{ type: "block" }],
+            },
+            {
+               name: "scheduleCallHeadingCTA",
+               title: "CTA",
                type: "array",
                of: [
                   {
@@ -120,119 +240,31 @@ const sbcPage2025 = {
                   },
                ],
             },
-         ],
+         ]
       },
-      // Comparison
+      // Benefits of SBC
       {
-         name: "comparison",
-         title: "Comparison",
+         name: "benefitsOfSBC",
+         title: "Benefits of SBC",
          type: "document",
          fields: [
             {
-               name: "comparisonTitle",
-               title: "Title",
+               name: "benefitsOfSBCHeading",
+               title: "Heading",
                type: "array",
                of: [{ type: "block" }],
             },
             {
-               name: "comparisonFeatures",
-               title: "Comparison Features",
-               type: "array",
-               of: [{ type: "string" }],
-            },
-            {
-               name: "comparisonImageGreen",
-               title: "Image Showing Sustainable Environment",
-               type: "image",
-               options: { hotspot: true },
-               fields: [
-                  {
-                     name: "alt",
-                     title: "Alt",
-                     type: "string",
-                  },
-               ],
-            },
-            {
-               name: "comparisonImageDark",
-               title: "Image Showing Dark Environment",
-               type: "image",
-               options: { hotspot: true },
-               fields: [
-                  {
-                     name: "alt",
-                     title: "Alt",
-                     type: "string",
-                  },
-               ],
-            },
-         ],
-      },
-      // About
-      {
-         name: "aboutSBC",
-         title: "About SBC",
-         type: "document",
-         fields: [
-            {
-               name: "aboutSBCHeading",
-               title: "SBC Heading",
-               type: "array",
-               of: [{ type: "block" }],
-            },
-            {
-               name: "aboutSBCSubHeading",
-               title: "SBC Sub Heading",
-               type: "array",
-               of: [{ type: "block" }],
-            },
-            {
-               name: "aboutSBCDescription",
-               title: "SBC Description",
-               type: "array",
-               of: [{ type: "block" }],
-            },
-            {
-               name: "aboutSBCCTA",
-               title: "Call to Actions",
+               name: "benefitsOfSBCItems",
+               title: "SBC Item",
                type: "array",
                of: [
                   {
-                     type: "document",
-                     fields: btn,
+                     type: "string",
                   },
                ],
             },
-         ],
-      },
-      // Bitcoin Miners
-      {
-         name: "bitcoinMiners",
-         title: "Bitcoin Miners",
-         type: "document",
-         fields: [
-            {
-               name: "bitcoinMinersHeading",
-               title: "Bitcoin Miner's Heading",
-               type: "array",
-               of: [{ type: "block" }],
-            },
-            {
-               name: "bitcoinMinersFeatures",
-               title: "Bitcoin Miner's Features",
-               type: "array",
-               of: [{ type: "string" }],
-            },
-            {
-               name: "heroCompanyImages",
-               type: "array",
-               of: [{ type: "image" }],
-               options: {
-                  layout: "grid",
-                  hotspot: true,
-               },
-            },
-         ],
+         ]
       },
    ],
 };

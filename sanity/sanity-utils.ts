@@ -94,9 +94,10 @@ export async function getSBCPageData() {
 }
 export async function getSBC2025PageData() {
    return client.fetch(
-      groq`*[_type=="sbcPage"][0]{
+      groq`*[_type=="sbcPage2025"][0]{
          _id,
          hero,
+         whatSBC,
       }`,
       {
          next: { revalidate: 10 },

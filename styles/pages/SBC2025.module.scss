@@ -1,0 +1,224 @@
+.heroBg{
+   @apply absolute top-0 right-0 w-full z-0;
+   @apply pointer-events-none select-none;
+   @apply opacity-60;
+
+   @include responsive(lg) {
+      @apply w-[90%];
+   }
+}
+
+.hero{
+   @apply relative; //position
+   @apply pt-16 overflow-hidden; //box
+
+   .container {
+      @apply relative; //position
+      @apply flex items-center justify-center rounded-md; //layout
+      @apply mt-8 px-8 min-h-[75vh]; //box
+      @apply max-w-[1260px];
+      background: rgba($color: color($color-light), $alpha: 0.05);
+      backdrop-filter: blur(2px);
+   }
+
+   .heroWrapper{
+      @include flex-column;
+      @apply gap-6;
+   }
+
+   .heroImg{
+      @apply hidden;
+   }
+
+   // heading
+   .heroHeading {
+      @apply max-w-[1000px]; //box
+
+      h1 {
+         @apply font-black text-3xl leading-[110%]; //font
+      }
+
+      b,
+      strong {
+         @apply font-black block;
+         @include text-gradient(primaryReverse);
+      }
+   }
+
+   .heroPara{
+      @apply max-w-[500px];
+      
+      h6{
+         @apply font-normal
+      }
+   }
+
+   // image animation
+   .sbcImage {
+      @apply absolute -bottom-20 right-0 grid place-content-center;
+      @apply w-fit mx-auto max-w-[200px];
+
+      img {
+         @apply relative z-20;
+      }
+
+      &::before {
+         content: "";
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         translate: -50% -50%;
+         scale: 0.4;
+         background: url("../../public/home/trust-shade.svg");
+         background-repeat: no-repeat;
+         background-position: center;
+         width: 200%;
+         height: 200%;
+         z-index: 0;
+         animation: rotation 15s infinite linear;
+      }
+
+      @keyframes rotation {
+         from {
+            transform: translate(0%, 0%) rotate(0deg);
+         }
+
+         50% {
+            transform: translate(0%, -5%) rotate(180deg);
+         }
+
+         to {
+            transform: translate(0%, 0%) rotate(359deg);
+         }
+      }
+
+      // Bitcoin
+      .bitcoin {
+         @apply absolute;
+         @apply transition-all divide-gray-300 ease-out;
+         animation: blinkAnimation 5s infinite;
+
+         &1 {
+            @apply top-1/2 -left-[10px];
+            animation-delay: 0.2s;
+         }
+
+         &2 {
+            @apply top-0 left-1/2 -translate-x-1/2 -translate-y-1/2;
+         }
+
+         &3 {
+            @apply top-[30%] right-[17%];
+            animation-delay: 0.4s;
+         }
+
+         &4 {
+            @apply bottom-[20%] right-[26%];
+            animation-delay: 0.5s;
+         }
+
+         &5 {
+            @apply bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2;
+            animation-delay: 1s;
+         }
+
+         @keyframes blinkAnimation {
+            from {
+               opacity: 1;
+            }
+
+            50% {
+               opacity: 0;
+            }
+
+            to {
+               opacity: 1;
+            }
+         }
+      }
+   }
+
+   // Responsive for Tablet
+   @include responsive(md) {
+      .container {
+         @apply pt-0;
+      }
+
+      .heroHeading {
+         h1 {
+            @apply text-4xl leading-[120%]; //font
+         }
+
+         b,
+         strong {
+            display: initial !important;
+         }
+      }
+   }
+
+   // Responsive for Desktop
+   @include responsive(lg) {
+      @apply pt-0; //box
+
+      .container {
+         @apply mt-24 mx-auto;
+      }
+
+      .heroHeading {
+         h1 {
+            @apply text-5xl leading-[120%]; //font
+         }
+
+         b,
+         strong {
+            display: initial !important;
+         }
+      }
+      
+      .heroWrapper{
+         @apply ml-10
+      }
+   }
+
+   @include responsive(xl) {
+
+      .heroImg{
+         @apply relative block z-10 max-w-[75vh];
+      }
+
+      .sbcImage {
+         @apply max-w-[250px];
+         @apply absolute bottom-6 right-56 z-20;
+
+         &::before {
+            scale: 0.5;
+         }
+
+         .bitcoin {
+            &1 {
+               @apply top-1/2 -left-[10px];
+               animation-delay: 0.2s;
+            }
+
+            &2 {
+               @apply top-1/2 left-1/2 -translate-x-1/2 -translate-y-[135px];
+            }
+
+            &3 {
+               @apply top-[30%] right-[15%];
+               animation-delay: 0.4s;
+            }
+
+            &4 {
+               @apply bottom-[25%] right-[18%];
+               animation-delay: 0.5s;
+            }
+
+            &5 {
+               @apply bottom-1/2 left-1/2 -translate-x-1/2 translate-y-[135px];
+               animation-delay: 1s;
+            }
+         }
+      }
+   }
+}
