@@ -9,12 +9,14 @@ import SBCProblemAndSolution from "./SBCProblemAndSolution";
 // import Sanity
 import { getSBC2025PageData, getMinerPageData } from "@/sanity/sanity-utils";
 import SBCFaq from "./SBCFaq";
+import SBCWhatIsSBC from "./SBCWhatIsSBC";
 
 export default async function SBC2025Page() {
    const sbcPageData = await getSBC2025PageData();
    const minerPageData = await getMinerPageData();
 
    const heroData = sbcPageData.hero || null;
+   const whatSBCData = sbcPageData.whatSBC || null;
    const minerData = minerPageData.hero || null;
    const scheduleCallData = sbcPageData.scheduleCall || null;
    const faqData = sbcPageData.howSBC || null;
@@ -27,6 +29,7 @@ export default async function SBC2025Page() {
          <SBC2025Hero heroData={heroData} />
 
          {/* What are SBC */}
+         <SBCWhatIsSBC whatSBCData={whatSBCData}/>
 
          {/* Trusted by global leaders */}
          <HomeMiners minerData={minerData}/>
