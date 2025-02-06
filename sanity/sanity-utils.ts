@@ -98,6 +98,10 @@ export async function getSBC2025PageData() {
          _id,
          hero,
          whatSBC,
+         howSBC,
+         problemAndSolution,
+         scheduleCall,
+         benefitsOfSBC
       }`,
       {
          next: { revalidate: 10 },

@@ -199,3 +199,14 @@
    }
    // #endregion
 }
+
+.SBCFaq{
+   @include responsive(md) {
+      .container{
+         @apply flex-col max-w-[900px];
+      }
+      .wrapper{
+         @apply min-w-[300px]
+      }
+   }
+}

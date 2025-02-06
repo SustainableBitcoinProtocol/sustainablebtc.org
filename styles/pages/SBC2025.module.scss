@@ -222,3 +222,258 @@
       }
    }
 }
+
+.scheduleCall {
+   background: $gradient-primary;
+   padding-block: 4rem;
+   min-height: initial;
+   margin-top: 0 !important;
+   margin-bottom: 0 !important;
+   position: relative;
+   overflow: hidden;
+
+   .container {
+      @apply flex flex-col justify-between items-center gap-8;
+      @apply text-center;
+      @apply max-w-[900px];
+   }
+   
+   .scheduleCallHeading{
+      @apply max-w-[500px];
+
+      p{
+         @apply text-xl
+      }
+   }
+
+   .scheduleCallCTA {
+      white-space: nowrap;
+
+      button,
+      a {
+         background: color($color-dark);
+         border-color: color($color-light);
+
+         &:hover {
+            background: color($color-dark, 600);
+         }
+      }
+   }
+
+   .scheduleCallBg {
+      @apply absolute top-1/2 left-1/2 -translate-y-1/2;
+      @apply h-[400px] aspect-square opacity-50;
+   }
+
+   @include responsive(lg) {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+
+      .container {
+         @apply flex-row  gap-12;
+         @apply text-left mx-auto;
+      }
+   }
+}
+
+
+.sbcBenefits{
+   margin-block: 0 !important;
+   padding-block: 50px;
+   background: linear-gradient(39deg, rgba(51, 157, 255, 0.1) 0%, rgba(14, 193, 211, 0.1) 100%);
+
+   .container{
+      @apply max-w-[900px];
+   }
+
+   .heading{
+      @apply w-full mx-auto;
+      @apply mb-12;
+   }
+
+   .benefitsItems{
+      @apply grid gap-4 gap-y-6;
+
+      .benefitsItem{
+         @apply flex gap-4;
+
+         i{
+            @include gradient-text;
+         }
+      }
+   }
+
+   @include responsive(md) {
+      padding-block: 70px;
+      .container{
+         @apply mx-auto;
+      }
+
+      .heading{
+         @apply mb-16;
+         @apply text-center;
+      }
+
+      .benefitsItems{
+         @apply grid-cols-2 gap-8;
+
+         .benefitsItem{
+            i{
+               @apply text-xl;
+            }
+         }
+      }
+   }
+   @include responsive(lg) {
+      padding-block: 100px;
+   }
+}
+
+.problemAndSolution{
+   background: url("../../public/sbc/problemAndSolutionBg.jpg");
+   background-size: cover;
+   background-position: center;
+   padding-block: 50px;
+   position: relative;
+
+   .wrapper{
+      @apply flex flex-col gap-[50px];
+
+      .heading{
+         @apply mb-4;
+
+         h3{
+            @apply text-2xl;
+         }
+      }
+
+      .description{
+         p{
+            @apply text-base;
+         }
+      }
+   }
+
+   .sbcImage{
+      @apply hidden;
+   }
+
+   @include responsive(md){
+      .wrapper{
+         @apply flex-row;
+
+         .heading{
+            h3{
+               @apply text-3xl;
+            }
+         }
+   
+         .description{
+            p{
+               @apply text-lg;
+            }
+         }
+      }
+   }
+
+   @include responsive(lg){
+      padding-block: 70px;
+
+      .sbcImage{
+         @apply block;
+      }
+
+      .sbcImage {
+         @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2; 
+         @apply grid place-content-center;
+         @apply w-fit mx-auto max-w-[300px];
+   
+         img {
+            @apply relative z-20;
+         }
+   
+         &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
+            scale: 0.6;
+            background: url("../../public/home/trust-shade.svg");
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 200%;
+            height: 200%;
+            z-index: 0;
+            animation: rotation 15s infinite linear;
+         }
+   
+         @keyframes rotation {
+            from {
+               transform: translate(0%, 0%) rotate(0deg);
+            }
+   
+            50% {
+               transform: translate(0%, -5%) rotate(180deg);
+            }
+   
+            to {
+               transform: translate(0%, 0%) rotate(359deg);
+            }
+         }
+   
+         // Bitcoin
+         .bitcoin {
+            @apply absolute;
+            @apply transition-all divide-gray-300 ease-out;
+            animation: blinkAnimation 5s infinite;
+   
+            &1 {
+               @apply top-1/2 -left-[10px];
+               animation-delay: 0.2s;
+            }
+   
+            &2 {
+               @apply top-0 left-1/2 -translate-x-1/2 -translate-y-1/2;
+            }
+   
+            &3 {
+               @apply top-[30%] right-[17%];
+               animation-delay: 0.4s;
+            }
+   
+            &4 {
+               @apply bottom-[20%] right-[26%];
+               animation-delay: 0.5s;
+            }
+   
+            &5 {
+               @apply bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2;
+               animation-delay: 1s;
+            }
+   
+            @keyframes blinkAnimation {
+               from {
+                  opacity: 1;
+               }
+   
+               50% {
+                  opacity: 0;
+               }
+   
+               to {
+                  opacity: 1;
+               }
+            }
+         }
+      }
+
+      .wrapper{
+         @apply gap-[400px];
+
+         .heading{
+            @apply mb-8;
+         }
+      }
+   }
+}

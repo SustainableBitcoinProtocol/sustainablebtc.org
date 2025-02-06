@@ -187,7 +187,7 @@ const sbcPage2025 = {
          type: "document",
          fields: [
             {
-               name: "howSBC",
+               name: "howSBCHeading",
                title: "How SBC Heading",
                type: "array",
                of: [{ type: "block" }],
