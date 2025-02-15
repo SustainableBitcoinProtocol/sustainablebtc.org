@@ -122,15 +122,7 @@ const sbcPage2025 = {
                         {
                            name: "keyFeaturesItemImage",
                            title: "Image",
-                           type: "image",
-                           options: { hotspot: true },
-                           fields: [
-                              {
-                                 name: "alt",
-                                 title: "Alt",
-                                 type: "string",
-                              },
-                           ],
+                           type: "string",
                         },
                         {
                            name: "keyFeaturesItemTitle",

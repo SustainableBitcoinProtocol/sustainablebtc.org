@@ -98,6 +98,7 @@ export async function getSBC2025PageData() {
          _id,
          hero,
          whatSBC,
+         keyFeatures,
          howSBC,
          problemAndSolution,
          scheduleCall,

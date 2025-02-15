@@ -5,6 +5,7 @@ import HomeMiners from "../HomeNew/HomeMiners";
 import SBCScheduleCall from "./SBCScheduleCall";
 import SBCBenefits from "./SBCBenefits";
 import SBCProblemAndSolution from "./SBCProblemAndSolution";
+import SBCKeyFeatures from "./SBCKeyFeatures";
 
 // import Sanity
 import { getSBC2025PageData, getMinerPageData } from "@/sanity/sanity-utils";
@@ -17,6 +18,7 @@ export default async function SBC2025Page() {
 
    const heroData = sbcPageData.hero || null;
    const whatSBCData = sbcPageData.whatSBC || null;
+   const keyFeaturesData = sbcPageData.keyFeatures || null;
    const minerData = minerPageData.hero || null;
    const scheduleCallData = sbcPageData.scheduleCall || null;
    const faqData = sbcPageData.howSBC || null;
@@ -35,6 +37,7 @@ export default async function SBC2025Page() {
          <HomeMiners minerData={minerData}/>
 
          {/* Key features of SBC */}
+         <SBCKeyFeatures keyFeaturesData = {keyFeaturesData} />
 
          {/* Problem & Solution */}
          <SBCProblemAndSolution problemAndSolutionData={problemAndSolutionData}/>

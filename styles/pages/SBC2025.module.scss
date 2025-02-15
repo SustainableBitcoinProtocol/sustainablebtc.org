@@ -334,6 +334,7 @@
    background-position: center;
    padding-block: 50px;
    position: relative;
+   margin-top: 0 !important;
 
    .wrapper{
       @apply flex flex-col gap-[50px];
@@ -377,6 +378,7 @@
 
    @include responsive(lg){
       padding-block: 70px;
+      margin-top: 0 !important;
 
       .sbcImage{
          @apply block;
@@ -560,4 +562,63 @@
 .saperator{
    @apply w-full h-2;
    background: linear-gradient(39deg, rgba(51, 157, 255, 0.1) 0%, rgba(14, 193, 211, 0.1) 100%);
+}
+
+.keyFeatures{
+   @apply relative;
+   margin-block: 0 !important;
+
+   background: linear-gradient(39deg, rgba(51, 157, 255, 0.1) 0%, rgba(14, 193, 211, 0.1) 100%),
+               url("../../public/sbc/keyFeaturesSBCBackground.jpg");
+   background-size: contain;
+   background-repeat: no-repeat;
+   background-position: center;
+
+   .container{
+      padding-block: 20px;
+   }
+
+   .keyFeaturesHeading{
+      @apply text-center my-4;
+   }
+
+   .keyFeaturesContent{
+      @apply rounded-2xl border-[1px] border-[#0ec1d3] mx-auto;
+      padding: 20px;
+      background-color: color($color-dark);
+   }
+
+   .keyFeaturesItems{
+      @apply grid grid-cols-1 gap-[20px];
+      @apply mt-8
+   }
+
+   .keyFeaturesItem{
+      @include flex-center;
+      @include flex-column;
+      @apply justify-start;
+      @apply gap-4 text-center rounded-lg p-4 py-6;
+      background: linear-gradient(39deg, rgba(51, 157, 255, 0.1) 0%, rgba(14, 193, 211, 0.1) 100%);
+      border-bottom: 4px solid #339dff;
+   }
+
+   @include responsive(md){
+      .container{
+         padding-block: 70px;
+      }
+      .keyFeaturesContent{
+         padding: 60px 50px;
+      }
+      .keyFeaturesItems{
+         @apply grid-cols-2
+      }
+   }
+   @include responsive(lg){
+      .container{
+         padding-block: 100px;
+      }
+      .keyFeaturesItems{
+         @apply grid-cols-4 gap-4
+      }
+   }
 }
