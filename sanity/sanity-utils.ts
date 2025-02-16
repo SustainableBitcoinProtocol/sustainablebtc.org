@@ -295,4 +295,19 @@ export async function getInvestPageData() {
       }
    );
 }
+
+export async function getLearningCentrePageData() {
+   return client.fetch(
+      groq`*[_type=="learningCentrePage"][0]{
+         _id,
+         hero,
+         videoLessons
+      }`,
+      {
+         next: { revalidate: 10 },
+      }
+   );
+}
+
+
 // #endregion

@@ -15,6 +15,7 @@ import miscellaneousPage from "./miscellaneousPage-schema";
 import faqPage from "./faqPage-schema";
 import blogCategories from "../components/blogCategories-schema";
 import investPage from "./investPage-schema";
+import learningCentrePage from "./learningCentrePage-schema";
 
 const schemas = [
    navbar,
@@ -32,7 +33,8 @@ const schemas = [
    miscellaneousPage,
    faqPage,
    blogCategories,
-   investPage
+   investPage,
+   learningCentrePage
 ];
 
 export default schemas;

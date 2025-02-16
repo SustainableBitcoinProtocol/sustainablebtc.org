@@ -17,7 +17,8 @@ const singletonTypes = new Set([
    "getStartedPage",
    "contactPage",
    "faqPage",
-   "investPage"
+   "investPage",
+   "learningCentrePage"
 ]);
 
 const config = defineConfig({
@@ -122,6 +123,16 @@ const config = defineConfig({
                      "Blog / Categories"
                   ),
                   S.documentTypeListItem("news").title("Blog / Articles"),
+
+                  // Learning Centre
+                  S.listItem()
+                     .title("Page / Learning Centre")
+                     .id("learningCentrePage")
+                     .child(
+                        S.document()
+                           .schemaType("learningCentrePage")
+                           .documentId("learningCentrePage")
+                     ),
 
                   // Regular Documents
                   S.documentTypeListItem("miscellaneousPage").title(
