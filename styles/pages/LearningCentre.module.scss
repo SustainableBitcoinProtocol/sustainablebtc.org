@@ -1,4 +1,6 @@
 .hero {
+   margin-bottom: 0 !important;
+
    .container {
       @apply relative; //position
       @apply flex items-center justify-center flex-col gap-4 text-center rounded-lg; //layout
@@ -30,6 +32,8 @@
 }
 
 .videoLesson {
+   @apply mt-12 #{!important};
+
    .videoWrapper {
       @apply grid grid-cols-1 gap-8 gap-y-12;
 
