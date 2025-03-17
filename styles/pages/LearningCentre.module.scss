@@ -1,33 +1,48 @@
 .hero {
    margin-bottom: 0 !important;
 
-   .container {
-      @apply relative; //position
-      @apply flex items-center justify-center flex-col gap-4 text-center rounded-lg; //layout
-      @apply mt-[9.5rem] px-4 min-h-[70vh]; //box
-      @apply max-w-[1270px] overflow-hidden;
+   @apply relative; //position
+   @apply flex items-center justify-center flex-col gap-4 text-center; //layout
+   @apply px-4 min-h-[60vh]; //box
+   @apply overflow-hidden;
+   margin-top: 9.5rem !important;
 
-      &::after {
-         content: "";
-         position: absolute;
-         top: 0;
-         left: 0;
-         width: 100%;
-         height: 100%;
-         background: url("../../public/learning-center/learningCentreHeroBg.png")
-            center/cover no-repeat;
-         opacity: 0.2; /* Adjust opacity */
-      }
+   &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("../../public/learning-center/learningCentreHeroBg.png")
+         center/cover no-repeat;
+      opacity: 0.2; /* Adjust opacity */
+   }
 
-      * {
-         @apply relative z-10;
-      }
+   * {
+      @apply relative z-10;
    }
 
    .heroDescription {
       p {
-         @apply text-lg;
+         @apply text-xl;
       }
+   }
+
+   .heroTags{
+      @apply flex justify-center items-center gap-2 flex-wrap;
+      @apply mt-4;
+
+      span{
+         @apply inline-block p-2 px-6;
+         @apply rounded-full text-sm;
+         background: rgba($color: #339dff, $alpha: 0.2);
+         border: 1px solid rgba($color: #339dff, $alpha: 0.5);
+      }
+   }
+
+   @include responsive(md){
+      margin-top: 100px !important;
    }
 }
 
@@ -76,10 +91,11 @@
    .videoItemImageWrapper {
       @apply relative;
       @apply overflow-hidden;
+      @apply cursor-pointer;
 
       .videoItemImageBubble {
          @apply rounded-md py-1 px-2 text-sm;
-         @apply absolute top-4 left-4;
+         @apply absolute top-4 left-4 z-10;
 
          color: color($color-light);
          background: linear-gradient(
@@ -92,6 +108,13 @@
       .videoItemImage {
          @apply rounded-lg;
          @apply aspect-video w-full object-contain;
+         @apply transition-all ease-linear duration-75;
+      }
+
+      &:hover{
+         .videoItemImage{
+            @apply scale-[1.1]
+         }
       }
    }
 

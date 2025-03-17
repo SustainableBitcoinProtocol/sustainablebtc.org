@@ -22,8 +22,8 @@ export default async function LearningCentrePage() {
    <>
       <LearningCentreHero heroData={heroData} />
       <LearningCentreLesson videoLessonData={videoLessonData}/>
-      <HomeFaq faqData={faqData} faqsData={faqsData} />
       <HomeWhitepaperDownload whitepaperdownloadData={whitepaperdownloadData} />
+      <HomeFaq faqData={faqData} faqsData={faqsData} />
    </>
   )
 }

@@ -31,7 +31,7 @@ const LearningCentreLesson = ({ videoLessonData }: { videoLessonData: any }) => 
                            <>
                               <div className={styles.videoItem} key={i}>
                                  {/* Image */}
-                                 <div className={styles.videoItemImageWrapper}>
+                                 <div className={styles.videoItemImageWrapper} onClick={() => openVideoModal(lesson.videoLessonButton[0].btnOptions.btnSlug)}>
                                     <span className={styles.videoItemImageBubble}>Lesson {i + 1}</span>
                                     {lesson.videoLessonImage && (
                                        <Image

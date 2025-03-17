@@ -10,18 +10,23 @@ const LearningCentreHero = ({ heroData }: { heroData: any }) => {
    return (
       <>
          <section className={styles.hero}>
-            <div className={`container ${styles.container}`}>
-               {heroData &&
-                  <>
-                     <div className='portableText'>
-                        <PortableText value={heroData.heroHeading} />
-                     </div>
-                     <div className={`portableText ${styles.heroDescription}`}>
-                        <PortableText value={heroData.heroDescription} />
-                     </div>
-                  </>
-               }
-            </div>
+            {heroData &&
+               <>
+                  <div className='portableText'>
+                     <PortableText value={heroData.heroHeading} />
+                  </div>
+                  <div className={`portableText ${styles.heroDescription}`}>
+                     <PortableText value={heroData.heroDescription} />
+                  </div>
+                  <div className={styles.heroTags}>
+                     {heroData.heroTags.map((tag: string) => (
+                        <>
+                           <span>{tag}</span>
+                        </>
+                     ))}
+                  </div>
+               </>
+            }
          </section>
 
       </>

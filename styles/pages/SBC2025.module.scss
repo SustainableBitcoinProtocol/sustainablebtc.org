@@ -14,8 +14,8 @@
 
    .container {
       @apply relative; //position
-      @apply flex items-center justify-center rounded-md; //layout
-      @apply mt-8 px-8 min-h-[75vh]; //box
+      @apply flex items-start justify-center rounded-md; //layout
+      @apply mt-8 px-8 min-h-[calc(75vh-5rem)] pt-20; //box
       @apply max-w-[1260px];
       background: rgba($color: color($color-light), $alpha: 0.05);
       backdrop-filter: blur(2px);
@@ -62,7 +62,7 @@
 
    // image animation
    .sbcImage {
-      @apply absolute -bottom-20 right-0 grid place-content-center;
+      @apply absolute bottom-8 right-4 grid place-content-center;
       @apply w-fit mx-auto max-w-[200px];
 
       img {
@@ -148,7 +148,7 @@
    // Responsive for Tablet
    @include responsive(md) {
       .container {
-         @apply pt-0;
+         @apply pt-0 items-center;
       }
 
       .heroHeading {
@@ -341,7 +341,7 @@
 .problemAndSolution{
    background: url("../../public/sbc/problemAndSolutionBg.jpg");
    background-size: cover;
-   background-position: center;
+   background-position: left;
    padding-block: 50px;
    position: relative;
    margin-top: 0 !important;
@@ -369,6 +369,8 @@
    }
 
    @include responsive(md){
+      background-position: center;
+      
       .wrapper{
          @apply flex-row;
 
@@ -492,22 +494,29 @@
 .whatSBC{
    @apply overflow-hidden; //box
    min-height: initial !important;
-   margin-block: 5rem !important;
+   margin-block: 20px 5rem !important;
 
    .container {
       @apply mx-auto px-4;
    }
 
    .wrapper {
-      @apply grid gap-8 justify-center;
+      @apply grid justify-center;
    }
 
    .image {
-      @apply hidden;
       @apply w-full mx-auto rounded-3xl;
 
       img{
          @apply w-full
+      }
+   }
+
+   .aboutCTA{
+      a{
+         line-height: 140%;
+         width: min-content;
+         min-width: 250px
       }
    }
 
@@ -534,6 +543,13 @@
    // #region Responsive
    // Responsive for Tablet
    @include responsive(md) {
+      .aboutCTA{
+         a{
+            line-height: 100%;
+            width: fit-content;
+            min-width: initial
+         }
+      }
    }
 
    // Responsive for Desktop
