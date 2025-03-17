@@ -47,7 +47,7 @@
 }
 
 .videoLesson {
-   @apply mt-12 #{!important};
+   margin-top: 3rem !important;
 
    .videoWrapper {
       @apply grid grid-cols-1 gap-8 gap-y-12;
@@ -91,7 +91,7 @@
    .videoItemImageWrapper {
       @apply relative;
       @apply overflow-hidden;
-      @apply cursor-pointer;
+      @apply cursor-pointer rounded-lg;
 
       .videoItemImageBubble {
          @apply rounded-md py-1 px-2 text-sm;
