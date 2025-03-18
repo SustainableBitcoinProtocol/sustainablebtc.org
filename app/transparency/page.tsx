@@ -1,6 +1,7 @@
 import React from "react";
 import { Metadata } from "next";
 import TransparencyPage from "@/components/Transparency/TransparencyPage";
+import NotFound from "../not-found";
 
 export const metadata: Metadata = {
    title: "Transparency | Sustainable Bitcoin Protocol",
@@ -9,7 +10,8 @@ export const metadata: Metadata = {
 };
 
 const page = () => {
-   return <TransparencyPage />;
+   // return <TransparencyPage />;
+   return <NotFound />;
 };
 
 export default page;
