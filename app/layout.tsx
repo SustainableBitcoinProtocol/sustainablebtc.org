@@ -70,21 +70,22 @@ export default function RootLayout({
 }) {
    return (
       <>
-         <>
-            <Script
-               src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_MEASUREMENT_ID}`}
-            />
-            <Script id="google-analytics">
-               {`
-                  window.dataLayer = window.dataLayer || [];
-                  function gtag(){dataLayer.push(arguments);}
-                  gtag('js', new Date());
-         
-                  gtag('config', '${process.env.GA_MEASUREMENT_ID}');
-               `}
-            </Script>
-         </>
          <html lang="en" className={helveticaNowDisplay.className}>
+            <head>
+               <meta name="google-site-verification" content="RK55EZhe1N5sd8lCzt8yTh88BFhjqcmkkT_pHNQ03bg" />
+               <Script
+                  src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_MEASUREMENT_ID}`}
+               />
+               <Script id="google-analytics">
+                  {`
+                 window.dataLayer = window.dataLayer || [];
+                 function gtag(){dataLayer.push(arguments);}
+                 gtag('js', new Date());
+          
+                 gtag('config', '${process.env.GA_MEASUREMENT_ID}');
+               `}
+               </Script>
+            </head>
             <body>
                {/* Progressbar */}
                <ProgressBar />
