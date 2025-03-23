@@ -74,7 +74,7 @@ export default function RootLayout({
             {/* OG Titles */}
             <meta property="og:title" content="Sustainable Bitcoin Protocol | Accelerating the Clean Energy Transition: Powered by Bitcoin" />
             <meta property="og:description" content="Discover how Sustainable Bitcoin Protocol (SBP) aligns Bitcoin mining with renewable energy to drive financial returns and climate impact. Learn about Sustainable Bitcoin Certificates (SBCs), a climate-positive asset and the groundbreaking solution for clean energy Bitcoin investments, methane mitigation, and environmental transparency. Explore how institutional investors can accelerate renewable energy adoption, decarbonize digital assets, and create a new class of appreciating environmental commodities." />
-            <meta property="og:image" content="https://www.sustainablebtc.com/SBPthumbnail.png" />
+            <meta property="og:image" content="https://www.sustainablebtc.org/SBPthumbnail.png" />
             <meta property="og:url" content="https://www.sustainablebtc.org" />
             <meta name="twitter:card" content="summary_large_image" />
 
