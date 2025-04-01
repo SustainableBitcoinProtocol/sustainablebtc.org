@@ -4,6 +4,8 @@ import "@/styles/global.scss";
 // Imports
 import localFont from "@next/font/local";
 import Script from "next/script";
+import Head from "next/head";
+import type { Metadata } from "next";
 
 // Custom Components
 import Header from "@/components/HeaderFooter/Header";
@@ -63,6 +65,23 @@ const helveticaNowDisplay = localFont({
    ],
 });
 
+// Defining Metadata
+export const metadata: Metadata = {
+   openGraph: {
+      title: "Sustainable Bitcoin Protocol | Accelerating the Clean Energy Transition: Powered by Bitcoin",
+      description:
+         "Discover how Sustainable Bitcoin Protocol (SBP) aligns Bitcoin mining with renewable energy to drive financial returns and climate impact. Learn about Sustainable Bitcoin Certificates (SBCs), a climate-positive asset and the groundbreaking solution for clean energy Bitcoin investments, methane mitigation, and environmental transparency. Explore how institutional investors can accelerate renewable energy adoption, decarbonize digital assets, and create a new class of appreciating environmental commodities.",
+      images: "https://www.sustainablebtc.org/SBPthumbnail.png",
+      url: "https://www.sustainablebtc.org",
+   },
+   twitter: {
+      card: "summary_large_image",
+   },
+   other: {
+      "google-site-verification": process.env.GSC_VERIFICATION_CODE || "",
+   },
+};
+
 export default function RootLayout({
    children, // will be a page or nested layout
 }: {
@@ -70,41 +89,32 @@ export default function RootLayout({
 }) {
    return (
       <>
-         <head>
-            {/* OG Titles */}
-            <meta property="og:title" content="Sustainable Bitcoin Protocol | Accelerating the Clean Energy Transition: Powered by Bitcoin" />
-            <meta property="og:description" content="Discover how Sustainable Bitcoin Protocol (SBP) aligns Bitcoin mining with renewable energy to drive financial returns and climate impact. Learn about Sustainable Bitcoin Certificates (SBCs), a climate-positive asset and the groundbreaking solution for clean energy Bitcoin investments, methane mitigation, and environmental transparency. Explore how institutional investors can accelerate renewable energy adoption, decarbonize digital assets, and create a new class of appreciating environmental commodities." />
-            <meta property="og:image" content="https://www.sustainablebtc.org/SBPthumbnail.png" />
-            <meta property="og:url" content="https://www.sustainablebtc.org" />
-            <meta name="twitter:card" content="summary_large_image" />
-
-            {/* Google SEO */}
-            <meta name="google-site-verification" content="RK55EZhe1N5sd8lCzt8yTh88BFhjqcmkkT_pHNQ03bg" />
-            <Script
-               src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_MEASUREMENT_ID}`}
-            />
-            <Script id="google-analytics">
-               {`
-                  window.dataLayer = window.dataLayer || [];
-                  function gtag(){dataLayer.push(arguments);}
-                  gtag('js', new Date());
-         
-                  gtag('config', '${process.env.GA_MEASUREMENT_ID}');
-               `}
-            </Script>
-         </head>
          <html lang="en" className={helveticaNowDisplay.className}>
             <body>
-               {/* Progressbar */}
+               {/* Progress Bar */}
                <ProgressBar />
                {/* Navbar */}
                <Header />
-               {/* Breadcrum */}
+               {/* Breadcrumb */}
                <Breadcrum />
-               {/* Main */}
+               {/* Main Content */}
                <main>{children}</main>
                {/* Footer */}
                <Footer />
+
+               {/* Google Analytics */}
+               <Script
+                  src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_MEASUREMENT_ID}`}
+                  strategy="afterInteractive"
+               />
+               <Script id="google-analytics" strategy="afterInteractive">
+                  {`
+                     window.dataLayer = window.dataLayer || [];
+                     function gtag(){dataLayer.push(arguments);}
+                     gtag('js', new Date());
+                     gtag('config', '${process.env.GA_MEASUREMENT_ID}');
+                  `}
+               </Script>
             </body>
          </html>
       </>
