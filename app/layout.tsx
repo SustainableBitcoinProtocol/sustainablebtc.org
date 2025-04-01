@@ -4,7 +4,6 @@ import "@/styles/global.scss";
 // Imports
 import localFont from "@next/font/local";
 import Script from "next/script";
-import Head from "next/head";
 import type { Metadata } from "next";
 
 // Custom Components
@@ -18,6 +17,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/free-mode";
+import Head from "next/head";
 
 // Defining Fonts
 const helveticaNowDisplay = localFont({
@@ -66,19 +66,20 @@ const helveticaNowDisplay = localFont({
 });
 
 // Defining Metadata
-export const metadata: Metadata = {
+export const metadata = {
+   title: "Sustainable Bitcoin Protocol | Accelerating the Clean Energy Transition",
+   description: "Discover how Sustainable Bitcoin Protocol (SBP) aligns Bitcoin mining with renewable energy to drive financial returns and climate impact. Learn about Sustainable Bitcoin Certificates (SBCs), a climate-positive asset and the groundbreaking solution for clean energy Bitcoin investments, methane mitigation, and environmental transparency. Explore how institutional investors can accelerate renewable energy adoption, decarbonize digital assets, and create a new class of appreciating environmental commodities.",
    openGraph: {
-      title: "Sustainable Bitcoin Protocol | Accelerating the Clean Energy Transition: Powered by Bitcoin",
-      description:
-         "Discover how Sustainable Bitcoin Protocol (SBP) aligns Bitcoin mining with renewable energy to drive financial returns and climate impact. Learn about Sustainable Bitcoin Certificates (SBCs), a climate-positive asset and the groundbreaking solution for clean energy Bitcoin investments, methane mitigation, and environmental transparency. Explore how institutional investors can accelerate renewable energy adoption, decarbonize digital assets, and create a new class of appreciating environmental commodities.",
-      images: "https://www.sustainablebtc.org/SBPthumbnail.png",
+      title: "Sustainable Bitcoin Protocol | Accelerating the Clean Energy Transition",
+      description: "Discover how Sustainable Bitcoin Protocol (SBP) aligns Bitcoin mining with renewable energy to drive financial returns and climate impact. Learn about Sustainable Bitcoin Certificates (SBCs), a climate-positive asset and the groundbreaking solution for clean energy Bitcoin investments, methane mitigation, and environmental transparency. Explore how institutional investors can accelerate renewable energy adoption, decarbonize digital assets, and create a new class of appreciating environmental commodities.",
+      images: ["https://www.sustainablebtc.org/SBPthumbnail.png"],
       url: "https://www.sustainablebtc.org",
    },
    twitter: {
       card: "summary_large_image",
-   },
-   other: {
-      "google-site-verification": process.env.GSC_VERIFICATION_CODE || "",
+      title: "Sustainable Bitcoin Protocol | Accelerating the Clean Energy Transition",
+      description: "Discover how Sustainable Bitcoin Protocol (SBP) aligns Bitcoin mining with renewable energy to drive financial returns and climate impact. Learn about Sustainable Bitcoin Certificates (SBCs), a climate-positive asset and the groundbreaking solution for clean energy Bitcoin investments, methane mitigation, and environmental transparency. Explore how institutional investors can accelerate renewable energy adoption, decarbonize digital assets, and create a new class of appreciating environmental commodities.",
+      images: ["https://www.sustainablebtc.org/SBPthumbnail.png"],
    },
 };
 
@@ -89,9 +90,6 @@ export default function RootLayout({
 }) {
    return (
       <>
-         <Head>
-            <meta name="google-site-verification" content={`${process.env.GSC_VERIFICATION_CODE || ""}`} />
-         </Head>
          <html lang="en" className={helveticaNowDisplay.className}>
             <body>
                {/* Progress Bar */}
