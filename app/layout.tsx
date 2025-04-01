@@ -89,6 +89,9 @@ export default function RootLayout({
 }) {
    return (
       <>
+         <Head>
+            <meta name="google-site-verification" content={`${process.env.GSC_VERIFICATION_CODE || ""}`} />
+         </Head>
          <html lang="en" className={helveticaNowDisplay.className}>
             <body>
                {/* Progress Bar */}
