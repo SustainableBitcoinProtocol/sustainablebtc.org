@@ -53,7 +53,7 @@ const HomeAbout = ({ aboutData }: { aboutData: any }) => {
                   {isInView && 
                      <iframe
                         className={styles.image}
-                        src="https://www.youtube.com/embed/qOxwcyU8AdA?autoplay=1&rel=0"
+                        src="https://www.youtube.com/embed/J3-8KmIIXOU?autoplay=1&rel=0"
                         title="YouTube video player"
                         frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
