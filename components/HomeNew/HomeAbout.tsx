@@ -67,7 +67,7 @@ const HomeAbout = ({ aboutData }: { aboutData: any }) => {
                {/* <ModalVideo
                   channel="youtube"
                   isOpen={isOpen}
-                  videoId="qOxwcyU8AdA?autoplay=0"
+                  videoId="J3-8KmIIXOU?autoplay=0"
                   onClose={() => setIsOpen(false)}
                /> */}
 
