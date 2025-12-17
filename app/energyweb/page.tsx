@@ -23,7 +23,8 @@ import {
   GitPullRequest,
   Landmark,
   ShieldCheck,
-  RefreshCw
+  RefreshCw,
+  Lock
 } from 'lucide-react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 
@@ -57,6 +58,20 @@ const hashRateData = [
 ]
 
 export default function DealProposal() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (password === 'flywheel') {
+      setIsAuthenticated(true)
+      setError('')
+    } else {
+      setError('Incorrect password')
+    }
+  }
+
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
@@ -76,6 +91,61 @@ export default function DealProposal() {
       setIsDropdownOpen(false)
       setIsMobileMenuOpen(false)
     }
+  }
+
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-gray-900 flex items-center justify-center p-4">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="bg-white/5 backdrop-blur-lg border border-white/10 p-8 rounded-2xl w-full max-w-md"
+        >
+          <div className="text-center mb-8">
+            <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Lock className="w-8 h-8 text-white" />
+            </div>
+            <h1 className="text-2xl font-bold text-white mb-2">Restricted Access</h1>
+            <p className="text-gray-400">Please enter the password to view the deal proposal.</p>
+          </div>
+
+          <form onSubmit={handleLogin} className="space-y-4">
+            <div>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Enter password"
+                className="w-full px-4 py-3 bg-black/20 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-white/30 transition-colors"
+                autoFocus
+              />
+            </div>
+            
+            {error && (
+              <motion.div 
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-red-400 text-sm text-center bg-red-500/10 py-2 rounded-lg border border-red-500/20"
+              >
+                {error}
+              </motion.div>
+            )}
+
+            <button
+              type="submit"
+              className="w-full py-3 bg-white text-gray-900 font-bold rounded-lg hover:bg-gray-100 transition-colors"
+            >
+              Access Proposal
+            </button>
+          </form>
+          
+          <div className="mt-8 pt-8 border-t border-white/10 flex items-center justify-center gap-6 opacity-50">
+             <img src="/energy-web-logo.png" alt="Energy Web" className="h-6 w-auto grayscale" />
+             <img src="/sbp-logo.png" alt="SBP" className="h-6 w-auto grayscale" />
+          </div>
+        </motion.div>
+      </div>
+    )
   }
 
   return (
@@ -889,4 +959,3 @@ export default function DealProposal() {
     </>
   )
 }
-
