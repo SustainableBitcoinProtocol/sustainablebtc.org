@@ -1,0 +1,15 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'SBP Acquisition Proposal | Energy Web Foundation',
+  description: 'Strategic acquisition proposal for Sustainable Bitcoin Protocol by Energy Web Foundation - Board Review Materials',
+  robots: 'noindex, nofollow', // Private deal room
+}
+
+export default function EnergyWebLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return <>{children}</>
+}
