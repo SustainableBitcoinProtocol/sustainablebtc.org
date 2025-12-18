@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 // Import
-// Re-trigger deployment
+// Re-trigger deployment v2
 import HomePage from "@/components/HomeNew/HomePage";
 
 export const metadata: Metadata = {
