@@ -37,10 +37,6 @@ const HeaderContent = ({
    // =====================================================================
    // ! Get activelink
    const pathname = usePathname(); // Use useRouter to get the full path
-
-   if (pathname?.includes("/energyweb")) {
-      return null;
-   }
    const [activeLink, setActiveLink] = useState<string>("");
 
    useEffect(() => {
@@ -120,6 +116,11 @@ const HeaderContent = ({
       setModalIsOpen(true);
    }
    // =====================================================================
+
+   // Hide header on /energyweb page
+   if (pathname?.includes("/energyweb")) {
+      return null;
+   }
 
    return (
       <>
