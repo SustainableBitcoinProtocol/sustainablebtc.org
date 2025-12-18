@@ -23,7 +23,14 @@ $color-dark: (
 );
 $color-red: (
    300: #e13535,
-   default: #e13535,
+   default: #f83939,
+   400:#C00707,
+);
+$color-green: (
+   400: #CFFFBD,
+   500: #16D563,
+   600: hsl(144, 81%, 20%),
+   default: #34ea7e,
 );
 @function color($color, $weight: default) {
    @return map-get($map: $color, $key: $weight);
@@ -32,3 +39,9 @@ $color-red: (
 // Fonts
 // =========================
 $font-primary: "Helvetica Now Display", sans-serif;
+
+
+// Radius
+// =========================
+$inner-radius: 0.625rem;
+$outer-radius: $inner-radius * 2;

@@ -146,7 +146,7 @@ export default function HomeSBC({ sbcData }: { sbcData: any }) {
             />
          </div>
 
-         <div className={`${styles.container} container`}>
+         <div className={`${styles.container} container container-tight`}>
             {/* Sbc Image */}
             <div className={styles.sbcIcon}>
                <Image src={imgSbcIcon} alt="SBC Icon" />
@@ -188,25 +188,23 @@ export default function HomeSBC({ sbcData }: { sbcData: any }) {
                <>
                   {/* Heading */}
                   <div>
-                     <h2 className={`${styles.sbcHeading} heading heading-2`}>
-                        {sbcData.sbcHeading}
-                     </h2>
-                     <h3
-                        className={`${styles.sbcSubHeading} heading heading-4`}
-                     >
-                        {sbcData.sbcSubHeading}
-                     </h3>
+                     <div className={`${styles.sbcHeading} portableText`}>
+                        <PortableText value={sbcData.sbcHeading} />
+                     </div>
+                     <div className={`${styles.sbcSubHeading} portableText`}>
+                        <PortableText value={sbcData.sbcSubHeading} />
+                     </div>
                   </div>
 
                   {/* Features */}
                   <ul className={styles.sbcFeatures}>
                      {sbcData.sbcFeatures.map((element: string) => (
-                        <div key={element}>{element}</div>
+                        <li key={element}>{element}</li>
                      ))}
                   </ul>
 
                   {/* Description */}
-                  <div className={styles.sbcDescription}>
+                  <div className={`${styles.sbcDescription} portableText`}>
                      <PortableText value={sbcData.sbcDescription} />
                   </div>
 

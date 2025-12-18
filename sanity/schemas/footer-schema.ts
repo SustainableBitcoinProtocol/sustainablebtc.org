@@ -1,4 +1,4 @@
-const footerSchema = {
+const footer = {
    name: "footer",
    title: "Footer",
    type: "document",
@@ -78,4 +78,4 @@ const footerSchema = {
    ],
 };
 
-export default footerSchema;
+export default footer;

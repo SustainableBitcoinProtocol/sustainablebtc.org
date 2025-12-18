@@ -1,3 +1,5 @@
+import btn from "../components/btn-schema";
+
 const homePage = {
    name: "homePage",
    title: "Home Page",
@@ -134,6 +136,31 @@ const homePage = {
             },
          ],
       },
+      // Countdown
+      {
+         name: "countdown",
+         title: "Count Down",
+         type: "document",
+         fields: [
+            {
+               name: "countdownHeading",
+               title: "Countdown Heading",
+               type: "array",
+               of: [{ type: "block" }],
+            },
+            {
+               name: "countdownSubHeading",
+               title: "Countdown SubHeading",
+               type: "array",
+               of: [{ type: "block" }],
+            },
+            {
+               name: "countdownDate",
+               title: "Countdown Date",
+               type: "datetime",
+            },
+         ]
+      },
       // SBC
       {
          name: "sbc",
@@ -143,18 +170,49 @@ const homePage = {
             {
                name: "sbcHeading",
                title: "SBC Heading",
-               type: "string",
+               type: "array",
+               of: [{ type: "block" }],
             },
             {
                name: "sbcSubHeading",
                title: "SBC Sub Heading",
-               type: "string",
+               type: "array",
+               of: [{ type: "block" }],
             },
             {
                name: "sbcFeatures",
                title: "SBC Features",
                type: "array",
-               of: [{ type: "string" }],
+               of: [
+                  {
+                     type: "document",
+                     fields: [
+                        {
+                           name: "featureName",
+                           title: "Feature Name",
+                           type: "string",
+                        },
+                        {
+                           name: "featureDescription",
+                           title: "Feature Description",
+                           type: "string",
+                        },
+                        {
+                           name: "featureImage",
+                           title: "Feature's Image",
+                           type: "image",
+                           options: { hotspot: true },
+                           fields: [
+                              {
+                                 name: "alt",
+                                 title: "Alt",
+                                 type: "string",
+                              },
+                           ],
+                        },
+                     ],
+                  },
+               ]
             },
             {
                name: "sbcDescription",
@@ -209,6 +267,62 @@ const homePage = {
             },
          ],
       },
+      //about
+      {
+         name: "about",
+         title: "About",
+         type: "document",
+         fields: [
+            {
+               name: "aboutHeading",
+               title: "Heading",
+               type: "array",
+               of: [{ type: "block" }],
+            },
+            {
+               name: "aboutDescription",
+               title: "Description",
+               type: "array",
+               of: [{ type: "block" }],
+            },
+            {
+               name: "aboutCTA",
+               title: "CTA",
+               type: "array",
+               of: [
+                  {
+                     type: "document",
+                     fields: btn,
+                  },
+               ],
+            },
+         ],
+      },
+      // Schedule a Call
+      {
+         name: "scheduleCall",
+         title: "Schedule a Call",
+         type: "document",
+         fields: [
+            {
+               name: "scheduleCallHeading",
+               title: "Schedule Call Heading",
+               type: "array",
+               of: [{ type: "block" }],
+            },
+            {
+               name: "scheduleCallHeadingCTA",
+               title: "CTA",
+               type: "array",
+               of: [
+                  {
+                     type: "document",
+                     fields: btn,
+                  },
+               ],
+            },
+         ]
+      },
       // Testimonials
       {
          name: "testimonials",
@@ -218,7 +332,8 @@ const homePage = {
             {
                name: "testimonialTitle",
                title: "Testimonial Title",
-               type: "string",
+               type: "array",
+               of: [{ type: "block" }],
             },
             {
                name: "testimonialItems",
@@ -275,6 +390,107 @@ const homePage = {
             },
          ],
       },
+      // Trust
+      {
+         name: "trust",
+         title: "Trust",
+         type: "document",
+         fields: [
+            {
+               name: "trustHeading",
+               title: "Heading",
+               type: "array",
+               of: [{ type: "block" }],
+            },
+            {
+               name: "trustDescription",
+               title: "Description",
+               type: "array",
+               of: [{ type: "block" }],
+            },
+            {
+               name: "trustCTA",
+               title: "CTA",
+               type: "array",
+               of: [
+                  {
+                     type: "document",
+                     fields: btn,
+                  },
+               ],
+            },
+         ],
+      },
+      // Download Whitepaper
+      {
+         name: "whitepaperdownload",
+         title: "WhitepaperDownload",
+         type: "document",
+         fields: [
+            {
+               name: "whitepaperdownloadHeading",
+               title: "Heading",
+               type: "array",
+               of: [{ type: "block" }],
+            },
+            {
+               name: "whitepaperdownloadDescription",
+               title: "Description",
+               type: "array",
+               of: [{ type: "block" }],
+            },
+            {
+               name: "whitepaperdownloadCTA",
+               title: "CTA",
+               type: "array",
+               of: [
+                  {
+                     type: "document",
+                     fields: btn,
+                  },
+               ],
+            },
+         ],
+      },
+      // FAQs
+      {
+         name: "faq",
+         title: "Faq",
+         type: "document",
+         fields: [
+            {
+               name: "faqHeading",
+               title: "Heading",
+               type: "array",
+               of: [{ type: "block" }],
+            },
+            {
+               name: "faqCTA",
+               title: "CTA",
+               type: "array",
+               of: [
+                  {
+                     type: "document",
+                     fields: btn,
+                  },
+               ],
+            },
+            {
+               name: "faqQuestion",
+               title: "Question",
+               type: "string",
+            },
+            {
+               name: "faqAnswer",
+               title: "Answer",
+               type: "array",
+               of: [{ type: "block" }],
+            },
+
+         ],
+      },
+      
+      
    ],
 };
 

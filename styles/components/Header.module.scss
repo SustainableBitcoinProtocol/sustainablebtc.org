@@ -1,28 +1,216 @@
+.headerTopBar {
+   background-color: color($color-green);
+   color: color($color-dark);
+   // @apply hidden md:block;
+   @apply relative z-30 max-h-[44px];
+
+   .container {
+      @apply flex justify-between items-center;
+   }
+
+   --no-of-slides: 16;
+   --slides-in-view: 3;
+   --slide-width: 6rem;
+   --slide-height: 1.8rem;
+   --iteration-time: 20s;
+
+   @include responsive(md) {
+      --no-of-slides: 14;
+      --slides-in-view: 4;
+      --slide-width: 7rem;
+      --slide-height: 2rem;
+   }
+   @include responsive(lg) {
+      --slides-in-view: 6;
+      --slide-width: 6rem;
+      --slide-height: 2rem;
+   }
+   @include responsive(xl) {
+      --slides-in-view: 7;
+      --slide-width: 6rem;
+      --slide-height: 1.8rem;
+   }
+
+   @keyframes scroll {
+      0% {
+         transform: translateX(0);
+      }
+      100% {
+         transform: translateX(
+            calc(var(--slide-width) * var(--no-of-slides) * -1)
+         );
+      }
+   }
+
+   .globalLeader {
+      @apply flex;
+
+      .globalLeaderHeading {
+         display: inline-block;
+         @include flex-center;
+         height: 40px;
+         padding-inline: 0.625rem;
+         font-size: 0.8rem;
+         font-weight: 800;
+         line-height: 100%;
+         background: color($color-green, 500);
+         white-space: nowrap;
+         // @apply hidden;
+         box-shadow: 10px 0px 10px 0px rgba(0, 0, 0, 0.2);
+         border-top-right-radius: $inner-radius;
+         border-bottom-right-radius: $inner-radius;
+      }
+
+      @include responsive(md) {
+         @apply flex-row gap-4 items-center;
+
+         .globalLeaderHeading {
+            box-shadow: 10px 0px 10px 0px rgba(0, 0, 0, 0.2);
+         }
+      }
+
+      @include responsive(lg) {
+         .globalLeaderHeading {
+            font-size: 0.9rem;
+         }
+      }
+   }
+
+   .globalLeaderSlider {
+      display: flex;
+      /*justify-content: center;*/
+      align-items: center;
+
+      width: calc(var(--slides-in-view) * var(--slide-width));
+      overflow: hidden;
+      margin: 0 auto;
+      position: relative;
+
+      &::after {
+         content: "";
+         position: absolute;
+         top: 0;
+         right: 0;
+         width: 20%;
+         height: 100%;
+         background: linear-gradient(
+            to left,
+            rgba(color($color-green), 1) 0%,
+            rgba(color($color-green), 0) 100%
+         );
+      }
+
+      .globalLeaderSlide {
+         animation: scroll var(--iteration-time) linear infinite;
+         display: flex;
+         justify-content: center;
+         flex-direction: column;
+         width: var(--slide-width);
+         height: var(--slide-height);
+
+         flex: 0 0 auto;
+         box-sizing: border-box;
+         padding-inline: 1rem;
+         /*border: 1px dotted darkblue;*/
+
+         &.price {
+            width: 8rem !important;
+         }
+
+         img {
+            max-height: var(--slide-height);
+         }
+         &:not(:has(.sbc)) {
+            img {
+               filter: grayscale(100%) brightness(0);
+            }
+         }
+         &:has(.sbc) {
+            @include responsive(md) {
+               display: none !important;
+            }
+         }
+      }
+   }
+
+   .ticker {
+      @apply flex items-center justify-end gap-x-6 gap-y-1 flex-wrap;
+      @apply hidden md:flex;
+      background: rgba(250, 250, 250, 0.6);
+      height: 40px;
+      padding-inline: 1rem;
+      border-top-left-radius: $inner-radius;
+      border-bottom-left-radius: $inner-radius;
+   }
+
+   .sbc {
+      @apply flex items-center;
+      gap: 2px;
+      white-space: nowrap;
+      font-size: 0.8rem;
+
+      img {
+         width: 1rem;
+      }
+
+      .sbcValue {
+         font-weight: 600;
+      }
+
+      .sbcValueChangeBy {
+         @apply flex items-center;
+         font-size: 0.5rem;
+         font-weight: 600;
+
+         &.positive {
+            color: color($color-green, 600);
+         }
+
+         &.negative {
+            color: color($color-red,400);
+            
+         }
+      }
+
+      @include responsive(md) {
+         @apply gap-2;
+         font-size: 0.9rem;
+         img {
+            width: 1.7rem;
+         }
+         .sbcValueChangeBy {
+            font-size: inherit;
+            font-weight: inherit;
+         }
+      }
+   }
+}
+
 .header {
-   @apply fixed z-50 w-full py-6;
+   @apply absolute z-50 w-full;
    @apply bg-transparent text-base;
    @apply whitespace-nowrap;
    @apply transition-all duration-300 ease-in;
-   border-bottom: 1px solid transparent;
 
    .container {
       @apply flex items-center gap-8;
+      @apply p-3 my-4 rounded-lg mx-4 max-w-none;
+      background: rgba($color: color($color-light), $alpha: 0.1);
+      backdrop-filter: blur(10px);
    }
 
    &.fixToTop {
-      @apply py-3;
-      background: color($color-dark);
-      border-color: color($color-dark, 500);
+      @apply fixed top-0;
 
       .primaryNav {
-         @apply gap-6;
+         @apply gap-8;
 
          &.open {
             @apply pt-6;
          }
       }
       .secondaryNav {
-         @apply gap-6;
+         @apply gap-8;
       }
    }
 
@@ -30,7 +218,7 @@
       @apply flex flex-1 items-center justify-between gap-8;
 
       img {
-         @apply h-12 w-auto;
+         @apply h-10 w-auto;
       }
 
       .separator {
@@ -83,24 +271,33 @@
 
    .primaryNav {
       @apply absolute w-full left-0 top-full -z-10 overflow-hidden;
-      @apply flex flex-col items-center gap-8 flex-1;
-      @apply py-0;
+      @apply flex flex-col items-center justify-center gap-8 flex-1;
+      @apply py-0 text-sm;
       transition: max-height 1s cubic-bezier(0.99, 0.2, 0.2, 0.99) 0s,
          padding 0.8s ease-in-out 0s, gap 0.5s ease-in-out 0s;
       @apply max-h-0;
       background: color($color-dark, 400);
 
       &.open {
-         @apply max-h-[100vh] z-0;
-         @apply py-8;
+         @apply max-h-[72vh] z-0 overflow-y-auto;
+         @apply py-8 rounded-md;
+         @apply justify-start;
          transition: padding 0.5s linear 0s,
             max-height 1s cubic-bezier(0.99, 0.2, 0.2, 0.99) 0.2s,
             gap 0.5s ease-in-out 0s;
       }
 
       li a {
+         @apply py-4;
+      }
+      li:not(:has(a.btn)){
          @apply py-1;
          @include text-gradient(light);
+      }
+      li .navModalLink,
+      li .navDropdown label {
+         @include text-gradient(light);
+         cursor: pointer;
       }
 
       li.active a {
@@ -108,17 +305,86 @@
          font-weight: 500;
       }
 
-      li a:hover {
+      li:not(:has(a.btn)):hover,
+      li .navDropdown:hover label,
+      li .navModalLink:hover {
          @include text-gradient(primary);
       }
 
       .secondaryInPrimary {
          @apply flex flex-col items-center gap-8 flex-1;
       }
+
+      // dropdown action
+      .navDropdown {
+         @apply relative;
+
+         .navDropdownCheckbox {
+            @apply hidden;
+         }
+         .navDropdownLabel {
+            @apply flex justify-center items-center gap-2;
+            @apply select-none;
+         }
+         .navDropdownMenu {
+            @apply h-0 overflow-hidden;
+            @apply flex-1 mt-0 py-0;
+            background: rgba(color($color-dark, 600), 0.8);
+
+            li {
+               @apply py-2 px-20 text-center;
+            }
+            li a:hover {
+               @include text-gradient(primary);
+            }
+         }
+
+         .navDropdownCheckbox:checked ~ .navDropdownMenu {
+            @apply h-full mt-4  py-2;
+            @apply border-t-2;
+            border-color: #339dff;
+         }
+
+         @include responsive(xl) {
+            @apply relative py-3;
+
+            .navDropdownLabel {
+               @apply w-fit;
+            }
+            .navDropdownMenu {
+               @apply w-fit h-full;
+               @apply h-auto mt-0 py-2;
+               @apply absolute top-full left-[50%] -translate-x-1/2;
+               @apply border-t-2;
+               border-color: #339dff;
+               opacity: 0;
+               visibility: hidden;
+
+               li {
+                  @apply px-8;
+               }
+            }
+
+            .navDropdownCheckbox:checked ~ .navDropdownMenu {
+               @apply w-fit h-full;
+               @apply h-auto mt-0 py-2;
+               @apply border-t-2;
+               border-color: #339dff;
+            }
+
+            &:hover .navDropdownMenu {
+               opacity: 1;
+               visibility: visible;
+            }
+         }
+      }
    }
 
    .secondaryNav {
       @apply hidden;
+   }
+
+   @include responsive(md){
    }
 
    @include responsive(lg) {
@@ -128,35 +394,45 @@
          }
       }
       .secondaryNav {
-         @apply flex items-center gap-8;
+         @apply flex items-center gap-6 text-sm;
 
-         li a {
+         li:not(.containBtn) a {
             @apply py-1;
             @include text-gradient(light);
          }
 
-         li.active a {
+         li:not(.containBtn).active a {
             @include gradient-text;
             font-weight: 500;
          }
 
-         li a:hover {
+         li:not(.containBtn) a:hover {
             @include text-gradient(primary);
+         }
+
+         .navDropdown{
+            .navDropdownMenu{
+               background: rgba(color($color-dark, 600), 0.8) !important;
+            }
          }
       }
    }
 
    @include responsive(xl) {
+      .container {
+         @apply mx-auto max-w-[1300px];
+      }
+
       &.fixToTop {
          .primaryNav {
-            @apply gap-8 p-0;
+            @apply gap-6 p-0;
 
             &.open {
                @apply gap-8 p-0;
             }
          }
          .secondaryNav {
-            @apply gap-8;
+            @apply gap-6;
          }
       }
 
@@ -174,13 +450,14 @@
 
       .primaryNav {
          @apply relative z-10;
-         @apply flex-row;
+         @apply flex-row gap-6;
          @apply py-0;
-         @apply h-auto max-h-none bg-transparent;
+         @apply h-auto bg-transparent;
+         @apply overflow-visible;
 
          &.open {
             @apply relative;
-            @apply py-0;
+            @apply py-0 gap-8;
             @apply h-auto;
          }
       }

@@ -1,7 +1,7 @@
 .heroBg {
    @apply absolute top-0 right-0 w-full z-0;
    @apply pointer-events-none select-none;
-   @apply opacity-80;
+   @apply opacity-60;
 
    @include responsive(lg) {
       @apply w-[90%];
@@ -9,29 +9,32 @@
 }
 
 .hero {
-   @apply pt-40 pb-28;
+   @include hero-spacing();
    @apply relative z-10;
-
-   .container {
-      @apply max-w-[1100px];
-   }
 
    .heroHeadingWrapper {
       @apply flex flex-col justify-center items-center gap-8;
+      @apply max-w-[1000px] mx-auto;
    }
 
    .heroHeading {
-      @apply font-bold text-center;
+      @apply text-center;
+      h1 {
+         font-weight: bold;
+      }
 
       b,
       strong {
          @apply font-black;
-         @include text-gradient(primary);
       }
    }
 
    .heroSubHeading {
-      @apply font-medium text-center;
+      @apply text-center;
+
+      h5 {
+         @apply font-medium;
+      }
    }
 
    .heroImg {
@@ -39,7 +42,7 @@
    }
 
    @include responsive(lg) {
-      @apply pb-40;
+      @apply pb-4;
       .heroImg {
          @apply m-auto mt-28;
       }
@@ -50,13 +53,10 @@
    @apply text-center relative z-10;
 
    .container {
-      @apply max-w-[900px];
       @apply flex flex-col justify-center items-center gap-12;
    }
 
    .benefitsHeading {
-      @include text-gradient(primary);
-      @apply leading-[110%];
    }
 
    .benefitsCTA {
@@ -64,10 +64,17 @@
    }
 
    .benefitsItems {
-      @apply flex flex-wrap justify-center items-start text-center gap-8;
+      @apply flex flex-wrap justify-center items-start text-center gap-4;
 
       & > div {
          @apply flex flex-col justify-center items-center gap-4;
+         @apply py-8 p-4 rounded-lg;
+         background: linear-gradient(
+            40deg,
+            rgba(#339dff, 0.1) 0%,
+            rgba(#0ec1d3, 0.1) 100%
+         );
+         border: 1px solid rgba(#339dff, 0.2);
       }
 
       .itemImg {
@@ -112,9 +119,11 @@
 
    @include responsive(lg) {
       .benefitsItems {
+         @apply gap-8;
          & > div {
             @apply max-w-[300px];
             @apply flex-1;
+            @apply py-10 p-4 rounded-lg;
          }
 
          img {
@@ -125,28 +134,21 @@
 }
 
 .comparison {
-   @apply my-28 relative z-20;
-
-   .container {
-      @apply max-w-[1100px];
-   }
+   @apply relative z-20;
 
    .comparisonHeading {
       @apply text-center;
 
-      h2 {
+      h3 {
          @apply block font-medium;
-         @include typo(heading, 4);
 
          span {
             @apply font-extrabold;
          }
       }
-      h1 {
-         @include typo(heading, 2);
-
+      h2 {
+         strong,
          span {
-            @include text-gradient(primary);
             text-decoration-color: #339dff !important;
          }
       }
@@ -157,6 +159,7 @@
       @apply font-bold;
       @apply my-8;
       @include text-gradient(primary);
+      @include typo(heading, 6);
    }
 
    .comparisonSlider {
@@ -174,9 +177,8 @@
    }
 
    @include responsive(lg) {
-      @apply my-40;
       .comparisonFeatures {
-         @apply text-lg my-12;
+         @apply my-12;
       }
       .comparisonSlider {
          @apply h-[60vh];
@@ -185,7 +187,6 @@
 }
 
 .sbc {
-   @apply my-20;
    @apply text-center grid place-content-center;
    @apply relative;
 
@@ -200,7 +201,7 @@
 
    .container {
       @apply flex flex-col gap-8;
-      @apply max-w-[830px];
+      @apply max-w-[900px];
    }
 
    .sbcIcon {
@@ -243,7 +244,9 @@
    }
 
    .sbcSubHeading {
-      @apply font-medium block;
+      h4 {
+         @apply font-medium block;
+      }
    }
 
    .sbcDescription {
@@ -286,23 +289,15 @@
 }
 
 .bitcoinMiners {
-   @apply my-28;
-
-   .container {
-      @apply max-w-[1100px];
-   }
-
    .bitcoinMinersHeading {
-      @apply max-w-[800px] text-center mx-auto block leading-[110%];
-      strong {
-         @include text-gradient(primary);
-      }
+      @apply max-w-[800px] text-center mx-auto block;
    }
 
    .bitcoinMinersFeatures {
       @apply flex justify-center flex-wrap gap-2 gap-x-4;
       @apply font-bold;
       @apply my-8;
+      @include typo(heading, 6);
    }
 
    .bitcoinMiners {
@@ -340,9 +335,8 @@
       }
    }
    @include responsive(lg) {
-      @apply my-40;
       .bitcoinMinersFeatures {
-         @apply text-lg my-12 gap-8;
+         @apply my-12 gap-8;
       }
       .bitcoinMiners {
          @apply grid grid-cols-5;

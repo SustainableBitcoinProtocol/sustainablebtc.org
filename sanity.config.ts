@@ -6,13 +6,19 @@ import schemas from "./sanity/schemas/";
 const singletonActions = new Set(["publish", "discardChanges", "restore"]);
 // singleton document types
 const singletonTypes = new Set([
+   "navbar",
    "homePage",
    "sbcPage",
+   "sbcPage2025",
    "investorsPage",
    "minersPage",
    "transparencyPage",
    "aboutPage",
    "getStartedPage",
+   "contactPage",
+   "faqPage",
+   "investPage",
+   "learningCentrePage"
 ]);
 
 const config = defineConfig({
@@ -21,6 +27,7 @@ const config = defineConfig({
    title: "Studio | Sustainable Bitcoin Protocol",
    apiVersion: "2023-03-04",
    basePath: "/studio",
+   useCdn: true, // make sure to make it true once we are done
    plugins: [
       deskTool({
          structure: (S) =>
@@ -41,6 +48,12 @@ const config = defineConfig({
                      .id("sbcPage")
                      .child(
                         S.document().schemaType("sbcPage").documentId("sbcPage")
+                     ),
+                  S.listItem()
+                     .title("Page / SBC2025")
+                     .id("sbcPage2025")
+                     .child(
+                        S.document().schemaType("sbcPage2025").documentId("sbcPage2025")
                      ),
                   S.listItem()
                      .title("Page / Investors")
@@ -75,16 +88,64 @@ const config = defineConfig({
                            .documentId("aboutPage")
                      ),
                   S.listItem()
-                     .title("Page / About Us")
+                     .title("Page / Get Started")
                      .id("getStartedPage")
                      .child(
                         S.document()
                            .schemaType("getStartedPage")
                            .documentId("getStartedPage")
                      ),
+                  S.listItem()
+                     .title("Page / Contact Us")
+                     .id("contactPage")
+                     .child(
+                        S.document()
+                           .schemaType("contactPage")
+                           .documentId("contactPage")
+                     ),
+                  S.listItem()
+                     .title("Page / FAQs")
+                     .id("faqPage")
+                     .child(
+                        S.document().schemaType("faqPage").documentId("faqPage")
+                     ),
+                  S.listItem()
+                     .title("Page / Invest")
+                     .id("investPage")
+                     .child(
+                        S.document()
+                           .schemaType("investPage")
+                           .documentId("investPage")
+                     ),
+
+                  // Blog
+                  S.documentTypeListItem("blogCategories").title(
+                     "Blog / Categories"
+                  ),
+                  S.documentTypeListItem("news").title("Blog / Articles"),
+
+                  // Learning Centre
+                  S.listItem()
+                     .title("Page / Learning Centre")
+                     .id("learningCentrePage")
+                     .child(
+                        S.document()
+                           .schemaType("learningCentrePage")
+                           .documentId("learningCentrePage")
+                     ),
 
                   // Regular Documents
-                  S.documentTypeListItem("navbar").title("Component / Navbar"),
+                  S.documentTypeListItem("miscellaneousPage").title(
+                     "Miscellaneous Pages"
+                  ),
+
+                  // Header & Footer
+                  S.listItem()
+                     .title("Component / Navbar")
+                     .id("navbar")
+                     .child(
+                        S.document().schemaType("navbar").documentId("navbar")
+                     ),
                   S.documentTypeListItem("footer").title("Component / Footer"),
                ]),
       }),

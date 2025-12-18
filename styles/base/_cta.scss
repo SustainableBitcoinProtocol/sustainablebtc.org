@@ -1,7 +1,7 @@
 .btn {
    @apply flex items-center gap-3;
    @apply py-4 px-8;
-   @apply rounded-md;
+   @apply rounded-full;
 
    @apply font-medium leading-[100%];
 
@@ -51,6 +51,19 @@
       }
    }
 
+   &-dark {
+      @apply border border-[#1e203f];
+      background: color($color-dark);
+
+      &:hover {
+         background: color($color-dark, 600) !important;
+      }
+   }
+
+   &-sm{
+      @apply h-10 px-6 py-0;
+   }
+
    &:hover {
       background-image: linear-gradient(-40deg, #339dff 0%, #0ec1d3 100%),
          linear-gradient(-40deg, #339dff 0%, #0ec1d3 100%);
@@ -62,9 +75,7 @@
    }
 
    &[disabled] {
-      color: color($color-dark, 400) !important;
-      background: color($color-dark, 300) !important;
-      border-color: color($color-dark, 300) !important;
+      opacity: 0.6;
       cursor: not-allowed !important;
    }
 

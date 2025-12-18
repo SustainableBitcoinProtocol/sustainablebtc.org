@@ -7,101 +7,134 @@ import "swiper/css";
 // Next/React
 import Link from "next/link";
 import Image from "next/image";
+import { useRef } from "react";
 
 // Sanity
 import { urlFor } from "@/sanity/sanity-urlFor";
 
 // Lib
 import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore from "swiper";
 import { Autoplay, Navigation } from "swiper/modules";
+import { PortableText } from "@portabletext/react";
 
 // Image
-import imgTestimonialLine from "@/public/home/testomonialLine.svg";
 
 export default function HomeTestimonials({
    testimonialData,
 }: {
    testimonialData: any;
 }) {
+   const swiperRef = useRef<SwiperCore | null>(null);
+   const duplicatedItems = [
+      ...testimonialData.testimonialItems,
+      ...testimonialData.testimonialItems,
+   ];
+
    return (
       <section className={styles.testimonials}>
-         <Image
-            src={imgTestimonialLine}
-            alt="Line"
-            className={styles.testimonialLine}
-         />
-
          <div className={`${styles.container} container`}>
             {testimonialData && (
                <div className={styles.testimonialWrapper}>
                   {/* Header */}
-                  <div>
-                     <h2
-                        className={`${styles.testimonialHeading} heading heading-3`}
+                  <div className={styles.testimonialHeadingWrapper}>
+                     <div
+                        className={`${styles.testimonialHeading} portableText`}
                      >
-                        {testimonialData.testimonialTitle}
-                     </h2>
+                        <PortableText
+                           value={testimonialData.testimonialTitle}
+                        />
+                     </div>
+                     <div className={styles.btnWrapper}>
+                        <button
+                           className={`btn btn-secondary btn-rounded`}
+                           onClick={() => swiperRef.current?.slidePrev()}
+                        >
+                           <i className="bi bi-arrow-left"></i>
+                        </button>
+                        <button
+                           className={`btn btn-secondary btn-rounded`}
+                           onClick={() => swiperRef.current?.slideNext()}
+                        >
+                           <i className="bi bi-arrow-right"></i>
+                        </button>
+                     </div>
                   </div>
                   {/* Sliding */}
-                  <div>
+                  <div className={styles.testimonialSlider}>
                      <Swiper
-                        spaceBetween={50}
-                        slidesPerView={1}
-                        onSlideChange={() => console.log("slide change")}
-                        onSwiper={(swiper) => console.log(swiper)}
+                        slidesPerView={2}
                         autoplay={{
-                           delay: 5000,
+                           delay: 10000,
                            disableOnInteraction: true,
                         }}
                         loop={true}
-                        navigation={true}
+                        navigation={{
+                           nextEl: ".swiper-button-next",
+                           prevEl: ".swiper-button-prev",
+                        }}
+                        onSwiper={(swiper) => {
+                           swiperRef.current = swiper; // Set reference to Swiper instance
+                        }}
                         modules={[Autoplay, Navigation]}
                      >
-                        {testimonialData.testimonialItems.map(
-                           (item: any, i: number) => (
-                              <SwiperSlide
-                                 key={i}
-                                 className={styles.testimonialSlide}
-                              >
-                                 {/* Image */}
-                                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                                 <img
-                                    src={urlFor(item.testimonyImage)
-                                       .width(100)
-                                       .url()}
-                                    alt={item.testimonyImage.alt}
-                                    className={styles.testimonialTestimonyImage}
-                                 />
+                        {duplicatedItems.map((item: any, i: number) => (
+                           <SwiperSlide
+                              key={i}
+                              className={styles.testimonialSlide}
+                           >
+                              {/* Image */}
+                              {/* eslint-disable-next-line @next/next/no-img-element */}
+                              {item.testimonyImage && (
+                                 <>
+                                    <Image
+                                       src={urlFor(item.testimonyImage)
+                                          .width(400)
+                                          .url()}
+                                       alt={item.testimonyImage.alt}
+                                       className={
+                                          styles.testimonialTestimonyImage
+                                       }
+                                       width={400}
+                                       height={400}
+                                    />
+                                 </>
+                              )}
 
-                                 {/* Content */}
+                              {/* Content */}
+                              <div>
+                                 <p className={styles.testimonialTestimony}>
+                                    {`"${item.testimony}"`}
+                                 </p>
+
                                  <div>
-                                    <p className={styles.testimonialTestimony}>
-                                       {`"${item.testimony}"`}
-                                    </p>
-
-                                    <div>
-                                       <h3
-                                          className={`${styles.testimonialTestimonyName}`}
-                                       >
-                                          {item.testimonyName}
-                                       </h3>
-                                       {/* eslint-disable-next-line @next/next/no-img-element */}
-                                       <img
-                                          src={urlFor(item.testimonyCompanyLogo)
-                                             .width(100)
-                                             .url()}
-                                          alt={item.testimonyImage.alt}
-                                          width={100}
-                                          height={100}
-                                          className={
-                                             styles.testimonialTestimonyCompanyLogo
-                                          }
-                                       />
-                                    </div>
+                                    <h3
+                                       className={`${styles.testimonialTestimonyName}`}
+                                    >
+                                       {item.testimonyName}
+                                    </h3>
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                    {item.testimonyCompanyLogo && (
+                                       <>
+                                          <Image
+                                             src={urlFor(
+                                                item.testimonyCompanyLogo
+                                             )
+                                                .width(300)
+                                                .url()}
+                                             alt={item.testimonyCompanyLogo.alt}
+                                             width={200}
+                                             height={100}
+                                             className={
+                                                styles.testimonialTestimonyCompanyLogo
+                                             }
+                                          />
+                                       </>
+                                    )}
                                  </div>
-                              </SwiperSlide>
-                           )
-                        )}
+                              </div>
+                           </SwiperSlide>
+                        ))}
                      </Swiper>
                   </div>
                </div>

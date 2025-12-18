@@ -7,18 +7,18 @@ import styles from "@/styles/components/Header.module.scss";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useSelectedLayoutSegment } from "next/navigation";
 
 // Importing Schema utils
-import { getNavbar } from "@/sanity/sanity-utils";
+import { getNavbarData } from "@/sanity/sanity-utils";
 import { Navbar } from "@/types/navbar";
 
 // Images
 import logo from "@/public/logo.svg";
 
 const Header = () => {
-   // Get pathname
-   const [pathname, setPathname] = useState(usePathname());
+   // Get activelink
+   let activeLink = useSelectedLayoutSegment();
    // ===========
 
    // Navbar
@@ -38,12 +38,8 @@ const Header = () => {
    });
 
    useEffect(() => {
-      setPathname(pathname == "" || pathname == null ? "/" : pathname);
-   }, [pathname]);
-
-   useEffect(() => {
       const setNavbarData = async () => {
-         setNavbar(await getNavbar());
+         setNavbar(await getNavbarData());
       };
       setNavbarData();
    }, []);
@@ -51,18 +47,18 @@ const Header = () => {
    return (
       <header
          className={`${styles.header} ${
-            clientWindowHeight > 98 / 2 ? styles.fixToTop : ""
+            clientWindowHeight > 48 / 2 ? styles.fixToTop : ""
          }`}
       >
          <div className={`${styles.container} container`}>
             {/* Logo */}
-            <div className={styles.logoWraooer}>
+            <div className={styles.logoWrapper}>
                <Link href="/">
                   <Image src={logo} alt="Logo" />
                </Link>
 
                {/* separator */}
-               <div area-hidden="true" className={styles.separator}></div>
+               <div aria-hidden="true" className={styles.separator}></div>
 
                {/* Menu Toggle */}
                <div
@@ -85,20 +81,27 @@ const Header = () => {
             >
                {navbar &&
                   navbar.map((item: Navbar, i) => {
-                     if (item.isSecondary === false) {
+                     const isActive =
+                        activeLink === item.slug ||
+                        (activeLink == null && item.slug === "/");
+
+                     if (!item.isSecondary) {
                         return (
-                           <>
-                              <li
-                                 className={
-                                    pathname === item.slug ? styles.active1 : ""
+                           <li
+                              className={isActive ? styles.active : ""}
+                              key={i}
+                           >
+                              <Link
+                                 href={item.slug}
+                                 onClick={() =>
+                                    window.innerWidth < 1440
+                                       ? setIsNavbarToggled(!isNavbarToggled)
+                                       : null
                                  }
-                                 key={i}
                               >
-                                 <Link href={item.slug}>
-                                    <span>{item.name}</span>
-                                 </Link>
-                              </li>
-                           </>
+                                 <span>{item.name}</span>
+                              </Link>
+                           </li>
                         );
                      }
                   })}
@@ -109,29 +112,38 @@ const Header = () => {
                   </li>
                   {navbar &&
                      navbar.map((item: Navbar, i) => {
-                        if (item.isSecondary === true) {
-                           if (item.isButton === true) {
+                        if (item.isSecondary) {
+                           if (item.isButton) {
                               return (
-                                 <Link
-                                    href={item.slug}
-                                    className="btn btn-primary"
-                                    key={i}
-                                 >
-                                    <span>{item.name}</span>
-                                    <i className={`bi bi-${item.iconName}`}></i>
-                                 </Link>
+                                 <li key={i}>
+                                    <Link
+                                       href={item.slug}
+                                       className="btn btn-primary"
+                                       onClick={() =>
+                                          setIsNavbarToggled(!isNavbarToggled)
+                                       }
+                                    >
+                                       <span>{item.name}</span>
+                                       <i className={`bi bi-${item.iconName}`} aria-hidden="true"></i>
+                                    </Link>
+                                 </li>
                               );
                            } else {
                               return (
                                  <li
                                     className={
-                                       pathname === item.slug
+                                       activeLink === item.slug
                                           ? styles.active
                                           : ""
                                     }
                                     key={i}
                                  >
-                                    <Link href={item.slug}>
+                                    <Link
+                                       href={item.slug}
+                                       onClick={() =>
+                                          setIsNavbarToggled(!isNavbarToggled)
+                                       }
+                                    >
                                        <span>{item.name}</span>
                                     </Link>
                                  </li>
@@ -142,27 +154,30 @@ const Header = () => {
                </ul>
             </ul>
 
-            {/* Scondary Nav */}
+            {/* Secondary Nav */}
             <ul className={styles.secondaryNav}>
                {navbar &&
                   navbar.map((item: Navbar, i) => {
-                     if (item.isSecondary === true) {
-                        if (item.isButton === true) {
+                     if (item.isSecondary) {
+                        if (item.isButton) {
                            return (
-                              <Link
-                                 href={item.slug}
-                                 className="btn btn-primary"
-                                 key={i}
-                              >
-                                 <span>{item.name}</span>
-                                 <i className={`bi bi-${item.iconName}`}></i>
-                              </Link>
+                              <li key={i}>
+                                 <Link
+                                    href={item.slug}
+                                    className="btn btn-primary"
+                                 >
+                                    <span>{item.name}</span>
+                                    <i className={`bi bi-${item.iconName}`} aria-hidden="true"></i>
+                                 </Link>
+                              </li>
                            );
                         } else {
                            return (
                               <li
                                  className={
-                                    pathname === item.slug ? styles.active : ""
+                                    activeLink === item.slug
+                                       ? styles.active
+                                       : ""
                                  }
                                  key={i}
                               >
