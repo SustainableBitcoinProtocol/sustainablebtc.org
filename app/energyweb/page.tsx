@@ -793,7 +793,7 @@ export default function DealProposal() {
                     </div>
                   </div>
                   <p className="text-center text-sm text-gray-600 italic pt-2">
-                    "Autonomy with Strategic Alignment"
+                    &ldquo;Autonomy with Strategic Alignment&rdquo;
                   </p>
                 </div>
               </motion.div>
