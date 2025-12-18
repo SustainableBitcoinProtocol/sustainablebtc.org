@@ -19,6 +19,13 @@ import FooterCareerForm from "./FooterCareerForm";
 import ModalWhitepaperEmail from "./Modals/ModalWhitepaperEmail";
 
 const Footer = () => {
+   const pathname = usePathname();
+
+   // Hide footer on /energyweb page
+   if (pathname?.includes("/energyweb")) {
+      return null;
+   }
+
    // Data
    const [footerData, setFooterData] = useState<FooterType>();
    const [navbarData, setNavbarData] = useState<any>();

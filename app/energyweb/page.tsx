@@ -81,7 +81,6 @@ export default function DealProposal() {
     { id: 'green-flywheel', name: 'Flywheel' },
     { id: 'deal-structure', name: 'Deal Terms' },
     { id: 'milestones', name: 'Roadmap' },
-    { id: 'due-diligence', name: 'Due Diligence' },
   ]
 
   const scrollToSection = (id: string) => {
@@ -150,11 +149,6 @@ export default function DealProposal() {
 
   return (
     <>
-      {/* Status Badge */}
-      <div className="status-badge inline-flex">
-        <FileText className="w-4 h-4" />
-      </div>
-
       {/* Navigation Bar */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-900/95 backdrop-blur-lg border-b border-white/10">
         <div className="container-deal">
@@ -165,10 +159,10 @@ export default function DealProposal() {
               <div className="relative">
                 <button
                   onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                  className="flex items-center gap-2 px-4 py-2 text-white hover:text-deal-gold transition-colors"
+                  className="flex items-center gap-3 px-4 py-2 text-white hover:text-deal-gold transition-colors text-xl font-bold"
                 >
                   Proposal Index
-                  <Menu className="w-4 h-4" />
+                  <Menu className="w-6 h-6" />
                 </button>
                 
                 {isDropdownOpen && (
@@ -286,7 +280,7 @@ export default function DealProposal() {
             variants={staggerContainer}
           >
             <motion.div variants={fadeInUp} className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-black mb-4">Executive Summary</h2>
+              <h2 className="text-4xl md:text-5xl font-black text-black mb-4">Executive Summary</h2>
               <p className="text-xl text-gray-600">Why this Deal Makes Strategic Sense for Both SBP and EWF</p>
             </motion.div>
 
@@ -633,9 +627,9 @@ export default function DealProposal() {
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
           >
-            <motion.div variants={fadeInUp} className="text-center mb-6">
+            <motion.div variants={fadeInUp} className="text-center mb-6 flex flex-col items-center">
               <h2 className="text-4xl md:text-5xl font-black mb-4">
-                Combined Entity: <span className="bg-gradient-to-r from-[#5D2E8C] to-[#00C2FF] bg-clip-text text-transparent">Revenue Flywheel</span>
+                <span className="bg-gradient-to-r from-[#5D2E8C] to-[#00C2FF] bg-clip-text text-transparent">Revenue Flywheel</span>
               </h2>
               <p className="text-xl text-gray-600">A self-reinforcing value loop powered by institutional adoption.</p>
             </motion.div>
@@ -737,25 +731,24 @@ export default function DealProposal() {
             variants={staggerContainer}
           >
             <motion.div variants={fadeInUp} className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-black mb-4">Deal Structure & Team</h2>
-              <p className="text-xl text-gray-600">The Terms</p>
+              <h2 className="text-4xl md:text-5xl font-black text-black mb-4">Deal and Organizational Structure</h2>
             </motion.div>
 
             <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
               {/* Financials Card */}
               <motion.div variants={fadeInUp} className="glass-deal rounded-2xl p-8">
-                <h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
+                <h3 className="text-2xl font-bold mb-6 flex items-center gap-2 text-black">
                   <DollarSign className="w-6 h-6 text-deal-gold" />
                   Financial Terms
                 </h3>
                 <div className="space-y-4">
                   <div className="flex justify-between items-center py-3 border-b border-gray-200">
                     <span className="text-gray-600">Currency</span>
-                    <span className="font-bold text-lg">100% Stock (EWT)</span>
+                    <span className="font-bold text-lg text-black">100% EWT</span>
                   </div>
                   <div className="flex justify-between items-center py-3 border-b border-gray-200">
                     <span className="text-gray-600">Monthly Burn</span>
-                    <span className="font-bold text-lg">~$50k/mo</span>
+                    <span className="font-bold text-lg text-black">~$50k/mo</span>
                   </div>
                   <div className="flex justify-between items-center py-3">
                     <span className="text-gray-600">Coverage</span>
@@ -766,13 +759,13 @@ export default function DealProposal() {
 
               {/* Org Chart */}
               <motion.div variants={fadeInUp} className="glass-deal rounded-2xl p-8">
-                <h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
+                <h3 className="text-2xl font-bold mb-6 flex items-center gap-2 text-black">
                   <Users className="w-6 h-6 text-ewf-purple" />
-                  Team Structure
+                  Org Structure
                 </h3>
                 <div className="space-y-4">
                   <div className="text-center p-4 bg-ewf-purple/10 rounded-xl">
-                    <div className="font-bold text-lg">Ed Hesse</div>
+                    <div className="font-bold text-lg text-black">Ed Hesse</div>
                     <div className="text-sm text-gray-600">Strategic Oversight</div>
                   </div>
                   <div className="flex items-center justify-center gap-2 text-gray-400">
@@ -780,15 +773,15 @@ export default function DealProposal() {
                   </div>
                   <div className="grid grid-cols-3 gap-3">
                     <div className="text-center p-3 bg-sbp-cyan/10 rounded-lg">
-                      <div className="font-semibold text-sm">Brad</div>
+                      <div className="font-semibold text-sm text-black">Brad</div>
                       <div className="text-xs text-gray-600">Co-founder</div>
                     </div>
                     <div className="text-center p-3 bg-sbp-cyan/10 rounded-lg">
-                      <div className="font-semibold text-sm">Matthew</div>
+                      <div className="font-semibold text-sm text-black">Matthew</div>
                       <div className="text-xs text-gray-600">Co-founder</div>
                     </div>
                     <div className="text-center p-3 bg-sbp-cyan/10 rounded-lg">
-                      <div className="font-semibold text-sm">Elliot</div>
+                      <div className="font-semibold text-sm text-black">Elliot</div>
                       <div className="text-xs text-gray-600">Co-founder</div>
                     </div>
                   </div>
@@ -848,92 +841,6 @@ export default function DealProposal() {
                 <p className="text-deal-gold font-semibold">
                   Each milestone achieved increases valuation floor for future rounds
                 </p>
-              </div>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Due Diligence & Open Questions */}
-      <section id="due-diligence" className="py-20 bg-white">
-        <div className="container-deal">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={staggerContainer}
-          >
-            <motion.div variants={fadeInUp} className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-black mb-4">
-                Due Diligence & Open Questions
-              </h2>
-              <p className="text-xl text-gray-600">Items for Board Review</p>
-            </motion.div>
-
-            <div className="max-w-4xl mx-auto space-y-4">
-              {[
-                {
-                  category: 'Financial Health',
-                  question: 'Clarify annual membership dues vs. business line revenue',
-                  priority: 'high',
-                  status: 'pending'
-                },
-                {
-                  category: 'Token Strategy',
-                  question: 'Define acquisition vehicle (Cayman/Dubai SPV?) & Market Maker (Dark Forest?)',
-                  priority: 'high',
-                  status: 'pending'
-                },
-                {
-                  category: 'Corporate Structure',
-                  question: 'Confirm entity status: US Non-profit vs. Swiss Foundation vs. Swiss AG',
-                  priority: 'high',
-                  status: 'pending'
-                },
-                {
-                  category: 'IP & Assets',
-                  question: 'Full inventory of SBP intellectual property and data assets',
-                  priority: 'medium',
-                  status: 'pending'
-                },
-                {
-                  category: 'Regulatory Compliance',
-                  question: 'Review ADGM RegLab obligations and timelines',
-                  priority: 'medium',
-                  status: 'pending'
-                },
-              ].map((item, index) => (
-                <motion.div key={index} variants={fadeInUp} className="dd-item dd-item-pending">
-                  <AlertCircle className="w-6 h-6 text-amber-600 flex-shrink-0 mt-1" />
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="font-bold text-gray-900">{item.category}</span>
-                      <span className={`text-xs px-2 py-1 rounded-full ${
-                        item.priority === 'high' 
-                          ? 'bg-red-100 text-red-700' 
-                          : 'bg-yellow-100 text-yellow-700'
-                      }`}>
-                        {item.priority.toUpperCase()}
-                      </span>
-                    </div>
-                    <p className="text-gray-700">{item.question}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Action Items */}
-            <motion.div variants={fadeInUp} className="mt-12 text-center">
-              <div className="inline-block glass-deal rounded-2xl p-8">
-                <h3 className="text-xl font-bold mb-4">Next Steps</h3>
-                <div className="flex flex-col md:flex-row gap-4">
-                  <button className="px-6 py-3 bg-ewf-purple text-white rounded-lg font-semibold hover:bg-opacity-90 transition-all">
-                    Schedule Board Discussion
-                  </button>
-                  <button className="px-6 py-3 border-2 border-ewf-purple text-ewf-purple rounded-lg font-semibold hover:bg-ewf-purple hover:text-white transition-all">
-                    Request Additional Data
-                  </button>
-                </div>
               </div>
             </motion.div>
           </motion.div>
