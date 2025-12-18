@@ -20,11 +20,6 @@ import ModalWhitepaperEmail from "./Modals/ModalWhitepaperEmail";
 
 const Footer = () => {
    const pathname = usePathname();
-
-   // Hide footer on /energyweb page
-   if (pathname?.includes("/energyweb")) {
-      return null;
-   }
    
    // Data
    const [footerData, setFooterData] = useState<FooterType>();
@@ -43,6 +38,11 @@ const Footer = () => {
       };
       setFooter();
    }, []);
+
+   // Hide footer on /energyweb page
+   if (pathname?.includes("/energyweb")) {
+      return null;
+   }
 
    return (
       <>
