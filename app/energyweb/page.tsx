@@ -24,7 +24,8 @@ import {
   Landmark,
   ShieldCheck,
   RefreshCw,
-  Lock
+  Lock,
+  Code
 } from 'lucide-react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 
@@ -79,7 +80,8 @@ export default function DealProposal() {
     { id: 'executive-summary', name: 'Summary' },
     { id: 'sbp-traction', name: 'SBP Traction' },
     { id: 'green-flywheel', name: 'Flywheel' },
-    { id: 'deal-structure', name: 'Deal Terms' },
+    { id: 'org-structure', name: 'Org Structure' },
+    { id: 'deal-terms', name: 'Deal Structure' },
     { id: 'milestones', name: 'Roadmap' },
   ]
 
@@ -721,8 +723,8 @@ export default function DealProposal() {
         </div>
       </section>
 
-      {/* Deal Structure & Team */}
-      <section id="deal-structure" className="py-20 bg-white">
+      {/* Organizational Structure */}
+      <section id="org-structure" className="py-20 bg-white">
         <div className="container-deal">
           <motion.div
             initial="hidden"
@@ -731,66 +733,140 @@ export default function DealProposal() {
             variants={staggerContainer}
           >
             <motion.div variants={fadeInUp} className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-black text-black mb-4">Deal and Organizational Structure</h2>
+              <h2 className="text-4xl md:text-5xl font-black text-black mb-4">Organizational Structure</h2>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              {/* Financials Card */}
-              <motion.div variants={fadeInUp} className="glass-deal rounded-2xl p-8">
-                <h3 className="text-2xl font-bold mb-6 flex items-center gap-2 text-black">
-                  <DollarSign className="w-6 h-6 text-deal-gold" />
-                  Financial Terms
-                </h3>
-                <div className="space-y-4">
-                  <div className="flex justify-between items-center py-3 border-b border-gray-200">
-                    <span className="text-gray-600">Currency</span>
-                    <span className="font-bold text-lg text-black">100% EWT</span>
+            <motion.div variants={fadeInUp} className="glass-deal rounded-2xl p-8 max-w-4xl mx-auto">
+                <div className="flex flex-col items-center w-full">
+                  {/* Level 1: Ed Hesse */}
+                  <div className="text-center p-6 bg-ewf-purple/10 rounded-xl w-64 border border-ewf-purple/20 z-10 relative">
+                    <div className="font-bold text-xl text-black">Ed Hesse</div>
+                    <div className="text-sm text-gray-600">CEO, EnergyWeb</div>
                   </div>
-                  <div className="flex justify-between items-center py-3 border-b border-gray-200">
-                    <span className="text-gray-600">Monthly Burn</span>
-                    <span className="font-bold text-lg text-black">~$50k/mo</span>
-                  </div>
-                  <div className="flex justify-between items-center py-3">
-                    <span className="text-gray-600">Coverage</span>
-                    <span className="font-bold text-lg text-sbp-green">EWF Operating Budget</span>
-                  </div>
-                </div>
-              </motion.div>
+                  
+                  {/* Connector 1 */}
+                  <div className="w-px h-8 bg-gray-300"></div>
 
-              {/* Org Chart */}
-              <motion.div variants={fadeInUp} className="glass-deal rounded-2xl p-8">
-                <h3 className="text-2xl font-bold mb-6 flex items-center gap-2 text-black">
-                  <Users className="w-6 h-6 text-ewf-purple" />
-                  Org Structure
-                </h3>
-                <div className="space-y-4">
-                  <div className="text-center p-4 bg-ewf-purple/10 rounded-xl">
-                    <div className="font-bold text-lg text-black">Ed Hesse</div>
-                    <div className="text-sm text-gray-600">Strategic Oversight</div>
+                  {/* Level 2: Brad van Voorhees */}
+                  <div className="text-center p-6 bg-sbp-cyan/10 rounded-xl w-64 border border-sbp-cyan/20 z-10 relative">
+                    <div className="font-bold text-xl text-black">Brad van Voorhees</div>
+                    <div className="text-sm text-gray-600">CEO, SBP</div>
                   </div>
-                  <div className="flex items-center justify-center gap-2 text-gray-400">
+
+                  {/* Connector 2 & Branching */}
+                  <div className="flex flex-col items-center w-full">
                     <div className="w-px h-8 bg-gray-300"></div>
-                  </div>
-                  <div className="grid grid-cols-3 gap-3">
-                    <div className="text-center p-3 bg-sbp-cyan/10 rounded-lg">
-                      <div className="font-semibold text-sm text-black">Brad</div>
-                      <div className="text-xs text-gray-600">Co-founder</div>
-                    </div>
-                    <div className="text-center p-3 bg-sbp-cyan/10 rounded-lg">
-                      <div className="font-semibold text-sm text-black">Matthew</div>
-                      <div className="text-xs text-gray-600">Co-founder</div>
-                    </div>
-                    <div className="text-center p-3 bg-sbp-cyan/10 rounded-lg">
-                      <div className="font-semibold text-sm text-black">Elliot</div>
-                      <div className="text-xs text-gray-600">Co-founder</div>
+                    <div className="relative w-full max-w-2xl h-8 hidden md:block">
+                        {/* Horizontal Line connecting centers of children */}
+                        <div className="absolute top-0 left-1/4 right-1/4 h-px bg-gray-300"></div>
+                        
+                        {/* Vertical Lines down to children */}
+                        <div className="absolute top-0 left-1/4 w-px h-full bg-gray-300"></div>
+                        <div className="absolute top-0 right-1/4 w-px h-full bg-gray-300"></div>
                     </div>
                   </div>
-                  <p className="text-center text-sm text-gray-600 italic pt-2">
-                    &ldquo;Autonomy with Strategic Alignment&rdquo;
+
+                  {/* Level 3: Matt & Elliot */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-2xl">
+                    <div className="flex justify-center">
+                        <div className="text-center p-6 bg-sbp-cyan/10 rounded-xl w-full max-w-xs border border-sbp-cyan/20 h-full flex flex-col justify-center">
+                            <div className="font-bold text-lg text-black">Matt Twomey</div>
+                            <div className="text-sm text-gray-600">Head of Institutional, SBP</div>
+                        </div>
+                    </div>
+                    <div className="flex justify-center">
+                        <div className="text-center p-6 bg-sbp-cyan/10 rounded-xl w-full max-w-xs border border-sbp-cyan/20 h-full flex flex-col justify-center">
+                            <div className="font-bold text-lg text-black">Elliot David</div>
+                            <div className="text-sm text-gray-600">Head of Miner Engagement and Climate Strategy, SBP</div>
+                        </div>
+                    </div>
+                  </div>
+
+                  <p className="text-center text-sm text-gray-600 italic pt-20">
+                    &ldquo;SBP leadership executes aligned strategy while reporting to Ed Hesse&rdquo;
                   </p>
                 </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Deal Terms / Financials */}
+      <section id="deal-terms" className="pt-0 pb-20 bg-gray-50">
+        <div className="container-deal">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+          >
+             <motion.div variants={fadeInUp} className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-black text-black mb-4">Deal Structure</h2>
+            </motion.div>
+
+            {/* Directional Summary */}
+            <motion.div variants={fadeInUp} className="max-w-4xl mx-auto mb-12 text-center">
+              <h3 className="text-2xl font-bold text-black mb-4">Directional Summary</h3>
+              <p className="text-xl text-gray-600 leading-relaxed">
+                The objective of the merger is to provide a layer of downside risk to both parties, while maximizing revenue accrual for EWF and performance based upside for SBP
+              </p>
+            </motion.div>
+
+             <motion.div variants={fadeInUp} className="glass-deal rounded-2xl p-8 max-w-2xl mx-auto">
+                <h3 className="text-2xl font-bold mb-8 flex items-center gap-2 text-black justify-center">
+                  Financial Terms
+                </h3>
+                
+                <div className="space-y-10 text-left">
+                  {/* Group 1: OpEx Coverage */}
+                  <div>
+                    <h4 className="text-xl font-bold text-black mb-4 border-b border-gray-200 pb-2">OpEx Coverage (12-Month Runway)</h4>
+                    <div className="space-y-3">
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-600">Monthly Value</span>
+                        <span className="font-bold text-xl text-black">$50k / month</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-600">Details</span>
+                        <span className="text-right text-black font-medium">Covers core salaries, office, travel</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-600">Duration</span>
+                        <span className="text-right text-black font-medium">12 months post-close</span>
+                      </div>
+                    </div>
+                    <p className="text-sm text-gray-500 italic mt-3">
+                      (This anchors continuity and execution capacity.)
+                    </p>
+                  </div>
+
+                  {/* Group 2: Transaction Consideration */}
+                  <div>
+                    <h4 className="text-xl font-bold text-black mb-4 border-b border-gray-200 pb-2">Transaction Consideration (KPI-Linked)</h4>
+                    <div className="space-y-4">
+                      <div className="flex justify-between items-start px-4">
+                        <span className="text-gray-600 pt-1">Total Consideration</span>
+                        <div className="text-right">
+                          <div className="font-bold text-xl text-black">$25m</div>
+                        </div>
+                      </div>
+                      <div className="bg-white/40 rounded-xl p-4 space-y-2 border border-gray-200">
+                        <div className="flex justify-between items-center">
+                          <span className="text-gray-700">Energy Web Tokens</span>
+                          <span className="font-bold text-black">$7.5m</span>
+                        </div>
+                        <div className="flex justify-between items-center">
+                          <span className="text-gray-700">Acquirer Equity</span>
+                          <span className="font-bold text-black">$17.5m</span>
+                        </div>
+                      </div>
+                    </div>
+                    <p className="text-sm text-gray-500 italic mt-3">
+                      (This anchors valuation and alignment.)
+                    </p>
+                  </div>
+                </div>
               </motion.div>
-            </div>
           </motion.div>
         </div>
       </section>
@@ -808,22 +884,59 @@ export default function DealProposal() {
               <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
                 Milestones & Earn-Out
               </h2>
-              <p className="text-xl text-gray-400">The Roadmap to Value Creation</p>
+              <p className="text-xl text-gray-400">12-month KPIs</p>
             </motion.div>
 
             {/* Timeline */}
             <motion.div variants={fadeInUp} className="glass-card-dark rounded-2xl p-8 max-w-4xl mx-auto">
               <div className="space-y-6">
                 {[
-                  { title: 'Launch Clean BTC Trust (US)', icon: Building2, status: 'active' },
-                  { title: 'Launch Clean Wrapped BTC (Base/Canton)', icon: Zap, status: 'pending' },
-                  { title: 'Launch ETF (US) or ETP (EU)', icon: TrendingUp, status: 'pending' },
-                  { title: 'Hit 35% Network Hashrate', icon: Target, status: 'pending' },
-                  { title: 'Generate $2.5M Revenue', icon: DollarSign, status: 'pending' },
+                  { 
+                    title: 'Launch Clean BTC Trust (US)', 
+                    icon: Building2, 
+                    status: 'active',
+                    details: 'Clean Energy BTC Trust with $50m plus AUM listed by reputable issuer'
+                  },
+                  { 
+                    title: 'Launch Clean Wrapped BTC (Base/Canton)', 
+                    icon: Zap, 
+                    status: 'active',
+                    details: 'Clean Wrapped BTC issued on Canton Network, Hedera, or Base with network support'
+                  },
+                  { 
+                    title: 'Launch ETF (US) or ETP (EU)', 
+                    icon: TrendingUp, 
+                    status: 'pending',
+                    details: 'Before EOY have signed agreement for ETF or ETP issuance from leading issuer'
+                  },
+                  { 
+                    title: 'Hit 35% Network Hashrate', 
+                    icon: Target, 
+                    status: 'pending',
+                    details: '35% of Bitcoin network hashrate has created an account or actively using SBP'
+                  },
+                  { 
+                    title: 'Generate $2.5M Revenue', 
+                    icon: DollarSign, 
+                    status: 'pending',
+                    details: 'Generate $2.5m in revenue, the aggregate of SBP tokens at market value, BTC, and dollars.'
+                  },
+                  {
+                    title: 'Implement EWT clean Bitcoin transactions protocol to SBP platform',
+                    icon: Code,
+                    status: 'pending',
+                    details: 'Implement EWT clean transaction protocols to the SBP website so miners can seamlessly onboard to EWT protocol.'
+                  }
                 ].map((milestone, index) => (
-                  <div key={index} className="flex items-center gap-4">
+                  <div key={index} className="group relative flex items-center gap-4">
+                    {/* Tooltip */}
+                    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-[28rem] p-5 bg-gray-900 text-white text-lg rounded-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10 border border-white/10 shadow-xl leading-relaxed">
+                      {milestone.details}
+                      <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-gray-900" />
+                    </div>
+
                     <div className={`timeline-dot ${milestone.status === 'active' ? 'timeline-dot-active' : 'timeline-dot-pending'}`} />
-                    <div className="flex-1 flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10">
+                    <div className="flex-1 flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 transition-colors hover:bg-white/10 cursor-help">
                       <milestone.icon className={`w-6 h-6 ${milestone.status === 'active' ? 'text-deal-gold' : 'text-gray-500'}`} />
                       <span className={`font-semibold ${milestone.status === 'active' ? 'text-white' : 'text-gray-400'}`}>
                         {milestone.title}
@@ -839,7 +952,7 @@ export default function DealProposal() {
               </div>
               <div className="mt-8 p-4 bg-deal-gold/10 border border-deal-gold/30 rounded-xl text-center">
                 <p className="text-deal-gold font-semibold">
-                  Each milestone achieved increases valuation floor for future rounds
+                  Achieving all milestones will result in increased deal consideration terms
                 </p>
               </div>
             </motion.div>
@@ -852,12 +965,10 @@ export default function DealProposal() {
         <div className="container-deal">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-gray-400 text-sm">
             <div>
-              © 2025 Energy Web Foundation • Confidential Board Materials
+              © 2025 - Energy Web Foundation • Sustainable Bitcoin Protocol: Confidential Merger Materials
             </div>
-            <div className="flex gap-6">
-              <span>Deal Room Access Only</span>
-              <span>•</span>
-              <span>Contact: <a href="mailto:board@energyweb.org" className="text-sbp-cyan hover:underline">board@energyweb.org</a></span>
+            <div>
+              Deal Room Only : Non-Binding
             </div>
           </div>
         </div>
